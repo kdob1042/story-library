@@ -1,0 +1,322 @@
+{
+  "format": "story-source/v1",
+  "work": {
+    "title": "神谷と河合"
+  },
+  "episodes": [
+    {
+      "id": "P01",
+      "title": "春、隣のスーパールーキー",
+      "scenes": [
+        {
+          "id": "P01-01",
+          "path": "manuscript/p01/p01-01.md",
+          "tags": []
+        },
+        {
+          "id": "P01-02",
+          "path": "manuscript/p01/p01-02.md",
+          "tags": []
+        },
+        {
+          "id": "P01-03",
+          "path": "manuscript/p01/p01-03.md",
+          "tags": []
+        }
+      ]
+    },
+    {
+      "id": "P02",
+      "title": "六人の枠",
+      "scenes": [
+        {
+          "id": "P02-01",
+          "path": "manuscript/p02/p02-01.md",
+          "tags": []
+        },
+        {
+          "id": "P02-02",
+          "path": "manuscript/p02/p02-02.md",
+          "tags": []
+        },
+        {
+          "id": "P02-03",
+          "path": "manuscript/p02/p02-03.md",
+          "tags": []
+        },
+        {
+          "id": "P02-04",
+          "path": "manuscript/p02/p02-04.md",
+          "tags": []
+        }
+      ]
+    },
+    {
+      "id": "P03",
+      "title": "席が離れたあと",
+      "scenes": [
+        {
+          "id": "P03-01",
+          "path": "manuscript/p03/p03-01.md",
+          "tags": []
+        },
+        {
+          "id": "P03-02",
+          "path": "manuscript/p03/p03-02.md",
+          "tags": []
+        },
+        {
+          "id": "P03-03",
+          "path": "manuscript/p03/p03-03.md",
+          "tags": []
+        },
+        {
+          "id": "P03-04",
+          "path": "manuscript/p03/p03-04.md",
+          "tags": []
+        }
+      ]
+    },
+    {
+      "id": "P04",
+      "title": "図書館で、向かい合う",
+      "scenes": [
+        {
+          "id": "P04-01",
+          "path": "manuscript/p04/p04-01.md",
+          "tags": []
+        },
+        {
+          "id": "P04-02",
+          "path": "manuscript/p04/p04-02.md",
+          "tags": []
+        },
+        {
+          "id": "P04-03",
+          "path": "manuscript/p04/p04-03.md",
+          "tags": []
+        }
+      ]
+    },
+    {
+      "id": "P05",
+      "title": "もう一本",
+      "scenes": [
+        {
+          "id": "P05-01",
+          "path": "manuscript/p05/p05-01.md",
+          "tags": []
+        },
+        {
+          "id": "P05-02",
+          "path": "manuscript/p05/p05-02.md",
+          "tags": []
+        },
+        {
+          "id": "P05-03",
+          "path": "manuscript/p05/p05-03.md",
+          "tags": []
+        }
+      ]
+    },
+    {
+      "id": "P06",
+      "title": "二つの夏",
+      "scenes": [
+        {
+          "id": "P06-01",
+          "path": "manuscript/p06/p06-01.md",
+          "tags": []
+        },
+        {
+          "id": "P06-02",
+          "path": "manuscript/p06/p06-02.md",
+          "tags": []
+        },
+        {
+          "id": "P06-03",
+          "path": "manuscript/p06/p06-03.md",
+          "tags": []
+        },
+        {
+          "id": "P06-04",
+          "path": "manuscript/p06/p06-04.md",
+          "tags": []
+        }
+      ]
+    },
+    {
+      "id": "P07",
+      "title": "残り四秒",
+      "scenes": [
+        {
+          "id": "P07-01",
+          "path": "manuscript/p07/p07-01.md",
+          "tags": []
+        },
+        {
+          "id": "P07-02",
+          "path": "manuscript/p07/p07-02.md",
+          "tags": []
+        },
+        {
+          "id": "P07-03",
+          "path": "manuscript/p07/p07-03.md",
+          "tags": []
+        },
+        {
+          "id": "P07-04",
+          "path": "manuscript/p07/p07-04.md",
+          "tags": []
+        }
+      ]
+    },
+    {
+      "id": "P08",
+      "title": "河合由美子の声",
+      "scenes": [
+        {
+          "id": "P08-01",
+          "path": "manuscript/p08/p08-01.md",
+          "tags": []
+        },
+        {
+          "id": "P08-02",
+          "path": "manuscript/p08/p08-02.md",
+          "tags": []
+        },
+        {
+          "id": "P08-03",
+          "path": "manuscript/p08/p08-03.md",
+          "tags": []
+        }
+      ]
+    },
+    {
+      "id": "P09",
+      "title": "銀色の夏",
+      "scenes": [
+        {
+          "id": "P09-01",
+          "path": "manuscript/p09/p09-01.md",
+          "tags": []
+        },
+        {
+          "id": "P09-02",
+          "path": "manuscript/p09/p09-02.md",
+          "tags": []
+        },
+        {
+          "id": "P09-03",
+          "path": "manuscript/p09/p09-03.md",
+          "tags": []
+        }
+      ]
+    },
+    {
+      "id": "P10",
+      "title": "偶然の、その先",
+      "scenes": [
+        {
+          "id": "P10-01",
+          "path": "manuscript/p10/p10-01.md",
+          "tags": []
+        },
+        {
+          "id": "P10-02",
+          "path": "manuscript/p10/p10-02.md",
+          "tags": []
+        },
+        {
+          "id": "P10-03",
+          "path": "manuscript/p10/p10-03.md",
+          "tags": []
+        }
+      ]
+    }
+  ],
+  "settings": [
+    {
+      "id": "CHARACTERS",
+      "path": "settings/characters.md"
+    },
+    {
+      "id": "VISUAL",
+      "path": "settings/character-design.md"
+    },
+    {
+      "id": "WORLD",
+      "path": "settings/world.md"
+    },
+    {
+      "id": "STORY",
+      "path": "settings/story.md"
+    },
+    {
+      "id": "WRITING",
+      "path": "settings/writing.md"
+    }
+  ],
+  "characters": [
+    {
+      "id": "kamiya-yu",
+      "name": "神谷 勇",
+      "image": "assets/illustrations/character-reference-yu.jpg"
+    },
+    {
+      "id": "kawai-yumiko",
+      "name": "河合 由美子",
+      "image": "assets/illustrations/character-reference-yumi.jpg"
+    },
+    {
+      "id": "maki",
+      "name": "真希",
+      "image": "assets/illustrations/character-reference-maki.jpg"
+    },
+    {
+      "id": "shizuka",
+      "name": "静香",
+      "image": "assets/illustrations/character-reference-shizuka.jpg"
+    },
+    {
+      "id": "chihiro",
+      "name": "白石 千尋",
+      "image": "assets/illustrations/character-reference-chihiro.jpg"
+    },
+    {
+      "id": "mari",
+      "name": "水野 麻里",
+      "image": "assets/illustrations/character-reference-mari.jpg"
+    },
+    {
+      "id": "yuzuki",
+      "name": "柚木 沙耶",
+      "image": "assets/illustrations/character-reference-yuzuki.jpg"
+    },
+    {
+      "id": "shinohara",
+      "name": "篠原 直樹",
+      "image": "assets/illustrations/character-reference-shinohara.jpg"
+    },
+    {
+      "id": "kuze",
+      "name": "久世 大地",
+      "image": "assets/illustrations/character-reference-kuze.jpg"
+    },
+    {
+      "id": "asakura",
+      "name": "朝倉 律",
+      "image": "assets/illustrations/character-reference-asakura.jpg"
+    },
+    {
+      "id": "onodera",
+      "name": "小野寺 航",
+      "image": "assets/illustrations/character-reference-onodera.jpg"
+    },
+    {
+      "id": "sakai",
+      "name": "坂井 修司",
+      "image": "assets/illustrations/character-reference-sakai.jpg"
+    }
+  ]
+}

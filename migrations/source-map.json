@@ -5,7 +5,7 @@
   "entries": [
     {
       "workId": "kamiya-kawai",
-      "status": "planned",
+      "status": "copied",
       "origin": {
         "repository": "kdob1042/Kamiya-Kawai",
         "ref": "main",
@@ -17,13 +17,440 @@
         "path": "."
       },
       "ids": {
-        "episode": {},
-        "scene": {},
-        "character": {},
-        "setting": {},
-        "chapter": {}
+        "chapter": {},
+        "episode": {
+          "P01": "P01",
+          "P02": "P02",
+          "P03": "P03",
+          "P04": "P04",
+          "P05": "P05",
+          "P06": "P06",
+          "P07": "P07",
+          "P08": "P08",
+          "P09": "P09",
+          "P10": "P10"
+        },
+        "scene": {
+          "P01-01": "P01-01",
+          "P01-02": "P01-02",
+          "P01-03": "P01-03",
+          "P02-01": "P02-01",
+          "P02-02": "P02-02",
+          "P02-03": "P02-03",
+          "P02-04": "P02-04",
+          "P03-01": "P03-01",
+          "P03-02": "P03-02",
+          "P03-03": "P03-03",
+          "P03-04": "P03-04",
+          "P04-01": "P04-01",
+          "P04-02": "P04-02",
+          "P04-03": "P04-03",
+          "P05-01": "P05-01",
+          "P05-02": "P05-02",
+          "P05-03": "P05-03",
+          "P06-01": "P06-01",
+          "P06-02": "P06-02",
+          "P06-03": "P06-03",
+          "P06-04": "P06-04",
+          "P07-01": "P07-01",
+          "P07-02": "P07-02",
+          "P07-03": "P07-03",
+          "P07-04": "P07-04",
+          "P08-01": "P08-01",
+          "P08-02": "P08-02",
+          "P08-03": "P08-03",
+          "P09-01": "P09-01",
+          "P09-02": "P09-02",
+          "P09-03": "P09-03",
+          "P10-01": "P10-01",
+          "P10-02": "P10-02",
+          "P10-03": "P10-03"
+        },
+        "setting": {
+          "CHARACTERS": "CHARACTERS",
+          "VISUAL": "VISUAL",
+          "WORLD": "WORLD",
+          "STORY": "STORY",
+          "WRITING": "WRITING"
+        },
+        "character": {
+          "kamiya-yu": "kamiya-yu",
+          "kawai-yumiko": "kawai-yumiko",
+          "maki": "maki",
+          "shizuka": "shizuka",
+          "chihiro": "chihiro",
+          "mari": "mari",
+          "yuzuki": "yuzuki",
+          "shinohara": "shinohara",
+          "kuze": "kuze",
+          "asakura": "asakura",
+          "onodera": "onodera",
+          "sakai": "sakai"
+        }
       },
-      "notes": "採用本文は現行main commit。7eed2120は構造確認用であり採用版ではない。M2でこのcommitから本文・固定ID・基準画像を複製する。"
+      "notes": "M2実取込み。本文・設定・人物基準画像・索引・AI補助資料を追加コピー。archive/revisions/CHANGELOGはhistoryへ分離。originはM8まで正本として保持し、Worker・公開範囲は変更しない。",
+      "files": [
+        {
+          "origin": "CHANGELOG.md",
+          "target": "history/CHANGELOG.md",
+          "sha256": "aeb2666b5e61980f3597b675c4c91831945e68cb8dc34f2ada326d706c1b1ea8"
+        },
+        {
+          "origin": "INDEX.md",
+          "target": "INDEX.md",
+          "sha256": "69ceb0d23db4e779951ccf802057ed2fe82eaf4eaa2f61389cc969589426a7bb"
+        },
+        {
+          "origin": "ai/README.md",
+          "target": "ai/README.md",
+          "sha256": "60ab71c162844f73d23f59aeb35baf8a9bb724aca14ceeb97794ef53dd0a4d45"
+        },
+        {
+          "origin": "ai/templates/plan.md",
+          "target": "ai/templates/plan.md",
+          "sha256": "c61c0130e5e88ec8b1ac700c7b78e7c9061e55d4589e440c7bd36c0caf87dd8d"
+        },
+        {
+          "origin": "ai/templates/review.md",
+          "target": "ai/templates/review.md",
+          "sha256": "34d18a1a1c47bb7586e3d99e829df85fa9f446fb9f8f6336e49c1555a3711e95"
+        },
+        {
+          "origin": "ai/templates/revise.md",
+          "target": "ai/templates/revise.md",
+          "sha256": "e4826ae9be5e2d35e404cea91a3d73c9c564942b53bd02165f04172e89af7534"
+        },
+        {
+          "origin": "archive/import-manifest.json",
+          "target": "history/archive/import-manifest.json",
+          "sha256": "f168ab3960c9a47068fa37ea592362e2de0535aeac8842df1030f42a2b3812c0"
+        },
+        {
+          "origin": "archive/kamiya_kawai_vol1_v2_9.md",
+          "target": "history/archive/kamiya_kawai_vol1_v2_9.md",
+          "sha256": "ed832bb257593f9ec87d158883fce90d305cb061ead807c572645f249c8c3d8c"
+        },
+        {
+          "origin": "archive/kamiya_kawai_vol1_v2_9_scene_design.md",
+          "target": "history/archive/kamiya_kawai_vol1_v2_9_scene_design.md",
+          "sha256": "324de0ca7229b32b30beefb39a2f359e8511d0feb60db57228a41a0483496a02"
+        },
+        {
+          "origin": "assets/illustrations/character-reference-asakura.jpg",
+          "target": "assets/illustrations/character-reference-asakura.jpg",
+          "sha256": "1b526c3da875cad9fc810211a79e6ba28011c047cae6477c4a51b081bd709ae8"
+        },
+        {
+          "origin": "assets/illustrations/character-reference-chihiro.jpg",
+          "target": "assets/illustrations/character-reference-chihiro.jpg",
+          "sha256": "7f8a79b9e4148615096d05ff1d67abb19cf82abfde403a84ddb9dc5db07cfddb"
+        },
+        {
+          "origin": "assets/illustrations/character-reference-kuze.jpg",
+          "target": "assets/illustrations/character-reference-kuze.jpg",
+          "sha256": "029d153dacdfd4994b2891e027651af13389a3effc0eb36164f6ca14fde172de"
+        },
+        {
+          "origin": "assets/illustrations/character-reference-maki.jpg",
+          "target": "assets/illustrations/character-reference-maki.jpg",
+          "sha256": "4cf16128780ef78267032c90b3904aad438c79ec3424a89b613b14f46dca8cd3"
+        },
+        {
+          "origin": "assets/illustrations/character-reference-mari.jpg",
+          "target": "assets/illustrations/character-reference-mari.jpg",
+          "sha256": "0ddc180d0361268decb9bd82d3f01cc748962f12ac9691813ad5927c03621996"
+        },
+        {
+          "origin": "assets/illustrations/character-reference-onodera.jpg",
+          "target": "assets/illustrations/character-reference-onodera.jpg",
+          "sha256": "888bb0bb3c62211e1e42d7b8aae3794951a506e7253c4a4dc4147973a63515ad"
+        },
+        {
+          "origin": "assets/illustrations/character-reference-sakai.jpg",
+          "target": "assets/illustrations/character-reference-sakai.jpg",
+          "sha256": "6826e5fa3dc3c245170c62860de064c6877764cb47b95fd8047753ccc0a5fb40"
+        },
+        {
+          "origin": "assets/illustrations/character-reference-shinohara.jpg",
+          "target": "assets/illustrations/character-reference-shinohara.jpg",
+          "sha256": "6c62827d303db29bf51b9f22e86816baa21f886ea9e14065c5e742d7b6b2b833"
+        },
+        {
+          "origin": "assets/illustrations/character-reference-shizuka.jpg",
+          "target": "assets/illustrations/character-reference-shizuka.jpg",
+          "sha256": "a18229acc720252d09383cce2740a017593289b06da2375fccd08a692409f01a"
+        },
+        {
+          "origin": "assets/illustrations/character-reference-yu.jpg",
+          "target": "assets/illustrations/character-reference-yu.jpg",
+          "sha256": "62d019203d324c1bb2d924119660b90df05f65762e6eb745fbc4a5d5f17a81a5"
+        },
+        {
+          "origin": "assets/illustrations/character-reference-yumi.jpg",
+          "target": "assets/illustrations/character-reference-yumi.jpg",
+          "sha256": "54a1b1d57def1cf49a4225c9435720d0498f4efb63c9add3e472496b540e8fc5"
+        },
+        {
+          "origin": "assets/illustrations/character-reference-yuzuki.jpg",
+          "target": "assets/illustrations/character-reference-yuzuki.jpg",
+          "sha256": "73193e48724b1fb8362c5d3801c12ee7cffe8cc7d663c7e25f67a9179b2784c1"
+        },
+        {
+          "origin": "assets/illustrations/character-reference.jpg",
+          "target": "assets/illustrations/character-reference.jpg",
+          "sha256": "1a5d2383c6b4212c9aa434d053694d05b354cbb98ba3f20ecf4e96fb5ccbb008"
+        },
+        {
+          "origin": "assets/illustrations/p01-02-first-conversation.jpg",
+          "target": "assets/illustrations/p01-02-first-conversation.jpg",
+          "sha256": "708256ae9cc5b96bb0a30174fcbf50e0c3d55c3f71082690b624c7553baa1910"
+        },
+        {
+          "origin": "assets/illustrations/p04-03-shared-earphones.jpg",
+          "target": "assets/illustrations/p04-03-shared-earphones.jpg",
+          "sha256": "90561fc2b1a66888e1cb3f2bbffa83a000a5345ba54a9b14a883006a88b7c7d7"
+        },
+        {
+          "origin": "assets/illustrations/p10-02-stop-him.jpg",
+          "target": "assets/illustrations/p10-02-stop-him.jpg",
+          "sha256": "f86083595b048c020427633951e1b7e72b68fce4aa1d90515b6ebf2ebe7bd290"
+        },
+        {
+          "origin": "manifest.json",
+          "target": "source/manifest.json",
+          "sha256": "aa89a0fb40b096c673f4f7d6f3fdf996b3dbedaf20ba4b5d9c73fed99fae1e21"
+        },
+        {
+          "origin": "manuscript/p01/p01-01.md",
+          "target": "manuscript/p01/p01-01.md",
+          "sha256": "f0235032402b11c7940912a9f3db9a4635b2ec604eb09d605c9afd896381f306"
+        },
+        {
+          "origin": "manuscript/p01/p01-02.md",
+          "target": "manuscript/p01/p01-02.md",
+          "sha256": "dfa7d7f9e36d3a309b761122a433901296553ef3ccdc55f0d5e59dbf8b724064"
+        },
+        {
+          "origin": "manuscript/p01/p01-03.md",
+          "target": "manuscript/p01/p01-03.md",
+          "sha256": "589ca13ccc9c4572b6225dd92fd765b07507a5f4b11b9194d1ed404e68c2fa07"
+        },
+        {
+          "origin": "manuscript/p02/p02-01.md",
+          "target": "manuscript/p02/p02-01.md",
+          "sha256": "a4aa64c232c5237a73da91f00bb46439b2214fec88225d3e6d9d21afa19fc6ab"
+        },
+        {
+          "origin": "manuscript/p02/p02-02.md",
+          "target": "manuscript/p02/p02-02.md",
+          "sha256": "b50ab22ea5adf51e88dfcbdd8359188ef9fc071773e493840391446c885a702c"
+        },
+        {
+          "origin": "manuscript/p02/p02-03.md",
+          "target": "manuscript/p02/p02-03.md",
+          "sha256": "99dcd877e661ddb541e897d127390806d8f6f648ebb9bc25e51a90a9c30dffd6"
+        },
+        {
+          "origin": "manuscript/p02/p02-04.md",
+          "target": "manuscript/p02/p02-04.md",
+          "sha256": "dbb245307cbbf69cb997f0dea567741d9e721edd61f7930e27adff1688d66b02"
+        },
+        {
+          "origin": "manuscript/p03/p03-01.md",
+          "target": "manuscript/p03/p03-01.md",
+          "sha256": "c20adc052726a8fbab68f4961706873b77fc65e2fcbd32aec7245a20624cc428"
+        },
+        {
+          "origin": "manuscript/p03/p03-02.md",
+          "target": "manuscript/p03/p03-02.md",
+          "sha256": "452d470a563b76654a5ac4e8d811cf4b7da35aa260e29452fd0644990a0eb8a4"
+        },
+        {
+          "origin": "manuscript/p03/p03-03.md",
+          "target": "manuscript/p03/p03-03.md",
+          "sha256": "e6ff331d5218bf7b80ab4da3ec403776c41d9f0acdfcabf43fda876ef33f3bd1"
+        },
+        {
+          "origin": "manuscript/p03/p03-04.md",
+          "target": "manuscript/p03/p03-04.md",
+          "sha256": "f62e5c5a2c4f79433dd24cb9dcd2bdd29f01311f92848a459436970cd3c88669"
+        },
+        {
+          "origin": "manuscript/p04/p04-01.md",
+          "target": "manuscript/p04/p04-01.md",
+          "sha256": "d0fdfc63de5aaf6bafde63d033eed6a4ff1f424be507e9cbf70d7f9c442f59e7"
+        },
+        {
+          "origin": "manuscript/p04/p04-02.md",
+          "target": "manuscript/p04/p04-02.md",
+          "sha256": "65965bdbd44aa640d651972a904b602fad7fad3b1b525b73cd108337390eb4a3"
+        },
+        {
+          "origin": "manuscript/p04/p04-03.md",
+          "target": "manuscript/p04/p04-03.md",
+          "sha256": "741985117e2b683e9ad1b3dcc2bc70c0f8cf166f16468c4abbcd1e1abc3e6954"
+        },
+        {
+          "origin": "manuscript/p05/p05-01.md",
+          "target": "manuscript/p05/p05-01.md",
+          "sha256": "64c1b0ab5658ba1c2183263347154e10e93345142e13ee508e68c670ec4c2a0b"
+        },
+        {
+          "origin": "manuscript/p05/p05-02.md",
+          "target": "manuscript/p05/p05-02.md",
+          "sha256": "bed07180f22b84fec6b44da119a7a1a28d0c7688808411565a98eafbc4b7051d"
+        },
+        {
+          "origin": "manuscript/p05/p05-03.md",
+          "target": "manuscript/p05/p05-03.md",
+          "sha256": "460c5b58e4e301bae8d380e41b563728b7b39774b6afcf41ac8721e8c21e41fb"
+        },
+        {
+          "origin": "manuscript/p06/p06-01.md",
+          "target": "manuscript/p06/p06-01.md",
+          "sha256": "97ba6f338e3fc8da1f71c344ddda365a5ac333b6c1ef90014a9594f9d9822d23"
+        },
+        {
+          "origin": "manuscript/p06/p06-02.md",
+          "target": "manuscript/p06/p06-02.md",
+          "sha256": "c460a431f61751d1627d4b370aa427330d76a1068041eadbab11c71898e0ef66"
+        },
+        {
+          "origin": "manuscript/p06/p06-03.md",
+          "target": "manuscript/p06/p06-03.md",
+          "sha256": "28fe08dab44daee187b6fea1bb3c9307d5d36b35b93a543250a6455e170cb07b"
+        },
+        {
+          "origin": "manuscript/p06/p06-04.md",
+          "target": "manuscript/p06/p06-04.md",
+          "sha256": "711a457a6f890c37498ada5cade1f8c85492a1442341abe726277546e4459999"
+        },
+        {
+          "origin": "manuscript/p07/p07-01.md",
+          "target": "manuscript/p07/p07-01.md",
+          "sha256": "1e332741be712cec2e3728dcc02d0d93cc89fa71a3731f163be9381418a9cc93"
+        },
+        {
+          "origin": "manuscript/p07/p07-02.md",
+          "target": "manuscript/p07/p07-02.md",
+          "sha256": "2ac406682a8a2d87f2c4dc8d32860c45b0a91bdf56c7c6635dd923744de8fd59"
+        },
+        {
+          "origin": "manuscript/p07/p07-03.md",
+          "target": "manuscript/p07/p07-03.md",
+          "sha256": "61afbafbfe45df1dfc9f30d72a8e04928a5289863e2d54c246c4a95283626524"
+        },
+        {
+          "origin": "manuscript/p07/p07-04.md",
+          "target": "manuscript/p07/p07-04.md",
+          "sha256": "ab3aa465f5e6584cb2b2587d98c7e27ed2c736543d7e90c8da8ce6084760863c"
+        },
+        {
+          "origin": "manuscript/p08/p08-01.md",
+          "target": "manuscript/p08/p08-01.md",
+          "sha256": "c3162d1528b7baa1118c68353508930fb3955d9526648da41fc8ed68a54ce0dc"
+        },
+        {
+          "origin": "manuscript/p08/p08-02.md",
+          "target": "manuscript/p08/p08-02.md",
+          "sha256": "4427db5d4b11ce0f52e24b8049cff01f88f8153eb3372979c619f78741c99cd3"
+        },
+        {
+          "origin": "manuscript/p08/p08-03.md",
+          "target": "manuscript/p08/p08-03.md",
+          "sha256": "68af38d6a87d7a85d111f7e94e931a10e72576c870eb14b0dcdeb7d0f93d6204"
+        },
+        {
+          "origin": "manuscript/p09/p09-01.md",
+          "target": "manuscript/p09/p09-01.md",
+          "sha256": "41aed255688268f450400ec8710a604974a3d9c0e141bc96060ddbffcaa8a060"
+        },
+        {
+          "origin": "manuscript/p09/p09-02.md",
+          "target": "manuscript/p09/p09-02.md",
+          "sha256": "6f94b89f3dc8f67243da1de3a4c92e3f91ef31fbbe27918c1c417b036d94f6ef"
+        },
+        {
+          "origin": "manuscript/p09/p09-03.md",
+          "target": "manuscript/p09/p09-03.md",
+          "sha256": "81a504f673676c46bff66b09aedc4b76f27f6c24ccc8551da51c0729815fde25"
+        },
+        {
+          "origin": "manuscript/p10/p10-01.md",
+          "target": "manuscript/p10/p10-01.md",
+          "sha256": "162837f60a706ffee336e532ffba41d478511866ea14e467b10f7236c4dc3785"
+        },
+        {
+          "origin": "manuscript/p10/p10-02.md",
+          "target": "manuscript/p10/p10-02.md",
+          "sha256": "44a8b9ce251786c72606520344a08b9e46c44c07b17a49d0ae102aa7ac20b81a"
+        },
+        {
+          "origin": "manuscript/p10/p10-03.md",
+          "target": "manuscript/p10/p10-03.md",
+          "sha256": "281e38ba5c938b3dd3349e8ba269529004faacf8400c02e6eeb65b2c20aaad3f"
+        },
+        {
+          "origin": "revisions/rev-09.md",
+          "target": "history/revisions/rev-09.md",
+          "sha256": "384a745827351794bc8a29e3d0446088ddab0a34a03a4c5e24fd0a7973cbd197"
+        },
+        {
+          "origin": "revisions/rev-10.md",
+          "target": "history/revisions/rev-10.md",
+          "sha256": "31b244183b9d36bcd978ea4e246ef2a3e1d8f4b2258f7fff8861d951b51935fd"
+        },
+        {
+          "origin": "revisions/rev-11.md",
+          "target": "history/revisions/rev-11.md",
+          "sha256": "4a943dccc23ff7a0b2998918a4c214332d7bd1d286251602d8f7122bdfbda64d"
+        },
+        {
+          "origin": "revisions/rev-12.md",
+          "target": "history/revisions/rev-12.md",
+          "sha256": "7db3751a5d597dab98b3b99ab93cc2dfd14439ed15693a0737d5fe87feb5581f"
+        },
+        {
+          "origin": "revisions/rev-13.md",
+          "target": "history/revisions/rev-13.md",
+          "sha256": "23831921919955d42a9cdeff2fd34143e500c9678261bd05067652c4e79917f6"
+        },
+        {
+          "origin": "revisions/rev-14.md",
+          "target": "history/revisions/rev-14.md",
+          "sha256": "55c87c3b7d0f79ea5cbb12e330f1eadd1fd3bfc9b5711e9e31f2d5dec0d56d37"
+        },
+        {
+          "origin": "revisions/rev-15.md",
+          "target": "history/revisions/rev-15.md",
+          "sha256": "d770da304cd6ce8e744b827cc3e087b058bbfa0afbe5582840bcc56d14eac187"
+        },
+        {
+          "origin": "settings/character-design.md",
+          "target": "settings/character-design.md",
+          "sha256": "0b1e8a384a6abd968da83709779f847246d60fe39f63ba94ab79df9baf4720f1"
+        },
+        {
+          "origin": "settings/characters.md",
+          "target": "settings/characters.md",
+          "sha256": "0c2b16ba1e1388cad51af1b2e1a493218eb36548ad8fb8697f82f3cbe06f4728"
+        },
+        {
+          "origin": "settings/story.md",
+          "target": "settings/story.md",
+          "sha256": "94cc7086e24fb7360096d4769a6031ecb111a7b21b5774de8140312a56afb3ae"
+        },
+        {
+          "origin": "settings/world.md",
+          "target": "settings/world.md",
+          "sha256": "da778a710e5dcee800545d3cd571bc47b42e55ff44c370d7f5eefb845fb9ec74"
+        },
+        {
+          "origin": "settings/writing.md",
+          "target": "settings/writing.md",
+          "sha256": "9d6c1d3b14f66ea35773526a9281eb000d1702189355bd9ff982cde722a454ce"
+        }
+      ]
     },
     {
       "workId": "investor-life",
