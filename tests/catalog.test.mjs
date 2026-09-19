@@ -46,3 +46,12 @@ test('catalog and source-map origin repositories must match', async () => {
     error => error instanceof LibraryValidationError && error.issues.some(issue => issue.code === 'ORIGIN_MISMATCH')
   );
 });
+
+test('catalog and source-map origin commits must match', async () => {
+  const next = structuredClone(sourceMap);
+  next.entries[0].origin.commit = '0000000000000000000000000000000000000000';
+  await assert.rejects(
+    () => validateLibraryDocuments({ catalog, sourceMap: next }),
+    error => error instanceof LibraryValidationError && error.issues.some(issue => issue.code === 'ORIGIN_COMMIT_MISMATCH')
+  );
+});

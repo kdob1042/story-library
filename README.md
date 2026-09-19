@@ -29,6 +29,7 @@
 ```bash
 npm test
 npm run validate
+node scripts/import-work.mjs --work-id <id> --from <origin-checkout> --dry-run
 ```
 
 実原稿や個人情報を公開CIへ入れないでください。
