@@ -41,3 +41,32 @@ test('manga links reject script, plaintext and credential URLs', () => {
   assert.deepEqual(parseMangaUrls('{"fixture-story":"https://manga.example/story"}'), {"fixture-story":"https://manga.example/story"});
   assert.throws(() => parseMangaUrls('{not-json}'), /valid JSON/);
 });
+
+  
+test('published reader follows publication.yaml and omits private material', t => {
+  const temp = fs.mkdtempSync(path.join(os.tmpdir(), 'published-reader-'));
+  t.after(() => fs.rmSync(temp, {recursive: true, force: true}));
+  fs.cpSync(path.join(root, 'fixtures/works'), path.join(temp, 'works'), {recursive: true});
+  const works = [
+    {id: 'fixture-story', title: 'fixture-story', root: 'works/fixture-story', formats: ['novel'], manuscriptFormat: 'story-source/v1', readAdapters: ['story-source/v1'], authority: 'library', origin: {repository: 'fixture/source'}, importStatus: 'verified'},
+    {id: 'fixture-novel', title: 'fixture-novel', root: 'works/fixture-novel', formats: ['novel'], manuscriptFormat: 'novel-source/v1', readAdapters: ['novel-source/v1'], authority: 'library', origin: {repository: 'fixture/source'}, importStatus: 'verified'},
+  ];
+  fs.writeFileSync(path.join(temp, 'library.json'), JSON.stringify({format: 'story-library/v1', authorityUntil: 'M8', works}));
+  fs.writeFileSync(path.join(temp, 'works/fixture-story/publication.yaml'), JSON.stringify({
+    workId: 'fixture-story',
+    formats: {
+      novel: {
+        visibility: 'public',
+        episodes: [{episodeId: 'P01', state: 'published', approved: true, transferred: true}],
+      },
+    },
+  }));
+  const result = buildReader({repoRoot: temp, published: true});
+  assert.deepEqual(result.libraryIndex.works.map(work => work.id), ['fixture-story']);
+  assert.equal(result.catalog.episodes.length, 1);
+  assert.deepEqual(result.catalog.episodes[0].scene_ids, ['P01-01', 'P01-02']);
+  assert.equal(result.catalog.settings.length, 0);
+  assert.deepEqual(result.catalog.characters, []);
+  assert.equal(result.catalog.hasHistory, false);
+  assert.ok(!fs.existsSync(path.join(result.dist, 'works/fixture-novel')));
+});
