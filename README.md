@@ -9,7 +9,7 @@
 
 - catalog と作品root、読取adapter、source-map の契約を確定した
 - 既存2作品（`kamiya-kawai`、`investor-life`）は旧原稿repoを正本のまま残している
-- 実本文はまだ複製していない。この環境から private 原稿repoへは到達できない
+- 採用元はそれぞれ現行 `main` の固定commitまで確定した。実本文はまだ複製していない
 - 公開範囲は変えない。初期の `publication` は非公開
 
 詳細は [docs/M0-INVENTORY.md](docs/M0-INVENTORY.md) と [docs/M1-CONTRACT.md](docs/M1-CONTRACT.md)。

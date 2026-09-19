@@ -38,9 +38,10 @@ works/{workId}/
 | --- | --- | --- |
 | `story-source/v1` | 新規・場面付き原稿の正本 | `episodes[].scenes[]` の配列順と固定ID |
 | `novel-source/v1` | 小説テンプレート互換 | `chapters[].episodes[]` の章/話IDと読書順 |
+| `investor-life-source/v1` | investor-life既存原稿 | 既存の形式文字列、章/話ID、本文パス、章順・話順を保持する明示adapter |
 | `schema-1` / `schema-4` | Kamiya-Kawai など旧manga-mac原稿 | `scene_ids` 順、場面ID、宣言パス。schema 4 は構造化人物宣言を優先 |
 
-adapterは読取専用である。本文を正規化せず、固定IDを付け替えず、欠損IDを名前から推測しない。
+adapterは読取専用である。本文を正規化せず、固定IDを付け替えず、欠損IDを名前から推測しない。既存形式が構造上似ていても、format文字列の置換だけで互換扱いにしない。
 
 ## 正本と切替
 

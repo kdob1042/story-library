@@ -28,15 +28,15 @@
           "minItems": 1,
           "items": { "enum": ["novel", "manga"] }
         },
-        "manuscriptFormat": { "enum": ["story-source/v1", "novel-source/v1", "schema-1", "schema-4"] },
+        "manuscriptFormat": { "enum": ["story-source/v1", "novel-source/v1", "investor-life-source/v1", "schema-1", "schema-4"] },
         "readAdapters": {
           "type": "array",
           "minItems": 1,
-          "items": { "enum": ["story-source/v1", "novel-source/v1", "schema-1", "schema-4"] }
+          "items": { "enum": ["story-source/v1", "novel-source/v1", "investor-life-source/v1", "schema-1", "schema-4"] }
         },
         "authority": { "enum": ["origin", "library"] },
         "origin": { "$ref": "#/$defs/origin" },
-        "importStatus": { "enum": ["pending-access", "pending-identification", "imported", "verified"] },
+        "importStatus": { "enum": ["pending-access", "pending-identification", "pending-import", "imported", "verified"] },
         "notes": { "type": "string", "maxLength": 4000 }
       }
     },
@@ -47,6 +47,7 @@
       "properties": {
         "repository": { "type": "string", "pattern": "^[A-Za-z0-9_.-]+/[A-Za-z0-9_.-]+$" },
         "ref": { "type": "string", "minLength": 1, "maxLength": 200 },
+        "commit": { "type": "string", "pattern": "^[a-f0-9]{40}$" },
         "structureCommit": { "type": "string", "pattern": "^[a-f0-9]{40}$" },
         "manifestPath": { "type": "string", "minLength": 1 },
         "accessible": { "type": "boolean" }

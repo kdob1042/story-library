@@ -9,7 +9,7 @@
       "origin": {
         "repository": "kdob1042/Kamiya-Kawai",
         "ref": "main",
-        "commit": "7eed2120eb93e2964cd188b5890f0247c83de540",
+        "commit": "5621918052faf05fc0bac245ad70d6c4f7ca1561",
         "path": "."
       },
       "target": {
@@ -23,7 +23,7 @@
         "setting": {},
         "chapter": {}
       },
-      "notes": "構造確認commitは採用本文の版ではない。M2で最新main/devを再確認し、本文・固定ID・基準画像の対応を埋める。"
+      "notes": "採用本文は現行main commit。7eed2120は構造確認用であり採用版ではない。M2でこのcommitから本文・固定ID・基準画像を複製する。"
     },
     {
       "workId": "investor-life",
@@ -31,6 +31,7 @@
       "origin": {
         "repository": "kdob1042/investor-life",
         "ref": "main",
+        "commit": "cb08a589fdce05fb0bcfa91ba0b20c9c2c043fa5",
         "path": "."
       },
       "target": {
@@ -44,7 +45,7 @@
         "setting": {},
         "chapter": {}
       },
-      "notes": "repoの実在と形式は未確認。確認後にcommitとID対応を追記する。未確認のまま本文を作らない。"
+      "notes": "採用本文は現行main commit。形式は investor-life-source/v1。M2でこのcommitから本文・章/話ID・設定を複製する。"
     }
   ]
 }

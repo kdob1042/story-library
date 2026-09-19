@@ -1,4 +1,4 @@
-import { NOVEL_SOURCE_FORMAT } from '../library/ids.mjs';
+import { INVESTOR_LIFE_SOURCE_FORMAT, NOVEL_SOURCE_FORMAT } from '../library/ids.mjs';
 import { LibraryValidationError, issue } from '../library/errors.mjs';
 import {
   asRecords,
@@ -14,12 +14,25 @@ import {
  * stored files or invents new IDs.
  */
 export function readNovelSource(manifest, files = null) {
+  return readNovelSourceFormat(manifest, files, NOVEL_SOURCE_FORMAT);
+}
+
+/**
+ * Read investor-life's existing source format without rewriting its manifest
+ * format to novel-source/v1. The structure is compatible, but the adapter
+ * remains explicit so a string replacement cannot masquerade as migration.
+ */
+export function readInvestorLifeSource(manifest, files = null) {
+  return readNovelSourceFormat(manifest, files, INVESTOR_LIFE_SOURCE_FORMAT);
+}
+
+function readNovelSourceFormat(manifest, files, expectedFormat) {
   const issues = [];
   if (!requireObject(manifest, '$', ['format', 'work', 'chapters'], ['settings'], issues)) {
     throw new LibraryValidationError(issues);
   }
-  if (manifest.format !== NOVEL_SOURCE_FORMAT) {
-    issue(issues, '$.format', 'UNSUPPORTED_FORMAT', `形式は${NOVEL_SOURCE_FORMAT}である必要があります`);
+  if (manifest.format !== expectedFormat) {
+    issue(issues, '$.format', 'UNSUPPORTED_FORMAT', `形式は${expectedFormat}である必要があります`);
   }
   if (!requireObject(manifest.work, '$.work', ['title'], ['slug', 'kicker', 'description'], issues)) {
     throw new LibraryValidationError(issues);
@@ -77,7 +90,7 @@ export function readNovelSource(manifest, files = null) {
   if (issues.length) throw new LibraryValidationError(issues);
 
   return {
-    format: NOVEL_SOURCE_FORMAT,
+    format: expectedFormat,
     work: { ...manifest.work },
     chapters: chapters.map(chapter => ({
       id: chapter.id,

@@ -14,7 +14,10 @@ test('repository catalog and source-map keep origin as authority', async () => {
   assert.equal(result.catalog.works.length, 2);
   assert.deepEqual(result.catalog.works.map(work => work.id), ['kamiya-kawai', 'investor-life']);
   assert.ok(result.catalog.works.every(work => work.authority === 'origin'));
-  assert.ok(result.catalog.works.every(work => work.importStatus.startsWith('pending')));
+  assert.ok(result.catalog.works.every(work => work.importStatus === 'pending-import'));
+  assert.equal(result.catalog.works[0].origin.commit, '5621918052faf05fc0bac245ad70d6c4f7ca1561');
+  assert.equal(result.catalog.works[1].origin.commit, 'cb08a589fdce05fb0bcfa91ba0b20c9c2c043fa5');
+  assert.equal(result.catalog.works[1].manuscriptFormat, 'investor-life-source/v1');
   assert.equal(result.imported.length, 0);
   assert.equal(result.sourceMap.authority, 'origin');
 });

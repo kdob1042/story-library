@@ -40,7 +40,7 @@ export async function validateLibraryDocuments({ catalog, sourceMap }) {
 }
 
 export async function validateImportedWork(repoRoot, work, filesByPath) {
-  if (work.importStatus === 'pending-access' || work.importStatus === 'pending-identification') {
+  if (['pending-access', 'pending-identification', 'pending-import'].includes(work.importStatus)) {
     return { work, status: work.importStatus, manuscript: null, publication: null };
   }
   const manifestPath = manifestEntryPath(work.root);

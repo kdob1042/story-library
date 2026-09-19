@@ -16,7 +16,7 @@ import { assertWorkRoot } from './paths.mjs';
 const WORK_REQUIRED = ['id', 'title', 'root', 'formats', 'manuscriptFormat', 'readAdapters', 'authority', 'origin', 'importStatus'];
 const WORK_OPTIONAL = ['notes'];
 const ORIGIN_REQUIRED = ['repository'];
-const ORIGIN_OPTIONAL = ['ref', 'structureCommit', 'manifestPath', 'accessible'];
+const ORIGIN_OPTIONAL = ['ref', 'commit', 'structureCommit', 'manifestPath', 'accessible'];
 
 function checkId(value, path, pattern, issues, used, message) {
   if (typeof value !== 'string' || !pattern.test(value)) {
@@ -38,6 +38,9 @@ function checkOrigin(origin, path, issues) {
   }
   if (origin.ref !== undefined && (typeof origin.ref !== 'string' || !origin.ref.trim() || origin.ref.length > 200)) {
     issue(issues, `${path}.ref`, 'INVALID_REF', 'Git refが不正です');
+  }
+  if (origin.commit !== undefined && !GIT_SHA.test(origin.commit)) {
+    issue(issues, `${path}.commit`, 'INVALID_COMMIT', '採用元commitは40桁SHAです');
   }
   if (origin.structureCommit !== undefined && !GIT_SHA.test(origin.structureCommit)) {
     issue(issues, `${path}.structureCommit`, 'INVALID_COMMIT', '構造確認用commitは40桁SHAです');
@@ -62,6 +65,7 @@ function normalizeWork(work) {
     origin: {
       repository: work.origin.repository,
       ...(work.origin.ref === undefined ? {} : { ref: work.origin.ref }),
+      ...(work.origin.commit === undefined ? {} : { commit: work.origin.commit }),
       ...(work.origin.structureCommit === undefined ? {} : { structureCommit: work.origin.structureCommit }),
       ...(work.origin.manifestPath === undefined ? {} : { manifestPath: work.origin.manifestPath }),
       ...(work.origin.accessible === undefined ? {} : { accessible: work.origin.accessible }),
