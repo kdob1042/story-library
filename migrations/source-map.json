@@ -85,112 +85,112 @@
         {
           "origin": "CHANGELOG.md",
           "target": "history/CHANGELOG.md",
-          "sha256": "f0d4c4759d23f49e73cb55ec0f77589e1b794c09134e9bd8235ed4f9388e412b"
+          "sha256": "b06a32eb25ce16473ad3cd285e9a8ee5b736fa44b06658ac10b84e055a1eca26"
         },
         {
           "origin": "INDEX.md",
           "target": "INDEX.md",
-          "sha256": "10846027139e0a458313c8b5d705e356c792b0307f28cae6a9672abe612f3ac4"
+          "sha256": "12ed172471f70cfdc425fa8be934a78dc3156b10e9ca4598157b8f195220b747"
         },
         {
           "origin": "ai/README.md",
           "target": "ai/README.md",
-          "sha256": "c8425c17174b0e908fadf0e5dadb779384ded55e7ae4d8f54ab351d123dc3805"
+          "sha256": "3fa01f52568c1d2f0904e62d5668ee4d3b0ae84356970582943e100d97b970c1"
         },
         {
           "origin": "ai/templates/plan.md",
           "target": "ai/templates/plan.md",
-          "sha256": "4adc6049382cdb8f3c34a78ff86cde91fcc4ede103a6891d9421f06cf025cece"
+          "sha256": "8dc908217a79ccdad8c8b1cbaec04466b101167a4317d7141fbaebccdbb34643"
         },
         {
           "origin": "ai/templates/review.md",
           "target": "ai/templates/review.md",
-          "sha256": "29f58f1095b6badbf0da4a13640a525ee54f0953434ac4a7d9943a6b3fb0d3a6"
+          "sha256": "378ca4c2ece318405fdb0859caeb4d4dc3419590d89614cc664a678a197c777e"
         },
         {
           "origin": "ai/templates/revise.md",
           "target": "ai/templates/revise.md",
-          "sha256": "9ea6b7cb1dfb6bd9bd850db6cc835bca41c796745eccbf1f31dfd814b279edc6"
+          "sha256": "f39eef11436fb1e23a956c14573010c61e5e1e3b3da427da5ee32e7cfc5bedec"
         },
         {
           "origin": "manifest.json",
           "target": "source/manifest.json",
-          "sha256": "228c4e98f6d62b0fa122a86c80b6b9ea0d6c401963b47a8ec9acb5fdc984a489"
+          "sha256": "6d8a26964435f0a9da23317c19e8a8a33db650bbd15737dcb38bfcba7e4a7d9f"
         },
         {
           "origin": "manuscript/p01/p01-01.md",
           "target": "manuscript/p01/p01-01.md",
-          "sha256": "f362625360e0560e2f30a12139798e6f811d0ba60be2691bfdd36b4ff670831b"
+          "sha256": "3cee5d15efa6b7df6f824338633632d95d784577e090b8d47ce52a4c9126151a"
         },
         {
           "origin": "manuscript/p01/p01-02.md",
           "target": "manuscript/p01/p01-02.md",
-          "sha256": "e84fac31da287aa9cb7c85a7acd67bbb845435ae4e3a47e931a50af8556ebb34"
+          "sha256": "a4bfaddb103a6870966f7a5d499380379c3cbfa56a70f09a4ed29c867bee06c4"
         },
         {
           "origin": "manuscript/p01/p01-03.md",
           "target": "manuscript/p01/p01-03.md",
-          "sha256": "f26b2f875e8fac981bc3f98b78ad92578461ab73a9642a67593f65af97d07277"
+          "sha256": "bfbac043b78e39f3e94d074ca61b429474cea2bf98eba30002a393665780696a"
         },
         {
           "origin": "manuscript/p02/p02-01.md",
           "target": "manuscript/p02/p02-01.md",
-          "sha256": "f4d4b7f618b39549ef17829c68c5e5c2d2797ae7e8e42f6184b9b3574d8aa288"
+          "sha256": "7003ecdfde0364c83b1de549da198799543fecdba271c525e7785fea23af5240"
         },
         {
           "origin": "manuscript/p02/p02-02.md",
           "target": "manuscript/p02/p02-02.md",
-          "sha256": "ab5c4316737c91c9ac81f557ec39ca4216091e0b2245f7e3e08e1b4d73fc4bc1"
+          "sha256": "3c6533465d50b5bf6ba64384cc8e9e2ba7df69d64e0014dfce0205f5470e9905"
         },
         {
           "origin": "manuscript/p02/p02-03.md",
           "target": "manuscript/p02/p02-03.md",
-          "sha256": "fbbae3404ce72a244e4734aa9cd1e3bd632d8d8d1b58e7bf1b3c5a4abd59bb71"
+          "sha256": "edfdec78b6706c0082971978d5354a5f3b9543b18b5f09e4927229d4a39dec46"
         },
         {
           "origin": "manuscript/p03/p03-01.md",
           "target": "manuscript/p03/p03-01.md",
-          "sha256": "659a93e9e5fed349fa8f0bb06b4294fd9c95cf2e25704972035f6225d40c0c04"
+          "sha256": "3ffa26eb08df4782eb02b87847c1381e513e5b6e512bb7cb7d7f32a574a4f538"
         },
         {
           "origin": "manuscript/p03/p03-02.md",
           "target": "manuscript/p03/p03-02.md",
-          "sha256": "45f5e2f992ad4c6428d71b246555b69ca344855ca04cb05f0a6bd86aea1601c9"
+          "sha256": "4b9304a4e4066d87d3d06e5c54ffd2082165661dbae609e6a2c50c11a568e5a6"
         },
         {
           "origin": "manuscript/p03/p03-03.md",
           "target": "manuscript/p03/p03-03.md",
-          "sha256": "623a8867d1c8c60c2650059e8998137794a86a2b2915299e60ec78a870ac9929"
+          "sha256": "aaba43f6fdbef9abf4b22f805c274f9ceb1e49f14c171c00c065c58c6b11fc85"
         },
         {
           "origin": "manuscript/p04/p04-01.md",
           "target": "manuscript/p04/p04-01.md",
-          "sha256": "0e306d77e04630ed163927fdaf3f156eedaf9fae490fcf3f9f21ff63a0aece19"
+          "sha256": "2b1c77afcc2cd0965e2c5f911ad5e4b874db335047b528c00eda6699214dd2e1"
         },
         {
           "origin": "manuscript/p04/p04-02.md",
           "target": "manuscript/p04/p04-02.md",
-          "sha256": "91dc2f5734479922a7c941f98b6070a7699188b0aeb4098b3414438a983a8b96"
+          "sha256": "d37d745c3df2b27566beb4b12f50e65fce1ab0a5f9e65a7d67390432a2b320cb"
         },
         {
           "origin": "manuscript/p04/p04-03.md",
           "target": "manuscript/p04/p04-03.md",
-          "sha256": "53418bb86a68d9385c0fb530241bd0c444274aa793a9b2ce0b55d1c6315b04be"
+          "sha256": "dcbdbe8486b63f73173dd17a4e47475f66a99afd098e2f7fd74c50630886b282"
         },
         {
           "origin": "settings/characters.md",
           "target": "settings/characters.md",
-          "sha256": "397981471279f6496bb5332ddcb1de8ae2d00d99f0ce0c38df626dc7b3945cdc"
+          "sha256": "6556e6295cae4498c461b6d8881ff8c26121906e5ce42419c375780da7321536"
         },
         {
           "origin": "settings/story.md",
           "target": "settings/story.md",
-          "sha256": "3cfc319c85d675ddf50b2d69663636a7296e7158b7ffef81531fb37f181f689d"
+          "sha256": "1ae64f2376318237ea41d54d49c7a6976dae403eb760170d2f0d050b4084ee5e"
         },
         {
           "origin": "settings/writing.md",
           "target": "settings/writing.md",
-          "sha256": "ec08a85fe6e4e0c924b17e111b9e2b8ec0b6185a7e72b6030531054b18ffe585"
+          "sha256": "68ab6d5bdc4efd7dc83ad0cf8b972e18746b4b0ca8febd4dcbbf124ef63629cd"
         }
       ]
     }
