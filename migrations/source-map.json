@@ -1,0 +1,50 @@
+{
+  "format": "story-library-source-map/v1",
+  "authority": "origin",
+  "notes": "ID対応は identity のみ。実ファイル複製とorigin commitの固定はM2。旧repoの削除・archiveは行わない。",
+  "entries": [
+    {
+      "workId": "kamiya-kawai",
+      "status": "planned",
+      "origin": {
+        "repository": "kdob1042/Kamiya-Kawai",
+        "ref": "main",
+        "commit": "7eed2120eb93e2964cd188b5890f0247c83de540",
+        "path": "."
+      },
+      "target": {
+        "root": "works/kamiya-kawai",
+        "path": "."
+      },
+      "ids": {
+        "episode": {},
+        "scene": {},
+        "character": {},
+        "setting": {},
+        "chapter": {}
+      },
+      "notes": "構造確認commitは採用本文の版ではない。M2で最新main/devを再確認し、本文・固定ID・基準画像の対応を埋める。"
+    },
+    {
+      "workId": "investor-life",
+      "status": "planned",
+      "origin": {
+        "repository": "kdob1042/investor-life",
+        "ref": "main",
+        "path": "."
+      },
+      "target": {
+        "root": "works/investor-life",
+        "path": "."
+      },
+      "ids": {
+        "episode": {},
+        "scene": {},
+        "character": {},
+        "setting": {},
+        "chapter": {}
+      },
+      "notes": "repoの実在と形式は未確認。確認後にcommitとID対応を追記する。未確認のまま本文を作らない。"
+    }
+  ]
+}

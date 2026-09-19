@@ -1,0 +1,41 @@
+{
+  "format": "story-library/v1",
+  "authorityUntil": "M8",
+  "notes": "M1確定。実原稿の複製はM2。M7検証と最終増分反映が終わるまで旧原稿repoを正本とする。",
+  "works": [
+    {
+      "id": "kamiya-kawai",
+      "title": "神谷と河合",
+      "root": "works/kamiya-kawai",
+      "formats": ["novel", "manga"],
+      "manuscriptFormat": "schema-4",
+      "readAdapters": ["schema-4", "story-source/v1"],
+      "authority": "origin",
+      "origin": {
+        "repository": "kdob1042/Kamiya-Kawai",
+        "ref": "main",
+        "structureCommit": "7eed2120eb93e2964cd188b5890f0247c83de540",
+        "manifestPath": "manifest.json",
+        "accessible": false
+      },
+      "importStatus": "pending-access",
+      "notes": "manga-mac が確認した schema 4 原稿。本文・話/場面ID・人物基準画像は origin を正本として保持する。この実行環境の token では private 原稿repoを読めない。"
+    },
+    {
+      "id": "investor-life",
+      "title": "investor-life",
+      "root": "works/investor-life",
+      "formats": ["novel"],
+      "manuscriptFormat": "novel-source/v1",
+      "readAdapters": ["novel-source/v1"],
+      "authority": "origin",
+      "origin": {
+        "repository": "kdob1042/investor-life",
+        "ref": "main",
+        "accessible": false
+      },
+      "importStatus": "pending-identification",
+      "notes": "novel-template#3 が現行ビューワー比較対象として挙げた第2作品。正確なrepo名・branch・形式は origin へ読取権限を付けた後に再確認する。タイトルや話IDはここで発明しない。"
+    }
+  ]
+}
