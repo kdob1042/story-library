@@ -8,6 +8,45 @@ import {safeWorkRelativePath} from '../contracts/library/paths.mjs';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const WORK_ID_PATTERN = /^[a-z][a-z0-9-]{0,62}$/;
+
+function readPublication(repoRoot, work) {
+  const publicationPath = path.join(repoRoot, work.root, 'publication.yaml');
+  let value;
+  try {
+    value = JSON.parse(fs.readFileSync(publicationPath, 'utf8'));
+  } catch (error) {
+    throw new Error('Invalid publication.yaml for ' + work.id + ': ' + error.message);
+  }
+  if (!value || value.workId !== work.id || !value.formats || typeof value.formats !== 'object') {
+    throw new Error('Invalid publication.yaml for ' + work.id);
+  }
+  return value;
+}
+
+function selectEpisodeIds(repoRoot, work, source, mode) {
+  const allEpisodeIds = new Set(source.episodes.map(episode => episode.id));
+  if (mode === 'private') return allEpisodeIds;
+
+  const publication = readPublication(repoRoot, work);
+  const format = publication.formats.novel;
+  if (!format || format.visibility !== 'public') return new Set();
+
+  const visible = new Set();
+  const entries = Array.isArray(format.episodes) ? format.episodes : [];
+  for (const entry of entries) {
+    if (!entry || typeof entry !== 'object') throw new Error('Invalid publication episode for ' + work.id);
+    const episodeId = entry.episodeId ?? entry.id;
+    if (!allEpisodeIds.has(episodeId)) throw new Error('Unknown published episode ' + work.id + '/' + episodeId);
+    const releaseAt = entry.releaseAt == null ? null : Date.parse(entry.releaseAt);
+    if (releaseAt !== null && Number.isNaN(releaseAt)) throw new Error('Invalid releaseAt for ' + work.id + '/' + episodeId);
+    const state = entry.state ?? (entry.published === true ? 'published' : 'draft');
+    if (state === 'published' && entry.approved === true && entry.transferred === true
+      && (releaseAt === null || releaseAt <= Date.now())) {
+      visible.add(episodeId);
+    }
+  }
+  return visible;
+}
 const escape = value => String(value).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 
 export function mangaHref(value) {
@@ -46,7 +85,7 @@ export function parseMangaUrls(value = {}) {
   return result;
 }
 
-function buildWorkSnapshot(repoRoot, work) {
+function buildWorkSnapshot(repoRoot, work, {mode = 'private'} = {}) {
   const root = fs.realpathSync(path.join(repoRoot, work.root));
   const readPath = relative => {
     safeWorkRelativePath(relative);
@@ -57,17 +96,21 @@ function buildWorkSnapshot(repoRoot, work) {
 
   const manifest = JSON.parse(fs.readFileSync(readPath('source/manifest.json'), 'utf8'));
   const source = readManuscript(manifest);
+  const visibleEpisodeIds = selectEpisodeIds(repoRoot, work, source, mode);
+  const visibleEpisodes = source.episodes.filter(episode => visibleEpisodeIds.has(episode.id));
+  const visibleScenes = source.scenes.filter(scene => visibleEpisodeIds.has(scene.episodeId ?? scene.id));
+  const visibleSettings = mode === 'private' ? source.settings : [];
   const title = (relative, fallback) => fs.readFileSync(readPath(relative), 'utf8')
     .split(/\r?\n/, 1)[0]
     .replace(/^#+\s*/, '')
     .replace(/^［[^］]+］\s*/, '') || fallback;
-  const scenes = source.scenes.map(scene => ({...scene, title: title(scene.path, scene.id)}));
-  const episodes = source.episodes.map((episode, i) => ({
+  const scenes = visibleScenes.map(scene => ({...scene, title: title(scene.path, scene.id)}));
+  const episodes = visibleEpisodes.map((episode, i) => ({
     ...episode,
     episodeNumber: i + 1,
     scene_ids: scenes.filter(scene => scene.episodeId === episode.id).map(scene => scene.id),
   }));
-  const settings = source.settings.map(setting => ({...setting, title: title(setting.path, setting.id)}));
+  const settings = visibleSettings.map(setting => ({...setting, title: title(setting.path, setting.id)}));
   const historyPath = path.join(root, 'history/CHANGELOG.md');
   const catalog = {
     schema_version: 2,
@@ -76,14 +119,14 @@ function buildWorkSnapshot(repoRoot, work) {
     episodes,
     scenes,
     settings,
-    characters: source.characters,
+    characters: mode === 'private' ? source.characters : [],
     revisions: [],
-    hasHistory: fs.existsSync(historyPath),
+    hasHistory: mode === 'private' && fs.existsSync(historyPath),
   };
 
   const files = new Set([...scenes, ...settings].map(item => item.path));
   // Include only images referenced by the selected manuscript/settings or declared characters.
-  for (const character of source.characters) if (character.image) files.add(character.image);
+  if (mode === 'private') for (const character of source.characters) if (character.image) files.add(character.image);
   for (const relative of [...files]) {
     if (!relative.endsWith('.md')) continue;
     const markdown = fs.readFileSync(readPath(relative), 'utf8');
@@ -105,34 +148,39 @@ export function buildReader({
   repoRoot = ROOT,
   workId,
   privatePreview = false,
+  published = false,
   mangaUrl = '',
   mangaUrls = {},
   outputDir = path.join(repoRoot, 'dist', 'reader'),
 } = {}) {
-  if (!privatePreview) throw new Error('Private snapshot only: specify --private; keep output behind existing Access');
+  const mode = privatePreview ? 'private' : published ? 'published' : null;
+  if (!mode) throw new Error('Specify --private for Access-protected preview or --published for a gated production build');
   const library = validateCatalog(JSON.parse(fs.readFileSync(path.join(repoRoot, 'library.json'), 'utf8')));
   if (!library.works.length) throw new Error('No works are available in library.json');
-  const defaultWork = workId ? library.works.find(item => item.id === workId) : library.works[0];
-  if (!defaultWork) throw new Error('Unknown workId');
+  const requestedWork = workId ? library.works.find(item => item.id === workId) : null;
+  if (workId && !requestedWork) throw new Error('Unknown workId');
 
   const normalizedMangaUrls = parseMangaUrls(mangaUrls);
-  if (mangaUrl) normalizedMangaUrls[defaultWork.id] = mangaHref(mangaUrl);
-  const snapshots = library.works.map(work => buildWorkSnapshot(repoRoot, work));
-  const snapshotById = new Map(snapshots.map(snapshot => [snapshot.work.id, snapshot]));
-  const defaultSnapshot = snapshotById.get(defaultWork.id);
+  if (mangaUrl) normalizedMangaUrls[requestedWork?.id ?? library.works[0].id] = mangaHref(mangaUrl);
+  const snapshots = library.works.map(work => buildWorkSnapshot(repoRoot, work, {mode}));
+  const availableSnapshots = mode === 'published'
+    ? snapshots.filter(snapshot => snapshot.catalog.episodes.length > 0)
+    : snapshots;
+  if (!availableSnapshots.length) throw new Error('No published reader episodes are available');
+  const defaultSnapshot = (requestedWork && availableSnapshots.find(snapshot => snapshot.work.id === requestedWork.id))
+    ?? availableSnapshots[0];
   const libraryIndex = {
     schema_version: 1,
-    defaultWorkId: defaultWork.id,
-    works: snapshots.map(({work, catalog}) => ({
+    defaultWorkId: defaultSnapshot.work.id,
+    works: availableSnapshots.map(({work, catalog}) => ({
       id: work.id,
       title: catalog.work.title || work.title,
-      basePath: `works/${work.id}`,
+      basePath: 'works/' + work.id,
       mangaUrl: normalizedMangaUrls[work.id] || '',
     })),
   };
-
   const html = fs.readFileSync(path.join(ROOT, 'reader/index.html'), 'utf8')
-    .replaceAll('__WORK_TITLE__', escape(defaultSnapshot.catalog.work.title || defaultWork.title))
+    .replaceAll('__WORK_TITLE__', escape(defaultSnapshot.catalog.work.title || defaultSnapshot.work.title))
     .replace('__MANGA_LINK__', '<a id="mangaLink" href="#" target="_blank" rel="noreferrer" class="text-sm underline hidden"></a>');
 
   fs.rmSync(outputDir, {recursive: true, force: true});
@@ -141,7 +189,7 @@ export function buildReader({
   fs.writeFileSync(path.join(outputDir, 'data/library-index.json'), JSON.stringify(libraryIndex));
   fs.writeFileSync(path.join(outputDir, '_headers'), '/*\n  Cache-Control: private, no-store\n  X-Robots-Tag: noindex, nofollow\n');
 
-  for (const {work, catalog, inputs} of snapshots) {
+  for (const {work, catalog, inputs} of availableSnapshots) {
     const dist = path.join(outputDir, 'works', work.id);
     fs.mkdirSync(path.join(dist, 'data'), {recursive: true});
     fs.writeFileSync(path.join(dist, 'data/reader-index.json'), JSON.stringify(catalog));
@@ -168,6 +216,7 @@ if (process.argv[1] && import.meta.url === pathToFileURL(path.resolve(process.ar
     const result = buildReader({
       workId,
       privatePreview: args.includes('--private'),
+      published: args.includes('--published'),
       mangaUrl: process.env.MANGA_URL || '',
       mangaUrls: process.env.MANGA_URLS_JSON || {},
     });
