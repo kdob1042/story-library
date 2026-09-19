@@ -203,7 +203,7 @@ export function buildReader({
   return {
     dist: outputDir,
     catalog: defaultSnapshot.catalog,
-    catalogs: snapshots.map(snapshot => snapshot.catalog),
+    catalogs: availableSnapshots.map(snapshot => snapshot.catalog),
     libraryIndex,
   };
 }
@@ -220,7 +220,7 @@ if (process.argv[1] && import.meta.url === pathToFileURL(path.resolve(process.ar
       mangaUrl: process.env.MANGA_URL || '',
       mangaUrls: process.env.MANGA_URLS_JSON || {},
     });
-    console.log(`Private reader built: ${result.dist}`);
+    console.log(`${args.includes('--published') ? 'Published' : 'Private'} reader built: ${result.dist}`);
   } catch (error) {
     console.error(error.message);
     process.exitCode = 1;
