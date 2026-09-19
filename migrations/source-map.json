@@ -1,0 +1,51 @@
+{
+  "format": "story-library-source-map/v1",
+  "authority": "origin",
+  "notes": "ID対応は identity のみ。実ファイル複製とorigin commitの固定はM2。旧repoの削除・archiveは行わない。",
+  "entries": [
+    {
+      "workId": "kamiya-kawai",
+      "status": "planned",
+      "origin": {
+        "repository": "kdob1042/Kamiya-Kawai",
+        "ref": "main",
+        "commit": "5621918052faf05fc0bac245ad70d6c4f7ca1561",
+        "path": "."
+      },
+      "target": {
+        "root": "works/kamiya-kawai",
+        "path": "."
+      },
+      "ids": {
+        "episode": {},
+        "scene": {},
+        "character": {},
+        "setting": {},
+        "chapter": {}
+      },
+      "notes": "採用本文は現行main commit。7eed2120は構造確認用であり採用版ではない。M2でこのcommitから本文・固定ID・基準画像を複製する。"
+    },
+    {
+      "workId": "investor-life",
+      "status": "planned",
+      "origin": {
+        "repository": "kdob1042/investor-life",
+        "ref": "main",
+        "commit": "cb08a589fdce05fb0bcfa91ba0b20c9c2c043fa5",
+        "path": "."
+      },
+      "target": {
+        "root": "works/investor-life",
+        "path": "."
+      },
+      "ids": {
+        "episode": {},
+        "scene": {},
+        "character": {},
+        "setting": {},
+        "chapter": {}
+      },
+      "notes": "採用本文は現行main commit。形式は investor-life-source/v1。M2でこのcommitから本文・章/話ID・設定を複製する。"
+    }
+  ]
+}

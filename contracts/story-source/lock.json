@@ -1,0 +1,7 @@
+{
+  "format": "story-source/v1",
+  "repository": "kdob1042/manga-mac",
+  "path": "contracts/story-source",
+  "commit": "601d5fa5cb076dd53a55a38c64f22083c5a6a64e",
+  "note": "形式正本は manga-mac の story-source/v1。story-library は同一契約を検査・読取に再利用し、独自に分岐しない。"
+}

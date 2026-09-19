@@ -1,0 +1,9 @@
+{
+  "workId": "fixture-novel",
+  "timezone": "Asia/Tokyo",
+  "formats": {
+    "novel": { "visibility": "private", "episodes": [] },
+    "manga": { "visibility": "private", "episodes": [] }
+  },
+  "notes": "初期非公開。fixtureを一般公開しない。"
+}
