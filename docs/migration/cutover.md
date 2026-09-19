@@ -8,22 +8,28 @@
 - investor-lifeはstory-library側で既に原稿差替え済み。旧repoから再コピーせず、新しい本文を保持。
 - `library.json` の神谷の形式を、実manifestに合わせてstory-source/v1へ修正。旧schema-4を期待して検証が落ちていた不整合を解消。
 - authorityはlibrary。origin commitと取込ファイル記録は来歴として保持。verifiedは取込構造・参照の検証であり、本番配信の受入完了を意味しない。
-- 神谷の既存小説UIをreader/index.htmlへ移設。新build-readerは本repo内のcatalogと共通read adapterから指定作品だけを読む。設定・変更履歴のパスも作品root基準。
+- 神谷の既存小説UIをreader/index.htmlへ移設。新build-readerは本repo内のcatalogと共通read adapterから全作品をprivate snapshotへ束ねる。設定・変更履歴のパスも作品root基準。
 - UIの目次、場面移動、書体・文字サイズ・テーマ操作を保持。任意のMANGA_URLで作品トップへの外部リンクを追加。未設定は非表示。旧/api fallbackは削除。
+- 作品セレクタを追加し、`?work=<workId>` とセレクタ操作で作品を切り替えられるようにした。作品ごとの本文・設定・画像は `dist/reader/works/<workId>/` に分離する。
 - 漫画の配信はlive-manga。小説本文の処理をlive-mangaへ戻さない。
 
 ## 確認用ビルド
 
 ```
-npm run build:reader -- --work-id kamiya-kawai --private
-npm run build:reader -- --work-id investor-life --private
+npm run build:reader -- --private
 ```
 
-出力はdist/reader/{workId}/。全話・設定を含むprivate snapshotであり、一般公開用のpublication gateではない。公開管理ファイルpublication.yamlを変更せず、既存Accessを維持した確認環境だけで使用する。ビルドやPR作成は公開操作ではない。公開URL・Accessを確認するまで自動デプロイ設定を追加しない。
+出力は `dist/reader/`。全作品の話・設定を含むprivate snapshotであり、一般公開用のpublication gateではない。公開管理ファイルpublication.yamlを変更せず、既存Accessを維持した確認環境だけで使用する。
+
+## Cloudflare Worker設定
+
+新規Workerは `story-library-reader` とし、Workers BuildsのRoot directoryを `/` に設定する。Build commandは `npm ci && npm run build:reader -- --private`、Deploy commandは `npx wrangler deploy`、Nodeは22、Output directoryは空欄とする。成果物のディレクトリはリポジトリの `wrangler.jsonc` にある `assets.directory: ./dist/reader` で指定する。
+
+`MANGA_URLS_JSON` は作品IDをキーにしたHTTPS URLのJSONで、未設定作品のリンクは非表示。デプロイ後にCloudflare Accessの既存ポリシーを適用してから閲覧確認する。Worker名はWrangler設定の `name` と一致させる。
 
 ## 未完了の実環境作業
 
-- story-libraryを参照する小説デプロイ先のGit接続/ビルドコマンド切替、既存URL/Access保護下での閲覧確認。
+- story-libraryを参照する小説WorkerのGit接続、既存URL/Access保護下での閲覧確認。
 - 小説・漫画双方の公開済み作品トップURLの確認と設定。リンクは作品単位であり話数を対応付けない。
 - 原稿庫→公開用小説データの話単位ゲート/予約公開はIssue #1のM6/M7で管理。private snapshotをその代用としない。
 - manga-macの接続・実Mac制作データ保持と本番配信の受入は既存担当Issueで継続。

@@ -45,6 +45,21 @@ node scripts/new-work.mjs --work-id example-work --title "作品タイトル" --
 
 ## 独立小説ビューア
 
-`npm run build:reader -- --work-id kamiya-kawai --private` で神谷ベースの読書UIを生成します。`investor-life`も同じ入口です。出力は `dist/reader/<workId>/`。これは全話を含む認証付き確認用であり、一般公開用ではありません。既存Accessで保護された配信先を維持し、ビルドだけでデプロイしません。
+`npm run build:reader -- --private` で登録済み全作品を含む読書UIを生成します。出力は `dist/reader/` で、ビューア上部の作品セレクタまたは `?work=<workId>` で作品を切り替えます。`--work-id <id>` は初期表示作品を指定するための互換オプションです。これは全話を含む認証付き確認用であり、一般公開用ではありません。
 
-公開済み漫画へのリンクは `MANGA_URL=https://.../works/<workId>/` をビルド時に渡します。未設定時は非表示。詳細・未完了事項は [切替記録](docs/migration/cutover.md)。
+公開済み漫画へのリンクは、作品単位のJSONを `MANGA_URLS_JSON='{"kamiya-kawai":"https://.../works/kamiya-kawai/"}'` としてビルド時に渡します。単一作品だけ確認する場合は `MANGA_URL` も使えます。未設定の作品ではリンクを表示しません。詳細・未完了事項は [切替記録](docs/migration/cutover.md)。
+
+## Cloudflare Worker
+
+リポジトリ直下の `wrangler.jsonc` が `dist/reader/` を Workers Static Assets として配信します。Cloudflare Workers の Git 連携は次の値で設定します。
+
+```text
+Root directory: /
+Build command:  npm ci && npm run build:reader -- --private
+Deploy command: npx wrangler deploy
+Node version:   22
+Output directory: (空欄)
+Worker name: story-library-reader
+```
+
+`MANGA_URLS_JSON` は必要な場合だけビルド環境変数に設定してください。Worker のデプロイ後に Cloudflare Access の既存ポリシーをこのWorkerへ適用し、原稿を一般公開しないでください。ローカル確認は `npx wrangler dev`、デプロイ前の成果物確認は `npm run build:reader -- --private` です。

@@ -128,6 +128,12 @@
       <div class="min-w-0 flex-1 font-gothic">
         __MANGA_LINK__
         <h1 id="workTitle" class="text-lg font-bold tracking-wider text-stone-900">__WORK_TITLE__</h1>
+        <div id="workSwitcher" class="mt-1 flex items-center gap-2 text-xs text-stone-500">
+          <label for="workSelect" class="shrink-0">作品</label>
+          <select id="workSelect" class="min-w-0 max-w-full rounded border border-stone-300 bg-white px-2 py-1 text-xs text-stone-700 outline-none focus:border-emerald-600" aria-label="作品を切り替え">
+            <option value="">読み込み中...</option>
+          </select>
+        </div>
         <div id="headerMeta" class="flex min-w-0 items-center gap-1.5 text-xs">
           <span id="currentSceneBadge" class="shrink-0 px-2 py-0.5 rounded-full bg-stone-200 text-stone-700 font-mono">P01-01</span>
           <span id="currentEpisodeTitle" class="min-w-0 truncate text-stone-500">読み込み中...</span>
@@ -161,7 +167,7 @@
     <aside id="sidebar" class="w-80 h-full shrink-0 bg-stone-100 border-r border-stone-200 flex flex-col absolute inset-y-0 left-0 z-20 transform -translate-x-full md:relative md:translate-x-0 transition-transform duration-200 ease-in-out shadow-lg md:shadow-none">
       <!-- Tabs -->
       <div class="flex border-b border-stone-200 bg-stone-200/60 font-gothic text-xs">
-        <button id="tabNovel" class="flex-1 py-2.5 px-3 font-semibold text-stone-900 border-b-2 border-emerald-600 bg-stone-100 transition">本文 (全10話)</button>
+        <button id="tabNovel" class="flex-1 py-2.5 px-3 font-semibold text-stone-900 border-b-2 border-emerald-600 bg-stone-100 transition">本文</button>
         <button id="tabDesign" class="flex-1 py-2.5 px-3 font-medium text-stone-600 hover:text-stone-900 transition">作品設定</button>
       </div>
 
@@ -213,7 +219,11 @@
   </div>
 
   <script>
+    let libraryData = null;
     let manifestData = null;
+    let currentWork = null;
+    let currentWorkBase = '';
+    let loadToken = 0;
     let allScenes = [];
     let currentSceneIndex = 0;
     let currentMode = 'novel'; // 'novel' or 'design'
@@ -232,12 +242,16 @@
     const themeToggleBtn = document.getElementById('themeToggleBtn');
     const themeIconSun = document.getElementById('themeIconSun');
     const themeIconMoon = document.getElementById('themeIconMoon');
+    const workTitle = document.getElementById('workTitle');
+    const mangaLink = document.getElementById('mangaLink');
+    const workSelect = document.getElementById('workSelect');
 
     const tabNovel = document.getElementById('tabNovel');
     const tabDesign = document.getElementById('tabDesign');
     const novelNav = document.getElementById('novelNav');
     const designNav = document.getElementById('designNav');
     const episodesContainer = document.getElementById('episodesContainer');
+    const settingsContainer = document.getElementById('settingsContainer');
 
     const articleEpisode = document.getElementById('articleEpisode');
     const articleSceneId = document.getElementById('articleSceneId');
@@ -353,29 +367,111 @@
       throw lastErr || new Error('fetch failed');
     }
 
-    async function loadManifest() {
+    async function loadLibrary() {
       try {
-        const text = await fetchText(['data/reader-index.json']);
+        libraryData = JSON.parse(await fetchText(['data/library-index.json']));
+        if (!Array.isArray(libraryData.works) || libraryData.works.length === 0) {
+          throw new Error('library-index.json has no works');
+        }
+        renderWorkSelector();
+        const requested = new URL(window.location.href).searchParams.get('work');
+        const initial = libraryData.works.some(work => work.id === requested)
+          ? requested
+          : libraryData.defaultWorkId || libraryData.works[0].id;
+        await selectWork(initial, {updateUrl: false});
+      } catch (err) {
+        console.error('Failed to load library:', err);
+        workSelect.innerHTML = '<option value="">読み込み失敗</option>';
+        workSelect.disabled = true;
+        novelContent.innerHTML = '<p class="text-rose-500 text-center py-8">作品一覧の取得に失敗しました。</p>';
+      }
+    }
+
+    function renderWorkSelector() {
+      workSelect.innerHTML = '';
+      libraryData.works.forEach(work => {
+        const option = document.createElement('option');
+        option.value = work.id;
+        option.textContent = work.title;
+        workSelect.appendChild(option);
+      });
+      workSelect.disabled = libraryData.works.length < 2;
+    }
+
+    async function selectWork(workId, {updateUrl = true} = {}) {
+      if (!libraryData) return;
+      const work = libraryData.works.find(item => item.id === workId);
+      if (!work) return;
+      const token = ++loadToken;
+      currentWork = work;
+      currentWorkBase = `${work.basePath}/data/`;
+      workSelect.value = work.id;
+      workTitle.textContent = work.title;
+      document.title = `${work.title} - 小説ビューア`;
+      mangaLink.classList.toggle('hidden', !work.mangaUrl);
+      if (work.mangaUrl) {
+        mangaLink.href = work.mangaUrl;
+        mangaLink.textContent = '漫画版を読む ↗';
+      } else {
+        mangaLink.removeAttribute('href');
+        mangaLink.textContent = '';
+      }
+      if (updateUrl) {
+        const url = new URL(window.location.href);
+        url.searchParams.set('work', work.id);
+        window.history.replaceState({}, '', url);
+      }
+
+      manifestData = null;
+      allScenes = [];
+      currentSceneIndex = 0;
+      tabNovel.click();
+      episodesContainer.innerHTML = '<div class="text-stone-400 text-xs text-center py-4">目次を取得中...</div>';
+      settingsContainer.innerHTML = '<div class="text-stone-400 text-xs text-center py-4">設定を取得中...</div>';
+      novelContent.innerHTML = '<p class="text-stone-400 text-center py-8">作品を読み込んでいます...</p>';
+      currentEpisodeTitle.textContent = '読み込み中...';
+      currentSceneTitle.textContent = '読み込み中...';
+      currentSceneBadge.textContent = '---';
+      articleTitle.textContent = '読み込み中...';
+      document.getElementById('readerContainer').scrollTop = 0;
+
+      try {
+        const text = await fetchText([`${currentWorkBase}reader-index.json`]);
+        if (token !== loadToken) return;
         manifestData = JSON.parse(text);
         renderTableOfContents();
         renderSettingsNav();
         if (allScenes.length > 0) {
-          loadScene(0);
+          await loadScene(0, token);
+        } else {
+          novelContent.innerHTML = '<p class="text-stone-500 text-center py-8">本文がありません。</p>';
         }
       } catch (err) {
+        if (token !== loadToken) return;
         console.error('Failed to load manifest:', err);
         novelContent.innerHTML = '<p class="text-rose-500 text-center py-8">目次の取得に失敗しました。</p>';
       }
     }
 
+    workSelect.addEventListener('change', () => selectWork(workSelect.value));
+    window.addEventListener('popstate', () => {
+      if (!libraryData) return;
+      const requested = new URL(window.location.href).searchParams.get('work');
+      const workId = libraryData.works.some(work => work.id === requested)
+        ? requested
+        : libraryData.defaultWorkId || libraryData.works[0].id;
+      selectWork(workId, {updateUrl: false});
+    });
+
     function contentUrls(relPath) {
       const cleaned = String(relPath || '').replace(/^\/+/, '');
-      return [`data/${cleaned}`];
+      return currentWorkBase ? [`${currentWorkBase}${cleaned}`] : [];
     }
 
     function renderTableOfContents() {
       episodesContainer.innerHTML = '';
       allScenes = [];
+      tabNovel.textContent = `本文 (全${manifestData.episodes.length}話)`;
       const sceneById = {};
       manifestData.scenes.forEach(s => { sceneById[s.id] = s; });
 
@@ -455,23 +551,26 @@
         addButton(setting.path, title, '設定');
       });
 
-      const history = document.createElement('div');
-      history.className = 'pt-3 mt-3 border-t border-stone-200';
-      const historyButton = document.createElement('button');
-      historyButton.className = 'w-full text-left px-3 py-2 rounded-lg hover:bg-stone-200 text-stone-700 transition text-xs flex items-center justify-between';
-      historyButton.innerHTML = '<span>改稿履歴</span><span class="text-stone-400 text-[10px]">記録</span>';
-      historyButton.addEventListener('click', () => {
-        loadCustomFile('history/CHANGELOG.md', '改稿履歴');
-        if (window.innerWidth < 768) sidebar.classList.add('-translate-x-full');
-      });
-      history.appendChild(historyButton);
-      container.appendChild(history);
+      if (manifestData.hasHistory !== false) {
+        const history = document.createElement('div');
+        history.className = 'pt-3 mt-3 border-t border-stone-200';
+        const historyButton = document.createElement('button');
+        historyButton.className = 'w-full text-left px-3 py-2 rounded-lg hover:bg-stone-200 text-stone-700 transition text-xs flex items-center justify-between';
+        historyButton.innerHTML = '<span>改稿履歴</span><span class="text-stone-400 text-[10px]">記録</span>';
+        historyButton.addEventListener('click', () => {
+          loadCustomFile('history/CHANGELOG.md', '改稿履歴');
+          if (window.innerWidth < 768) sidebar.classList.add('-translate-x-full');
+        });
+        history.appendChild(historyButton);
+        container.appendChild(history);
+      }
     }
 
-    async function loadScene(index) {
-      if (index < 0 || index >= allScenes.length) return;
+    async function loadScene(index, token = loadToken) {
+      if (token !== loadToken || index < 0 || index >= allScenes.length) return;
       currentSceneIndex = index;
       const scene = allScenes[index];
+      const workAtLoad = currentWork;
 
       // Update UI Header
       const episodeName = String(scene.episodeTitle || '')
@@ -500,14 +599,18 @@
 
       try {
         const text = await fetchText(contentUrls(scene.path));
+        if (token !== loadToken || workAtLoad !== currentWork) return;
         renderMarkdownScene(text, scene.id, scene.path);
       } catch (err) {
+        if (token !== loadToken || workAtLoad !== currentWork) return;
         console.error('Failed to load scene file:', err);
         novelContent.innerHTML = '<p class="text-rose-500 text-center py-8">場面の読み込みに失敗しました。</p>';
       }
     }
 
     async function loadCustomFile(path, title) {
+      const token = loadToken;
+      const workAtLoad = currentWork;
       articleEpisode.textContent = '設定資料';
       articleSceneId.textContent = path;
       articleTitle.textContent = title;
@@ -523,8 +626,10 @@
 
       try {
         const text = await fetchText(contentUrls(path));
+        if (token !== loadToken || workAtLoad !== currentWork) return;
         renderMarkdownGeneric(text, path);
       } catch (err) {
+        if (token !== loadToken || workAtLoad !== currentWork) return;
         novelContent.innerHTML = '<p class="text-rose-500 text-center py-8">ファイルの読み込みに失敗しました。</p>';
       }
     }
@@ -624,7 +729,7 @@
           parts.push(part);
         }
       });
-      return `data/${parts.join('/')}`;
+      return `${currentWorkBase}${parts.filter(Boolean).join('/')}`;
     }
 
     function escapeHtml(str) {
@@ -644,8 +749,7 @@
       if (currentSceneIndex < allScenes.length - 1) loadScene(currentSceneIndex + 1);
     });
 
-    loadManifest();
+    loadLibrary();
   </script>
 </body>
 </html>
-
