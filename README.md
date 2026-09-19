@@ -5,11 +5,12 @@
 
 移行作業一覧の正本は [Issue #1](https://github.com/kdob1042/story-library/issues/1) です。
 
-## 現在の状態（M0–M1）
+## 現在の状態（M0–M3）
 
 - catalog と作品root、読取adapter、source-map の契約を確定した
 - 既存2作品（`kamiya-kawai`、`investor-life`）は旧原稿repoを正本のまま残している
-- 採用元はそれぞれ現行 `main` の固定commitまで確定した。実本文はまだ複製していない
+- M2で両作品の実原稿を固定commitから取り込み、本文・設定・固定ID・履歴・人物基準画像を保持した
+- M3で新作雛形と作品作成CLIを追加した
 - 公開範囲は変えない。初期の `publication` は非公開
 
 詳細は [docs/M0-INVENTORY.md](docs/M0-INVENTORY.md) と [docs/M1-CONTRACT.md](docs/M1-CONTRACT.md)。
@@ -23,6 +24,7 @@
 | `works/{workId}/` | 作品root（取込後） |
 | `contracts/` | catalog / story-source/v1 / 読取adapter |
 | `fixtures/works/` | 公開CI用の人工原稿 |
+| `templates/work/` | 新作雛形の正本 |
 
 ## 検査
 
@@ -30,6 +32,7 @@
 npm test
 npm run validate
 node scripts/import-work.mjs --work-id <id> --from <origin-checkout> --dry-run
+node scripts/new-work.mjs --work-id example-work --title "作品タイトル" --dry-run
 ```
 
 実原稿や個人情報を公開CIへ入れないでください。
