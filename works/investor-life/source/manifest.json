@@ -1,0 +1,51 @@
+{
+  "format": "investor-life-source/v1",
+  "work": {
+    "title": "個人投資家としての10年",
+    "slug": "investor-life"
+  },
+  "chapters": [
+    {
+      "id": "C01",
+      "title": "偶然を知る",
+      "episodes": [
+        { "id": "C01-E01", "title": "GPUのある部屋", "path": "manuscript/p01/p01-01.md" },
+        { "id": "C01-E02", "title": "200万円の確信", "path": "manuscript/p01/p01-02.md" },
+        { "id": "C01-E03", "title": "画面の向こうの会社", "path": "manuscript/p01/p01-03.md" }
+      ]
+    },
+    {
+      "id": "C02",
+      "title": "数字にする",
+      "episodes": [
+        { "id": "C02-E04", "title": "金利は夢を縮める", "path": "manuscript/p02/p02-01.md" },
+        { "id": "C02-E05", "title": "育休の机", "path": "manuscript/p02/p02-02.md" },
+        { "id": "C02-E06", "title": "数字の外側", "path": "manuscript/p02/p02-03.md" }
+      ]
+    },
+    {
+      "id": "C03",
+      "title": "うまくいきすぎる",
+      "episodes": [
+        { "id": "C03-E07", "title": "反対側のポジション", "path": "manuscript/p03/p03-01.md" },
+        { "id": "C03-E08", "title": "旅行の日の下落", "path": "manuscript/p03/p03-02.md" },
+        { "id": "C03-E09", "title": "勝ち方の終わり", "path": "manuscript/p03/p03-03.md" }
+      ]
+    },
+    {
+      "id": "C04",
+      "title": "作り直す",
+      "episodes": [
+        { "id": "C04-E10", "title": "SaaSの死", "path": "manuscript/p04/p04-01.md" },
+        { "id": "C04-E11", "title": "定時の向こう側", "path": "manuscript/p04/p04-02.md" },
+        { "id": "C04-E12", "title": "その先の資産曲線", "path": "manuscript/p04/p04-03.md" }
+      ]
+    }
+  ],
+  "settings": [
+    { "id": "CHARACTERS", "path": "settings/characters.md" },
+    { "id": "STORY", "path": "settings/story.md" },
+    { "id": "WRITING", "path": "settings/writing.md" }
+  ]
+}
+

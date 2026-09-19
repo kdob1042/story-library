@@ -1,0 +1,15 @@
+{
+  "workId": "investor-life",
+  "timezone": "Asia/Tokyo",
+  "formats": {
+    "novel": {
+      "visibility": "private",
+      "episodes": []
+    },
+    "manga": {
+      "visibility": "private",
+      "episodes": []
+    }
+  },
+  "notes": "初期状態は非公開。原稿の取込みだけで公開範囲を変えない。"
+}
