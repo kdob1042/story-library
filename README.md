@@ -56,7 +56,7 @@ node scripts/new-work.mjs --work-id example-work --title "作品タイトル" --
 ```text
 Root directory: /
 Production branch: main
-Build command:  npm ci && npm run build:reader -- --private
+Build command:  npm ci && npm run build:reader -- --published
 Deploy command: npx wrangler deploy
 Non-production deploy: npx wrangler versions upload
 Node version:   22
@@ -67,3 +67,4 @@ Worker name: story-library-reader
 `MANGA_URLS_JSON` は必要な場合だけビルド環境変数に設定してください。Worker のデプロイ後に Cloudflare Access の既存ポリシーをこのWorkerへ適用し、原稿を一般公開しないでください。ローカル確認は `npx wrangler dev`、デプロイ前の成果物確認は `npm run build:reader -- --private` です。
 
 Workers Builds の production branch は `main` にします。`dev` やPull Requestは non-production branch build として `npx wrangler versions upload` を使い、preview URLで確認します。本番Workerを更新するのは `main` のみです。
+\n## dev / main の公開経路\n\n- `dev`：`wrangler.dev.jsonc` を使い、`npm ci && npm run build:reader -- --private` で全作品を含むAccess保護下の確認用Previewを作る。\n- `main`：`wrangler.jsonc` を使い、`npm ci && npm run build:reader -- --published` で `publication.yaml` の承認済み・転送済み・公開日時到達済みの話だけを生成する。\n- Cloudflareのnon-production branch commandは `npx wrangler versions upload --config wrangler.dev.jsonc`、production commandは `npx wrangler deploy --config wrangler.jsonc` とする。\n- どちらもWorker URLには既存のCloudflare Accessを適用し、原稿Git自体を直接公開しない。\n
