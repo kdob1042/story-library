@@ -23,7 +23,7 @@ npm run build:reader -- --private
 
 ## Cloudflare Worker設定
 
-新規Workerは `story-library-reader` とし、Workers BuildsのRoot directoryを `/` に設定する。Build commandは `npm ci && npm run build:reader -- --private`、Deploy commandは `npx wrangler deploy`、Nodeは22、Output directoryは空欄とする。成果物のディレクトリはリポジトリの `wrangler.jsonc` にある `assets.directory: ./dist/reader` で指定する。
+新規Workerは `story-library-reader` とし、Workers BuildsのRoot directoryを `/`、Production branchを `main` に設定する。Build commandは `npm ci && npm run build:reader -- --private`、mainのDeploy commandは `npx wrangler deploy`、Nodeは22、Output directoryは空欄とする。dev/PRのNon-production branch deploy commandは `npx wrangler versions upload` とし、preview URLで確認する。成果物のディレクトリはリポジトリの `wrangler.jsonc` にある `assets.directory: ./dist/reader` で指定する。
 
 `MANGA_URLS_JSON` は作品IDをキーにしたHTTPS URLのJSONで、未設定作品のリンクは非表示。デプロイ後にCloudflare Accessの既存ポリシーを適用してから閲覧確認する。Worker名はWrangler設定の `name` と一致させる。
 
