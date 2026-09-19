@@ -23,25 +23,27 @@ npm run build:reader -- --private
 
 ## Cloudflare Worker設定
 
-新規Workerは `story-library-reader` とし、Workers BuildsのRoot directoryを `/`、Production branchを `main` に設定する。mainのBuild commandは `npm ci && npm run build:reader -- --published`、Deploy commandは `npx wrangler deploy --config wrangler.jsonc`、Nodeは22、Output directoryは空欄とする。dev/PRは `npm ci && npm run build:reader -- --private` と `npx wrangler versions upload --config wrangler.dev.jsonc` を使い、preview URLで確認する。成果物のディレクトリは各Wrangler設定の `assets.directory: ./dist/reader` で指定する。
+Cloudflare設定の正本はREADMEの表。Build commandは共通の `npm ci && npm run build:reader` とし、WORKERS_CI_BRANCHでmain/devを判定する。non-production対象はdevのみ。mainとdevは別Worker設定を使う。ローカルだけ明示フラグを使う。
 
-`MANGA_URLS_JSON` は作品IDをキーにしたHTTPS URLのJSONで、未設定作品のリンクは非表示。デプロイ後にCloudflare Accessの既存ポリシーを適用してから閲覧確認する。Worker名はWrangler設定の `name` と一致させる。
+`MANGA_URLS_JSON` は作品IDをキーにしたHTTPS URLのJSONで、未設定作品のリンクは非表示。devへの原稿アップロード前にpreview URLを含む全経路のAccess保護を確認する。mainは公開本文専用。Worker名はWrangler設定の `name` と一致させる。
 
 ## dev / main と話単位の公開
 
 - `dev` は `wrangler.dev.jsonc` を使うAccess保護下の確認環境。`--private` でstory-libraryの全作品・全話を含むsnapshotを作る。
-- `main` は `wrangler.jsonc` を使う公開環境。`--published` では各作品の `publication.yaml` を読み、`novel` の `visibility: public`、話ごとの `state: published`、`approved: true`、`transferred: true` を満たし、`releaseAt` があれば到達した話だけを生成する。未条件の本文・設定・人物画像・履歴は成果物へ入れない。
+- `main` は `wrangler.jsonc` を使う公開環境。`--published` では各作品の `publication.yaml` を読み、`novel` の `visibility: public`、話ごとの `visibility: public`、`approved: true`、`transferred: true` を満たし、`releaseAt` があれば到達した話だけを生成する。未条件の本文・設定・人物画像・履歴は成果物へ入れない。
 - 例：
 ```json
 {
   "workId": "investor-life",
+  "timezone": "Asia/Tokyo",
   "formats": {
+    "manga": {"visibility": "private", "episodes": []},
     "novel": {
       "visibility": "public",
       "episodes": [
         {
-          "episodeId": "C01-E01",
-          "state": "published",
+          "id": "C01-E01",
+          "visibility": "public",
           "approved": true,
           "transferred": true
         }
@@ -65,3 +67,11 @@ npm run build:reader -- --private
 ## 復旧
 
 ビューア変更に問題があれば当該PRをrevertし、既存の保護済み配信を継続する。原稿を旧repoから上書きしない。以降の原稿改稿はstory-libraryへ保存し、切替前snapshotはoriginの固定commitから参照する。
+
+## 実装上の境界
+
+- 公開設定はcontracts/library/publication.mjsと同じ検証規則を使う。approvedとtransferredはbooleanのみ。transferredは管理上の確認フラグで、自動転送の証明ではない。
+- 公開0話でも空サイトを生成し、以前の公開ファイルを成果物から除去する。取り下げは新成果物のデプロイ時に反映。
+- releaseAtはビルド時判定。日時到達だけでは自動公開されない。公開時にmainを再ビルド・デプロイする。自動予約実行は未実装。
+- approvedRevisionとの本文一致検証は未実装。公開済み話の本文をmainへ更新するPRでも公開レビューが必要。
+- 本文から参照される画像は公開成果物へ含む。設定・人物設定・履歴は含めない。

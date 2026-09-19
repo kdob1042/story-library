@@ -2,7 +2,7 @@ import { VISIBILITIES, WORK_FORMATS, WORK_ID } from './ids.mjs';
 import { LibraryValidationError, checkObject, issue, isObject } from './errors.mjs';
 
 const EPISODE_REQUIRED = ['id'];
-const EPISODE_OPTIONAL = ['releaseAt', 'visibility', 'approvedRevision'];
+const EPISODE_OPTIONAL = ['releaseAt', 'visibility', 'approvedRevision', 'approved', 'transferred'];
 
 function parseJsonCompatibleYaml(text, path, issues) {
   if (typeof text !== 'string' || !text.trim()) {
@@ -24,6 +24,11 @@ function parseJsonCompatibleYaml(text, path, issues) {
 
 function checkEpisode(episode, path, issues, used) {
   if (!checkObject(episode, path, EPISODE_REQUIRED, EPISODE_OPTIONAL, issues)) return;
+  for (const field of ['approved', 'transferred']) {
+    if (episode[field] !== undefined && typeof episode[field] !== 'boolean') {
+      issue(issues, `${path}.${field}`, 'INVALID_BOOLEAN', `${field} must be boolean`);
+    }
+  }
   if (typeof episode.id !== 'string' || !episode.id.trim()) {
     issue(issues, `${path}.id`, 'INVALID_ID', '話IDが不正です');
   } else if (used.has(episode.id)) {

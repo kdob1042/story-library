@@ -370,8 +370,12 @@
     async function loadLibrary() {
       try {
         libraryData = JSON.parse(await fetchText(['data/library-index.json']));
-        if (!Array.isArray(libraryData.works) || libraryData.works.length === 0) {
-          throw new Error('library-index.json has no works');
+        if (!Array.isArray(libraryData.works)) throw new Error('Invalid library index');
+        if (libraryData.works.length === 0) {
+          workSelect.innerHTML = '<option value="">公開作品なし</option>';
+          workSelect.disabled = true;
+          novelContent.innerHTML = '<p class="text-center py-8">現在公開中の作品はありません。</p>';
+          return;
         }
         renderWorkSelector();
         const requested = new URL(window.location.href).searchParams.get('work');
