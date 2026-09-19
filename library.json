@@ -1,7 +1,7 @@
 {
   "format": "story-library/v1",
   "authorityUntil": "M8",
-  "notes": "M1確定。実原稿の複製はM2。M7検証と最終増分反映が終わるまで旧原稿repoを正本とする。",
+  "notes": "原稿・設定・画像・履歴の編集正本はstory-library。originは取込履歴。公開環境の受入は別管理。",
   "works": [
     {
       "id": "kamiya-kawai",
@@ -11,12 +11,12 @@
         "novel",
         "manga"
       ],
-      "manuscriptFormat": "schema-4",
+      "manuscriptFormat": "story-source/v1",
       "readAdapters": [
         "schema-4",
         "story-source/v1"
       ],
-      "authority": "origin",
+      "authority": "library",
       "origin": {
         "repository": "kdob1042/Kamiya-Kawai",
         "ref": "main",
@@ -25,8 +25,8 @@
         "manifestPath": "manifest.json",
         "accessible": true
       },
-      "importStatus": "imported",
-      "notes": "現行 main の採用元commitを確定。構造確認commitは採用本文の版ではない。本文・話/場面ID・人物基準画像はM2の複製完了まで origin を正本として保持する。"
+      "importStatus": "verified",
+      "notes": "編集先は本作品root。originは取込時点の履歴であり、旧repoから自動で上書きしない。"
     },
     {
       "id": "investor-life",
@@ -39,7 +39,7 @@
       "readAdapters": [
         "investor-life-source/v1"
       ],
-      "authority": "origin",
+      "authority": "library",
       "origin": {
         "repository": "kdob1042/investor-life",
         "ref": "main",
@@ -47,8 +47,8 @@
         "manifestPath": "manifest.json",
         "accessible": true
       },
-      "importStatus": "imported",
-      "notes": "現行 main の採用元repo・commit・形式を確定。mainは4章12話の原稿正本、devのviewer専用差分は原稿採用版に混ぜない。章/話IDと本文はM2の複製完了まで origin を正本として保持する。"
+      "importStatus": "verified",
+      "notes": "編集先は本作品root。originは取込時点の履歴であり、旧repoから自動で上書きしない。"
     }
   ]
 }

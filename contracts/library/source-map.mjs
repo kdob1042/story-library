@@ -64,9 +64,6 @@ export function validateSourceMap(sourceMap, { catalogWorkIds = null } = {}) {
   if (!AUTHORITIES.includes(sourceMap.authority)) {
     issue(issues, '$.authority', 'INVALID_AUTHORITY', 'authorityが不正です');
   }
-  if (sourceMap.authority !== 'origin') {
-    issue(issues, '$.authority', 'PREMATURE_CUTOVER', '最終増分反映とM7受入までは origin を正本にします');
-  }
   if (!Array.isArray(sourceMap.entries)) {
     issue(issues, '$.entries', 'INVALID_ENTRIES', 'entriesは配列です');
     throw new LibraryValidationError(issues);
@@ -137,3 +134,4 @@ export function validateSourceMap(sourceMap, { catalogWorkIds = null } = {}) {
   if (issues.length) throw new LibraryValidationError(issues);
   return sourceMap;
 }
+

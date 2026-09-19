@@ -117,7 +117,7 @@ export async function planWorkImport({ catalog, sourceMap, workId, originRoot, o
     throw new LibraryValidationError([{ path: workId, code: 'UNKNOWN_WORK', message: 'catalogにないworkIdです' }]);
   }
   if (work.authority !== 'origin') {
-    throw new LibraryValidationError([{ path: workId, code: 'PREMATURE_CUTOVER', message: 'origin以外からの取込みはM8まで禁止です' }]);
+    throw new LibraryValidationError([{ path: workId, code: 'PREMATURE_CUTOVER', message: 'library正本の作品は旧repoから再取り込みできません' }]);
   }
   const allPaths = await walkFiles(originRoot);
   if (!allPaths.includes('manifest.json') && !allPaths.includes('source/manifest.json')) {
@@ -266,3 +266,4 @@ export async function copyOriginUnchanged(originRoot) {
 }
 
 export { sha256 };
+

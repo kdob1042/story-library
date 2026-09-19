@@ -8,7 +8,8 @@
     "test": "node --test tests/*.test.mjs contracts/story-source/tests/*.test.mjs",
     "validate": "node scripts/validate.mjs",
     "import-work": "node scripts/import-work.mjs",
-    "new-work": "node scripts/new-work.mjs"
+    "new-work": "node scripts/new-work.mjs",
+    "build:reader": "node scripts/build-reader.mjs"
   },
   "engines": {
     "node": ">=18"

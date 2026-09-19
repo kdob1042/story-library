@@ -9,22 +9,23 @@ import { validateSourceMap } from '../contracts/library/source-map.mjs';
 const catalog = JSON.parse(await readFile(new URL('../library.json', import.meta.url), 'utf8'));
 const sourceMap = JSON.parse(await readFile(new URL('../migrations/source-map.json', import.meta.url), 'utf8'));
 
-test('repository catalog and source-map keep origin as authority', async () => {
+test('repository catalog validates imported works and the library authority', async () => {
   const result = await validateRepository(new URL('..', import.meta.url).pathname);
   assert.equal(result.catalog.works.length, 2);
   assert.deepEqual(result.catalog.works.map(work => work.id), ['kamiya-kawai', 'investor-life']);
-  assert.ok(result.catalog.works.every(work => work.authority === 'origin'));
-  assert.ok(result.catalog.works.every(work => work.importStatus === 'pending-import'));
+  assert.ok(result.catalog.works.every(work => work.authority === 'library'));
+  assert.ok(result.catalog.works.every(work => work.importStatus === 'verified'));
   assert.equal(result.catalog.works[0].origin.commit, '5621918052faf05fc0bac245ad70d6c4f7ca1561');
   assert.equal(result.catalog.works[1].origin.commit, 'cb08a589fdce05fb0bcfa91ba0b20c9c2c043fa5');
   assert.equal(result.catalog.works[1].manuscriptFormat, 'investor-life-source/v1');
-  assert.equal(result.imported.length, 0);
-  assert.equal(result.sourceMap.authority, 'origin');
+  assert.equal(result.imported.length, 2);
+  assert.equal(result.sourceMap.authority, 'library');
 });
 
 test('catalog rejects a premature cutover to the library', () => {
   const next = structuredClone(catalog);
   next.works[0].authority = 'library';
+  next.works[0].importStatus = 'pending-import';
   assert.throws(() => validateCatalog(next), error => (
     error instanceof LibraryValidationError && error.issues.some(issue => issue.code === 'PREMATURE_CUTOVER')
   ));
@@ -55,3 +56,4 @@ test('catalog and source-map origin commits must match', async () => {
     error => error instanceof LibraryValidationError && error.issues.some(issue => issue.code === 'ORIGIN_COMMIT_MISMATCH')
   );
 });
+

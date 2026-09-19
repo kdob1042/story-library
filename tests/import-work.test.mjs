@@ -10,6 +10,11 @@ const repoRoot = new URL('..', import.meta.url).pathname;
 const catalog = JSON.parse(await readFile(join(repoRoot, 'library.json'), 'utf8'));
 const sourceMap = JSON.parse(await readFile(join(repoRoot, 'migrations/source-map.json'), 'utf8'));
 
+// Import fixtures explicitly represent the pre-cutover state.
+catalog.works.forEach(work => { work.authority = 'origin'; work.importStatus = 'pending-import'; });
+catalog.works[0].manuscriptFormat = 'schema-4';
+sourceMap.authority = 'origin';
+
 test('nested source/ trees flatten so paths resolve from the work root', () => {
   const layout = planImportLayout(['source/manifest.json', 'source/manuscript/p01/p01-01.md']);
   assert.equal(layout.flattenSourceTree, true);
@@ -129,3 +134,4 @@ async function existsIgnore(path) {
     return false;
   }
 }
+
