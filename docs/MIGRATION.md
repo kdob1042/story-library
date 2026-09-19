@@ -8,7 +8,7 @@
 | M0 棚卸し | 本リポジトリ / #1 | このPR。origin未読取を明示 |
 | M1 catalog / 作品root / 読取adapter | 本リポジトリ / #1 | このPR |
 | M2 既存原稿の複製とsource-map充填 | 本リポジトリ / #1 | origin読取権限の後 |
-| M3 `templates/work/` と軽量CI | 本リポジトリ / #1 | M1の後。novel-template#3 は二重実装しない |
+| M3 `templates/work/` と軽量CI | 本リポジトリ / #1 | 雛形と new-work CLI。小説リーダー移管は novel-template#3 |
 | M4 制作アプリの作品選択 | [manga-mac#157](https://github.com/kdob1042/manga-mac/issues/157) | M1契約確定後 |
 | M5 小説リーダー移管 | [novel-template#3](https://github.com/kdob1042/novel-template/issues/3) → live-manga | M1契約確定後 |
 | M5/M6 本棚・URL | [live-manga#46](https://github.com/kdob1042/live-manga/issues/46) | M1の後、公開判定と分担 |

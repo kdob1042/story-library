@@ -23,12 +23,14 @@
 | `works/{workId}/` | 作品root（取込後） |
 | `contracts/` | catalog / story-source/v1 / 読取adapter |
 | `fixtures/works/` | 公開CI用の人工原稿 |
+| `templates/work/` | 新作雛形の正本 |
 
 ## 検査
 
 ```bash
 npm test
 npm run validate
+node scripts/new-work.mjs --work-id example-work --title "作品タイトル" --dry-run
 ```
 
 実原稿や個人情報を公開CIへ入れないでください。

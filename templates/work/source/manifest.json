@@ -1,0 +1,19 @@
+{
+  "format": "story-source/v1",
+  "work": { "title": "作品タイトル" },
+  "episodes": [
+    {
+      "id": "P01",
+      "title": "第1話のタイトル",
+      "scenes": [
+        { "id": "P01-01", "path": "manuscript/p01/p01-01.md" }
+      ]
+    }
+  ],
+  "settings": [
+    { "id": "CHARACTERS", "path": "settings/characters.md" },
+    { "id": "STORY", "path": "settings/story.md" },
+    { "id": "WRITING", "path": "settings/writing.md" }
+  ],
+  "characters": []
+}

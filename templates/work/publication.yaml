@@ -1,0 +1,9 @@
+{
+  "workId": "WORK_ID",
+  "timezone": "Asia/Tokyo",
+  "formats": {
+    "novel": { "visibility": "private", "episodes": [] },
+    "manga": { "visibility": "private", "episodes": [] }
+  },
+  "notes": "初期状態は非公開。フォルダ作成やcatalog登録だけでは公開しない。"
+}
