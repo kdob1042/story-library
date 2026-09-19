@@ -454,7 +454,7 @@
     },
     {
       "workId": "investor-life",
-      "status": "planned",
+      "status": "copied",
       "origin": {
         "repository": "kdob1042/investor-life",
         "ref": "main",
@@ -466,13 +466,160 @@
         "path": "."
       },
       "ids": {
-        "episode": {},
-        "scene": {},
-        "character": {},
-        "setting": {},
-        "chapter": {}
+        "chapter": {
+          "C01": "C01",
+          "C02": "C02",
+          "C03": "C03",
+          "C04": "C04"
+        },
+        "episode": {
+          "C01-E01": "C01-E01",
+          "C01-E02": "C01-E02",
+          "C01-E03": "C01-E03",
+          "C02-E04": "C02-E04",
+          "C02-E05": "C02-E05",
+          "C02-E06": "C02-E06",
+          "C03-E07": "C03-E07",
+          "C03-E08": "C03-E08",
+          "C03-E09": "C03-E09",
+          "C04-E10": "C04-E10",
+          "C04-E11": "C04-E11",
+          "C04-E12": "C04-E12"
+        },
+        "scene": {
+          "C01-E01": "C01-E01",
+          "C01-E02": "C01-E02",
+          "C01-E03": "C01-E03",
+          "C02-E04": "C02-E04",
+          "C02-E05": "C02-E05",
+          "C02-E06": "C02-E06",
+          "C03-E07": "C03-E07",
+          "C03-E08": "C03-E08",
+          "C03-E09": "C03-E09",
+          "C04-E10": "C04-E10",
+          "C04-E11": "C04-E11",
+          "C04-E12": "C04-E12"
+        },
+        "setting": {
+          "CHARACTERS": "CHARACTERS",
+          "STORY": "STORY",
+          "WRITING": "WRITING"
+        },
+        "character": {}
       },
-      "notes": "採用本文は現行main commit。形式は investor-life-source/v1。M2でこのcommitから本文・章/話ID・設定を複製する。"
+      "notes": "M2実取込み。本文・設定・索引・補助資料を追加コピー。archive/revisions/CHANGELOGはhistoryへ分離。originはM8まで正本として保持し、Worker・公開範囲は変更しない。",
+      "files": [
+        {
+          "origin": "CHANGELOG.md",
+          "target": "history/CHANGELOG.md",
+          "sha256": "b06a32eb25ce16473ad3cd285e9a8ee5b736fa44b06658ac10b84e055a1eca26"
+        },
+        {
+          "origin": "INDEX.md",
+          "target": "INDEX.md",
+          "sha256": "12ed172471f70cfdc425fa8be934a78dc3156b10e9ca4598157b8f195220b747"
+        },
+        {
+          "origin": "ai/README.md",
+          "target": "ai/README.md",
+          "sha256": "3fa01f52568c1d2f0904e62d5668ee4d3b0ae84356970582943e100d97b970c1"
+        },
+        {
+          "origin": "ai/templates/plan.md",
+          "target": "ai/templates/plan.md",
+          "sha256": "8dc908217a79ccdad8c8b1cbaec04466b101167a4317d7141fbaebccdbb34643"
+        },
+        {
+          "origin": "ai/templates/review.md",
+          "target": "ai/templates/review.md",
+          "sha256": "378ca4c2ece318405fdb0859caeb4d4dc3419590d89614cc664a678a197c777e"
+        },
+        {
+          "origin": "ai/templates/revise.md",
+          "target": "ai/templates/revise.md",
+          "sha256": "f39eef11436fb1e23a956c14573010c61e5e1e3b3da427da5ee32e7cfc5bedec"
+        },
+        {
+          "origin": "manifest.json",
+          "target": "source/manifest.json",
+          "sha256": "6d8a26964435f0a9da23317c19e8a8a33db650bbd15737dcb38bfcba7e4a7d9f"
+        },
+        {
+          "origin": "manuscript/p01/p01-01.md",
+          "target": "manuscript/p01/p01-01.md",
+          "sha256": "3cee5d15efa6b7df6f824338633632d95d784577e090b8d47ce52a4c9126151a"
+        },
+        {
+          "origin": "manuscript/p01/p01-02.md",
+          "target": "manuscript/p01/p01-02.md",
+          "sha256": "a4bfaddb103a6870966f7a5d499380379c3cbfa56a70f09a4ed29c867bee06c4"
+        },
+        {
+          "origin": "manuscript/p01/p01-03.md",
+          "target": "manuscript/p01/p01-03.md",
+          "sha256": "bfbac043b78e39f3e94d074ca61b429474cea2bf98eba30002a393665780696a"
+        },
+        {
+          "origin": "manuscript/p02/p02-01.md",
+          "target": "manuscript/p02/p02-01.md",
+          "sha256": "7003ecdfde0364c83b1de549da198799543fecdba271c525e7785fea23af5240"
+        },
+        {
+          "origin": "manuscript/p02/p02-02.md",
+          "target": "manuscript/p02/p02-02.md",
+          "sha256": "3c6533465d50b5bf6ba64384cc8e9e2ba7df69d64e0014dfce0205f5470e9905"
+        },
+        {
+          "origin": "manuscript/p02/p02-03.md",
+          "target": "manuscript/p02/p02-03.md",
+          "sha256": "edfdec78b6706c0082971978d5354a5f3b9543b18b5f09e4927229d4a39dec46"
+        },
+        {
+          "origin": "manuscript/p03/p03-01.md",
+          "target": "manuscript/p03/p03-01.md",
+          "sha256": "3ffa26eb08df4782eb02b87847c1381e513e5b6e512bb7cb7d7f32a574a4f538"
+        },
+        {
+          "origin": "manuscript/p03/p03-02.md",
+          "target": "manuscript/p03/p03-02.md",
+          "sha256": "4b9304a4e4066d87d3d06e5c54ffd2082165661dbae609e6a2c50c11a568e5a6"
+        },
+        {
+          "origin": "manuscript/p03/p03-03.md",
+          "target": "manuscript/p03/p03-03.md",
+          "sha256": "aaba43f6fdbef9abf4b22f805c274f9ceb1e49f14c171c00c065c58c6b11fc85"
+        },
+        {
+          "origin": "manuscript/p04/p04-01.md",
+          "target": "manuscript/p04/p04-01.md",
+          "sha256": "2b1c77afcc2cd0965e2c5f911ad5e4b874db335047b528c00eda6699214dd2e1"
+        },
+        {
+          "origin": "manuscript/p04/p04-02.md",
+          "target": "manuscript/p04/p04-02.md",
+          "sha256": "d37d745c3df2b27566beb4b12f50e65fce1ab0a5f9e65a7d67390432a2b320cb"
+        },
+        {
+          "origin": "manuscript/p04/p04-03.md",
+          "target": "manuscript/p04/p04-03.md",
+          "sha256": "dcbdbe8486b63f73173dd17a4e47475f66a99afd098e2f7fd74c50630886b282"
+        },
+        {
+          "origin": "settings/characters.md",
+          "target": "settings/characters.md",
+          "sha256": "6556e6295cae4498c461b6d8881ff8c26121906e5ce42419c375780da7321536"
+        },
+        {
+          "origin": "settings/story.md",
+          "target": "settings/story.md",
+          "sha256": "1ae64f2376318237ea41d54d49c7a6976dae403eb760170d2f0d050b4084ee5e"
+        },
+        {
+          "origin": "settings/writing.md",
+          "target": "settings/writing.md",
+          "sha256": "68ab6d5bdc4efd7dc83ad0cf8b972e18746b4b0ca8febd4dcbbf124ef63629cd"
+        }
+      ]
     }
   ]
 }
