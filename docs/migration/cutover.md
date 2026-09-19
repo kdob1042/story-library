@@ -26,7 +26,7 @@ npm run build:reader -- --private
 新規Workerは `story-library-reader` とし、Workers BuildsのRoot directoryを `/`、Production branchを `main` に設定する。Build commandは `npm ci && npm run build:reader -- --private`、mainのDeploy commandは `npx wrangler deploy`、Nodeは22、Output directoryは空欄とする。dev/PRのNon-production branch deploy commandは `npx wrangler versions upload` とし、preview URLで確認する。成果物のディレクトリはリポジトリの `wrangler.jsonc` にある `assets.directory: ./dist/reader` で指定する。
 
 `MANGA_URLS_JSON` は作品IDをキーにしたHTTPS URLのJSONで、未設定作品のリンクは非表示。デプロイ後にCloudflare Accessの既存ポリシーを適用してから閲覧確認する。Worker名はWrangler設定の `name` と一致させる。
-
+\n## dev / main と話単位の公開\n\n- `dev` は `wrangler.dev.jsonc` を使うAccess保護下の確認環境。`--private` でstory-libraryの全作品・全話を含むsnapshotを作る。\n- `main` は `wrangler.jsonc` を使う公開環境。`--published` では各作品の `publication.yaml` を読み、`novel` の `visibility: public`、話ごとの `state: published`、`approved: true`、`transferred: true` を満たし、`releaseAt` があれば到達した話だけを生成する。未条件の本文・設定・人物画像・履歴は成果物へ入れない。\n- 例：\n```json\n{\n  "workId": "investor-life",\n  "formats": {\n    "novel": {\n      "visibility": "public",\n      "episodes": [\n        {\n          "episodeId": "C01-E01",\n          "state": "published",\n          "approved": true,\n          "transferred": true\n        }\n      ]\n    }\n  }\n}\n```\n- これにより、原稿を `main` へ反映しても `publication.yaml` に登録・承認・転送済みにしない限り公開されず、話単位で順次公開できる。\n- CloudflareのGit接続、Access、Worker URL、公開開始の承認は人間設定として残す。実URLや認証情報はリポジトリへ書かない。\n
 ## 未完了の実環境作業
 
 - story-libraryを参照する小説WorkerのGit接続、既存URL/Access保護下での閲覧確認。
