@@ -6,7 +6,8 @@
   "type": "module",
   "scripts": {
     "test": "node --test tests/*.test.mjs contracts/story-source/tests/*.test.mjs",
-    "validate": "node scripts/validate.mjs"
+    "validate": "node scripts/validate.mjs",
+    "import-work": "node scripts/import-work.mjs"
   },
   "engines": {
     "node": ">=18"

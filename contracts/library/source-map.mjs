@@ -3,12 +3,13 @@ import { LibraryValidationError, checkObject, issue, isObject } from './errors.m
 import { assertWorkRoot, safeWorkRelativePath } from './paths.mjs';
 
 const ENTRY_REQUIRED = ['workId', 'origin', 'target'];
-const ENTRY_OPTIONAL = ['ids', 'notes', 'status'];
+const ENTRY_OPTIONAL = ['ids', 'files', 'notes', 'status'];
 const ORIGIN_REQUIRED = ['repository'];
 const ORIGIN_OPTIONAL = ['ref', 'commit', 'path'];
 const TARGET_REQUIRED = ['root'];
 const TARGET_OPTIONAL = ['path'];
 const ID_GROUPS = ['episode', 'scene', 'character', 'setting', 'chapter'];
+const FILE_SHA = /^[a-f0-9]{64}$/;
 
 function checkIdMap(map, path, issues) {
   if (map === undefined) return;
@@ -25,6 +26,31 @@ function checkIdMap(map, path, issues) {
       issue(issues, `${path}.${from}`, 'ID_REWRITTEN', '移行を口実にした固定IDの付け替えは禁止です');
     }
   }
+}
+
+function checkFileMap(files, path, issues) {
+  if (files === undefined) return;
+  if (!Array.isArray(files)) {
+    issue(issues, path, 'INVALID_FILES', 'filesは配列です');
+    return;
+  }
+  const usedTargets = new Set();
+  files.forEach((file, index) => {
+    const filePath = `${path}[${index}]`;
+    if (!checkObject(file, filePath, ['origin', 'target', 'sha256'], [], issues)) return;
+    for (const [key, value] of [['origin', file.origin], ['target', file.target]]) {
+      try {
+        safeWorkRelativePath(value, `${filePath}.${key}`);
+      } catch (error) {
+        issue(issues, `${filePath}.${key}`, 'INVALID_PATH', error.message);
+      }
+    }
+    if (typeof file.sha256 !== 'string' || !FILE_SHA.test(file.sha256)) {
+      issue(issues, `${filePath}.sha256`, 'INVALID_HASH', 'ファイルhashはSHA-256の64桁hexです');
+    }
+    if (usedTargets.has(file.target)) issue(issues, `${filePath}.target`, 'DUPLICATE_PATH', '同じtarget pathが重複しています');
+    else usedTargets.add(file.target);
+  });
 }
 
 export function validateSourceMap(sourceMap, { catalogWorkIds = null } = {}) {
@@ -102,6 +128,7 @@ export function validateSourceMap(sourceMap, { catalogWorkIds = null } = {}) {
         for (const group of ID_GROUPS) checkIdMap(entry.ids[group], `${path}.ids.${group}`, issues);
       }
     }
+    checkFileMap(entry.files, `${path}.files`, issues);
     if (entry.status !== undefined && !['planned', 'copied', 'verified'].includes(entry.status)) {
       issue(issues, `${path}.status`, 'INVALID_STATUS', 'source-map statusが不正です');
     }

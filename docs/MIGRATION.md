@@ -5,9 +5,9 @@
 
 | 作業 | 担当 | 状態 |
 | --- | --- | --- |
-| M0 棚卸し | 本リポジトリ / #1 | このPR。origin未読取を明示 |
-| M1 catalog / 作品root / 読取adapter | 本リポジトリ / #1 | このPR |
-| M2 既存原稿の複製とsource-map充填 | 本リポジトリ / #1 | origin読取権限の後 |
+| M0 棚卸し | 本リポジトリ / #1 | 完了。各originの採用main commitを固定 |
+| M1 catalog / 作品root / 読取adapter | 本リポジトリ / #1 | 完了。investor-life-source/v1の明示adapterを含む |
+| M2 既存原稿の複製とsource-map充填 | 本リポジトリ / #1 | 取込みCLIとhash付きsource-mapを追加。実ファイル反映は作品ごとのDraft PR |
 | M3 `templates/work/` と軽量CI | 本リポジトリ / #1 | M1の後。novel-template#3 は二重実装しない |
 | M4 制作アプリの作品選択 | [manga-mac#157](https://github.com/kdob1042/manga-mac/issues/157) | M1契約確定後 |
 | M5 小説リーダー移管 | [novel-template#3](https://github.com/kdob1042/novel-template/issues/3) → live-manga | M1契約確定後 |
