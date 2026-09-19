@@ -9,7 +9,7 @@
 | --- | --- | --- |
 | `kdob1042/story-library` | 非公開原稿庫。catalog、作品root、公開設定、雛形 | 契約・棚卸しのみ。実原稿は未複製 |
 | `kdob1042/Kamiya-Kawai` | 既存原稿の1作目。manga-mac が schema 4 として接続 | **origin のまま** |
-| `investor-life`（novel-template#3） | 既存原稿の2作目。小説ビューワー比較対象 | **origin のまま。repo名は未確認** |
+| `kdob1042/investor-life` | 既存原稿の2作目。小説ビューワー比較対象 | **origin のまま。main commitを採用** |
 | `kdob1042/novel-template` | 公開スターター。実作品本文を入れない | 雛形の現行コード。M3で `templates/work/` へ移す |
 | `kdob1042/manga-mac` | 制作アプリ。`story-source/v1` 契約の実装正本 | 契約を vendor。接続先切替は #157 / M4 |
 | `kdob1042/live-manga` | 共通配信。本棚・公開判定 | 原稿は置かない。#44 / #46 |
@@ -23,18 +23,19 @@
 - origin：`kdob1042/Kamiya-Kawai`（private）
 - 確認されている構造：manifest schema 4、`episodes[].scene_ids` → `scenes[].path`、複数 `settings[].path`、VISUAL 設定内の人物基準画
 - 構造確認commit：`7eed2120eb93e2964cd188b5890f0247c83de540`（manga-mac `docs/VALIDATION.md`）。**これは採用本文の版ではない**
-- この token では clone / API とも到達できず、本文・話ID・基準画像の実体は未取得
+- 採用元commit：`5621918052faf05fc0bac245ad70d6c4f7ca1561`（現行 `main`）
+- `dev` は `main` より3コミット古く、原稿採用版にはしない
 
 ### investor-life
 
 - 固定 workId：`investor-life`
-- novel-template#3 が `investor-life` の latest main/dev/PR を小説リーダー移管の比較対象としている
-- この token から `kdob1042/investor-life` を解決できず、正式な owner/repository・形式・話IDは未確定
-- タイトルや章/話IDはこの棚卸しで発明しない
+- 採用元：`kdob1042/investor-life` の現行 `main` commit `cb08a589fdce05fb0bcfa91ba0b20c9c2c043fa5`
+- 形式：`investor-life-source/v1`。4章12話、章ID `C01`–`C04`、話ID `C01-E01`–`C04-E12`、manifest上の順序を保持する
+- `dev` 固有の差分は小説ビューアー実装であり、原稿本文の採用版へ混ぜない
 
 ## 公開テンプレート（実作品ではない）
 
-`kdob1042/novel-template` の `manifest.json` は `novel-source/v1`。章 `C01`–`C04`、話 `C01-E01` 形式、本文はプレースホルダー。公開CIやテンプレートに実作品本文・個人情報を入れない。
+`kdob1042/novel-template` の `manifest.json` は `novel-source/v1`。章 `C01`–`C04`、話 `C01-E01` 形式、本文はプレースホルダー。これは新作雛形の採用元であり、investor-lifeの実本文と混ぜない。公開CIやテンプレートに実作品本文・個人情報を入れない。
 
 ## 保持する対象
 
@@ -56,4 +57,4 @@
 
 ## 次の入力（M2）
 
-origin への Contents: read 権限が付いたあと、最新の main/dev/PR を再確認してから複製する。構造確認commitだけを採用本文にしない。
+M1で固定した各origin commitから、本文・設定・基準画像を複製する。複製前に対象commitが現在のmain/dev運用と矛盾していないかだけ再確認し、構造確認commitだけを採用本文にしない。

@@ -1,0 +1,12 @@
+{
+  "novel": {
+    "archive": "archive/kamiya_kawai_vol1_v2_9.md",
+    "sha256": "ed832bb257593f9ec87d158883fce90d305cb061ead807c572645f249c8c3d8c",
+    "bytes": 197905
+  },
+  "design": {
+    "archive": "archive/kamiya_kawai_vol1_v2_9_scene_design.md",
+    "sha256": "324de0ca7229b32b30beefb39a2f359e8511d0feb60db57228a41a0483496a02",
+    "bytes": 28141
+  }
+}

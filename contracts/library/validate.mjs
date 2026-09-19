@@ -6,6 +6,7 @@ import { defaultPublication, validatePublication } from './publication.mjs';
 import { manifestEntryPath, publicationPath, safeWorkRelativePath } from './paths.mjs';
 import { validateSourceMap } from './source-map.mjs';
 import { readManuscript } from '../adapters/read.mjs';
+import { declaredPaths } from '../story-source/paths.mjs';
 
 export function parseJson(text, path) {
   try {
@@ -34,13 +35,16 @@ export async function validateLibraryDocuments({ catalog, sourceMap }) {
     if (entry.origin.repository !== work.origin.repository) {
       issue(issues, `source-map:${work.id}.origin.repository`, 'ORIGIN_MISMATCH', 'catalogとsource-mapの採用元repoが一致しません');
     }
+    if (work.origin.commit && entry.origin.commit !== work.origin.commit) {
+      issue(issues, `source-map:${work.id}.origin.commit`, 'ORIGIN_COMMIT_MISMATCH', 'catalogとsource-mapの採用元commitが一致しません');
+    }
   }
   if (issues.length) throw new LibraryValidationError(issues);
   return { catalog: normalizedCatalog, sourceMap: normalizedMap };
 }
 
 export async function validateImportedWork(repoRoot, work, filesByPath) {
-  if (work.importStatus === 'pending-access' || work.importStatus === 'pending-identification') {
+  if (['pending-access', 'pending-identification', 'pending-import'].includes(work.importStatus)) {
     return { work, status: work.importStatus, manuscript: null, publication: null };
   }
   const manifestPath = manifestEntryPath(work.root);
@@ -51,9 +55,13 @@ export async function validateImportedWork(repoRoot, work, filesByPath) {
     ]);
   }
   const manifest = parseJson(filesByPath.get('source/manifest.json'), manifestPath);
-  const manuscript = readManuscript(manifest, Object.fromEntries(
-    [...filesByPath.entries()].filter(([path]) => path !== 'source/manifest.json' && path !== 'publication.yaml')
-  ), { expectedFormat: work.manuscriptFormat });
+  const declared = manifest.format === 'story-source/v1' ? new Set(declaredPaths(manifest)) : null;
+  const manuscriptFiles = Object.fromEntries(
+    [...filesByPath.entries()]
+      .filter(([path]) => path !== 'source/manifest.json' && path !== 'publication.yaml')
+      .filter(([path]) => !declared || declared.has(path))
+  );
+  const manuscript = readManuscript(manifest, manuscriptFiles, { expectedFormat: work.manuscriptFormat });
   const publication = validatePublication(null, {
     workId: work.id,
     text: filesByPath.get('publication.yaml') ?? JSON.stringify(defaultPublication(work.id)),

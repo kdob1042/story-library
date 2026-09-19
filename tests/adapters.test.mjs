@@ -39,6 +39,26 @@ test('novel-source/v1 fixture keeps chapter/episode IDs and reading order', asyn
   assert.equal(files.get('manuscript/p01/p01-01.md'), await readFile(new URL('../fixtures/works/fixture-novel/manuscript/p01/p01-01.md', import.meta.url), 'utf8'));
 });
 
+test('investor-life-source/v1 keeps its source format, chapter IDs and episode order', () => {
+  const manifest = {
+    format: 'investor-life-source/v1',
+    work: { title: '個人投資家としての10年', slug: 'investor-life' },
+    chapters: [{
+      id: 'C01',
+      title: '偶然を知る',
+      episodes: [{ id: 'C01-E01', title: 'GPUのある部屋', path: 'manuscript/p01/p01-01.md' }],
+    }],
+    settings: [{ id: 'STORY', path: 'settings/story.md' }],
+  };
+  const model = readManuscript(manifest, {
+    'manuscript/p01/p01-01.md': '# GPUのある部屋\n本文\n',
+    'settings/story.md': '# 物語設定\n設定\n',
+  });
+  assert.equal(model.format, 'investor-life-source/v1');
+  assert.deepEqual(model.readingOrder, ['C01-E01']);
+  assert.deepEqual(model.chapters[0].episodeIds, ['C01-E01']);
+});
+
 test('schema 4 adapter keeps scene_ids order and does not invent IDs', () => {
   const manifest = {
     schema_version: 4,

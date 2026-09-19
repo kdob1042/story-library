@@ -1,12 +1,13 @@
-import { STORY_SOURCE_FORMAT } from '../library/ids.mjs';
+import { INVESTOR_LIFE_SOURCE_FORMAT, STORY_SOURCE_FORMAT } from '../library/ids.mjs';
 import { LibraryValidationError, issue } from '../library/errors.mjs';
 import { manifestToSourceModel, validateSourceTree } from '../story-source/validate.mjs';
-import { readNovelSource } from './novel-source.mjs';
+import { readInvestorLifeSource, readNovelSource } from './novel-source.mjs';
 import { readSchemaLegacy } from './schema-legacy.mjs';
 
 function detectFormat(manifest) {
   if (manifest?.format === STORY_SOURCE_FORMAT) return STORY_SOURCE_FORMAT;
   if (manifest?.format === 'novel-source/v1') return 'novel-source/v1';
+  if (manifest?.format === INVESTOR_LIFE_SOURCE_FORMAT) return INVESTOR_LIFE_SOURCE_FORMAT;
   if (manifest?.schema_version === 1) return 'schema-1';
   if (manifest?.schema_version === 4) return 'schema-4';
   return manifest?.format ?? (manifest?.schema_version == null ? 'unknown' : `schema-${manifest.schema_version}`);
@@ -40,6 +41,7 @@ export function readManuscript(manifest, files = null, { expectedFormat = null }
   }
 
   if (format === 'novel-source/v1') return readNovelSource(manifest, files);
+  if (format === INVESTOR_LIFE_SOURCE_FORMAT) return readInvestorLifeSource(manifest, files);
   if (format === 'schema-1' || format === 'schema-4') return readSchemaLegacy(manifest, files);
 
   const issues = [];
