@@ -143,7 +143,7 @@ function buildWorkSnapshot(repoRoot, work, {mode = 'private'} = {}) {
   return {work, catalog, inputs};
 }
 
-// This is a private preview snapshot, not the public publication pipeline.
+// Private preview and gated production builds share one reader generator.
 export function buildReader({
   repoRoot = ROOT,
   workId,
@@ -154,7 +154,7 @@ export function buildReader({
   outputDir = path.join(repoRoot, 'dist', 'reader'),
 } = {}) {
   const mode = privatePreview ? 'private' : published ? 'published' : null;
-  if (!mode) throw new Error('Specify --private for Access-protected preview or --published for a gated production build');
+  if (!mode) throw new Error('Private snapshot requires --private; use --published for a gated production build');
   const library = validateCatalog(JSON.parse(fs.readFileSync(path.join(repoRoot, 'library.json'), 'utf8')));
   if (!library.works.length) throw new Error('No works are available in library.json');
   const requestedWork = workId ? library.works.find(item => item.id === workId) : null;
