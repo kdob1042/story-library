@@ -1,6 +1,7 @@
 import { LibraryValidationError, issue } from '../library/errors.mjs';
 import {
   asRecords,
+  buildSections,
   checkSafeDeclaredPath,
   checkStableId,
   headingOk,
@@ -85,6 +86,7 @@ export function readSchemaLegacy(manifest, files = null) {
       ...episode,
       scenes: episode.sceneIds.map(id => sceneById.get(id)).filter(Boolean),
     })),
+    sections: buildSections({episodes}),
     scenes: episodes.flatMap(episode => episode.sceneIds.map(id => ({ ...sceneById.get(id), episodeId: episode.id }))),
     settings,
     characters,
