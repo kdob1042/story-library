@@ -35,17 +35,19 @@
           "currentBasisPrice": 7
         }
       ],
-      "holdingScenarios": [
-        {
-          "label": "約200万円を売らずに保有",
-          "valueJpy": 845434255,
-          "calculation": "200万円 ÷ 110円/USD ÷ 30ドル × 40分割 × 現在値222.27ドル × 為替156.9円/USD",
-          "note": "本文の金額・株価を丸めた単純計算。税金・手数料・配当は未考慮。"
-        }
-      ],
       "note": "NVIDIAは4分割（2021年）と10分割（2024年）で合計40分割。現在値は分割後基準です。",
       "sourceLabel": "Google Finance",
-      "sourceUrl": "https://www.google.com/finance/quote/NVDA:NASDAQ"
+      "sourceUrl": "https://www.google.com/finance/quote/NVDA:NASDAQ",
+      "pnlScenarios": [
+        {
+          "label": "約200万円をそのまま保有した場合（買い)",
+          "side": "long",
+          "positionJpy": 2000000,
+          "profitLossJpy": 843434255,
+          "calculation": "現在評価額約8.45億円 − 投入額約200万円",
+          "note": "本文の金額・株価を丸めた単純計算。税金・手数料・配当は未考慮。"
+        }
+      ]
     },
     {
       "id": "microsoft",
@@ -62,17 +64,19 @@
           "currentBasisPrice": 150
         }
       ],
-      "holdingScenarios": [
-        {
-          "label": "約1,100万円を売らずに保有",
-          "valueJpy": 52363435,
-          "calculation": "1,100万円 ÷ 108.5円/USD ÷ 150ドル × 現在値493.78ドル × 為替156.9円/USD",
-          "note": "購入単価$150・購入時為替108.5円/USDを仮置きした参考値。税金・手数料・配当は未考慮。"
-        }
-      ],
       "note": "Microsoftは本文で購入単価が明記されていないため、保有継続額は仮定に依存します。",
       "sourceLabel": "Google Finance",
-      "sourceUrl": "https://www.google.com/finance/quote/MSFT:NASDAQ"
+      "sourceUrl": "https://www.google.com/finance/quote/MSFT:NASDAQ",
+      "pnlScenarios": [
+        {
+          "label": "約1,100万円をそのまま保有した場合（買い)",
+          "side": "long",
+          "positionJpy": 11000000,
+          "profitLossJpy": 41363435,
+          "calculation": "現在評価額約5,240万円 − 投入額約1,100万円",
+          "note": "購入単価$150・購入時為替108.5円/USDを仮置きした参考値。税金・手数料・配当は未考慮。"
+        }
+      ]
     },
     {
       "id": "robot-payment",
@@ -107,23 +111,27 @@
           "currentBasisPrice": 2800
         }
       ],
-      "holdingScenarios": [
+      "note": "基準日現在は9月30日実施予定の株式分割前の株価です。分割後基準に更新する際は2分の1に換算します。",
+      "sourceLabel": "野村證券",
+      "sourceUrl": "https://quote.nomura.co.jp/quote/quoteDetail?code=4374",
+      "pnlScenarios": [
         {
-          "label": "総ポジションの現在時価（現物＋信用）",
-          "valueJpy": 60622222,
-          "calculation": "3,300万円 × 現在値2,480円 ÷ 購入時1,350円",
+          "label": "総ポジション約3,300万円をそのまま保有した場合（買い)",
+          "side": "long",
+          "positionJpy": 33000000,
+          "profitLossJpy": 27622222,
+          "calculation": "現在評価額約6,062万円 − ポジション原価約3,300万円",
           "note": "同じ数量を保有し続けた場合。"
         },
         {
-          "label": "信用元本約1,200万円を差し引いた概算純資産",
-          "valueJpy": 48622222,
-          "calculation": "総ポジション約6,062万円 − 信用元本約1,200万円",
+          "label": "総ポジション約3,300万円をそのまま保有した場合（買い)",
+          "side": "long",
+          "positionJpy": 33000000,
+          "profitLossJpy": 27622222,
+          "calculation": "現在評価額約6,062万円 − ポジション原価約3,300万円",
           "note": "信用金利・保証金・税金・手数料は未考慮。"
         }
-      ],
-      "note": "基準日現在は9月30日実施予定の株式分割前の株価です。分割後基準に更新する際は2分の1に換算します。",
-      "sourceLabel": "野村證券",
-      "sourceUrl": "https://quote.nomura.co.jp/quote/quoteDetail?code=4374"
+      ]
     },
     {
       "id": "gl-techno",
@@ -140,17 +148,19 @@
           "currentBasisPrice": 3150
         }
       ],
-      "holdingScenarios": [
-        {
-          "label": "約1億9,000万円を売らずに保有",
-          "valueJpy": 315460317,
-          "calculation": "1億9,000万円 × 現在値5,230円 ÷ 仮置き購入単価3,150円",
-          "note": "本文に購入単価の明記がないため、約3,150円を仮置き。『ほぼすべて』を1億9,000万円として計算。税金・手数料・配当は未考慮。"
-        }
-      ],
       "note": "現在値は概算。株式分割は本文の期間では確認していません。",
       "sourceLabel": "Yahoo!ファイナンス",
-      "sourceUrl": "https://finance.yahoo.co.jp/quote/255A.T"
+      "sourceUrl": "https://finance.yahoo.co.jp/quote/255A.T",
+      "pnlScenarios": [
+        {
+          "label": "約1億9,000万円をそのまま保有した場合（買い）",
+          "side": "long",
+          "positionJpy": 190000000,
+          "profitLossJpy": 125460317,
+          "calculation": "現在評価額約3億1,550万円 − ポジション原価約1億9,000万円",
+          "note": "本文に購入単価の明記がないため、約3,150円を仮置き。『ほぼすべて』を1億9,000万円として計算。税金・手数料・配当は未考慮。"
+        }
+      ]
     },
     {
       "id": "sansan",
@@ -158,20 +168,29 @@
       "ticker": "4443",
       "currentPrice": 2142,
       "currentCurrency": "JPY",
-      "basis": "本文に登場するSansanの現在値を、現在の1株単位で表示。",
+      "basis": "本文の実効レバレッジと現物枠から推定したSansan信用ポジションを、現在の1株単位で換算。",
       "priceConversions": [
         {
-          "label": "現在値（分割調整なし）",
-          "historicalPrice": 2142,
+          "label": "2026年3月末購入時（3/31終値）",
+          "historicalPrice": 1163,
           "currency": "JPY",
-          "currentBasisPrice": 2142
+          "currentBasisPrice": 1163
         }
       ],
-      "holdingNote": "本文に購入額・購入単価・保有数量の記載がないため、そのまま保有していた場合の評価額は算出不可。実効レバレッジ約1.5倍という記述のみでは金額を特定できません。",
-      "note": "本文では信用枠で購入した銘柄。保有額が明記されていないため、現在評価額は表示していません。",
+      "note": "本文の実効レバレッジ約1.5倍とジーエルテクノ約1億9,000万円から、Sansanの信用ポジションを約9,500万円と推定。",
       "sourceLabel": "Yahoo!ファイナンス",
-      "sourceUrl": "https://finance.yahoo.co.jp/quote/4443.T"
+      "sourceUrl": "https://finance.yahoo.co.jp/quote/4443.T/history",
+      "pnlScenarios": [
+        {
+          "label": "約9,500万円をそのまま保有した場合（買い）",
+          "side": "long",
+          "positionJpy": 95000000,
+          "profitLossJpy": 79969905,
+          "calculation": "実効レバレッジ約1.5倍 − ジーエルテクノ約1億9,000万円 ≒ 約9,500万円。現在評価額約1億7,500万円 − ポジション原価約9,500万円",
+          "note": "3/31終値1,163円から9/18終値2,142円まで保有した概算。実効レバレッジと本文の金額が丸め値のため、信用金利・保証金・税金・手数料は未考慮。"
+        }
+      ]
     }
   ],
-  "note": "現在値は2026年9月19日時点の最終取引値ベース。本文中で比較対象として名前だけ登場するトヨタ、AMAT、東京エレクトロン、マルマエ、フェローテック、TSMCは、購入額・数量がないため保有継続額の計算対象外です。金額は本文の丸め値と仮定による参考計算で、実際の約定・為替・税金・手数料・配当とは異なります。"
+  "note": "現在値は2026年9月19日時点の最終取引値ベース（日本株は9月18日終値）。Sansanの3月末値は3月31日終値を使用。本文の丸め値と仮定による参考計算です。AnyMind Group、FPパートナー、トヨタ、AMAT、東京エレクトロン、マルマエ、フェローテック、TSMCは本文に名前が登場しますが、ポジション額または銘柄別の購入条件が特定できないため損益計算の対象外です。"
 }
