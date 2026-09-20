@@ -50,6 +50,28 @@ export function copyText(value) {
   return typeof value === 'string' ? value : value;
 }
 
+/**
+ * Normalize every supported manuscript format to the common reader section contract.
+ * A section owns an ordered list of scene IDs; the reader never needs to know
+ * whether the source called the group an episode or a chapter.
+ */
+export function buildSections({chapters = [], episodes = []} = {}) {
+  const groups = Array.isArray(chapters) && chapters.length > 0 ? chapters : episodes;
+  return groups.map(group => {
+    const rawSceneIds = group.sceneIds
+      ?? group.scene_ids
+      ?? group.episodeIds
+      ?? (Array.isArray(group.episodes) ? group.episodes.map(episode => episode.id) : null)
+      ?? (Array.isArray(group.scenes) ? group.scenes.map(scene => scene.id) : []);
+    const sceneIds = Array.isArray(rawSceneIds) ? rawSceneIds : [];
+    return {
+      id: group.id,
+      title: group.title ?? group.id,
+      sceneIds: [...sceneIds],
+    };
+  });
+}
+
 export function asRecords(items, path, issues) {
   if (!Array.isArray(items)) {
     issue(issues, path, 'INVALID_ARRAY', '配列が必要です');

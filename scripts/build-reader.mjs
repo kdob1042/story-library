@@ -118,6 +118,19 @@ function buildWorkSnapshot(repoRoot, work, {mode = 'private'} = {}) {
     episodeNumber: i + 1,
     scene_ids: scenes.filter(scene => scene.episodeId === episode.id).map(scene => scene.id),
   }));
+  const visibleSceneIds = new Set(visibleScenes.map(scene => scene.id));
+  const sourceSections = Array.isArray(source.sections) && source.sections.length > 0
+    ? source.sections
+    : visibleEpisodes.map(episode => ({
+        id: episode.id,
+        title: episode.title,
+        sceneIds: episode.sceneIds ?? episode.scenes?.map(scene => scene.id) ?? [episode.id],
+      }));
+  const sections = sourceSections.map(section => ({
+    id: section.id,
+    title: section.title,
+    scene_ids: (section.sceneIds ?? []).filter(id => visibleSceneIds.has(id)),
+  })).filter(section => section.scene_ids.length > 0);
   const settings = visibleSettings.map(setting => ({...setting, title: title(setting.path, setting.id)}));
   const historyPath = path.join(root, 'history/CHANGELOG.md');
   const catalog = {
@@ -125,6 +138,7 @@ function buildWorkSnapshot(repoRoot, work, {mode = 'private'} = {}) {
     workId: work.id,
     work: source.work,
     episodes,
+    sections,
     scenes,
     settings,
     characters: mode === 'private' ? source.characters : [],

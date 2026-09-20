@@ -27,6 +27,8 @@ test('private reader builds all works, preserves order, and isolates assets', t 
     mangaUrls:{'fixture-novel':'https://manga.example/works/fixture-novel/?a=1&b=2'},
   });
   assert.deepEqual(result.catalog.episodes[0].scene_ids, ['P01-01', 'P01-02']);
+  assert.deepEqual(result.catalog.sections.map(section => section.id), ['P01']);
+  assert.deepEqual(result.catalog.sections[0].scene_ids, ['P01-01', 'P01-02']);
   assert.deepEqual(result.libraryIndex.works.map(work => work.id), ['fixture-story', 'fixture-novel']);
   assert.equal(result.libraryIndex.defaultWorkId, 'fixture-story');
   assert.equal(result.libraryIndex.works[1].mangaUrl, 'https://manga.example/works/fixture-novel/?a=1&b=2');
@@ -41,6 +43,8 @@ test('private reader builds all works, preserves order, and isolates assets', t 
   const selected = buildReader({repoRoot:temp, workId:'fixture-novel', privatePreview:true});
   assert.equal(selected.libraryIndex.defaultWorkId, 'fixture-novel');
   assert.ok(selected.catalog.episodes.every(ep => ep.scene_ids.length === 1));
+  assert.deepEqual(selected.catalog.sections.map(section => section.id), ['C01']);
+  assert.deepEqual(selected.catalog.sections[0].scene_ids, ['C01-E01', 'C01-E02']);
 });
 
 test('manga links reject script, plaintext and credential URLs', () => {

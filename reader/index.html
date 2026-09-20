@@ -497,25 +497,25 @@
       const sceneById = {};
       manifestData.scenes.forEach(s => { sceneById[s.id] = s; });
 
-      manifestData.episodes.forEach((ep, epIdx) => {
+      sections.forEach((section, sectionIdx) => {
         const epWrapper = document.createElement('div');
         epWrapper.className = 'border border-stone-200 rounded-lg overflow-hidden bg-white/70';
 
         const epHeader = document.createElement('div');
         epHeader.className = 'px-3 py-2 bg-stone-100/70 border-b border-stone-200 font-semibold text-xs text-stone-800 flex items-center justify-between cursor-pointer hover:bg-stone-200/70 transition';
-        epHeader.innerHTML = `<span>${escapeHtml(ep.title)}</span><span class="text-[10px] text-stone-400">${ep.scene_ids.length} 場面</span>`;
+        epHeader.innerHTML = `<span>${escapeHtml(section.title)}</span><span class="text-[10px] text-stone-400">${section.scene_ids.length} 場面</span>`;
 
         const sceneList = document.createElement('div');
         sceneList.className = 'divide-y divide-stone-100';
 
-        ep.scene_ids.forEach(sid => {
+        section.scene_ids.forEach(sid => {
           const scene = sceneById[sid];
           if (!scene) return;
           const globalIdx = allScenes.length;
           allScenes.push({
             ...scene,
-            episodeTitle: ep.title,
-            episodeIdx: epIdx,
+            episodeTitle: section.title,
+            episodeIdx: sectionIdx,
             globalIndex: globalIdx
           });
 
