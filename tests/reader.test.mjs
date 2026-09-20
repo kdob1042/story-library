@@ -19,7 +19,7 @@ test('private reader builds all works, preserves order, and isolates assets', t 
   t.after(() => fs.rmSync(temp, {recursive: true, force: true}));
   fs.cpSync(path.join(root, 'fixtures/works'), path.join(temp, 'works'), {recursive: true});
   fs.writeFileSync(path.join(temp, 'works/fixture-story/market-data.json'), JSON.stringify({
-    schemaVersion: 1,
+    schemaVersion: 2,
     asOf: '2026-09-19',
     fx: {usdJpy: 156.9},
     items: [{
@@ -28,7 +28,7 @@ test('private reader builds all works, preserves order, and isolates assets', t 
       ticker: 'FIX',
       currentPrice: 100,
       currentCurrency: 'USD',
-      convertedValueJpy: 123456,
+      priceConversions: [{label: 'historical', historicalPrice: 30, currentBasisPrice: 0.75}],
     }],
   }));
   const works = ['fixture-story', 'fixture-novel'].map(id => ({id, title:id, root:`works/${id}`, formats:['novel'], manuscriptFormat:id === 'fixture-story' ? 'story-source/v1' : 'novel-source/v1', readAdapters:[id === 'fixture-story' ? 'story-source/v1' : 'novel-source/v1'], authority:'library', origin:{repository:'fixture/source'}, importStatus:'verified'}));

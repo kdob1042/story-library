@@ -103,7 +103,7 @@ function readMarketData(workRoot, workId) {
   } catch (error) {
     throw new Error('Invalid market-data.json for ' + workId + ': ' + error.message);
   }
-  if (!data || data.schemaVersion !== 1 || !/^\d{4}-\d{2}-\d{2}$/.test(data.asOf || '')) {
+  if (!data || data.schemaVersion !== 2 || !/^\\d{4}-\\d{2}-\\d{2}$/.test(data.asOf || '')) {
     throw new Error('Invalid market-data.json for ' + workId);
   }
   if (!Array.isArray(data.items) || data.items.length === 0) {
@@ -113,13 +113,19 @@ function readMarketData(workRoot, workId) {
     if (!item || typeof item !== 'object' || typeof item.id !== 'string' || typeof item.name !== 'string'
       || typeof item.currentPrice !== 'number' || item.currentPrice <= 0
       || !['JPY', 'USD'].includes(item.currentCurrency)
-      || typeof item.convertedValueJpy !== 'number' || item.convertedValueJpy < 0) {
+      || !Array.isArray(item.priceConversions) || item.priceConversions.length === 0) {
       throw new Error('Invalid market-data.json item for ' + workId);
+    }
+    for (const conversion of item.priceConversions) {
+      if (!conversion || typeof conversion.label !== 'string'
+        || typeof conversion.historicalPrice !== 'number' || conversion.historicalPrice < 0
+        || typeof conversion.currentBasisPrice !== 'number' || conversion.currentBasisPrice < 0) {
+        throw new Error('Invalid market-data.json price conversion for ' + workId);
+      }
     }
   }
   return data;
 }
-
 function buildWorkSnapshot(repoRoot, work, {mode = 'private'} = {}) {
   const root = fs.realpathSync(path.join(repoRoot, work.root));
   const readPath = relative => {
