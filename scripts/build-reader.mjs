@@ -93,6 +93,55 @@ export function parseMangaUrls(value = {}) {
   return result;
 }
 
+function readMarketData(workRoot, workId) {
+  const marketDataPath = path.join(workRoot, 'market-data.json');
+  if (!fs.existsSync(marketDataPath)) return null;
+
+  let data;
+  try {
+    data = JSON.parse(fs.readFileSync(marketDataPath, 'utf8'));
+  } catch (error) {
+    throw new Error('Invalid market-data.json for ' + workId + ': ' + error.message);
+  }
+  if (!data || data.schemaVersion !== 2 || !/^\\d{4}-\\d{2}-\\d{2}$/.test(data.asOf || '')) {
+    throw new Error('Invalid market-data.json for ' + workId);
+  }
+  if (!Array.isArray(data.items) || data.items.length === 0) {
+    throw new Error('Invalid market-data.json items for ' + workId);
+  }
+  for (const item of data.items) {
+    if (!item || typeof item !== 'object' || typeof item.id !== 'string' || typeof item.name !== 'string'
+      || typeof item.currentPrice !== 'number' || item.currentPrice <= 0
+      || !['JPY', 'USD'].includes(item.currentCurrency)
+      || !Array.isArray(item.priceConversions) || item.priceConversions.length === 0) {
+      throw new Error('Invalid market-data.json item for ' + workId);
+    }
+    for (const conversion of item.priceConversions) {
+      if (!conversion || typeof conversion.label !== 'string'
+        || typeof conversion.historicalPrice !== 'number' || conversion.historicalPrice < 0
+        || typeof conversion.currentBasisPrice !== 'number' || conversion.currentBasisPrice < 0) {
+        throw new Error('Invalid market-data.json price conversion for ' + workId);
+      }
+    }
+    if (item.pnlNote != null && typeof item.pnlNote !== 'string') {
+      throw new Error('Invalid market-data.json P&L note for ' + workId);
+    }
+    if (item.pnlScenarios != null && !Array.isArray(item.pnlScenarios)) {
+      throw new Error('Invalid market-data.json P&L scenarios for ' + workId);
+    }
+    for (const scenario of item.pnlScenarios || []) {
+      if (!scenario || typeof scenario.label !== 'string'
+        || typeof scenario.profitLossJpy !== 'number'
+        || (scenario.positionJpy != null && (typeof scenario.positionJpy !== 'number' || scenario.positionJpy < 0))
+        || (scenario.side != null && !['long', 'short'].includes(scenario.side))
+        || (scenario.calculation != null && typeof scenario.calculation !== 'string')
+        || (scenario.note != null && typeof scenario.note !== 'string')) {
+        throw new Error('Invalid market-data.json P&L scenario for ' + workId);
+      }
+    }
+  }
+  return data;
+}
 function buildWorkSnapshot(repoRoot, work, {mode = 'private'} = {}) {
   const root = fs.realpathSync(path.join(repoRoot, work.root));
   const readPath = relative => {
@@ -104,6 +153,7 @@ function buildWorkSnapshot(repoRoot, work, {mode = 'private'} = {}) {
 
   const manifest = JSON.parse(fs.readFileSync(readPath('source/manifest.json'), 'utf8'));
   const source = readManuscript(manifest);
+  const marketData = readMarketData(root, work.id);
   const visibleEpisodeIds = selectEpisodeIds(repoRoot, work, source, mode);
   const visibleEpisodes = source.episodes.filter(episode => visibleEpisodeIds.has(episode.id));
   const visibleScenes = source.scenes.filter(scene => visibleEpisodeIds.has(scene.episodeId ?? scene.id));
@@ -144,6 +194,7 @@ function buildWorkSnapshot(repoRoot, work, {mode = 'private'} = {}) {
     characters: mode === 'private' ? source.characters : [],
     revisions: [],
     hasHistory: mode === 'private' && fs.existsSync(historyPath),
+    ...(marketData ? {marketData} : {}),
   };
 
   const files = new Set([...scenes, ...settings].map(item => item.path));

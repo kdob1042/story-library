@@ -196,6 +196,14 @@
           <h2 id="articleTitle" class="text-2xl font-bold tracking-wider text-stone-900 font-gothic"></h2>
         </header>
 
+        <!-- Current-value conversion reference -->
+        <details id="marketDataPanel" class="hidden mb-8 rounded-xl border border-amber-200 bg-amber-50/80 font-gothic text-sm shadow-sm">
+          <summary class="cursor-pointer select-none px-4 py-3 font-semibold text-amber-950">
+            株価の現在基準換算（参考）
+          </summary>
+          <div id="marketDataContent" class="px-4 pb-4"></div>
+        </details>
+
         <!-- Main Novel Content -->
         <div id="novelContent" class="novel-body text-base text-stone-800 leading-relaxed font-mincho">
           <p class="text-center text-stone-400 py-12 font-gothic">本文を読み込んでいます...</p>
@@ -261,6 +269,110 @@
     const sceneNavigation = prevSceneBtn.closest('nav');
     const nextHeaderBtn = document.getElementById('nextHeaderBtn');
 
+    const marketDataPanel = document.getElementById('marketDataPanel');
+    const marketDataContent = document.getElementById('marketDataContent');
+
+    function formatMarketNumber(value, maximumFractionDigits = 3) {
+      return new Intl.NumberFormat('ja-JP', {maximumFractionDigits}).format(Number(value));
+    }
+
+    function formatMarketPrice(value, currency) {
+      const symbol = currency === 'USD' ? String.fromCharCode(36) : '¥';
+      return symbol + formatMarketNumber(value, currency === 'USD' ? 3 : 0);
+    }
+
+    function formatMarketValue(valueJpy) {
+      const value = Number(valueJpy);
+      if (!Number.isFinite(value)) return '';
+      if (value >= 100000000) return '約' + formatMarketNumber(value / 100000000, 2) + '億円';
+      if (value >= 10000) return '約' + formatMarketNumber(value / 10000, 0) + '万円';
+      return '約' + formatMarketNumber(value, 0) + '円';
+    }
+
+    function formatMarketPnl(valueJpy) {
+      const value = Number(valueJpy);
+      if (!Number.isFinite(value)) return '';
+      const sign = value >= 0 ? '＋' : '−';
+      return sign + formatMarketValue(Math.abs(value));
+    }
+
+    function renderMarketData(data) {
+      marketDataContent.innerHTML = '';
+      if (!data || !Array.isArray(data.items) || data.items.length === 0) {
+        marketDataPanel.classList.add('hidden');
+        return;
+      }
+
+      marketDataPanel.classList.remove('hidden');
+      const asOf = data.asOf ? escapeHtml(data.asOf) + '時点' : '基準日時点';
+      const rows = data.items.map(item => {
+        const currentPrice = formatMarketPrice(item.currentPrice, item.currentCurrency);
+        const conversions = (item.priceConversions || []).map(conversion =>
+          '<li class="flex flex-wrap items-baseline justify-between gap-x-3 gap-y-1 border-t border-amber-100 pt-2">' +
+            '<span>' + escapeHtml(conversion.label) + '：' +
+              formatMarketPrice(conversion.historicalPrice, conversion.currency || item.currentCurrency) + '</span>' +
+            '<strong class="text-amber-900">現在基準 ' +
+              formatMarketPrice(conversion.currentBasisPrice, conversion.currency || item.currentCurrency) + '</strong>' +
+          '</li>'
+        ).join('');
+        const pnlScenarios = Array.isArray(item.pnlScenarios) ? item.pnlScenarios : [];
+        const pnlHtml = pnlScenarios.length
+          ? '<div class="mt-3 border-t border-amber-100 pt-3">' +
+            '<p class="text-xs font-semibold text-amber-950">そのまま保有していた場合の損益（参考）</p>' +
+            '<ul class="mt-2 space-y-2 text-xs leading-5">' +
+            pnlScenarios.map(scenario =>
+              '<li>' +
+                '<div class="flex flex-wrap items-baseline justify-between gap-x-3 gap-y-1">' +
+                  '<span>' + escapeHtml(scenario.label) + '</span>' +
+                  '<strong class="' + (Number(scenario.profitLossJpy) >= 0 ? 'text-amber-900' : 'text-blue-900') + '">' +
+                    formatMarketPnl(scenario.profitLossJpy) + '</strong>' +
+                '</div>' +
+                (scenario.positionJpy != null
+                  ? '<p class="mt-1 text-[11px] leading-4 text-stone-500">ポジション：約' + escapeHtml(formatMarketValue(scenario.positionJpy)) + '</p>'
+                  : '') +
+                (scenario.calculation
+                  ? '<p class="mt-1 text-[11px] leading-4 text-stone-500">計算：' + escapeHtml(scenario.calculation) + '</p>'
+                  : '') +
+                (scenario.note
+                  ? '<p class="mt-1 text-[11px] leading-4 text-stone-500">' + escapeHtml(scenario.note) + '</p>'
+                  : '') +
+              '</li>'
+            ).join('') +
+            '</ul></div>'
+          : (item.pnlNote
+            ? '<div class="mt-3 border-t border-amber-100 pt-3">' +
+              '<p class="text-xs font-semibold text-amber-950">そのまま保有していた場合の損益（参考）</p>' +
+              '<p class="mt-1 text-[11px] leading-4 text-stone-500">' + escapeHtml(item.pnlNote) + '</p>' +
+            '</div>'
+            : '');
+        const source = item.sourceUrl
+          ? '<a href="' + escapeHtml(item.sourceUrl) + '" target="_blank" rel="noreferrer" class="underline">' +
+            escapeHtml(item.sourceLabel || '株価ソース') + ' ↗</a>'
+          : '';
+        return '<div class="rounded-lg border border-amber-200 bg-white/70 p-3">' +
+          '<div class="flex flex-wrap items-baseline justify-between gap-x-3 gap-y-1">' +
+            '<span class="font-semibold text-stone-900">' + escapeHtml(item.name) +
+              ' <span class="font-mono text-xs text-stone-500">' + escapeHtml(item.ticker || '') + '</span></span>' +
+            '<span class="font-mono font-semibold text-stone-900">現在値 ' + currentPrice + '</span>' +
+          '</div>' +
+          '<p class="mt-2 text-xs leading-5 text-stone-700">' + escapeHtml(item.basis || '') + '</p>' +
+          '<ul class="mt-3 space-y-2 text-xs leading-5">' + conversions + '</ul>' +
+          pnlHtml +
+          (item.note
+            ? '<p class="mt-2 text-[11px] leading-4 text-stone-500">' + escapeHtml(item.note) + '</p>'
+            : '') +
+          (source ? '<p class="mt-2 text-[11px] text-stone-500">' + source + '</p>' : '') +
+        '</div>';
+      }).join('');
+
+      marketDataContent.innerHTML =
+        '<p class="mb-3 text-xs leading-5 text-stone-600">' + asOf +
+        '。過去の株価を、現在の株式分割後の1株単位へ換算し、ポジション額が分かる銘柄は保有継続時の損益も参考計算しています。</p>' +
+        '<div class="space-y-3">' + rows + '</div>' +
+        (data.note
+          ? '<p class="mt-3 text-[11px] leading-4 text-stone-500">' + escapeHtml(data.note) + '</p>'
+          : '');
+    }
     // Toggle Sidebar
     toggleSidebarBtn.addEventListener('click', () => {
       sidebar.classList.toggle('-translate-x-full');
@@ -360,6 +472,7 @@
       currentWork = null;
       currentWorkBase = '';
       manifestData = null;
+      renderMarketData(null);
       allScenes = [];
       currentSceneIndex = 0;
 
@@ -455,6 +568,7 @@
       }
 
       manifestData = null;
+      renderMarketData(null);
       allScenes = [];
       currentSceneIndex = 0;
       prevSceneBtn.disabled = true;
@@ -472,6 +586,7 @@
         const text = await fetchText(contentUrls('reader-index.json'));
         if (token !== loadToken) return;
         manifestData = JSON.parse(text);
+        renderMarketData(manifestData.marketData);
         renderTableOfContents();
         if (allScenes.length > 0) {
           await loadScene(0, token);
