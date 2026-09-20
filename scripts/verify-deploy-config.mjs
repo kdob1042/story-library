@@ -23,7 +23,7 @@ for (const [label, config] of [['shared', production]]) {
   if (config.assets?.not_found_handling !== '404-page') errors.push(label + ': not_found_handling must be 404-page');
   if ('routes' in config || 'route' in config) errors.push(label + ': dashboard-managed routes must not be committed');
 }
-if (production.name !== 'story-library-reader') errors.push('production: Worker name must be story-library-reader');
+if (production.name !== 'story-library') errors.push('production: Worker name must be story-library');
 if (production.preview_urls !== true) errors.push('preview_urls must be enabled for dev alias');
 if (fs.existsSync(path.join(root, 'wrangler.dev.jsonc'))) errors.push('Use one Worker config for main and dev');
 
