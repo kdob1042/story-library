@@ -429,7 +429,7 @@
       showReaderShell();
       const token = ++loadToken;
       currentWork = work;
-      currentWorkBase = `${work.basePath}/data/`;
+      currentWorkBase = `/${String(work.basePath || '').replace(/^\/+/, '')}/data/`;
       workSelect.value = work.id;
       workTitle.textContent = work.title;
       document.title = `${work.title} - 小説ビューア`;
@@ -459,7 +459,7 @@
       document.getElementById('readerContainer').scrollTop = 0;
 
       try {
-        const text = await fetchText([`${currentWorkBase}reader-index.json`]);
+        const text = await fetchText(contentUrls('reader-index.json'));
         if (token !== loadToken) return;
         manifestData = JSON.parse(text);
         renderTableOfContents();
