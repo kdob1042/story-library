@@ -3,7 +3,7 @@ import { join } from 'node:path';
 import { importedWorks, validateCatalog } from './catalog.mjs';
 import { LibraryValidationError, issue } from './errors.mjs';
 import { defaultPublication, validatePublication } from './publication.mjs';
-import { manifestEntryPath, publicationPath, safeWorkRelativePath } from './paths.mjs';
+import { LEGACY_MANIFEST_ENTRY, WORK_ENTRY, joinWorkPath, manifestEntryPath, publicationPath, safeWorkRelativePath } from './paths.mjs';
 import { validateSourceMap } from './source-map.mjs';
 import { readManuscript } from '../adapters/read.mjs';
 import { declaredPaths } from '../story-source/paths.mjs';
@@ -47,18 +47,25 @@ export async function validateImportedWork(repoRoot, work, filesByPath) {
   if (['pending-access', 'pending-identification', 'pending-import'].includes(work.importStatus)) {
     return { work, status: work.importStatus, manuscript: null, publication: null };
   }
-  const manifestPath = manifestEntryPath(work.root);
   const publicationFile = publicationPath(work.root);
-  if (!filesByPath.has('source/manifest.json')) {
+  const entryFiles = [WORK_ENTRY, LEGACY_MANIFEST_ENTRY].filter(path => filesByPath.has(path));
+  if (entryFiles.length > 1) {
     throw new LibraryValidationError([
-      { path: manifestPath, code: 'MISSING_FILE', message: '取り込まれた作品に source/manifest.json がありません' },
+      { path: manifestEntryPath(work.root), code: 'DUPLICATE_FILE', message: 'work.json と旧 source/manifest.json を同時に置けません' },
     ]);
   }
-  const manifest = parseJson(filesByPath.get('source/manifest.json'), manifestPath);
+  if (entryFiles.length === 0) {
+    throw new LibraryValidationError([
+      { path: manifestEntryPath(work.root), code: 'MISSING_FILE', message: '取り込まれた作品に work.json がありません（旧 source/manifest.json は読み取り互換）' },
+    ]);
+  }
+  const entryPath = entryFiles[0];
+  const manifestPath = joinWorkPath(work.root, entryPath);
+  const manifest = parseJson(filesByPath.get(entryPath), manifestPath);
   const declared = manifest.format === 'story-source/v1' ? new Set(declaredPaths(manifest)) : null;
   const manuscriptFiles = Object.fromEntries(
     [...filesByPath.entries()]
-      .filter(([path]) => path !== 'source/manifest.json' && path !== 'publication.yaml')
+      .filter(([path]) => path !== entryPath && path !== 'publication.yaml')
       .filter(([path]) => !declared || declared.has(path))
   );
   const manuscript = readManuscript(manifest, manuscriptFiles, { expectedFormat: work.manuscriptFormat });
