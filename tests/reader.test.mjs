@@ -80,6 +80,18 @@ test('published reader follows publication.yaml and omits private material', t =
   const temp = fs.mkdtempSync(path.join(os.tmpdir(), 'published-reader-'));
   t.after(() => fs.rmSync(temp, {recursive: true, force: true}));
   fs.cpSync(path.join(root, 'fixtures/works'), path.join(temp, 'works'), {recursive: true});
+  fs.writeFileSync(path.join(temp, 'works/fixture-story/market-data.json'), JSON.stringify({
+    schemaVersion: 2,
+    asOf: '2026-09-19',
+    items: [{
+      id: 'fixture',
+      name: 'Fixture',
+      currentPrice: 100,
+      currentCurrency: 'USD',
+      priceConversions: [{label: 'historical', historicalPrice: 30, currentBasisPrice: 0.75}],
+      pnlScenarios: [],
+    }],
+  }));
   const works = [
     {id: 'fixture-story', title: 'fixture-story', root: 'works/fixture-story', formats: ['novel'], manuscriptFormat: 'story-source/v1', readAdapters: ['story-source/v1'], authority: 'library', origin: {repository: 'fixture/source'}, importStatus: 'verified'},
     {id: 'fixture-novel', title: 'fixture-novel', root: 'works/fixture-novel', formats: ['novel'], manuscriptFormat: 'novel-source/v1', readAdapters: ['novel-source/v1'], authority: 'library', origin: {repository: 'fixture/source'}, importStatus: 'verified'},
