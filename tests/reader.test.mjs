@@ -103,6 +103,7 @@ test('published reader follows publication.yaml and omits private material', t =
   assert.equal(result.catalog.settings.length, 0);
   assert.deepEqual(result.catalog.characters, []);
   assert.equal(result.catalog.hasHistory, false);
+  assert.equal(result.catalog.marketData, undefined);
   assert.ok(!fs.existsSync(path.join(result.dist, 'works/fixture-novel')));
   const publicationPath = path.join(temp, 'works/fixture-story/publication.yaml');
   const publication = JSON.parse(fs.readFileSync(publicationPath, 'utf8'));

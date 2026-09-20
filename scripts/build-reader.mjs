@@ -154,7 +154,9 @@ function buildWorkSnapshot(repoRoot, work, {mode = 'private'} = {}) {
   const entryPath = fs.existsSync(path.join(root, 'work.json')) ? 'work.json' : 'source/manifest.json';
   const manifest = JSON.parse(fs.readFileSync(readPath(entryPath), 'utf8'));
   const source = readManuscript(manifest);
-  const marketData = readMarketData(root, work.id);
+  // market-data.json is private research material. It is available only in the private preview;
+  // published artifacts must not contain the work-wide fact-check/P&L dataset.
+  const marketData = mode === 'private' ? readMarketData(root, work.id) : null;
   const visibleEpisodeIds = selectEpisodeIds(repoRoot, work, source, mode);
   const visibleEpisodes = source.episodes.filter(episode => visibleEpisodeIds.has(episode.id));
   const visibleScenes = source.scenes.filter(scene => visibleEpisodeIds.has(scene.episodeId ?? scene.id));
