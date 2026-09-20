@@ -4,7 +4,7 @@
 
 ```text
 templates/work/
-  source/manifest.json    # story-source/v1
+  work.json              # story-source/v1（作品rootに1つだけ）
   manuscript/
   settings/
   assets/
