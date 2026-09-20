@@ -21,6 +21,7 @@
 | --- | --- |
 | `library.json` | 作品一覧 |
 | `migrations/source-map.json` | 旧repo/IDと新workId/rootの対応 |
+| `works/{workId}/work.json` | 作品ごとの原稿入口（正本は1つだけ） |
 | `works/{workId}/` | 作品root（取込後） |
 | `contracts/` | catalog / story-source/v1 / 読取adapter |
 | `fixtures/works/` | 公開CI用の人工原稿 |

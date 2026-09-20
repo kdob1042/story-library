@@ -32,7 +32,7 @@ export const SKIP_FILES = new Set([
 
 const COPY_ROOTS = new Set(['manuscript', 'settings', 'assets', 'ai']);
 const HISTORY_ROOTS = new Set(['archive', 'revisions']);
-const COPY_ROOT_FILES = new Set(['manifest.json', 'INDEX.md', 'CHANGELOG.md']);
+const COPY_ROOT_FILES = new Set(['manifest.json', 'work.json', 'CHANGELOG.md']);
 
 function sha256(buffer) {
   return createHash('sha256').update(buffer).digest('hex');
@@ -57,7 +57,7 @@ async function walkFiles(root, relative = '') {
 
 export function planImportLayout(paths) {
   const hasNestedSource = paths.some(path => path === 'source/manifest.json' || path.startsWith('source/'));
-  const hasRootManifest = paths.includes('manifest.json');
+  const hasRootManifest = paths.includes('manifest.json') || paths.includes('work.json');
   return {
     hasNestedSource,
     hasRootManifest,
@@ -81,7 +81,7 @@ export function isImportableOriginPath(originPath, layout) {
 
 export function mapOriginPath(originPath, layout) {
   const path = normalizedOriginPath(originPath, layout);
-  if (path === 'manifest.json') return 'source/manifest.json';
+  if (path === 'manifest.json' || path === 'work.json') return 'work.json';
   if (path === 'CHANGELOG.md') return 'history/CHANGELOG.md';
   if (path.startsWith('archive/') || path.startsWith('revisions/')) return 'history/' + path;
   return path;
@@ -120,7 +120,7 @@ export async function planWorkImport({ catalog, sourceMap, workId, originRoot, o
     throw new LibraryValidationError([{ path: workId, code: 'PREMATURE_CUTOVER', message: 'library正本の作品は旧repoから再取り込みできません' }]);
   }
   const allPaths = await walkFiles(originRoot);
-  if (!allPaths.includes('manifest.json') && !allPaths.includes('source/manifest.json')) {
+  if (!allPaths.includes('manifest.json') && !allPaths.includes('work.json') && !allPaths.includes('source/manifest.json')) {
     throw new LibraryValidationError([{ path: originRoot, code: 'MISSING_FILE', message: 'originにmanifest.jsonがありません' }]);
   }
   const layout = planImportLayout(allPaths);
@@ -149,8 +149,8 @@ export async function planWorkImport({ catalog, sourceMap, workId, originRoot, o
       bytes,
     });
   }
-  if (!copies.some(item => item.targetPath === 'source/manifest.json')) {
-    throw new LibraryValidationError([{ path: 'source/manifest.json', code: 'MISSING_FILE', message: 'manifestを source/manifest.json へ置けません' }]);
+  if (!copies.some(item => item.targetPath === 'work.json')) {
+    throw new LibraryValidationError([{ path: 'work.json', code: 'MISSING_FILE', message: 'manifestを work.json へ置けません' }]);
   }
   return {
     work,
@@ -191,7 +191,7 @@ export function applySourceMapEntry(sourceMap, { work, copies, model, originRepo
 
 export async function importWork(options) {
   const plan = await planWorkImport(options);
-  const manifestCopy = plan.copies.find(item => item.targetPath === 'source/manifest.json');
+  const manifestCopy = plan.copies.find(item => item.targetPath === 'work.json');
   const manifest = JSON.parse(manifestCopy.bytes.toString('utf8'));
   const declared = manifest.format === 'story-source/v1'
     ? new Set([
@@ -202,7 +202,7 @@ export async function importWork(options) {
     : null;
   const files = Object.fromEntries(
     plan.copies
-      .filter(item => item.targetPath !== 'source/manifest.json' && (!declared || declared.has(item.targetPath)))
+      .filter(item => item.targetPath !== 'work.json' && (!declared || declared.has(item.targetPath)))
       .map(item => [item.targetPath, /\.(?:png|jpe?g|webp)$/i.test(item.targetPath) ? item.bytes : item.bytes.toString('utf8')])
   );
   const model = readManuscript(manifest, files, { expectedFormat: plan.work.manuscriptFormat });

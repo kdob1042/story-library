@@ -30,7 +30,7 @@ export function applyTemplate(files, { workId, title }) {
   const next = new Map();
   for (const [path, content] of files) {
     let text = content.replaceAll('WORK_ID', workId);
-    if (path === 'source/manifest.json') {
+    if (path === 'work.json') {
       const manifest = JSON.parse(text);
       manifest.work.title = title;
       text = `${JSON.stringify(manifest, null, 2)}\n`;
@@ -58,9 +58,9 @@ export async function planNewWork({ catalog, sourceMap, workId, title }) {
     throw new LibraryValidationError([{ path: workId, code: 'DUPLICATE_ID', message: '同じworkIdがcatalogにあります' }]);
   }
   const files = applyTemplate(await readTemplateTree(), { workId, title });
-  const manifest = JSON.parse(files.get('source/manifest.json'));
+  const manifest = JSON.parse(files.get('work.json'));
   const model = readManuscript(manifest, Object.fromEntries(
-    [...files.entries()].filter(([path]) => path !== 'source/manifest.json' && path !== 'publication.yaml')
+    [...files.entries()].filter(([path]) => path !== 'work.json' && path !== 'publication.yaml')
   ), { expectedFormat: 'story-source/v1' });
   const work = {
     id: workId,
@@ -73,7 +73,7 @@ export async function planNewWork({ catalog, sourceMap, workId, title }) {
     origin: {
       repository: 'kdob1042/story-library',
       ref: 'main',
-      manifestPath: `works/${workId}/source/manifest.json`,
+      manifestPath: `works/${workId}/work.json`,
       accessible: true,
     },
     importStatus: 'imported',

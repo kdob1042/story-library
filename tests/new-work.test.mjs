@@ -13,9 +13,9 @@ const sourceMap = JSON.parse(await readFile(join(repoRoot, 'migrations/source-ma
 
 test('work template is a valid story-source/v1 tree', async () => {
   const files = await readTemplateTree();
-  const manifest = JSON.parse(files.get('source/manifest.json'));
+  const manifest = JSON.parse(files.get('work.json'));
   const model = readManuscript(manifest, Object.fromEntries(
-    [...files.entries()].filter(([path]) => path !== 'source/manifest.json' && path !== 'publication.yaml')
+    [...files.entries()].filter(([path]) => path !== 'work.json' && path !== 'publication.yaml')
   ));
   assert.equal(model.format, 'story-source/v1');
   assert.deepEqual(model.readingOrder, ['P01-01']);

@@ -1,7 +1,7 @@
 {
   "format": "story-library-source-map/v1",
   "authority": "library",
-  "notes": "ユーザーの正本切替指示によりstory-libraryで編集。originとfilesは過去の取込記録を保持。公開切替の完了は意味しない。",
+  "notes": "originとfilesは取込履歴を保持する。現在の正本は各作品rootの work.json と本文・設定・画像・履歴。INDEX.md は重複する人間向け索引のため保持しない。",
   "entries": [
     {
       "workId": "kamiya-kawai",
@@ -88,17 +88,12 @@
           "sakai": "sakai"
         }
       },
-      "notes": "M2実取込み。本文・設定・人物基準画像・索引・AI補助資料を追加コピー。archive/revisions/CHANGELOGはhistoryへ分離。originはM8まで正本として保持し、Worker・公開範囲は変更しない。",
+      "notes": "M2実取込み。本文・設定・人物基準画像・AI補助資料を追加コピー。archive/revisions/CHANGELOGはhistoryへ分離。originはM8まで正本として保持し、Worker・公開範囲は変更しない。",
       "files": [
         {
           "origin": "CHANGELOG.md",
           "target": "history/CHANGELOG.md",
           "sha256": "aeb2666b5e61980f3597b675c4c91831945e68cb8dc34f2ada326d706c1b1ea8"
-        },
-        {
-          "origin": "INDEX.md",
-          "target": "INDEX.md",
-          "sha256": "69ceb0d23db4e779951ccf802057ed2fe82eaf4eaa2f61389cc969589426a7bb"
         },
         {
           "origin": "ai/README.md",
@@ -217,7 +212,7 @@
         },
         {
           "origin": "manifest.json",
-          "target": "source/manifest.json",
+          "target": "work.json",
           "sha256": "aa89a0fb40b096c673f4f7d6f3fdf996b3dbedaf20ba4b5d9c73fed99fae1e21"
         },
         {
@@ -507,17 +502,12 @@
         },
         "character": {}
       },
-      "notes": "M2実取込み。本文・設定・索引・補助資料を追加コピー。archive/revisions/CHANGELOGはhistoryへ分離。originはM8まで正本として保持し、Worker・公開範囲は変更しない。",
+      "notes": "M2実取込み。本文・設定・補助資料を追加コピー。archive/revisions/CHANGELOGはhistoryへ分離。originはM8まで正本として保持し、Worker・公開範囲は変更しない。",
       "files": [
         {
           "origin": "CHANGELOG.md",
           "target": "history/CHANGELOG.md",
           "sha256": "b06a32eb25ce16473ad3cd285e9a8ee5b736fa44b06658ac10b84e055a1eca26"
-        },
-        {
-          "origin": "INDEX.md",
-          "target": "INDEX.md",
-          "sha256": "12ed172471f70cfdc425fa8be934a78dc3156b10e9ca4598157b8f195220b747"
         },
         {
           "origin": "ai/README.md",
@@ -541,7 +531,7 @@
         },
         {
           "origin": "manifest.json",
-          "target": "source/manifest.json",
+          "target": "work.json",
           "sha256": "6d8a26964435f0a9da23317c19e8a8a33db650bbd15737dcb38bfcba7e4a7d9f"
         },
         {

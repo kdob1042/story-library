@@ -151,7 +151,8 @@ function buildWorkSnapshot(repoRoot, work, {mode = 'private'} = {}) {
     return target;
   };
 
-  const manifest = JSON.parse(fs.readFileSync(readPath('source/manifest.json'), 'utf8'));
+  const entryPath = fs.existsSync(path.join(root, 'work.json')) ? 'work.json' : 'source/manifest.json';
+  const manifest = JSON.parse(fs.readFileSync(readPath(entryPath), 'utf8'));
   const source = readManuscript(manifest);
   const marketData = readMarketData(root, work.id);
   const visibleEpisodeIds = selectEpisodeIds(repoRoot, work, source, mode);

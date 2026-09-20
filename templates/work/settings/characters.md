@@ -1,7 +1,7 @@
 # ［CHARACTERS］登場人物設定
 
 本文に登場する人物を、物語上必要な範囲で登録する。
-人物基準画像を使う場合は `source/manifest.json` の `characters[]` に固定IDと `assets/` パスを宣言する。ファイル名やaltから推測しない。
+人物基準画像を使う場合は `work.json` の `characters[]` に固定IDと `assets/` パスを宣言する。ファイル名やaltから推測しない。
 
 ## 主人公
 

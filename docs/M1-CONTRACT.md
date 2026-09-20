@@ -8,7 +8,7 @@
 | --- | --- |
 | `library.json` | 作品一覧。workId、root、原稿形式、採用元、正本、取込状態 |
 | `migrations/source-map.json` | 旧repo/commit/path/ID → 新workId/root/path/ID |
-| `works/{workId}/source/manifest.json` | その作品の原稿入口 |
+| `works/{workId}/work.json` | その作品の原稿入口（正本は1つだけ） |
 | `works/{workId}/publication.yaml` | 原稿側の公開設定。読者向け配信manifestではない |
 
 `library.json` を読者へ配らない。production/dev の配信manifestは live-manga が公開判定から派生する。
@@ -17,7 +17,7 @@
 
 ```text
 works/{workId}/
-  source/manifest.json
+  work.json
   manuscript/
   settings/
   assets/
@@ -25,8 +25,9 @@ works/{workId}/
 ```
 
 - 固定識別子は `workId`。表示名や配列位置ではない
-- manifestの場所は `{root}/source/manifest.json`
+- 作品入口は `{root}/work.json`。旧repoの `{root}/source/manifest.json` は読み取り互換だけにする
 - 原稿・設定・画像の相対パスは **作品root** から解決する
+- `work.json` と `source/manifest.json` を同じ作品rootに置かない
 - `source/` を基準に `manuscript/` を足して誤解決しない
 - 作品rootの外、`..`、絶対パス、他作品領域への参照は拒否する
 - 新作の原稿形式正本は `story-source/v1`（manga-mac `contracts/story-source`、lock `601d5fa5cb076dd53a55a38c64f22083c5a6a64e`）
