@@ -1,7 +1,7 @@
 {
   "format": "investor-life-source/v1",
   "work": {
-    "title": "個人投資家としての10年",
+    "title": "目指せ10億！まっしゅの凄腕へのいばら道",
     "slug": "investor-life"
   },
   "chapters": [
@@ -48,4 +48,3 @@
     { "id": "WRITING", "path": "settings/writing.md" }
   ]
 }
-
