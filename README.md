@@ -52,7 +52,7 @@ node scripts/new-work.mjs --work-id example-work --title "作品タイトル" --
 3. CI成功後、devプレビューで表示・原稿・公開条件を確認する。
 4. 確認済みの `dev` から `main` へPRを出し、公開用ブランチへ昇格する。
 
-`dev` と `main` への直接pushは禁止します。`main → dev` は復旧・緊急の履歴合わせに限り、通常の変更経路にはしません。なお、`main` へマージしても、話単位の公開条件を満たさない本文は `publication.yaml` によって本番成果物へ入りません。
+`dev` と `main` への直接pushは禁止します。`main → dev` は復旧・緊急の履歴合わせに限り、通常の変更経路にはしません。なお、`main` へマージしても、話単位の公開条件を満たさない本文は `publication.yaml` によって本番成果物へ入りません。`market-data.json`も執筆・検証用の非公開データとして、本番成果物には含めません。
 
 
 
