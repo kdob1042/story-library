@@ -19,7 +19,7 @@ test('nested source/ trees flatten so paths resolve from the work root', () => {
   const layout = planImportLayout(['source/manifest.json', 'source/manuscript/p01/p01-01.md']);
   assert.equal(layout.flattenSourceTree, true);
   assert.equal(mapOriginPath('source/manuscript/p01/p01-01.md', layout), 'manuscript/p01/p01-01.md');
-  assert.equal(mapOriginPath('source/manifest.json', layout), 'source/manifest.json');
+  assert.equal(mapOriginPath('source/manifest.json', layout), 'work.json');
   assert.equal(mapOriginPath('source/archive/old.md', layout), 'history/archive/old.md');
   assert.equal(isImportableOriginPath('source/manuscript/p01/p01-01.md', layout), true);
   assert.equal(isImportableOriginPath('source/src/reader.js', layout), false);
@@ -82,7 +82,7 @@ test('import copies bytes, keeps fixed IDs, and leaves origin as authority', asy
   const copiedCatalog = JSON.parse(await readFile(join(libraryRoot, 'library.json'), 'utf8'));
   assert.equal(copiedCatalog.works[0].authority, 'origin');
   assert.ok(!(await existsIgnore(join(libraryRoot, 'works/kamiya-kawai/package.json'))));
-  assert.equal(await readFile(join(libraryRoot, 'works/kamiya-kawai/INDEX.md'), 'utf8'), '# 索引\n');
+  assert.ok(!(await existsIgnore(join(libraryRoot, 'works/kamiya-kawai/INDEX.md'))));
   assert.ok(!(await existsIgnore(join(libraryRoot, 'works/kamiya-kawai/src/reader.js'))));
 });
 
@@ -123,7 +123,7 @@ test('dry-run does not write the work tree', async () => {
     dryRun: true,
   });
   assert.equal(result.wrote, false);
-  await assert.rejects(() => readFile(join(libraryRoot, 'works/kamiya-kawai/source/manifest.json')));
+  await assert.rejects(() => readFile(join(libraryRoot, 'works/kamiya-kawai/work.json')));
 });
 
 async function existsIgnore(path) {
