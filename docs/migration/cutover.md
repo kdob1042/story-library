@@ -23,13 +23,13 @@ npm run build:reader -- --private
 
 ## Cloudflare Worker設定
 
-Cloudflare設定の正本はREADMEの表。Build commandは共通の `npm ci && npm run build:reader` とし、WORKERS_CI_BRANCHでmain/devを判定する。non-production対象はdevのみ。mainとdevは別Worker設定を使う。ローカルだけ明示フラグを使う。
+Cloudflare設定の正本はREADMEの表。Build commandは共通の `npm ci && npm run build:reader` とし、WORKERS_CI_BRANCHでmain/devを判定する。non-production対象はdevのみ。同じwrangler.jsoncを使い、mainはdeploy、devはversions upload --preview-alias dev。ローカルだけ明示フラグを使う。
 
 `MANGA_URLS_JSON` は作品IDをキーにしたHTTPS URLのJSONで、未設定作品のリンクは非表示。devへの原稿アップロード前にpreview URLを含む全経路のAccess保護を確認する。mainは公開本文専用。Worker名はWrangler設定の `name` と一致させる。
 
 ## dev / main と話単位の公開
 
-- `dev` は `wrangler.dev.jsonc` を使うAccess保護下の確認環境。`--private` でstory-libraryの全作品・全話を含むsnapshotを作る。
+- `dev` は同じWorkerのdev aliasを使うAccess保護下の確認環境。全作品・全話を含むsnapshotを作る。別Workerは作らない。
 - `main` は `wrangler.jsonc` を使う公開環境。`--published` では各作品の `publication.yaml` を読み、`novel` の `visibility: public`、話ごとの `visibility: public`、`approved: true`、`transferred: true` を満たし、`releaseAt` があれば到達した話だけを生成する。未条件の本文・設定・人物画像・履歴は成果物へ入れない。
 - 例：
 ```json
