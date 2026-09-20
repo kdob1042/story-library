@@ -8,8 +8,8 @@ node scripts/import-work.mjs --work-id kamiya-kawai --from /path/to/Kamiya-Kawai
 
 - 本文・画像バイト列を改変しない
 - 固定IDは identity 対応だけを source-map に書く
-- `source/` 配下の原稿は作品rootへ flatten し、manifest パスを作品rootから解決できるようにする
-- 現行の `INDEX.md` とAI補助資料は保持し、`archive/`・`revisions/`・`CHANGELOG.md` は `history/` 配下へ区別して保管する
+- `source/` 配下の原稿は作品rootへ flatten し、入口manifestは `work.json` へ移す。宣言パスは作品rootから解決する
+- `INDEX.md` は人間向け索引の重複なのでコピーしない。AI補助資料は保持し、`archive/`・`revisions/`・`CHANGELOG.md` は `history/` 配下へ区別して保管する
 - manifest／本文／設定／人物画像以外のビューアー、Worker、公開dist、依存物、秘密情報はコピーしない
 - 取込後も `authority: origin`
 - publication は private のまま新規作成する（originの公開設定を一般公開へ広げない）
