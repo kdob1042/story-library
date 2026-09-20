@@ -18,6 +18,19 @@ test('private reader builds all works, preserves order, and isolates assets', t 
   const temp = fs.mkdtempSync(path.join(os.tmpdir(), 'private-reader-'));
   t.after(() => fs.rmSync(temp, {recursive: true, force: true}));
   fs.cpSync(path.join(root, 'fixtures/works'), path.join(temp, 'works'), {recursive: true});
+  fs.writeFileSync(path.join(temp, 'works/fixture-story/market-data.json'), JSON.stringify({
+    schemaVersion: 1,
+    asOf: '2026-09-19',
+    fx: {usdJpy: 156.9},
+    items: [{
+      id: 'fixture',
+      name: 'Fixture',
+      ticker: 'FIX',
+      currentPrice: 100,
+      currentCurrency: 'USD',
+      convertedValueJpy: 123456,
+    }],
+  }));
   const works = ['fixture-story', 'fixture-novel'].map(id => ({id, title:id, root:`works/${id}`, formats:['novel'], manuscriptFormat:id === 'fixture-story' ? 'story-source/v1' : 'novel-source/v1', readAdapters:[id === 'fixture-story' ? 'story-source/v1' : 'novel-source/v1'], authority:'library', origin:{repository:'fixture/source'}, importStatus:'verified'}));
   fs.writeFileSync(path.join(temp, 'library.json'), JSON.stringify({format:'story-library/v1', authorityUntil:'M8', works}));
   assert.throws(() => buildReader({repoRoot:temp, workId:'fixture-story'}), /Private snapshot/);
@@ -34,6 +47,7 @@ test('private reader builds all works, preserves order, and isolates assets', t 
   assert.ok(fs.existsSync(path.join(result.dist, 'data/library-index.json')));
   assert.ok(fs.existsSync(path.join(result.dist, 'works/fixture-story/data/reader-index.json')));
   assert.ok(fs.existsSync(path.join(result.dist, 'works/fixture-novel/data/reader-index.json')));
+  assert.equal(result.catalog.marketData.items[0].ticker, 'FIX');
   assert.ok(!fs.existsSync(path.join(result.dist, 'works/fixture-story/data/source')));
   assert.ok(!fs.existsSync(path.join(result.dist, 'works/fixture-novel/data/source')));
   assert.match(fs.readFileSync(path.join(result.dist, 'index.html'), 'utf8'), /id="workSelect"/);

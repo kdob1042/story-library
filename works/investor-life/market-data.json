@@ -1,0 +1,51 @@
+{
+  "schemaVersion": 1,
+  "asOf": "2026-09-19",
+  "fx": {
+    "usdJpy": 156.9,
+    "sourceLabel": "Wise USD/JPY mid-market rate",
+    "sourceUrl": "https://wise.com/gb/currency-converter/usd-to-jpy-rate"
+  },
+  "items": [
+    {
+      "id": "nvidia-2016",
+      "name": "NVIDIA",
+      "ticker": "NVDA",
+      "currentPrice": 222.27,
+      "currentCurrency": "USD",
+      "convertedValueJpy": 845500000,
+      "basis": "本文の約200万円を、2016年ごろに$30（分割前）で買い、そのまま保有していた場合。",
+      "calculation": "200万円 ÷ 110円/USD ÷ $30 × 40分割 × $222.27 × 156.9円/USD",
+      "note": "株式分割（4分割・10分割）を反映。購入時為替は110円/USDの概算。税金・手数料・配当は未考慮。",
+      "sourceLabel": "Google Finance",
+      "sourceUrl": "https://www.google.com/finance/quote/NVDA:NASDAQ"
+    },
+    {
+      "id": "microsoft-2020",
+      "name": "Microsoft",
+      "ticker": "MSFT",
+      "currentPrice": 493.78,
+      "currentCurrency": "USD",
+      "convertedValueJpy": 52400000,
+      "basis": "本文の約1,100万円を、コロナショック後に$150で買い、そのまま保有していた場合。",
+      "calculation": "1,100万円 ÷ 108.5円/USD ÷ $150 × $493.78 × 156.9円/USD",
+      "note": "本文に購入単価の明記がないため、$150・購入時為替108.5円/USDを置いた参考値。税金・手数料・配当は未考慮。",
+      "sourceLabel": "Google Finance",
+      "sourceUrl": "https://www.google.com/finance/quote/MSFT:NASDAQ"
+    },
+    {
+      "id": "robot-payment-2022",
+      "name": "ROBOT PAYMENT",
+      "ticker": "4374",
+      "currentPrice": 2480,
+      "currentCurrency": "JPY",
+      "convertedValueJpy": 60620000,
+      "basis": "本文の現物約2,100万円＋信用約1,200万円、合計約3,300万円を1,350円で組み、そのまま同じ数量を保有していた場合。",
+      "calculation": "3,300万円 × 2,480円 ÷ 1,350円",
+      "note": "信用取引の元本・金利・保証金・税金・手数料は未考慮。2026年9月19日現在の株価は株式分割前の表示。",
+      "sourceLabel": "野村證券",
+      "sourceUrl": "https://quote.nomura.co.jp/quote/quoteDetail?code=4374"
+    }
+  ],
+  "note": "現在値は2026年9月19日の最終取引値ベース。本文の過去時点の資産額を訂正するものではなく、同じ数量を保有し続けた場合の参考換算です。"
+}
