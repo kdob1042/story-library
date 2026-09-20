@@ -493,6 +493,13 @@
     function renderTableOfContents() {
       episodesContainer.innerHTML = '';
       allScenes = [];
+      const sections = Array.isArray(manifestData.sections) && manifestData.sections.length > 0
+        ? manifestData.sections
+        : manifestData.episodes.map(episode => ({
+            id: episode.id,
+            title: episode.title,
+            scene_ids: episode.scene_ids || [],
+          }));
       novelNavTitle.textContent = `本文 (全${manifestData.episodes.length}話)`;
       const sceneById = {};
       manifestData.scenes.forEach(s => { sceneById[s.id] = s; });
