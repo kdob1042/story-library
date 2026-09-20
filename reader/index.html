@@ -127,10 +127,10 @@
       </button>
       <div class="min-w-0 flex-1 font-gothic">
         __MANGA_LINK__
-        <h1 id="workTitle" class="text-lg font-bold tracking-wider text-stone-900">__WORK_TITLE__</h1>
-        <div id="workSwitcher" class="mt-1 flex items-center gap-2 text-xs text-stone-500">
-          <label for="workSelect" class="shrink-0">作品</label>
-          <select id="workSelect" class="min-w-0 max-w-full rounded border border-stone-300 bg-white px-2 py-1 text-xs text-stone-700 outline-none focus:border-emerald-600" aria-label="作品を切り替え">
+        <h1 id="workTitle" class="sr-only">__WORK_TITLE__</h1>
+        <div id="workSwitcher" class="relative mt-0 min-w-0 max-w-full font-gothic">
+          <label for="workSelect" class="sr-only">作品を切り替え</label>
+          <select id="workSelect" class="w-full min-w-0 max-w-full border-0 bg-transparent px-0 py-0 pr-6 text-lg font-bold tracking-wider text-stone-900 outline-none focus:ring-0 sm:text-xl" aria-label="作品を切り替え">
             <option value="">---</option>
           </select>
         </div>
@@ -142,9 +142,14 @@
       </div>
     </div>
 
-    <button id="toggleReadingControlsBtn" class="items-center justify-center rounded-lg border border-stone-300 px-2.5 py-2 text-xs font-gothic text-stone-700 hover:bg-stone-200 transition" aria-expanded="false" aria-controls="readingControls" title="表示設定">
-      Aa
-    </button>
+    <div id="headerActions" class="flex shrink-0 flex-col items-end gap-2">
+      <button id="toggleReadingControlsBtn" class="items-center justify-center rounded-lg border border-stone-300 px-2.5 py-2 text-xs font-gothic text-stone-700 hover:bg-stone-200 transition" aria-expanded="false" aria-controls="readingControls" title="表示設定">
+        Aa
+      </button>
+      <button id="nextHeaderBtn" class="inline-flex items-center justify-center rounded-lg bg-emerald-700 px-3 py-2 text-xs font-gothic text-white hover:bg-emerald-800 disabled:pointer-events-none disabled:opacity-30 transition whitespace-nowrap" disabled>
+        次のページ <span class="ml-1">&rarr;</span>
+      </button>
+    </div>
 
     <!-- Reading controls -->
     <div id="readingControls" class="reading-controls flex shrink-0 items-center gap-2">
@@ -199,11 +204,11 @@
         <!-- Navigation Buttons at the bottom of the scene -->
         <nav class="mt-12 pt-6 border-t border-stone-200 flex items-center justify-between font-gothic text-xs">
           <button id="prevSceneBtn" class="px-4 py-2 rounded-lg border border-stone-300 hover:bg-stone-200 text-stone-700 disabled:opacity-30 disabled:pointer-events-none transition flex items-center gap-1.5">
-            <span>&larr;</span> 前の場面
+            <span>&larr;</span> 前のページ
           </button>
           <span id="sceneProgressText" class="text-stone-500">-</span>
           <button id="nextSceneBtn" class="px-4 py-2 rounded-lg bg-emerald-700 hover:bg-emerald-800 text-white disabled:opacity-30 disabled:pointer-events-none transition flex items-center gap-1.5">
-            次の場面 <span>&rarr;</span>
+            次のページ <span>&rarr;</span>
           </button>
         </nav>
       </article>
@@ -254,6 +259,7 @@
     const nextSceneBtn = document.getElementById('nextSceneBtn');
     const sceneProgressText = document.getElementById('sceneProgressText');
     const sceneNavigation = prevSceneBtn.closest('nav');
+    const nextHeaderBtn = document.getElementById('nextHeaderBtn');
 
     // Toggle Sidebar
     toggleSidebarBtn.addEventListener('click', () => {
@@ -376,6 +382,7 @@
       sceneProgressText.textContent = '-';
       prevSceneBtn.disabled = true;
       nextSceneBtn.disabled = true;
+      nextHeaderBtn.disabled = true;
 
       novelNavTitle.textContent = '本文';
       episodesContainer.innerHTML = '';
@@ -450,6 +457,9 @@
       manifestData = null;
       allScenes = [];
       currentSceneIndex = 0;
+      prevSceneBtn.disabled = true;
+      nextSceneBtn.disabled = true;
+      nextHeaderBtn.disabled = true;
       episodesContainer.innerHTML = '<div class="text-stone-400 text-xs text-center py-4">目次を取得中...</div>';
       novelContent.innerHTML = '<p class="text-stone-400 text-center py-8">作品を読み込んでいます...</p>';
       currentEpisodeTitle.textContent = '読み込み中...';
@@ -570,6 +580,7 @@
 
       prevSceneBtn.disabled = index === 0;
       nextSceneBtn.disabled = index === allScenes.length - 1;
+      nextHeaderBtn.disabled = index === allScenes.length - 1;
 
       // Highlight active nav item
       document.querySelectorAll('.scene-nav-item').forEach(el => {
@@ -677,9 +688,12 @@
       if (currentSceneIndex > 0) loadScene(currentSceneIndex - 1);
     });
 
-    nextSceneBtn.addEventListener('click', () => {
+    function goToNextScene() {
       if (currentSceneIndex < allScenes.length - 1) loadScene(currentSceneIndex + 1);
-    });
+    }
+
+    nextSceneBtn.addEventListener('click', goToNextScene);
+    nextHeaderBtn.addEventListener('click', goToNextScene);
 
     loadLibrary();
   </script>

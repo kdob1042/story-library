@@ -43,6 +43,7 @@ test('private reader builds all works, preserves order, and isolates assets', t 
   const readerHtml = fs.readFileSync(path.join(result.dist, 'index.html'), 'utf8');
   assert.match(readerHtml, /const sections = Array\.isArray\(manifestData\.sections\)/);
   assert.doesNotMatch(readerHtml, /id="tabDesign"/);
+  assert.match(readerHtml, /id="nextHeaderBtn"/);
   assert.doesNotMatch(readerHtml, /確認中\.\.\./);
   const selected = buildReader({repoRoot:temp, workId:'fixture-novel', privatePreview:true});
   assert.equal(selected.libraryIndex.defaultWorkId, 'fixture-novel');
