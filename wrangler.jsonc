@@ -1,6 +1,6 @@
 {
   "$schema": "./node_modules/wrangler/config-schema.json",
-  "name": "story-library-reader",
+  "name": "story-library",
   "main": "./worker.mjs",
   "compatibility_date": "2026-09-19",
   "workers_dev": true,

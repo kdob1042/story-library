@@ -66,8 +66,8 @@ Cloudflareの `WORKERS_CI_BRANCH` でmainは公開用、devは全話確認用を
 
 | ブランチ | 配信先 | 内容 | 閲覧 |
 | --- | --- | --- | --- |
-| main | story-library-reader | 公開条件を満たす話だけ | 一般公開用 |
-| dev | dev-story-library-reader.mashstock.workers.dev | 全作品・全話・設定 | Access保護必須 |
+| main | story-library.mashstock.workers.dev | 公開条件を満たす話だけ | 一般公開用 |
+| dev | dev-story-library.mashstock.workers.dev | 全作品・全話・設定 | Access保護必須 |
 
 devへの原稿アップロード前に、preview URLを含む全経路をAccessで保護してください。`--private`、noindex、no-storeは認証ではありません。既存のAccessや公開範囲をこのPRで変更しません。Git接続・Worker名・トークン権限・preview URL保護は実環境での確認が必要です。
 
