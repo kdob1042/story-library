@@ -3,13 +3,32 @@
   "timezone": "Asia/Tokyo",
   "formats": {
     "novel": {
-      "visibility": "private",
-      "episodes": []
+      "visibility": "public",
+      "episodes": [
+        {
+          "id": "C01-E01",
+          "visibility": "public",
+          "approved": true,
+          "transferred": true
+        },
+        {
+          "id": "C01-E02",
+          "visibility": "public",
+          "approved": true,
+          "transferred": true
+        },
+        {
+          "id": "C01-E03",
+          "visibility": "public",
+          "approved": true,
+          "transferred": true
+        }
+      ]
     },
     "manga": {
       "visibility": "private",
       "episodes": []
     }
   },
-  "notes": "初期状態は非公開。原稿の取込みだけで公開範囲を変えない。"
+  "notes": "テスト公開: p1-1〜p1-3（C01-E01〜C01-E03）のみ。その他の話は非公開。"
 }
