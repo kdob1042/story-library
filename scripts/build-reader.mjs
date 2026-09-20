@@ -47,6 +47,14 @@ function selectEpisodeIds(repoRoot, work, source, mode) {
   }
   return visible;
 }
+
+export function displaySceneId(scene) {
+  if (scene?.displayNumber) return scene.displayNumber;
+  const match = String(scene?.path || '').match(/(?:^|\/)p(\d+)\/p\d+-(\d+)\.md$/i);
+  if (!match) return scene?.id ?? '';
+  return `P${Number(match[1])}-${Number(match[2])}`;
+}
+
 const escape = value => String(value).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 
 export function mangaHref(value) {
@@ -104,7 +112,7 @@ function buildWorkSnapshot(repoRoot, work, {mode = 'private'} = {}) {
     .split(/\r?\n/, 1)[0]
     .replace(/^#+\s*/, '')
     .replace(/^［[^］]+］\s*/, '') || fallback;
-  const scenes = visibleScenes.map(scene => ({...scene, title: title(scene.path, scene.id)}));
+  const scenes = visibleScenes.map(scene => ({...scene, title: title(scene.path, scene.id), displayId: displaySceneId(scene)}));
   const episodes = visibleEpisodes.map((episode, i) => ({
     ...episode,
     episodeNumber: i + 1,
