@@ -30,9 +30,9 @@ test('story-source/v1 fixture keeps scene IDs, order and character image', async
 
 test('novel-source/v1 fixture keeps chapter/episode IDs and reading order', async () => {
   const files = await readWorkFilesFromDisk(root, 'fixtures/works/fixture-novel');
-  const manifest = JSON.parse(files.get('source/manifest.json'));
+  const manifest = JSON.parse(files.get('work.json'));
   const model = readManuscript(manifest, Object.fromEntries(
-    [...files.entries()].filter(([path]) => path !== 'source/manifest.json' && path !== 'publication.yaml')
+    [...files.entries()].filter(([path]) => path !== 'work.json' && path !== 'publication.yaml')
   ));
   assert.equal(model.format, 'novel-source/v1');
   assert.deepEqual(model.readingOrder, ['C01-E01', 'C01-E02']);
