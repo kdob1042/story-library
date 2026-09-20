@@ -123,18 +123,20 @@ function readMarketData(workRoot, workId) {
         throw new Error('Invalid market-data.json price conversion for ' + workId);
       }
     }
-    if (item.holdingNote != null && typeof item.holdingNote !== 'string') {
-      throw new Error('Invalid market-data.json holding note for ' + workId);
+    if (item.pnlNote != null && typeof item.pnlNote !== 'string') {
+      throw new Error('Invalid market-data.json P&L note for ' + workId);
     }
-    if (item.holdingScenarios != null && !Array.isArray(item.holdingScenarios)) {
-      throw new Error('Invalid market-data.json holding scenarios for ' + workId);
+    if (item.pnlScenarios != null && !Array.isArray(item.pnlScenarios)) {
+      throw new Error('Invalid market-data.json P&L scenarios for ' + workId);
     }
-    for (const scenario of item.holdingScenarios || []) {
+    for (const scenario of item.pnlScenarios || []) {
       if (!scenario || typeof scenario.label !== 'string'
-        || (scenario.valueJpy != null && (typeof scenario.valueJpy !== 'number' || scenario.valueJpy < 0))
+        || typeof scenario.profitLossJpy !== 'number'
+        || (scenario.positionJpy != null && (typeof scenario.positionJpy !== 'number' || scenario.positionJpy < 0))
+        || (scenario.side != null && !['long', 'short'].includes(scenario.side))
         || (scenario.calculation != null && typeof scenario.calculation !== 'string')
         || (scenario.note != null && typeof scenario.note !== 'string')) {
-        throw new Error('Invalid market-data.json holding scenario for ' + workId);
+        throw new Error('Invalid market-data.json P&L scenario for ' + workId);
       }
     }
   }
