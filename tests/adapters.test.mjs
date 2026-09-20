@@ -23,6 +23,7 @@ test('story-source/v1 fixture keeps scene IDs, order and character image', async
   assert.deepEqual(result.manuscript.readingOrder, ['P01-01', 'P01-02']);
   assert.equal(result.manuscript.characters[0].id, 'ref_a');
   assert.equal(result.manuscript.characters[0].image, 'assets/ref.png');
+  assert.deepEqual(result.manuscript.sections[0].sceneIds, ['P01-01', 'P01-02']);
   assert.match(files.get('manuscript/p01/p01-01.md'), /人工フィクスチャの本文です/);
   assert.equal(result.publication.formats.novel.visibility, 'private');
 });
@@ -36,6 +37,7 @@ test('novel-source/v1 fixture keeps chapter/episode IDs and reading order', asyn
   assert.equal(model.format, 'novel-source/v1');
   assert.deepEqual(model.readingOrder, ['C01-E01', 'C01-E02']);
   assert.deepEqual(model.chapters[0].episodeIds, ['C01-E01', 'C01-E02']);
+  assert.deepEqual(model.sections[0].sceneIds, ['C01-E01', 'C01-E02']);
   assert.equal(files.get('manuscript/p01/p01-01.md'), await readFile(new URL('../fixtures/works/fixture-novel/manuscript/p01/p01-01.md', import.meta.url), 'utf8'));
 });
 
@@ -57,6 +59,7 @@ test('investor-life-source/v1 keeps its source format, chapter IDs and episode o
   assert.equal(model.format, 'investor-life-source/v1');
   assert.deepEqual(model.readingOrder, ['C01-E01']);
   assert.deepEqual(model.chapters[0].episodeIds, ['C01-E01']);
+  assert.deepEqual(model.sections[0].sceneIds, ['C01-E01']);
 });
 
 test('schema 4 adapter keeps scene_ids order and does not invent IDs', () => {
@@ -82,6 +85,7 @@ test('schema 4 adapter keeps scene_ids order and does not invent IDs', () => {
   assert.deepEqual(model.readingOrder, ['S2', 'S1']);
   assert.equal(model.characters[0].id, 'yu');
   assert.equal(model.episodes[0].scenes[0].id, 'S2');
+  assert.deepEqual(model.sections[0].sceneIds, ['S2', 'S1']);
 });
 
 test('adapters do not mutate the stored manifest or body text', () => {

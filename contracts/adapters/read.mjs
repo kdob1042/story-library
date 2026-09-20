@@ -1,5 +1,6 @@
 import { INVESTOR_LIFE_SOURCE_FORMAT, STORY_SOURCE_FORMAT } from '../library/ids.mjs';
 import { LibraryValidationError, issue } from '../library/errors.mjs';
+import { buildSections } from './common.mjs';
 import { manifestToSourceModel, validateSourceTree } from '../story-source/validate.mjs';
 import { readInvestorLifeSource, readNovelSource } from './novel-source.mjs';
 import { readSchemaLegacy } from './schema-legacy.mjs';
@@ -33,6 +34,7 @@ export function readManuscript(manifest, files = null, { expectedFormat = null }
       format: STORY_SOURCE_FORMAT,
       work: model.work,
       episodes: model.episodes,
+      sections: buildSections({episodes: model.episodes}),
       scenes: model.scenes,
       settings: model.settings,
       characters: model.characters,

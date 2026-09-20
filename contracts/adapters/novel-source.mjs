@@ -2,6 +2,7 @@ import { INVESTOR_LIFE_SOURCE_FORMAT, NOVEL_SOURCE_FORMAT } from '../library/ids
 import { LibraryValidationError, issue } from '../library/errors.mjs';
 import {
   asRecords,
+  buildSections,
   checkSafeDeclaredPath,
   checkStableId,
   headingOk,
@@ -97,6 +98,7 @@ function readNovelSourceFormat(manifest, files, expectedFormat) {
       title: chapter.title,
       episodeIds: (chapter.episodes ?? []).map(episode => episode.id),
     })),
+    sections: buildSections({chapters, episodes}),
     episodes,
     scenes: episodes.map(episode => ({
       id: episode.id,
