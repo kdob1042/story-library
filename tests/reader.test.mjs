@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
-import {buildReader, mangaLink, parseMangaUrls} from '../scripts/build-reader.mjs';
+import {buildReader, mangaLink, parseMangaUrls, resolveBuildMode} from '../scripts/build-reader.mjs';
 const root = new URL('..', import.meta.url).pathname;
 
 test('private reader builds all works, preserves order, and isolates assets', t => {
@@ -54,10 +54,12 @@ test('published reader follows publication.yaml and omits private material', t =
   fs.writeFileSync(path.join(temp, 'library.json'), JSON.stringify({format: 'story-library/v1', authorityUntil: 'M8', works}));
   fs.writeFileSync(path.join(temp, 'works/fixture-story/publication.yaml'), JSON.stringify({
     workId: 'fixture-story',
+    timezone: 'Asia/Tokyo',
     formats: {
+      manga: {visibility: 'private', episodes: []},
       novel: {
         visibility: 'public',
-        episodes: [{episodeId: 'P01', state: 'published', approved: true, transferred: true}],
+        episodes: [{id: 'P01', visibility: 'public', approved: true, transferred: true}],
       },
     },
   }));
@@ -69,4 +71,38 @@ test('published reader follows publication.yaml and omits private material', t =
   assert.deepEqual(result.catalog.characters, []);
   assert.equal(result.catalog.hasHistory, false);
   assert.ok(!fs.existsSync(path.join(result.dist, 'works/fixture-novel')));
+  const publicationPath = path.join(temp, 'works/fixture-story/publication.yaml');
+  const publication = JSON.parse(fs.readFileSync(publicationPath, 'utf8'));
+  const episode = publication.formats.novel.episodes[0];
+  for (const override of [
+    {approved:false}, {transferred:false}, {visibility:'private'},
+    {releaseAt:'2999-01-01T00:00:00+09:00'},
+  ]) {
+    publication.formats.novel.episodes = [{...episode, ...override}];
+    fs.writeFileSync(publicationPath, JSON.stringify(publication));
+    const empty = buildReader({repoRoot:temp, published:true});
+    assert.deepEqual(empty.libraryIndex.works, []);
+    assert.equal(empty.libraryIndex.defaultWorkId, null);
+    assert.ok(!fs.existsSync(path.join(empty.dist, 'works')));
+    assert.match(fs.readFileSync(path.join(empty.dist, 'index.html'), 'utf8'), /現在公開中の作品はありません/);
+  }
+  for (const override of [{approved:'true'}, {id:'missing'}, {releaseAt:'bad-date'}, {state:'published'}]) {
+    publication.formats.novel.episodes = [{...episode, ...override}];
+    fs.writeFileSync(publicationPath, JSON.stringify(publication));
+    assert.throws(() => buildReader({repoRoot:temp, published:true}));
+  }
+});
+
+test('Workers Builds selects modes and rejects contradictory or unknown branches', () => {
+  assert.deepEqual(resolveBuildMode([], {WORKERS_CI_BRANCH:'main'}), {published:true});
+  assert.deepEqual(resolveBuildMode([], {WORKERS_CI_BRANCH:'dev'}), {privatePreview:true});
+  assert.throws(() => resolveBuildMode(['--private'], {WORKERS_CI_BRANCH:'main'}));
+  assert.throws(() => resolveBuildMode(['--published'], {WORKERS_CI_BRANCH:'dev'}));
+  assert.throws(() => resolveBuildMode([], {WORKERS_CI_BRANCH:'feature/test'}));
+  assert.throws(() => resolveBuildMode(['--private'], {WORKERS_CI:'1'}));
+  assert.throws(() => resolveBuildMode(['--private', '--published']));
+  assert.throws(() => resolveBuildMode([]));
+  assert.equal(resolveBuildMode(['--private']).privatePreview, true);
+  assert.equal(resolveBuildMode(['--published']).published, true);
+  assert.throws(() => buildReader({privatePreview:true, published:true}), /Conflicting/);
 });

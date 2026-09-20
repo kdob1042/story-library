@@ -5,6 +5,7 @@ import {fileURLToPath, pathToFileURL} from 'node:url';
 import {validateCatalog} from '../contracts/library/catalog.mjs';
 import {readManuscript} from '../contracts/adapters/read.mjs';
 import {safeWorkRelativePath} from '../contracts/library/paths.mjs';
+import {validatePublication} from '../contracts/library/publication.mjs';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const WORK_ID_PATTERN = /^[a-z][a-z0-9-]{0,62}$/;
@@ -20,7 +21,7 @@ function readPublication(repoRoot, work) {
   if (!value || value.workId !== work.id || !value.formats || typeof value.formats !== 'object') {
     throw new Error('Invalid publication.yaml for ' + work.id);
   }
-  return value;
+  return validatePublication(value, {workId: work.id});
 }
 
 function selectEpisodeIds(repoRoot, work, source, mode) {
@@ -35,12 +36,11 @@ function selectEpisodeIds(repoRoot, work, source, mode) {
   const entries = Array.isArray(format.episodes) ? format.episodes : [];
   for (const entry of entries) {
     if (!entry || typeof entry !== 'object') throw new Error('Invalid publication episode for ' + work.id);
-    const episodeId = entry.episodeId ?? entry.id;
+    const episodeId = entry.id;
     if (!allEpisodeIds.has(episodeId)) throw new Error('Unknown published episode ' + work.id + '/' + episodeId);
     const releaseAt = entry.releaseAt == null ? null : Date.parse(entry.releaseAt);
     if (releaseAt !== null && Number.isNaN(releaseAt)) throw new Error('Invalid releaseAt for ' + work.id + '/' + episodeId);
-    const state = entry.state ?? (entry.published === true ? 'published' : 'draft');
-    if (state === 'published' && entry.approved === true && entry.transferred === true
+    if (entry.visibility === 'public' && entry.approved === true && entry.transferred === true
       && (releaseAt === null || releaseAt <= Date.now())) {
       visible.add(episodeId);
     }
@@ -154,6 +154,7 @@ export function buildReader({
   outputDir = path.join(repoRoot, 'dist', 'reader'),
 } = {}) {
   const mode = privatePreview ? 'private' : published ? 'published' : null;
+  if (privatePreview && published) throw new Error('Conflicting reader build modes');
   if (!mode) throw new Error('Private snapshot requires --private; use --published for a gated production build');
   const library = validateCatalog(JSON.parse(fs.readFileSync(path.join(repoRoot, 'library.json'), 'utf8')));
   if (!library.works.length) throw new Error('No works are available in library.json');
@@ -166,12 +167,11 @@ export function buildReader({
   const availableSnapshots = mode === 'published'
     ? snapshots.filter(snapshot => snapshot.catalog.episodes.length > 0)
     : snapshots;
-  if (!availableSnapshots.length) throw new Error('No published reader episodes are available');
   const defaultSnapshot = (requestedWork && availableSnapshots.find(snapshot => snapshot.work.id === requestedWork.id))
     ?? availableSnapshots[0];
   const libraryIndex = {
     schema_version: 1,
-    defaultWorkId: defaultSnapshot.work.id,
+    defaultWorkId: defaultSnapshot?.work.id ?? null,
     works: availableSnapshots.map(({work, catalog}) => ({
       id: work.id,
       title: catalog.work.title || work.title,
@@ -180,7 +180,7 @@ export function buildReader({
     })),
   };
   const html = fs.readFileSync(path.join(ROOT, 'reader/index.html'), 'utf8')
-    .replaceAll('__WORK_TITLE__', escape(defaultSnapshot.catalog.work.title || defaultSnapshot.work.title))
+    .replaceAll('__WORK_TITLE__', escape(defaultSnapshot?.catalog.work.title || defaultSnapshot?.work.title || '小説ライブラリ'))
     .replace('__MANGA_LINK__', '<a id="mangaLink" href="#" target="_blank" rel="noreferrer" class="text-sm underline hidden"></a>');
 
   fs.rmSync(outputDir, {recursive: true, force: true});
@@ -202,10 +202,28 @@ export function buildReader({
 
   return {
     dist: outputDir,
-    catalog: defaultSnapshot.catalog,
+    catalog: defaultSnapshot?.catalog ?? null,
     catalogs: availableSnapshots.map(snapshot => snapshot.catalog),
     libraryIndex,
   };
+}
+
+export function resolveBuildMode(args, env = {}) {
+  const privatePreview = args.includes('--private');
+  const published = args.includes('--published');
+  if (privatePreview && published) throw new Error('Conflicting reader build modes');
+  const branch = env.WORKERS_CI_BRANCH;
+  if (branch === 'main') {
+    if (privatePreview) throw new Error('main cannot build private manuscripts');
+    return {published: true};
+  }
+  if (branch === 'dev') {
+    if (published) throw new Error('dev must use preview mode');
+    return {privatePreview: true};
+  }
+  if (branch || env.WORKERS_CI) throw new Error('Only main and dev may build on Workers Builds');
+  if (!privatePreview && !published) throw new Error('Local builds require --private or --published');
+  return {privatePreview, published};
 }
 
 if (process.argv[1] && import.meta.url === pathToFileURL(path.resolve(process.argv[1])).href) {
@@ -213,14 +231,19 @@ if (process.argv[1] && import.meta.url === pathToFileURL(path.resolve(process.ar
   const workIdIndex = args.indexOf('--work-id');
   const workId = workIdIndex >= 0 ? args[workIdIndex + 1] : undefined;
   try {
+    for (let i = 0; i < args.length; i++) {
+      if (args[i] === '--work-id') {
+        if (!WORK_ID_PATTERN.test(args[++i] || '')) throw new Error('Missing or invalid --work-id');
+      } else if (!['--private', '--published'].includes(args[i])) throw new Error('Unknown option: ' + args[i]);
+    }
+    const mode = resolveBuildMode(args, process.env);
     const result = buildReader({
       workId,
-      privatePreview: args.includes('--private'),
-      published: args.includes('--published'),
+      ...mode,
       mangaUrl: process.env.MANGA_URL || '',
       mangaUrls: process.env.MANGA_URLS_JSON || {},
     });
-    console.log(`${args.includes('--published') ? 'Published' : 'Private'} reader built: ${result.dist}`);
+    console.log(`${mode.published ? 'Published' : 'Private'} reader built: ${result.dist}`);
   } catch (error) {
     console.error(error.message);
     process.exitCode = 1;
