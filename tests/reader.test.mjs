@@ -3,8 +3,16 @@ import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
-import {buildReader, mangaLink, parseMangaUrls, resolveBuildMode} from '../scripts/build-reader.mjs';
+import {buildReader, displaySceneId, mangaLink, parseMangaUrls, resolveBuildMode} from '../scripts/build-reader.mjs';
 const root = new URL('..', import.meta.url).pathname;
+
+
+test('display scene IDs follow manuscript paths without changing stable IDs', () => {
+  assert.equal(displaySceneId({id:'C01-E01', path:'manuscript/p01/p01-01.md'}), 'P1-1');
+  assert.equal(displaySceneId({id:'C04-E13', path:'manuscript/p04/p04-04.md'}), 'P4-4');
+  assert.equal(displaySceneId({id:'P01-01', path:'scenes/p01-01.md'}), 'P01-01');
+  assert.equal(displaySceneId({id:'X', path:'manuscript/p01/p01-01.md', displayNumber:'P9-9'}), 'P9-9');
+});
 
 test('private reader builds all works, preserves order, and isolates assets', t => {
   const temp = fs.mkdtempSync(path.join(os.tmpdir(), 'private-reader-'));
