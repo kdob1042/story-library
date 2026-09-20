@@ -559,7 +559,7 @@
           item.id = `nav-scene-${sid}`;
           item.innerHTML = `
             <span class="min-w-0 pr-2">
-              <span class="block text-[10px] text-stone-400 font-mono">${sid}</span>
+              <span class="block text-[10px] text-stone-400 font-mono">${scene.displayId || sid}</span>
               <span class="scene-nav-title block truncate text-stone-700">${escapeHtml(scene.title || sid)}</span>
             </span>
             <span class="shrink-0 text-[10px] text-stone-400 font-mono">読書</span>
@@ -634,9 +634,10 @@
         .replace(/^第\d+話(?:［[^］]+］)?/, '')
         .trim();
       currentEpisodeTitle.textContent = episodeName;
-      currentSceneBadge.textContent = scene.id;
+      const sceneDisplayId = scene.displayId || scene.id;
+      currentSceneBadge.textContent = sceneDisplayId;
       articleEpisode.textContent = scene.episodeTitle;
-      articleSceneId.textContent = scene.id;
+      articleSceneId.textContent = sceneDisplayId;
       sceneProgressText.textContent = `${index + 1} / ${allScenes.length}`;
 
       prevSceneBtn.disabled = index === 0;
