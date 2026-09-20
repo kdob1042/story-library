@@ -40,6 +40,10 @@ test('private reader builds all works, preserves order, and isolates assets', t 
   assert.ok(!fs.existsSync(path.join(result.dist, 'works/fixture-novel/data/source')));
   assert.match(fs.readFileSync(path.join(result.dist, 'index.html'), 'utf8'), /id="workSelect"/);
   assert.match(fs.readFileSync(path.join(result.dist, 'index.html'), 'utf8'), /data\/library-index\.json/);
+  const readerHtml = fs.readFileSync(path.join(result.dist, 'index.html'), 'utf8');
+  assert.match(readerHtml, /const sections = Array\.isArray\(manifestData\.sections\)/);
+  assert.doesNotMatch(readerHtml, /id="tabDesign"/);
+  assert.doesNotMatch(readerHtml, /確認中\.\.\./);
   const selected = buildReader({repoRoot:temp, workId:'fixture-novel', privatePreview:true});
   assert.equal(selected.libraryIndex.defaultWorkId, 'fixture-novel');
   assert.ok(selected.catalog.episodes.every(ep => ep.scene_ids.length === 1));
