@@ -28,6 +28,16 @@ test('story-source/v1 fixture keeps scene IDs, order and character image', async
   assert.equal(result.publication.formats.novel.visibility, 'private');
 });
 
+test('canonical and legacy work entries cannot coexist', async () => {
+  const files = await readWorkFilesFromDisk(root, 'fixtures/works/fixture-story');
+  files.set('source/manifest.json', files.get('work.json'));
+  await assert.rejects(
+    () => validateImportedWork(root, { ...storyWork(), root: 'works/fixture-story' }, files),
+    error => error instanceof LibraryValidationError
+      && error.issues.some(issue => issue.code === 'DUPLICATE_FILE')
+  );
+});
+
 test('novel-source/v1 fixture keeps chapter/episode IDs and reading order', async () => {
   const files = await readWorkFilesFromDisk(root, 'fixtures/works/fixture-novel');
   const manifest = JSON.parse(files.get('work.json'));
