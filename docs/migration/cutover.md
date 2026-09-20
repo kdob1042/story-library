@@ -53,6 +53,13 @@ Cloudflare設定の正本はREADMEの表。Build commandは共通の `npm ci && 
 }
 ```
 - これにより、原稿を `main` へ反映しても `publication.yaml` に登録・承認・転送済みにしない限り公開されず、話単位で順次公開できる。
+
+### ブランチの昇格順序
+
+- 通常変更は、最新 `dev` から作業ブランチを作り、PRで `dev` に取り込む。
+- devのCI、プレビュー表示、必要な受入確認を終えてから、`dev` から `main` へPRを作る。
+- `dev` は確認環境、`main` は公開用ブランチであり、`dev` と `main` へ直接pushしない。
+- `main → dev` 同期は通常運用ではなく、復旧・緊急の履歴合わせだけに限定する。
 - CloudflareのGit接続、Access、Worker URL、公開開始の承認は人間設定として残す。実URLや認証情報はリポジトリへ書かない。
 
 ## 未完了の実環境作業
