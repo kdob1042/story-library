@@ -123,6 +123,20 @@ function readMarketData(workRoot, workId) {
         throw new Error('Invalid market-data.json price conversion for ' + workId);
       }
     }
+    if (item.holdingNote != null && typeof item.holdingNote !== 'string') {
+      throw new Error('Invalid market-data.json holding note for ' + workId);
+    }
+    if (item.holdingScenarios != null && !Array.isArray(item.holdingScenarios)) {
+      throw new Error('Invalid market-data.json holding scenarios for ' + workId);
+    }
+    for (const scenario of item.holdingScenarios || []) {
+      if (!scenario || typeof scenario.label !== 'string'
+        || (scenario.valueJpy != null && (typeof scenario.valueJpy !== 'number' || scenario.valueJpy < 0))
+        || (scenario.calculation != null && typeof scenario.calculation !== 'string')
+        || (scenario.note != null && typeof scenario.note !== 'string')) {
+        throw new Error('Invalid market-data.json holding scenario for ' + workId);
+      }
+    }
   }
   return data;
 }

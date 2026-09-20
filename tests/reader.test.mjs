@@ -29,6 +29,7 @@ test('private reader builds all works, preserves order, and isolates assets', t 
       currentPrice: 100,
       currentCurrency: 'USD',
       priceConversions: [{label: 'historical', historicalPrice: 30, currentBasisPrice: 0.75}],
+      holdingScenarios: [{label: 'held', valueJpy: 123456}],
     }],
   }));
   const works = ['fixture-story', 'fixture-novel'].map(id => ({id, title:id, root:`works/${id}`, formats:['novel'], manuscriptFormat:id === 'fixture-story' ? 'story-source/v1' : 'novel-source/v1', readAdapters:[id === 'fixture-story' ? 'story-source/v1' : 'novel-source/v1'], authority:'library', origin:{repository:'fixture/source'}, importStatus:'verified'}));
@@ -48,6 +49,7 @@ test('private reader builds all works, preserves order, and isolates assets', t 
   assert.ok(fs.existsSync(path.join(result.dist, 'works/fixture-story/data/reader-index.json')));
   assert.ok(fs.existsSync(path.join(result.dist, 'works/fixture-novel/data/reader-index.json')));
   assert.equal(result.catalog.marketData.items[0].ticker, 'FIX');
+  assert.equal(result.catalog.marketData.items[0].holdingScenarios[0].valueJpy, 123456);
   assert.ok(!fs.existsSync(path.join(result.dist, 'works/fixture-story/data/source')));
   assert.ok(!fs.existsSync(path.join(result.dist, 'works/fixture-novel/data/source')));
   assert.match(fs.readFileSync(path.join(result.dist, 'index.html'), 'utf8'), /id="workSelect"/);
