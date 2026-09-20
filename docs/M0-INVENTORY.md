@@ -35,7 +35,7 @@
 
 ## 公開テンプレート（実作品ではない）
 
-`kdob1042/novel-template` の `manifest.json` は `novel-source/v1`。章 `C01`–`C04`、話 `C01-E01` 形式、本文はプレースホルダー。これは新作雛形の採用元であり、investor-lifeの実本文と混ぜない。公開CIやテンプレートに実作品本文・個人情報を入れない。
+`kdob1042/novel-template` は現在この接続から取得できないため、現行の新作雛形は `templates/work/work.json` を正本とする。旧templateの `manifest.json` は形式の来歴として扱い、investor-lifeの実本文と混ぜない。公開CIやテンプレートに実作品本文・個人情報を入れない。
 
 ## 保持する対象
 
