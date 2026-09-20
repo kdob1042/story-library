@@ -131,14 +131,14 @@
         <div id="workSwitcher" class="mt-1 flex items-center gap-2 text-xs text-stone-500">
           <label for="workSelect" class="shrink-0">作品</label>
           <select id="workSelect" class="min-w-0 max-w-full rounded border border-stone-300 bg-white px-2 py-1 text-xs text-stone-700 outline-none focus:border-emerald-600" aria-label="作品を切り替え">
-            <option value="">読み込み中...</option>
+            <option value="">確認中...</option>
           </select>
         </div>
         <div id="headerMeta" class="flex min-w-0 items-center gap-1.5 text-xs">
-          <span id="currentSceneBadge" class="shrink-0 px-2 py-0.5 rounded-full bg-stone-200 text-stone-700 font-mono">P01-01</span>
-          <span id="currentEpisodeTitle" class="min-w-0 truncate text-stone-500">読み込み中...</span>
+          <span id="currentSceneBadge" class="shrink-0 px-2 py-0.5 rounded-full bg-stone-200 text-stone-700 font-mono">---</span>
+          <span id="currentEpisodeTitle" class="min-w-0 truncate text-stone-500">確認中...</span>
         </div>
-        <p id="currentSceneTitle" class="mt-0.5 text-sm text-stone-700 truncate">読み込み中...</p>
+        <p id="currentSceneTitle" class="mt-0.5 text-sm text-stone-700 truncate">確認中...</p>
       </div>
     </div>
 
@@ -192,11 +192,11 @@
         <!-- Scene Title Header -->
         <header id="sceneHeader" class="mb-8 pb-4 border-b border-stone-200">
           <div class="flex items-center gap-2 text-xs font-gothic text-stone-500 mb-1">
-            <span id="articleEpisode">第一話</span>
+            <span id="articleEpisode">-</span>
             <span>&bull;</span>
-            <span id="articleSceneId">P01-01</span>
+            <span id="articleSceneId">-</span>
           </div>
-          <h2 id="articleTitle" class="text-2xl font-bold tracking-wider text-stone-900 font-gothic">読み込み中...</h2>
+          <h2 id="articleTitle" class="text-2xl font-bold tracking-wider text-stone-900 font-gothic">確認中...</h2>
         </header>
 
         <!-- Main Novel Content -->
@@ -209,7 +209,7 @@
           <button id="prevSceneBtn" class="px-4 py-2 rounded-lg border border-stone-300 hover:bg-stone-200 text-stone-700 disabled:opacity-30 disabled:pointer-events-none transition flex items-center gap-1.5">
             <span>&larr;</span> 前の場面
           </button>
-          <span id="sceneProgressText" class="text-stone-500">1 / 35</span>
+          <span id="sceneProgressText" class="text-stone-500">-</span>
           <button id="nextSceneBtn" class="px-4 py-2 rounded-lg bg-emerald-700 hover:bg-emerald-800 text-white disabled:opacity-30 disabled:pointer-events-none transition flex items-center gap-1.5">
             次の場面 <span>&rarr;</span>
           </button>
@@ -256,6 +256,8 @@
     const articleEpisode = document.getElementById('articleEpisode');
     const articleSceneId = document.getElementById('articleSceneId');
     const articleTitle = document.getElementById('articleTitle');
+    const headerMeta = document.getElementById('headerMeta');
+    const sceneHeader = document.getElementById('sceneHeader');
     const currentSceneTitle = document.getElementById('currentSceneTitle');
     const currentEpisodeTitle = document.getElementById('currentEpisodeTitle');
     const currentSceneBadge = document.getElementById('currentSceneBadge');
@@ -263,6 +265,7 @@
     const prevSceneBtn = document.getElementById('prevSceneBtn');
     const nextSceneBtn = document.getElementById('nextSceneBtn');
     const sceneProgressText = document.getElementById('sceneProgressText');
+    const sceneNavigation = prevSceneBtn.closest('nav');
 
     // Toggle Sidebar
     toggleSidebarBtn.addEventListener('click', () => {
@@ -367,14 +370,65 @@
       throw lastErr || new Error('fetch failed');
     }
 
+    function showReaderShell() {
+      headerMeta.classList.remove('hidden');
+      currentSceneTitle.classList.remove('hidden');
+      sceneHeader.classList.remove('hidden');
+      sceneNavigation.classList.remove('hidden');
+    }
+
+    function showReaderState(message, {error = false, selectorLabel = message} = {}) {
+      currentWork = null;
+      currentWorkBase = '';
+      manifestData = null;
+      allScenes = [];
+      currentSceneIndex = 0;
+
+      workTitle.textContent = '小説ライブラリ';
+      document.title = '小説ライブラリ - 小説ビューア';
+      workSelect.innerHTML = `<option value="">${escapeHtml(selectorLabel)}</option>`;
+      workSelect.disabled = true;
+      mangaLink.classList.add('hidden');
+
+      headerMeta.classList.add('hidden');
+      currentSceneTitle.classList.add('hidden');
+      sceneHeader.classList.add('hidden');
+      sceneNavigation.classList.add('hidden');
+
+      currentSceneBadge.textContent = '---';
+      currentEpisodeTitle.textContent = '';
+      articleEpisode.textContent = '-';
+      articleSceneId.textContent = '-';
+      articleTitle.textContent = '';
+      sceneProgressText.textContent = '-';
+      prevSceneBtn.disabled = true;
+      nextSceneBtn.disabled = true;
+
+      tabNovel.textContent = '本文';
+      tabDesign.textContent = '作品設定';
+      tabNovel.click();
+
+      for (const container of [episodesContainer, settingsContainer]) {
+        container.innerHTML = '';
+        const note = document.createElement('div');
+        note.className = `${error ? 'text-rose-500' : 'text-stone-500'} text-xs text-center py-4`;
+        note.textContent = message;
+        container.appendChild(note);
+      }
+
+      novelContent.innerHTML = '';
+      const messageNode = document.createElement('p');
+      messageNode.className = `${error ? 'text-rose-500' : 'text-stone-500'} text-center py-8`;
+      messageNode.textContent = message;
+      novelContent.appendChild(messageNode);
+    }
+
     async function loadLibrary() {
       try {
         libraryData = JSON.parse(await fetchText(['data/library-index.json']));
         if (!Array.isArray(libraryData.works)) throw new Error('Invalid library index');
         if (libraryData.works.length === 0) {
-          workSelect.innerHTML = '<option value="">公開作品なし</option>';
-          workSelect.disabled = true;
-          novelContent.innerHTML = '<p class="text-center py-8">現在公開中の作品はありません。</p>';
+          showReaderState('現在公開中の作品はありません。', {selectorLabel: '公開作品なし'});
           return;
         }
         renderWorkSelector();
@@ -385,9 +439,7 @@
         await selectWork(initial, {updateUrl: false});
       } catch (err) {
         console.error('Failed to load library:', err);
-        workSelect.innerHTML = '<option value="">読み込み失敗</option>';
-        workSelect.disabled = true;
-        novelContent.innerHTML = '<p class="text-rose-500 text-center py-8">作品一覧の取得に失敗しました。</p>';
+        showReaderState('作品一覧の取得に失敗しました。', {error: true, selectorLabel: '読み込み失敗'});
       }
     }
 
@@ -406,6 +458,7 @@
       if (!libraryData) return;
       const work = libraryData.works.find(item => item.id === workId);
       if (!work) return;
+      showReaderShell();
       const token = ++loadToken;
       currentWork = work;
       currentWorkBase = `${work.basePath}/data/`;
