@@ -1,14 +1,14 @@
-name: Deploy reader
+name: Deploy dev reader preview
 
 on:
   push:
-    branches: [main, dev]
+    branches: [dev]
 
 permissions:
   contents: read
 
 concurrency:
-  group: reader-deploy-${{ github.ref_name }}
+  group: reader-deploy-dev
   cancel-in-progress: true
 
 jobs:
@@ -16,7 +16,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       WORKERS_CI: "1"
-      WORKERS_CI_BRANCH: ${{ github.ref_name }}
+      WORKERS_CI_BRANCH: dev
       CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
       CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
     steps:
@@ -38,10 +38,5 @@ jobs:
       - name: Build reader
         run: npm run build:reader
 
-      - name: Deploy production
-        if: github.ref_name == 'main'
-        run: npx wrangler deploy --config wrangler.jsonc
-
       - name: Deploy dev preview
-        if: github.ref_name == 'dev'
         run: npx wrangler versions upload --config wrangler.jsonc --preview-alias dev
