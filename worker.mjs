@@ -384,7 +384,7 @@ async function handleNotify(request, env) {
       '<p>「' + htmlEscape(workTitle) + '」に新しい話が公開されました。</p>' +
       '<p><strong>' + htmlEscape(episodeTitle) + '</strong></p>' +
       '<p><a href="' + htmlEscape(link.href) + '">本文を読む</a></p>' +
-      '<p style="color:#666;font-size:small">配信停止はメール下部のリンクから行えます。{{{RESEND_UNSUBSCRIBE_URL}}}</p>',
+      '<p style="color:#666;font-size:small">配信停止はメール下部の<a href="{{{RESEND_UNSUBSCRIBE_URL}}}">リンク</a>から行えます。</p>',
     send: true,
   });
   if (!result.ok) {
