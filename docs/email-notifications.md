@@ -41,14 +41,14 @@ Variable:
 
 `RESEND_WORKS_JSON` の例:
 
-`json
+```json
 {
   "investor-life": {
     "segmentId": "Resendで作成したSegment ID",
     "topicId": "Resendで作成したTopic ID"
   }
 }
-`
+```
 
 `topicId` は任意ですが、作品ごとの購読設定をResend側でも管理するため、作成した場合は設定してください。Segment IDは必須です。
 
