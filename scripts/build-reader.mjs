@@ -225,7 +225,7 @@ export function buildReader({
   const html = fs.readFileSync(path.join(ROOT, 'reader/index.html'), 'utf8')
     .replaceAll('__WORK_TITLE__', escape(defaultSnapshot?.catalog.work.title || defaultSnapshot?.work.title || '小説ライブラリ'))
     .replace('__MANGA_LINK__', '<a id="mangaLink" href="#" target="_blank" rel="noreferrer" class="text-sm underline hidden"></a>')
-    .replace('__EMAIL_SUBSCRIBE__', emailSubscriptionMarkup(mode === 'published'));
+    .replace('__EMAIL_SUBSCRIBE__', emailSubscriptionMarkup(mode === 'published' && availableSnapshots.length > 0));
 
   fs.rmSync(outputDir, {recursive: true, force: true});
   fs.mkdirSync(path.join(outputDir, 'data'), {recursive: true});
