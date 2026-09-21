@@ -68,7 +68,7 @@ try {
 
 const events = [];
 for (const relativePath of changedPaths) {
-  const match = relativePath.match(/^works\\/([^/]+)\\/publication\\.yaml$/);
+  const match = relativePath.match(/^works\/([^/]+)\/publication\.yaml$/);
   if (!match) continue;
   const workId = match[1];
   const currentPublication = readJson(relativePath);
