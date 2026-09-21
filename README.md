@@ -15,6 +15,8 @@
 
 詳細は [docs/M0-INVENTORY.md](docs/M0-INVENTORY.md) と [docs/M1-CONTRACT.md](docs/M1-CONTRACT.md)。
 
+小説の更新通知（Resend）の設定は [docs/email-notifications.md](docs/email-notifications.md)。
+
 ## 入口
 
 | パス | 役割 |
