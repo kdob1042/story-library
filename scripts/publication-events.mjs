@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 import fs from 'node:fs';
 import {execFileSync} from 'node:child_process';
+import {createHash} from 'node:crypto';
 import path from 'node:path';
 
 const root = process.cwd();
@@ -55,6 +56,12 @@ function safeEventPart(value) {
   return String(value || '').replace(/[^A-Za-z0-9._:-]/g, '_').slice(0, 120);
 }
 
+function manifestRevision(work, episodeId) {
+  const episode = findById(work, episodeId);
+  const serialized = JSON.stringify(episode || {id: episodeId});
+  return 'manifest-' + createHash('sha256').update(serialized).digest('hex').slice(0, 16);
+}
+
 let changedPaths;
 try {
   changedPaths = execFileSync(
@@ -84,10 +91,9 @@ for (const relativePath of changedPaths) {
     if (previousEpisode && previousEpisode.revision === episode.revision) continue;
     const manuscriptEpisode = findById(work, episode.id);
     const title = manuscriptEpisode?.title || episode.id;
-    const revision = episode.revision || sha;
+    const revision = episode.revision || manifestRevision(work, episode.id);
     events.push({
       eventId: [
-        safeEventPart(sha),
         safeEventPart(workId),
         'novel',
         safeEventPart(episode.id),
@@ -96,6 +102,7 @@ for (const relativePath of changedPaths) {
       workId,
       format: 'novel',
       episodeId: episode.id,
+      revision,
       title: workTitle + '｜' + title,
     });
   }
