@@ -220,6 +220,8 @@
             次のページ <span>&rarr;</span>
           </button>
         </nav>
+
+        __EMAIL_SUBSCRIBE__
       </article>
     </main>
   </div>
@@ -269,6 +271,10 @@
     const sceneProgressText = document.getElementById('sceneProgressText');
     const sceneNavigation = prevSceneBtn.closest('nav');
     const nextHeaderBtn = document.getElementById('nextHeaderBtn');
+    const emailSubscribeForm = document.getElementById('emailSubscribeForm');
+    const emailWorkSelect = document.getElementById('emailWorkSelect');
+    const emailSubscribeAddress = document.getElementById('emailSubscribeAddress');
+    const emailSubscribeStatus = document.getElementById('emailSubscribeStatus');
 
     const marketDataPanel = document.getElementById('marketDataPanel');
     const marketDataContent = document.getElementById('marketDataContent');
@@ -541,6 +547,36 @@
         workSelect.appendChild(option);
       });
       workSelect.disabled = libraryData.works.length < 2;
+      syncEmailWorkSelector();
+    }
+
+    function syncEmailWorkSelector() {
+      if (!emailWorkSelect || !libraryData) return;
+      const previous = emailWorkSelect.value;
+      emailWorkSelect.innerHTML = '';
+      libraryData.works.forEach(work => {
+        const option = document.createElement('option');
+        option.value = work.id;
+        option.textContent = work.title;
+        emailWorkSelect.appendChild(option);
+      });
+      const preferred = currentWork?.id || previous || libraryData.defaultWorkId || libraryData.works[0]?.id || '';
+      emailWorkSelect.value = preferred;
+    }
+
+    function routeSceneIndex() {
+      const params = new URL(window.location.href).searchParams;
+      const sceneId = params.get('scene');
+      const episodeId = params.get('episode');
+      if (sceneId) {
+        const sceneIndex = allScenes.findIndex(scene => scene.id === sceneId);
+        if (sceneIndex >= 0) return sceneIndex;
+      }
+      if (episodeId) {
+        const episodeIndex = allScenes.findIndex(scene => scene.episodeId === episodeId);
+        if (episodeIndex >= 0) return episodeIndex;
+      }
+      return 0;
     }
 
     async function selectWork(workId, {updateUrl = true} = {}) {
@@ -552,6 +588,7 @@
       currentWork = work;
       currentWorkBase = `/${String(work.basePath || '').replace(/^\/+/, '')}/data/`;
       workSelect.value = work.id;
+      syncEmailWorkSelector();
       workTitle.textContent = work.title;
       document.title = `${work.title} - 小説ビューア`;
       mangaLink.classList.toggle('hidden', !work.mangaUrl);
@@ -590,7 +627,7 @@
         renderMarketData(manifestData.marketData);
         renderTableOfContents();
         if (allScenes.length > 0) {
-          await loadScene(0, token);
+          await loadScene(routeSceneIndex(), token);
         } else {
           novelContent.innerHTML = '<p class="text-stone-500 text-center py-8">本文がありません。</p>';
         }
@@ -602,6 +639,37 @@
     }
 
     workSelect.addEventListener('change', () => selectWork(workSelect.value));
+
+    if (emailSubscribeForm) {
+      emailSubscribeForm.addEventListener('submit', async event => {
+        event.preventDefault();
+        const email = emailSubscribeAddress.value.trim();
+        const workId = emailWorkSelect?.value || currentWork?.id || '';
+        emailSubscribeStatus.textContent = '確認メールを送信しています...';
+        const submitButton = emailSubscribeForm.querySelector('button[type="submit"]');
+        if (submitButton) submitButton.disabled = true;
+        try {
+          const response = await fetch('/api/email/subscribe', {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({email, workId, format: 'novel'}),
+          });
+          const payload = await response.json().catch(() => ({}));
+          if (!response.ok) {
+            if (response.status === 429) throw new Error('少し時間を置いてから再度お試しください。');
+            if (response.status === 503) throw new Error('現在、登録受付の準備中です。');
+            throw new Error('入力内容を確認して、もう一度お試しください。');
+          }
+          emailSubscribeStatus.textContent = payload.message || '確認メールを送信しました。メールから登録を確定してください。';
+          emailSubscribeAddress.value = '';
+        } catch (error) {
+          emailSubscribeStatus.textContent = error instanceof Error ? error.message : '登録に失敗しました。';
+        } finally {
+          if (submitButton) submitButton.disabled = false;
+        }
+      });
+    }
+
     window.addEventListener('popstate', () => {
       if (!libraryData) return;
       const requested = new URL(window.location.href).searchParams.get('work');
