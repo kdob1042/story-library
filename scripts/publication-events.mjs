@@ -88,7 +88,7 @@ for (const relativePath of changedPaths) {
 
   for (const episode of current.values()) {
     const previousEpisode = previous.get(episode.id);
-    if (previousEpisode && previousEpisode.revision === episode.revision) continue;
+    if (previousEpisode) continue;
     const manuscriptEpisode = findById(work, episode.id);
     const title = manuscriptEpisode?.title || episode.id;
     const revision = episode.revision || manifestRevision(work, episode.id);
