@@ -68,10 +68,10 @@ Cloudflare KVを作成し、Worker binding名 `NOTIFICATION_STATE` で本番Work
 `main` で `works/**/publication.yaml` が変更されると、`.github/workflows/email-notify.yml` が前回コミットとの差分を確認し、次の話について配信要求を送ります。
 
 - 初めて公開条件を満たした話
-- `approvedRevision` が変わった話
 - 予約公開日時を過ぎて公開条件を満たした話
+- 一度非公開へ戻した話を、別の `revision` で再公開した場合
 
-本文を改稿して更新通知を出す場合は、公開設定の `approvedRevision` も更新してください。配信要求は `eventId` を持ち、同じイベントを再実行してもKV上で重複を抑止します。
+本文を修正しただけでは通知しません。`approvedRevision` は公開イベントの識別に使われ、配信要求は `eventId` を持つため、同じ workId・形式・話・revision を再実行してもKV上で重複を抑止します。
 
 ## 動作確認
 
