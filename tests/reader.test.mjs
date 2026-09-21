@@ -37,6 +37,9 @@ test('private reader builds all works, preserves order, and isolates assets', t 
   assert.ok(fs.existsSync(path.join(result.dist, 'data/library-index.json')));
   assert.ok(fs.existsSync(path.join(result.dist, 'works/fixture-story/data/reader-index.json')));
   assert.ok(fs.existsSync(path.join(result.dist, 'works/fixture-novel/data/reader-index.json')));
+  const privateEmailIndex = JSON.parse(fs.readFileSync(path.join(result.dist, 'data/email-works.json'), 'utf8'));
+  assert.equal(privateEmailIndex.published, false);
+  assert.deepEqual(privateEmailIndex.works.map(work => work.id), ['fixture-story', 'fixture-novel']);
   assert.equal(result.catalog.marketData, undefined);
   const privateReaderIndex = JSON.parse(fs.readFileSync(path.join(result.dist, 'works/fixture-story/data/reader-index.json'), 'utf8'));
   assert.equal(privateReaderIndex.marketData, undefined);
@@ -45,6 +48,7 @@ test('private reader builds all works, preserves order, and isolates assets', t 
   assert.match(fs.readFileSync(path.join(result.dist, 'index.html'), 'utf8'), /id="workSelect"/);
   assert.match(fs.readFileSync(path.join(result.dist, 'index.html'), 'utf8'), /data\/library-index\.json/);
   const readerHtml = fs.readFileSync(path.join(result.dist, 'index.html'), 'utf8');
+  assert.doesNotMatch(readerHtml, /id="emailSubscribeForm"/);
   assert.match(readerHtml, /const sections = Array\.isArray\(manifestData\.sections\)/);
   assert.doesNotMatch(readerHtml, /id="tabDesign"/);
   assert.match(readerHtml, /id="nextHeaderBtn"/);
@@ -104,6 +108,10 @@ test('published reader follows publication.yaml and omits private material', t =
   assert.deepEqual(result.catalog.characters, []);
   assert.equal(result.catalog.hasHistory, false);
   assert.equal(result.catalog.marketData, undefined);
+  const publishedEmailIndex = JSON.parse(fs.readFileSync(path.join(result.dist, 'data/email-works.json'), 'utf8'));
+  assert.equal(publishedEmailIndex.published, true);
+  assert.deepEqual(publishedEmailIndex.works.map(work => work.id), ['fixture-story']);
+  assert.match(fs.readFileSync(path.join(result.dist, 'index.html'), 'utf8'), /id="emailSubscribeForm"/);
   assert.ok(!fs.existsSync(path.join(result.dist, 'works/fixture-novel')));
   const publicationPath = path.join(temp, 'works/fixture-story/publication.yaml');
   const publication = JSON.parse(fs.readFileSync(publicationPath, 'utf8'));

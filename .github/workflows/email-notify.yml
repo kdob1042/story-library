@@ -1,0 +1,32 @@
+name: Notify published novel updates
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'works/**/publication.yaml'
+
+permissions:
+  contents: read
+
+jobs:
+  notify:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out the published commit
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+
+      - name: Build publication event list
+        env:
+          BEFORE_SHA: ${{ github.event.before }}
+          GITHUB_SHA: ${{ github.sha }}
+        run: node scripts/publication-events.mjs > publication-events.json
+
+      - name: Dispatch notification events
+        env:
+          STORY_LIBRARY_EMAIL_ENDPOINT: ${{ vars.STORY_LIBRARY_EMAIL_ENDPOINT }}
+          STORY_LIBRARY_EMAIL_DISPATCH_TOKEN: ${{ secrets.STORY_LIBRARY_EMAIL_DISPATCH_TOKEN }}
+        run: node scripts/notify-publication.mjs publication-events.json

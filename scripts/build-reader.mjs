@@ -93,6 +93,26 @@ export function parseMangaUrls(value = {}) {
   return result;
 }
 
+export function emailSubscriptionMarkup(enabled = false) {
+  if (!enabled) return '';
+  return [
+    '<section id="emailSubscribeCard" class="mt-12 rounded-2xl border border-emerald-200 bg-emerald-50/70 p-5 font-gothic shadow-sm">',
+    '  <h2 class="text-base font-semibold text-emerald-950">新しい話の更新通知</h2>',
+    '  <p class="mt-2 text-sm leading-6 text-stone-700">公開された新しい話をメールでお知らせします。登録後に届く確認メールから購読を確定してください。</p>',
+    '  <form id="emailSubscribeForm" class="mt-4 grid gap-3 sm:grid-cols-[minmax(0,1fr)_minmax(0,1fr)_auto] sm:items-end">',
+    '    <label class="grid gap-1.5 text-xs font-medium text-stone-700">作品',
+    '      <select id="emailWorkSelect" class="rounded-lg border border-stone-300 bg-white px-3 py-2 text-sm outline-none focus:border-emerald-600 focus:ring-2 focus:ring-emerald-200"></select>',
+    '    </label>',
+    '    <label class="grid gap-1.5 text-xs font-medium text-stone-700">メールアドレス',
+    '      <input id="emailSubscribeAddress" type="email" autocomplete="email" required maxlength="254" placeholder="you@example.com" class="rounded-lg border border-stone-300 bg-white px-3 py-2 text-sm outline-none focus:border-emerald-600 focus:ring-2 focus:ring-emerald-200">',
+    '    </label>',
+    '    <button type="submit" class="rounded-lg bg-emerald-700 px-4 py-2 text-sm font-semibold text-white hover:bg-emerald-800 disabled:opacity-50">仮登録する</button>',
+    '  </form>',
+    '  <p id="emailSubscribeStatus" class="mt-3 text-xs leading-5 text-stone-600" aria-live="polite"></p>',
+    '</section>',
+  ].join('\n');
+}
+
 function buildWorkSnapshot(repoRoot, work, {mode = 'private'} = {}) {
   const root = fs.realpathSync(path.join(repoRoot, work.root));
   const readPath = relative => {
@@ -204,12 +224,22 @@ export function buildReader({
   };
   const html = fs.readFileSync(path.join(ROOT, 'reader/index.html'), 'utf8')
     .replaceAll('__WORK_TITLE__', escape(defaultSnapshot?.catalog.work.title || defaultSnapshot?.work.title || '小説ライブラリ'))
-    .replace('__MANGA_LINK__', '<a id="mangaLink" href="#" target="_blank" rel="noreferrer" class="text-sm underline hidden"></a>');
+    .replace('__MANGA_LINK__', '<a id="mangaLink" href="#" target="_blank" rel="noreferrer" class="text-sm underline hidden"></a>')
+    .replace('__EMAIL_SUBSCRIBE__', emailSubscriptionMarkup(mode === 'published' && availableSnapshots.length > 0));
 
   fs.rmSync(outputDir, {recursive: true, force: true});
   fs.mkdirSync(path.join(outputDir, 'data'), {recursive: true});
   fs.writeFileSync(path.join(outputDir, 'index.html'), html);
   fs.writeFileSync(path.join(outputDir, 'data/library-index.json'), JSON.stringify(libraryIndex));
+  fs.writeFileSync(path.join(outputDir, 'data/email-works.json'), JSON.stringify({
+    schema_version: 1,
+    published: mode === 'published',
+    works: availableSnapshots.map(({work, catalog}) => ({
+      id: work.id,
+      title: catalog.work.title || work.title,
+      episodes: catalog.episodes.map(episode => ({id: episode.id, title: episode.title})),
+    })),
+  }));
   fs.writeFileSync(path.join(outputDir, '_headers'), '/*\n  Cache-Control: private, no-store\n  X-Robots-Tag: noindex, nofollow\n');
 
   for (const {work, catalog, inputs} of availableSnapshots) {
