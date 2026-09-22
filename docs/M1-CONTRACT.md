@@ -1,5 +1,8 @@
 # M1 共通仕様
 
+> 移行当時の記録です。正本・担当repo・進捗の記述は当時の状態を示します。現在の編集先と読む順は[制作フロー](WORKFLOW.md)、作業ルールは[AGENTS.md](../AGENTS.md)を参照してください。
+
+
 確定した契約。制作側（manga-mac#157）と配信側（live-manga#44/#46、novel-template#3）は、このcatalog / 作品root / 読取adapterを共有する。同じ契約を別実装しない。
 
 ## 入口
@@ -44,7 +47,7 @@ works/{workId}/
 
 adapterは読取専用である。本文を正規化せず、固定IDを付け替えず、欠損IDを名前から推測しない。既存形式が構造上似ていても、format文字列の置換だけで互換扱いにしない。
 
-## 正本と切替
+## 移行当時の正本と切替条件
 
 - `authorityUntil` は `M8`
 - 取込前・取込後も `authority: origin`

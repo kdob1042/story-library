@@ -1,5 +1,8 @@
 # M0 棚卸し
 
+> 移行当時の記録です。正本・担当repo・進捗の記述は当時の状態を示します。現在の編集先と読む順は[制作フロー](WORKFLOW.md)、作業ルールは[AGENTS.md](../AGENTS.md)を参照してください。
+
+
 作業一覧の正本は [story-library#1](https://github.com/kdob1042/story-library/issues/1)。
 この文書は、この実行環境から確認できた採用元と、確認できなかった境界を記録する。
 
