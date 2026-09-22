@@ -18,7 +18,7 @@ works/<workId>/
 
 最終ネームの機械契約はrepo内に固定した [name-plan/v2 contract](../../contracts/name-plan/schema.mjs) を使う。由来と完全なGit blob SHAは [lock.json](../../contracts/name-plan/lock.json) に固定し、チャット側の創作ループをmanga-macアプリへ往復させない。構造は `parseNameFile` / `validatePlan`、原稿対応は同じvendorの `source.mjs`、座標化が必要な検査は `layout.mjs` を使う。独自schemaや「だいたい同じJSON」を作らない。
 
-vendor lockとmanga-mac側の対応contractが一致しない場合、漫画構成の検討は続けてよいが「現在のアプリへ機械取込可能」とは扱わない。contract更新は作品ごとの改稿と分離し、固定commitと全ファイルhashを更新してテストする。
+vendor lockとmanga-mac側の対応contractが一致しない場合、漫画構成の検討は続けてよいが「現在のアプリへ機械取込可能」とは扱わない。contract更新は作品ごとの改稿と分離し、固定commitと全ファイルhashを更新してテストする。 最終保存前は `node scripts/validate-name-plan.mjs <workId> <episodeId>` で、work.json・原稿・設定・人物画像から同じsource hash/atom/人物ID契約を再構成して検査する。このスクリプトはAIを呼ばず、漫画構成の判断も行わない。
 
 ## 承認・保存
 
