@@ -9,9 +9,19 @@ const read=name=>readFile(path.join(dir,name),'utf8');
 test('AGENTS routes manga work to one chat-owned skill',async()=>{
  const agents=await readFile(path.join(root,'AGENTS.md'),'utf8');
  assert.match(agents,/skills\/manga-director\/SKILL\.md/);
+ assert.match(agents,/@Manga Director/);
+ assert.match(agents,/@コマ割りAI/);
  const skill=await read('SKILL.md');
  assert.match(skill,/チャットAI自身が実行主体/);
  assert.match(skill,/最大3回/);
+});
+test('chat invocation has a short trigger and safe save boundary',async()=>{
+ const skill=await read('SKILL.md');
+ assert.match(skill,/@Manga Director <作品名またはworkId> <episodeId>/);
+ assert.match(skill,/@コマ割りAI <作品名またはworkId> <episodeId>/);
+ assert.match(skill,/保存指定がなければGitHubは変更せず/);
+ assert.match(skill,/単なる「ネーム化」はdirection_only/);
+ assert.match(skill,/works\/<workId>\/manga\/<episodeId>\/name-plan\.json/);
 });
 test('all relative skill links resolve',async()=>{
  for(const name of ['SKILL.md','story-analysis.md','paneling.md','review.md','handoff.md']){
