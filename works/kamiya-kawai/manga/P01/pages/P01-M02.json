@@ -1,0 +1,405 @@
+{
+  "id": "P01-M02",
+  "purpose": "ボールの音で歌から競技へ切り替え、勇の第一印象を置く。",
+  "entryBeatId": "P01-beat-03",
+  "exit": {
+    "kind": "transition",
+    "note": "ホイッスルから次の動作へ進む。",
+    "payoffBeatIds": [
+      "P01-beat-04"
+    ]
+  },
+  "sourceExcerpts": [
+    {
+      "id": "P01-01:u9:a0",
+      "text": "――ダムッ、ダムッ。",
+      "origin": {
+        "snapshotId": "name-source:1d100bd3305f9f8fdca84e46ca407d3efe76c4c43307a637a528aa68448ca2eb",
+        "sceneId": "P01-01",
+        "startCp": 418,
+        "endCp": 428
+      }
+    },
+    {
+      "id": "P01-01:u10:a0",
+      "text": "重く鋭い革ボールの弾む音が、フロアの向こうから響いてきた。",
+      "origin": {
+        "snapshotId": "name-source:1d100bd3305f9f8fdca84e46ca407d3efe76c4c43307a637a528aa68448ca2eb",
+        "sceneId": "P01-01",
+        "startCp": 430,
+        "endCp": 459
+      }
+    },
+    {
+      "id": "P01-01:u11:a0",
+      "text": "「続いて、男子バスケットボール部によるエキシビションマッチです」",
+      "origin": {
+        "snapshotId": "name-source:1d100bd3305f9f8fdca84e46ca407d3efe76c4c43307a637a528aa68448ca2eb",
+        "sceneId": "P01-01",
+        "startCp": 461,
+        "endCp": 493
+      }
+    },
+    {
+      "id": "P01-01:u12:a0",
+      "text": "アナウンスが流れ、由美子は膝の上へ冊子を伏せた。",
+      "origin": {
+        "snapshotId": "name-source:1d100bd3305f9f8fdca84e46ca407d3efe76c4c43307a637a528aa68448ca2eb",
+        "sceneId": "P01-01",
+        "startCp": 495,
+        "endCp": 519
+      }
+    },
+    {
+      "id": "P01-01:u12:a1",
+      "text": "大きな選手たちが二手に分かれてコートへ散っていく。",
+      "origin": {
+        "snapshotId": "name-source:1d100bd3305f9f8fdca84e46ca407d3efe76c4c43307a637a528aa68448ca2eb",
+        "sceneId": "P01-01",
+        "startCp": 519,
+        "endCp": 544
+      }
+    },
+    {
+      "id": "P01-01:u12:a2",
+      "text": "青い練習着を揃えた先輩たちの中に一人、あまり背の高くない選手が混ざっていた。",
+      "origin": {
+        "snapshotId": "name-source:1d100bd3305f9f8fdca84e46ca407d3efe76c4c43307a637a528aa68448ca2eb",
+        "sceneId": "P01-01",
+        "startCp": 544,
+        "endCp": 582
+      }
+    },
+    {
+      "id": "P01-01:u13:a0",
+      "text": "「新一年生、神谷勇」",
+      "origin": {
+        "snapshotId": "name-source:1d100bd3305f9f8fdca84e46ca407d3efe76c4c43307a637a528aa68448ca2eb",
+        "sceneId": "P01-01",
+        "startCp": 584,
+        "endCp": 594
+      }
+    },
+    {
+      "id": "P01-01:u14:a0",
+      "text": "アナウンスに呼ばれ、その人が少し遅れて手を上げる。",
+      "origin": {
+        "snapshotId": "name-source:1d100bd3305f9f8fdca84e46ca407d3efe76c4c43307a637a528aa68448ca2eb",
+        "sceneId": "P01-01",
+        "startCp": 596,
+        "endCp": 621
+      }
+    },
+    {
+      "id": "P01-01:u14:a1",
+      "text": "客席へ向けるはずの顔が、なぜか照れくさそうに先輩のほうを見ていた。",
+      "origin": {
+        "snapshotId": "name-source:1d100bd3305f9f8fdca84e46ca407d3efe76c4c43307a637a528aa68448ca2eb",
+        "sceneId": "P01-01",
+        "startCp": 621,
+        "endCp": 654
+      }
+    },
+    {
+      "id": "P01-01:u15:a0",
+      "text": "「あの人、一年？なんでもう出てるの？」",
+      "origin": {
+        "snapshotId": "name-source:1d100bd3305f9f8fdca84e46ca407d3efe76c4c43307a637a528aa68448ca2eb",
+        "sceneId": "P01-01",
+        "startCp": 656,
+        "endCp": 675
+      }
+    },
+    {
+      "id": "P01-01:u16:a0",
+      "text": "前の列の女子が隣へ顔を寄せる。",
+      "origin": {
+        "snapshotId": "name-source:1d100bd3305f9f8fdca84e46ca407d3efe76c4c43307a637a528aa68448ca2eb",
+        "sceneId": "P01-01",
+        "startCp": 677,
+        "endCp": 692
+      }
+    },
+    {
+      "id": "P01-01:u16:a1",
+      "text": "相手も首をかしげたまま、コートを見つめている。",
+      "origin": {
+        "snapshotId": "name-source:1d100bd3305f9f8fdca84e46ca407d3efe76c4c43307a637a528aa68448ca2eb",
+        "sceneId": "P01-01",
+        "startCp": 692,
+        "endCp": 715
+      }
+    },
+    {
+      "id": "P01-01:u17:a0",
+      "text": "ホイッスルが鳴り、試合が始まった。",
+      "origin": {
+        "snapshotId": "name-source:1d100bd3305f9f8fdca84e46ca407d3efe76c4c43307a637a528aa68448ca2eb",
+        "sceneId": "P01-01",
+        "startCp": 717,
+        "endCp": 734
+      }
+    }
+  ],
+  "contextExcerpts": [],
+  "boundaryContext": {
+    "before": null,
+    "after": null
+  },
+  "panels": [
+    {
+      "id": "P01-panel-005",
+      "sceneId": "P01-01",
+      "sourceExcerptIds": [
+        "P01-01:u9:a0",
+        "P01-01:u10:a0",
+        "P01-01:u11:a0"
+      ],
+      "contextExcerptIds": [],
+      "beatIds": [
+        "P01-beat-03"
+      ],
+      "characters": [
+        {
+          "characterId": "kawai-yumiko",
+          "appearanceId": null,
+          "visualState": "",
+          "emotion": "",
+          "holding": []
+        }
+      ],
+      "prompt": "漫画の線画のための構図案。冊子を伏せた膝の近くから床を弾む球へ音をつなぐ。アナウンスの文字空間を確保。人物は登録済み基準画と当該場面の本文に合わせる。台詞・効果音・看板の文字を画像へ焼き込まない。",
+      "shotIntent": "冊子を伏せた膝の近くから床を弾む球へ音をつなぐ。アナウンスの文字空間を確保。",
+      "protect": [
+        "手元・重要物",
+        "文字レイヤーの余白"
+      ],
+      "gaze": "neutral",
+      "intent": "standard",
+      "previousPanelId": null,
+      "texts": [
+        {
+          "id": "text:P01-panel-005:2",
+          "kind": "dialogue",
+          "speakerId": null,
+          "text": "「続いて、男子バスケットボール部によるエキシビションマッチです」",
+          "box": null
+        }
+      ],
+      "frame": {
+        "points": [
+          [
+            0.0375,
+            0.0265486726
+          ],
+          [
+            0.9625,
+            0.0265486726
+          ],
+          [
+            0.9625,
+            0.2386371681
+          ],
+          [
+            0.0375,
+            0.2386371681
+          ]
+        ],
+        "slotId": "name:P01-M02:P01-panel-005"
+      }
+    },
+    {
+      "id": "P01-panel-006",
+      "sceneId": "P01-01",
+      "sourceExcerptIds": [
+        "P01-01:u12:a0",
+        "P01-01:u12:a1",
+        "P01-01:u12:a2",
+        "P01-01:u13:a0"
+      ],
+      "contextExcerptIds": [],
+      "beatIds": [
+        "P01-beat-03"
+      ],
+      "characters": [
+        {
+          "characterId": "kawai-yumiko",
+          "appearanceId": null,
+          "visualState": "",
+          "emotion": "",
+          "holding": []
+        },
+        {
+          "characterId": "kamiya-yu",
+          "appearanceId": null,
+          "visualState": "",
+          "emotion": "",
+          "holding": []
+        }
+      ],
+      "prompt": "漫画の線画のための構図案。青い練習着の先輩の間に小柄な勇。観客席からコートの位置関係とラインを見せる。人物は登録済み基準画と当該場面の本文に合わせる。台詞・効果音・看板の文字を画像へ焼き込まない。",
+      "shotIntent": "青い練習着の先輩の間に小柄な勇。観客席からコートの位置関係とラインを見せる。",
+      "protect": [
+        "人物の顔と手",
+        "主要動作とボール",
+        "吹き出し余白"
+      ],
+      "gaze": "neutral",
+      "intent": "standard",
+      "previousPanelId": null,
+      "texts": [
+        {
+          "id": "text:P01-panel-006:3",
+          "kind": "dialogue",
+          "speakerId": null,
+          "text": "「新一年生、神谷勇」",
+          "box": null
+        }
+      ],
+      "frame": {
+        "points": [
+          [
+            0.50875,
+            0.2510265487
+          ],
+          [
+            0.9625,
+            0.2510265487
+          ],
+          [
+            0.9625,
+            0.7489734513
+          ],
+          [
+            0.50875,
+            0.7489734513
+          ]
+        ],
+        "slotId": "name:P01-M02:P01-panel-006"
+      }
+    },
+    {
+      "id": "P01-panel-007",
+      "sceneId": "P01-01",
+      "sourceExcerptIds": [
+        "P01-01:u14:a0",
+        "P01-01:u14:a1",
+        "P01-01:u15:a0",
+        "P01-01:u16:a0",
+        "P01-01:u16:a1"
+      ],
+      "contextExcerptIds": [],
+      "beatIds": [
+        "P01-beat-04"
+      ],
+      "characters": [
+        {
+          "characterId": "kawai-yumiko",
+          "appearanceId": null,
+          "visualState": "",
+          "emotion": "",
+          "holding": []
+        },
+        {
+          "characterId": "kamiya-yu",
+          "appearanceId": null,
+          "visualState": "",
+          "emotion": "",
+          "holding": []
+        }
+      ],
+      "prompt": "漫画の線画のための構図案。名前を呼ばれ少し遅れて手を上げる勇。照れの視線は先輩へ。前列の女子の声は匿名のまま。人物は登録済み基準画と当該場面の本文に合わせる。台詞・効果音・看板の文字を画像へ焼き込まない。",
+      "shotIntent": "名前を呼ばれ少し遅れて手を上げる勇。照れの視線は先輩へ。前列の女子の声は匿名のまま。",
+      "protect": [
+        "人物の顔と手",
+        "主要動作とボール",
+        "吹き出し余白"
+      ],
+      "gaze": "neutral",
+      "intent": "reaction",
+      "previousPanelId": null,
+      "texts": [
+        {
+          "id": "text:P01-panel-007:2",
+          "kind": "dialogue",
+          "speakerId": null,
+          "text": "「あの人、一年？なんでもう出てるの？」",
+          "box": null
+        }
+      ],
+      "frame": {
+        "points": [
+          [
+            0.0375,
+            0.2510265487
+          ],
+          [
+            0.49125,
+            0.2510265487
+          ],
+          [
+            0.49125,
+            0.7489734513
+          ],
+          [
+            0.0375,
+            0.7489734513
+          ]
+        ],
+        "slotId": "name:P01-M02:P01-panel-007"
+      }
+    },
+    {
+      "id": "P01-panel-008",
+      "sceneId": "P01-01",
+      "sourceExcerptIds": [
+        "P01-01:u17:a0"
+      ],
+      "contextExcerptIds": [],
+      "beatIds": [
+        "P01-beat-04"
+      ],
+      "characters": [
+        {
+          "characterId": "kamiya-yu",
+          "appearanceId": null,
+          "visualState": "",
+          "emotion": "",
+          "holding": []
+        }
+      ],
+      "prompt": "漫画の線画のための構図案。笛と同時に攻守の形ができる。勇の走る方向を次ページへつなぐ。人物は登録済み基準画と当該場面の本文に合わせる。台詞・効果音・看板の文字を画像へ焼き込まない。",
+      "shotIntent": "笛と同時に攻守の形ができる。勇の走る方向を次ページへつなぐ。",
+      "protect": [
+        "人物の顔と手",
+        "主要動作とボール",
+        "吹き出し余白"
+      ],
+      "gaze": "left",
+      "intent": "standard",
+      "previousPanelId": null,
+      "texts": [],
+      "frame": {
+        "points": [
+          [
+            0.0375,
+            0.7613628319
+          ],
+          [
+            0.9625,
+            0.7613628319
+          ],
+          [
+            0.9625,
+            0.9734513274
+          ],
+          [
+            0.0375,
+            0.9734513274
+          ]
+        ],
+        "slotId": "name:P01-M02:P01-panel-008"
+      }
+    }
+  ]
+}

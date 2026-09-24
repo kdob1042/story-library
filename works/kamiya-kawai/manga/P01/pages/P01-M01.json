@@ -1,0 +1,399 @@
+{
+  "id": "P01-M01",
+  "purpose": "歌を追ってきた由美子の目的を、舞台と三人の手元で確立する。",
+  "entryBeatId": "P01-beat-01",
+  "exit": {
+    "kind": "resolution",
+    "note": "アカペラ部の文字に重ねた丸が次の音への接点。",
+    "payoffBeatIds": [
+      "P01-beat-02"
+    ]
+  },
+  "sourceExcerpts": [
+    {
+      "id": "P01-01:u1:a0",
+      "text": "六人が一礼しても、由美子は拍手を続けていた。",
+      "origin": {
+        "snapshotId": "name-source:1d100bd3305f9f8fdca84e46ca407d3efe76c4c43307a637a528aa68448ca2eb",
+        "sceneId": "P01-01",
+        "startCp": 25,
+        "endCp": 47
+      }
+    },
+    {
+      "id": "P01-01:u2:a0",
+      "text": "体育館の空気に、まだ歌の余韻が残っている。",
+      "origin": {
+        "snapshotId": "name-source:1d100bd3305f9f8fdca84e46ca407d3efe76c4c43307a637a528aa68448ca2eb",
+        "sceneId": "P01-01",
+        "startCp": 49,
+        "endCp": 70
+      }
+    },
+    {
+      "id": "P01-01:u2:a1",
+      "text": "マイク六本だけで重なり合っていたハーモニーと、床を揺らすような低いベースの響き。",
+      "origin": {
+        "snapshotId": "name-source:1d100bd3305f9f8fdca84e46ca407d3efe76c4c43307a637a528aa68448ca2eb",
+        "sceneId": "P01-01",
+        "startCp": 70,
+        "endCp": 110
+      }
+    },
+    {
+      "id": "P01-01:u2:a2",
+      "text": "最後の一音が細く消えて、一瞬訪れた静寂のあとに沸き上がった割れんばかりの歓声。",
+      "origin": {
+        "snapshotId": "name-source:1d100bd3305f9f8fdca84e46ca407d3efe76c4c43307a637a528aa68448ca2eb",
+        "sceneId": "P01-01",
+        "startCp": 110,
+        "endCp": 149
+      }
+    },
+    {
+      "id": "P01-01:u3:a0",
+      "text": "この場所に立つために、中学の三年間、三人で歌ってきた。",
+      "origin": {
+        "snapshotId": "name-source:1d100bd3305f9f8fdca84e46ca407d3efe76c4c43307a637a528aa68448ca2eb",
+        "sceneId": "P01-01",
+        "startCp": 151,
+        "endCp": 178
+      }
+    },
+    {
+      "id": "P01-01:u4:a0",
+      "text": "ステージの上で、リードを歌っていた先輩が、隣の人と笑い合って舞台袖へ消えていく。",
+      "origin": {
+        "snapshotId": "name-source:1d100bd3305f9f8fdca84e46ca407d3efe76c4c43307a637a528aa68448ca2eb",
+        "sceneId": "P01-01",
+        "startCp": 180,
+        "endCp": 220
+      }
+    },
+    {
+      "id": "P01-01:u4:a1",
+      "text": "由美子は膝の上の新入生歓迎冊子を開いた。",
+      "origin": {
+        "snapshotId": "name-source:1d100bd3305f9f8fdca84e46ca407d3efe76c4c43307a637a528aa68448ca2eb",
+        "sceneId": "P01-01",
+        "startCp": 220,
+        "endCp": 240
+      }
+    },
+    {
+      "id": "P01-01:u4:a2",
+      "text": "小さな集合写真の中で、さっきの先輩を探す。",
+      "origin": {
+        "snapshotId": "name-source:1d100bd3305f9f8fdca84e46ca407d3efe76c4c43307a637a528aa68448ca2eb",
+        "sceneId": "P01-01",
+        "startCp": 240,
+        "endCp": 261
+      }
+    },
+    {
+      "id": "P01-01:u5:a0",
+      "text": "離れた列で、真希がこちらを向いていた。",
+      "origin": {
+        "snapshotId": "name-source:1d100bd3305f9f8fdca84e46ca407d3efe76c4c43307a637a528aa68448ca2eb",
+        "sceneId": "P01-01",
+        "startCp": 263,
+        "endCp": 282
+      }
+    },
+    {
+      "id": "P01-01:u6:a0",
+      "text": "冊子で口元を隠し、興奮したように何度もうなずいている。",
+      "origin": {
+        "snapshotId": "name-source:1d100bd3305f9f8fdca84e46ca407d3efe76c4c43307a637a528aa68448ca2eb",
+        "sceneId": "P01-01",
+        "startCp": 284,
+        "endCp": 311
+      }
+    },
+    {
+      "id": "P01-01:u6:a1",
+      "text": "その後ろでは静香が、胸の前で小さく両手を握りしめていた。",
+      "origin": {
+        "snapshotId": "name-source:1d100bd3305f9f8fdca84e46ca407d3efe76c4c43307a637a528aa68448ca2eb",
+        "sceneId": "P01-01",
+        "startCp": 311,
+        "endCp": 339
+      }
+    },
+    {
+      "id": "P01-01:u7:a0",
+      "text": "由美子も、力強くうなずき返した。",
+      "origin": {
+        "snapshotId": "name-source:1d100bd3305f9f8fdca84e46ca407d3efe76c4c43307a637a528aa68448ca2eb",
+        "sceneId": "P01-01",
+        "startCp": 341,
+        "endCp": 357
+      }
+    },
+    {
+      "id": "P01-01:u8:a0",
+      "text": "冊子の《アカペラ部》の文字に丸をつける。",
+      "origin": {
+        "snapshotId": "name-source:1d100bd3305f9f8fdca84e46ca407d3efe76c4c43307a637a528aa68448ca2eb",
+        "sceneId": "P01-01",
+        "startCp": 359,
+        "endCp": 379
+      }
+    },
+    {
+      "id": "P01-01:u8:a1",
+      "text": "すでに何度もなぞって濃くなっていた黒い線を、ボールペンでもう一周なぞった。",
+      "origin": {
+        "snapshotId": "name-source:1d100bd3305f9f8fdca84e46ca407d3efe76c4c43307a637a528aa68448ca2eb",
+        "sceneId": "P01-01",
+        "startCp": 379,
+        "endCp": 416
+      }
+    }
+  ],
+  "contextExcerpts": [],
+  "boundaryContext": {
+    "before": null,
+    "after": null
+  },
+  "panels": [
+    {
+      "id": "P01-panel-001",
+      "sceneId": "P01-01",
+      "sourceExcerptIds": [
+        "P01-01:u1:a0",
+        "P01-01:u2:a0",
+        "P01-01:u2:a1",
+        "P01-01:u2:a2"
+      ],
+      "contextExcerptIds": [],
+      "beatIds": [
+        "P01-beat-01"
+      ],
+      "characters": [
+        {
+          "characterId": "kawai-yumiko",
+          "appearanceId": null,
+          "visualState": "",
+          "emotion": "",
+          "holding": []
+        }
+      ],
+      "prompt": "漫画の線画のための構図案。六人の歌が終わった体育館。舞台の一礼と、客席で拍手を続ける由美子。歓声へ至る短い静寂を空白で扱う。人物は登録済み基準画と当該場面の本文に合わせる。台詞・効果音・看板の文字を画像へ焼き込まない。",
+      "shotIntent": "六人の歌が終わった体育館。舞台の一礼と、客席で拍手を続ける由美子。歓声へ至る短い静寂を空白で扱う。",
+      "protect": [
+        "人物の顔と手",
+        "主要動作とボール",
+        "吹き出し余白"
+      ],
+      "gaze": "neutral",
+      "intent": "standard",
+      "previousPanelId": null,
+      "texts": [],
+      "frame": {
+        "points": [
+          [
+            0.50875,
+            0.0265486726
+          ],
+          [
+            0.9625,
+            0.0265486726
+          ],
+          [
+            0.9625,
+            0.3400707965
+          ],
+          [
+            0.50875,
+            0.3400707965
+          ]
+        ],
+        "slotId": "name:P01-M01:P01-panel-001"
+      }
+    },
+    {
+      "id": "P01-panel-002",
+      "sceneId": "P01-01",
+      "sourceExcerptIds": [
+        "P01-01:u3:a0",
+        "P01-01:u4:a0",
+        "P01-01:u4:a1",
+        "P01-01:u4:a2"
+      ],
+      "contextExcerptIds": [],
+      "beatIds": [
+        "P01-beat-01"
+      ],
+      "characters": [
+        {
+          "characterId": "kawai-yumiko",
+          "appearanceId": null,
+          "visualState": "",
+          "emotion": "",
+          "holding": []
+        }
+      ],
+      "prompt": "漫画の線画のための構図案。冊子の集合写真から先輩を探す指。中学三年間の経緯は簡潔なナレーション欄に置く。人物は登録済み基準画と当該場面の本文に合わせる。台詞・効果音・看板の文字を画像へ焼き込まない。",
+      "shotIntent": "冊子の集合写真から先輩を探す指。中学三年間の経緯は簡潔なナレーション欄に置く。",
+      "protect": [
+        "手元・重要物",
+        "文字レイヤーの余白"
+      ],
+      "gaze": "neutral",
+      "intent": "standard",
+      "previousPanelId": null,
+      "texts": [
+        {
+          "id": "text:P01-panel-002:0",
+          "kind": "narration",
+          "speakerId": null,
+          "text": "この場所に立つために、中学の三年間、三人で歌ってきた。",
+          "box": null
+        }
+      ],
+      "frame": {
+        "points": [
+          [
+            0.0375,
+            0.0265486726
+          ],
+          [
+            0.49125,
+            0.0265486726
+          ],
+          [
+            0.49125,
+            0.3400707965
+          ],
+          [
+            0.0375,
+            0.3400707965
+          ]
+        ],
+        "slotId": "name:P01-M01:P01-panel-002"
+      }
+    },
+    {
+      "id": "P01-panel-003",
+      "sceneId": "P01-01",
+      "sourceExcerptIds": [
+        "P01-01:u5:a0",
+        "P01-01:u6:a0",
+        "P01-01:u6:a1",
+        "P01-01:u7:a0"
+      ],
+      "contextExcerptIds": [],
+      "beatIds": [
+        "P01-beat-02"
+      ],
+      "characters": [
+        {
+          "characterId": "kawai-yumiko",
+          "appearanceId": null,
+          "visualState": "",
+          "emotion": "",
+          "holding": []
+        },
+        {
+          "characterId": "maki",
+          "appearanceId": null,
+          "visualState": "",
+          "emotion": "",
+          "holding": []
+        },
+        {
+          "characterId": "shizuka",
+          "appearanceId": null,
+          "visualState": "",
+          "emotion": "",
+          "holding": []
+        }
+      ],
+      "prompt": "漫画の線画のための構図案。離れた列の真希と静香、由美子のうなずき返し。三人が目を交わす空間を保つ。人物は登録済み基準画と当該場面の本文に合わせる。台詞・効果音・看板の文字を画像へ焼き込まない。",
+      "shotIntent": "離れた列の真希と静香、由美子のうなずき返し。三人が目を交わす空間を保つ。",
+      "protect": [
+        "人物の顔と手",
+        "主要動作とボール",
+        "吹き出し余白"
+      ],
+      "gaze": "neutral",
+      "intent": "reaction",
+      "previousPanelId": null,
+      "texts": [],
+      "frame": {
+        "points": [
+          [
+            0.0375,
+            0.352460177
+          ],
+          [
+            0.9625,
+            0.352460177
+          ],
+          [
+            0.9625,
+            0.6106548673
+          ],
+          [
+            0.0375,
+            0.6106548673
+          ]
+        ],
+        "slotId": "name:P01-M01:P01-panel-003"
+      }
+    },
+    {
+      "id": "P01-panel-004",
+      "sceneId": "P01-01",
+      "sourceExcerptIds": [
+        "P01-01:u8:a0",
+        "P01-01:u8:a1"
+      ],
+      "contextExcerptIds": [],
+      "beatIds": [
+        "P01-beat-02"
+      ],
+      "characters": [
+        {
+          "characterId": "kawai-yumiko",
+          "appearanceId": null,
+          "visualState": "",
+          "emotion": "",
+          "holding": []
+        }
+      ],
+      "prompt": "漫画の線画のための構図案。《アカペラ部》をもう一周囲むボールペン。線の濃さで意志を見せる。人物は登録済み基準画と当該場面の本文に合わせる。台詞・効果音・看板の文字を画像へ焼き込まない。",
+      "shotIntent": "《アカペラ部》をもう一周囲むボールペン。線の濃さで意志を見せる。",
+      "protect": [
+        "手元・重要物",
+        "文字レイヤーの余白"
+      ],
+      "gaze": "neutral",
+      "intent": "dominant",
+      "previousPanelId": null,
+      "texts": [],
+      "frame": {
+        "points": [
+          [
+            0.0375,
+            0.6230442478
+          ],
+          [
+            0.9625,
+            0.6230442478
+          ],
+          [
+            0.9625,
+            0.9734513274
+          ],
+          [
+            0.0375,
+            0.9734513274
+          ]
+        ],
+        "slotId": "name:P01-M01:P01-panel-004"
+      }
+    }
+  ]
+}

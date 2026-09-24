@@ -1,0 +1,91 @@
+{
+  "id": "P01-M06B",
+  "purpose": "放物線と由美子の握った拳を一枚で待たせる。結果は次ページまで伏せる。",
+  "entryBeatId": "P01-beat-12",
+  "exit": {
+    "kind": "hook",
+    "note": "球は落ちる前。成功の音と由美子の声を次ページへ。",
+    "payoffBeatIds": []
+  },
+  "sourceExcerpts": [
+    {
+      "id": "P01-01:u37:a0",
+      "text": "その隙間を、高い放物線を描いて抜けていったボールが落ちるまで。",
+      "origin": {
+        "snapshotId": "name-source:1d100bd3305f9f8fdca84e46ca407d3efe76c4c43307a637a528aa68448ca2eb",
+        "sceneId": "P01-01",
+        "startCp": 1768,
+        "endCp": 1799
+      }
+    },
+    {
+      "id": "P01-01:u37:a1",
+      "text": "由美子は息を止め、膝の上でぎゅっと拳を握りしめていた。",
+      "origin": {
+        "snapshotId": "name-source:1d100bd3305f9f8fdca84e46ca407d3efe76c4c43307a637a528aa68448ca2eb",
+        "sceneId": "P01-01",
+        "startCp": 1799,
+        "endCp": 1826
+      }
+    }
+  ],
+  "contextExcerpts": [],
+  "boundaryContext": {
+    "before": null,
+    "after": null
+  },
+  "panels": [
+    {
+      "id": "P01-panel-023",
+      "sceneId": "P01-01",
+      "sourceExcerptIds": [
+        "P01-01:u37:a0",
+        "P01-01:u37:a1"
+      ],
+      "contextExcerptIds": [],
+      "beatIds": [
+        "P01-beat-12"
+      ],
+      "characters": [
+        {
+          "characterId": "kawai-yumiko",
+          "appearanceId": null,
+          "visualState": "",
+          "emotion": "",
+          "holding": []
+        }
+      ],
+      "prompt": "漫画の線画のための構図案。大きな余白を横切る高い放物線と客席で息を止めて拳を握る由美子。球の着地と得点はまだ見せない。人物は登録済み基準画に合わせる。文字を画像に焼き込まない。",
+      "shotIntent": "大きな余白を横切る高い放物線。下端に由美子のぎゅっと握った拳を小さく置き、リングへの落下は描かない。",
+      "protect": [
+        "手元・重要物",
+        "文字レイヤーの余白"
+      ],
+      "gaze": "neutral",
+      "intent": "splash",
+      "previousPanelId": null,
+      "texts": [],
+      "frame": {
+        "points": [
+          [
+            0.0375,
+            0.0265486726
+          ],
+          [
+            0.9625,
+            0.0265486726
+          ],
+          [
+            0.9625,
+            0.9734513274
+          ],
+          [
+            0.0375,
+            0.9734513274
+          ]
+        ],
+        "slotId": "name:P01-M06B:P01-panel-023"
+      }
+    }
+  ]
+}
