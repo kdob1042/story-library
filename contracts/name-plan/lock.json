@@ -2,14 +2,14 @@
   "format": "manga-mac/name-plan/v2",
   "repository": "kdob1042/manga-mac",
   "path": "contracts/name-plan",
-  "commit": "b7c6c178c0d57ebd1f15c6250319b995a002d140",
+  "commit": "71f2eda984a2bb0ffd78200b913e6fc6b1a02c08",
   "files": {
     "layout.mjs": "a786bb8e7073397a8094c4991d285876ca108afb",
     "policy.mjs": "653cd41c88da246f83b371b30f4d7761c4297deb",
     "qa.mjs": "cd8b2eb8619ef593d1f2df909550bee21dc3a3dc",
-    "schema.json": "b2646988174ffeb4abe8528fb55b126fa3adf203",
-    "schema.mjs": "188007a256a92b9d38fab61d37e94a698bbfd1ea",
-    "source.mjs": "3933426cda43227840926451e0b5fbab11b36ed7"
+    "schema.json": "13e4358671eeafa533c03c5871b07c542dd0aea2",
+    "schema.mjs": "6ea7b9b4ac23bd2a8f231f1af277ea61bfc3b9f6",
+    "source.mjs": "2b5fdbe605d68373541bfac47be992b22b35509f"
   },
   "note": "機械受渡し契約はこの固定commitのmanga-mac name-plan/v2をvendorする。Manga Directorの創作ループはstory-library内で完結し、manga-macアプリを起動せずに構造・原稿対応・layout compilerを検査できる。"
 }

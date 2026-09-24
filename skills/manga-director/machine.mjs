@@ -1,20 +1,12 @@
-import {createHash} from 'node:crypto';
-import {readFile} from 'node:fs/promises';
+import {readFile,writeFile,mkdir} from 'node:fs/promises';
 import path from 'node:path';
 import {validateManifest} from '../../contracts/story-source/validate.mjs';
-import {parseNameFile, validatePlan} from '../../contracts/name-plan/schema.mjs';
-import {atomize, bindSource, sourceCharacterIds} from '../../contracts/name-plan/source.mjs';
+import {parseNameFile, validatePlan, FORMAT, POLICY_VERSION} from '../../contracts/name-plan/schema.mjs';
+import {atomize, bindSource, sourceCharacterIds, embeddedSourceDescriptor, hasEmbeddedSource, selectAtoms} from '../../contracts/name-plan/source.mjs';
 import {compileNameLayout} from '../../contracts/name-plan/layout.mjs';
 
 const ZERO_COMMIT='0'.repeat(40);
-const sha256=bytes=>createHash('sha256').update(bytes).digest('hex');
 const text=filename=>readFile(filename,'utf8');
-function sourceAssetMime(bytes){
-  if(bytes.length>=8&&bytes.subarray(0,8).equals(Buffer.from([0x89,0x50,0x4e,0x47,0x0d,0x0a,0x1a,0x0a])))return 'image/png';
-  if(bytes.length>=3&&bytes[0]===0xff&&bytes[1]===0xd8&&bytes[2]===0xff)return 'image/jpeg';
-  if(bytes.length>=12&&bytes.subarray(0,4).toString('ascii')==='RIFF'&&bytes.subarray(8,12).toString('ascii')==='WEBP')return 'image/webp';
-  return null;
-}
 
 function allScenes(manifest){
   return manifest.episodes.flatMap(episode=>episode.scenes.map(scene=>({...scene,episodeId:episode.id,episodeTitle:episode.title})));
@@ -35,19 +27,7 @@ export async function loadDirectorContext({workRoot,workId,episodeId,repo='kdob1
   if(scenes.length!==requested.length)throw Error('name-planが参照するscene IDがwork.jsonにありません');
   const settings=[];
   for(const setting of manifest.settings)settings.push({...setting,text:await text(path.join(root,setting.path))});
-  const references=[];
-  for(const character of manifest.characters){
-    if(!character.image)continue;
-    const bytes=await readFile(path.join(root,character.image));
-    if(bytes.length>20*1024*1024)throw Error(`人物画像 ${character.image} は20MB以下にしてください`);
-    if(!sourceAssetMime(bytes))throw Error(`人物画像 ${character.image} の実形式がPNG/JPEG/WebPではありません`);
-    references.push({
-      id:character.id,characterId:character.id,name:character.name,path:character.image,
-      alt:character.description||character.name,
-      ...(character.description?{description:character.description}:{}),
-      hash:sha256(bytes),
-    });
-  }
+  const references=[]; // Image files are imported separately by character ID in the app.
   const snapshot={
     id:`director:${workId}:${episodeId}`,repo,sha:commit,workId,episodeId,episodeIds:[episodeId],
     manifest,scenes,settings,references,characters:manifest.characters,
@@ -61,18 +41,42 @@ export async function loadDirectorContext({workRoot,workId,episodeId,repo='kdob1
 export async function verifyNamePlan({workRoot,workId,episodeId,raw}){
   const file=parseNameFile(typeof raw==='string'?raw:JSON.stringify(raw));
   if(file.source.workId!==workId)throw Error(`name-planのworkIdが対象 ${workId} と一致しません`);
-  const context=await loadDirectorContext({
+  if(hasEmbeddedSource(file)&&file.source.episodeId!==episodeId)throw Error('ネームの話IDが異なります');
+  const context=hasEmbeddedSource(file)?{project:{workId}}:await loadDirectorContext({
     workRoot,workId,episodeId,repo:file.source.repo,branch:file.source.branch,
     commit:file.source.commit??ZERO_COMMIT,sceneIds:file.source.scenes.map(scene=>scene.id),
   });
   const bound=await bindSource(file,context.project);
-  const primaryScenes=new Set(context.episode.scenes.map(scene=>scene.id));
-  if(bound.atoms.some(atom=>!primaryScenes.has(atom.source.sceneId)))throw Error('漫画化対象のatomが指定話の外にあります。前後話はcontextAtomIdsだけで参照してください');
-  validatePlan(file.plan,bound.atoms,sourceCharacterIds(context.snapshot),bound.contextAtoms);
+  if(!hasEmbeddedSource(file)){
+    const primaryScenes=new Set(context.episode.scenes.map(scene=>scene.id));
+    if(bound.atoms.some(atom=>!primaryScenes.has(atom.source.sceneId)))throw Error('対象の原文が指定話の外にあります');
+  }
+  validatePlan(file.plan,bound.atoms,sourceCharacterIds(bound.snapshot),bound.contextAtoms);
   const compiled=compileNameLayout(file.plan);
   return {
     format:file.format,workId,episodeId,atoms:bound.atoms.length,panels:file.plan.panels.length,pages:file.plan.pages.length,
-    characters:sourceCharacterIds(context.snapshot),compilerVersion:compiled.compilerVersion,
+    characters:sourceCharacterIds(bound.snapshot),compilerVersion:compiled.compilerVersion,
     diagnostics:compiled.diagnostics,
   };
+}
+
+// The AI supplies only the direction. Original text and IDs come from the frozen context.
+export async function createEmbeddedNamePlan(context,draft,number){
+  if(!Number.isSafeInteger(number)||number<1||number>999999)throw Error('ネーム番号は1〜999999で指定してください');
+  const {snapshot,project}=context;
+  const atoms=selectAtoms(atomize(snapshot),draft.plan.coverage.map(entry=>entry.atomId));
+  const file={format:FORMAT,title:draft.title,stage:'name-only',readingDirection:'rtl',
+    source:embeddedSourceDescriptor(project,snapshot,atoms,draft.plan,{episodeId:snapshot.episodeId,number}),
+    policyVersion:POLICY_VERSION,provenance:draft.provenance,plan:draft.plan};
+  await verifyNamePlan({workId:snapshot.workId,episodeId:snapshot.episodeId,raw:file});
+  return file;
+}
+export async function writeEmbeddedNamePlan({context,draft,number,workRoot,replace=false}){
+  const file=await createEmbeddedNamePlan(context,draft,number);
+  const folder=path.join(workRoot,'manga',file.source.episodeId);
+  await mkdir(folder,{recursive:true});
+  const filename=path.join(folder,`name-${String(number).padStart(3,'0')}.json`);
+  // wx prevents accidental overwrite of an existing numbered part.
+  await writeFile(filename,JSON.stringify(file,null,2)+'\n',{flag:replace?'w':'wx'});
+  return {filename,file};
 }

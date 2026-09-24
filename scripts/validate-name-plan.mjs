@@ -5,8 +5,8 @@ import {verifyNamePlan} from '../skills/manga-director/machine.mjs';
 
 const root=fileURLToPath(new URL('../',import.meta.url));
 const [workId,episodeId,explicitPath]=process.argv.slice(2);
-if(!workId||!episodeId){
-  console.error('usage: node scripts/validate-name-plan.mjs <workId> <episodeId> [name-plan.json]');
+if(!workId||!episodeId||!explicitPath){
+  console.error('usage: node scripts/validate-name-plan.mjs <workId> <episodeId> <name-001.json>');
   process.exit(2);
 }
 const catalog=JSON.parse(await readFile(path.join(root,'library.json'),'utf8'));

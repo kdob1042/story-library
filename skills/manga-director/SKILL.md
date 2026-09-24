@@ -23,7 +23,7 @@ description: 小説・脚本から漫画のページとコマを構成し、レ�
 1. `library.json` から作品名/workIdを解決し、`work.json` でepisodeId・原稿パス・人物設定を特定する。
 2. 読込commitを固定し、[story-analysis.md](story-analysis.md) → [paneling.md](paneling.md) → 必要なら [review.md](review.md) の順で実行する。
 3. `name-plan/v2` を作り、[handoff.md](handoff.md) に従って機械検証する。
-4. ユーザーが「保存」「保存まで」「アプリで読めるように」等を指定した場合だけ、最新devから作業ブランチを作り、`works/<workId>/manga/<episodeId>/name-plan.json` を保存してdev向けDraft PRを作る。原稿変更を伴う場合は対応原稿候補も同じPRへ入れる。
+4. ユーザーが「保存」「保存まで」「アプリで読めるように」等を指定した場合だけ、最新devから作業ブランチを作り、`works/<workId>/manga/<episodeId>/name-001.json（以後はname-002.json等の番号付き）` を保存してdev向けDraft PRを作る。原稿変更を伴う場合は対応原稿候補も同じPRへ入れる。
 5. 保存指定がなければGitHubは変更せず、ネーム案と検証結果だけ返す。
 6. 「マージ」「公開」まで明示された場合だけ、それぞれ別操作として実行する。保存だけをマージ／公開の承認とみなさない。
 
