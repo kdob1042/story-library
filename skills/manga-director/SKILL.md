@@ -12,7 +12,6 @@ description: 小説・脚本から漫画のページとコマを構成し、レ�
 次の短縮形を正式な入口として扱う。
 
 - `@Manga Director <作品名またはworkId> <episodeId> [追加指示]`
-- `@コマ割りAI <作品名またはworkId> <episodeId> [追加指示]`
 - 日本語文中の「Manga Directorで<作品><話>をネーム化して」も同じ扱い。
 
 例:
