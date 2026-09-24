@@ -2,7 +2,7 @@
   "format": "manga-mac/name-plan/v2",
   "repository": "kdob1042/manga-mac",
   "path": "contracts/name-plan",
-  "commit": "04ca2df350768ac8a402ebd5b12f730359703fd3",
+  "commit": "b7c6c178c0d57ebd1f15c6250319b995a002d140",
   "files": {
     "layout.mjs": "a786bb8e7073397a8094c4991d285876ca108afb",
     "policy.mjs": "653cd41c88da246f83b371b30f4d7761c4297deb",
