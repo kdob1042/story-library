@@ -1,0 +1,4459 @@
+{
+  "format": "manga-mac/name-plan/v2",
+  "title": "ふたりのリズム P01「春、隣のスーパールーキー」",
+  "readingDirection": "rtl",
+  "stage": "name-only",
+  "source": {
+    "repo": "kdob1042/story-library",
+    "workId": "kamiya-kawai",
+    "branch": "dev",
+    "commit": "1b5fbf0c34dc56df0af613d36cddc67323bc3f3f",
+    "scenes": [
+      {
+        "id": "P01-01",
+        "sha256": "f0235032402b11c7940912a9f3db9a4635b2ec604eb09d605c9afd896381f306"
+      },
+      {
+        "id": "P01-02",
+        "sha256": "dfa7d7f9e36d3a309b761122a433901296553ef3ccdc55f0d5e59dbf8b724064"
+      },
+      {
+        "id": "P01-03",
+        "sha256": "589ca13ccc9c4572b6225dd92fd765b07507a5f4b11b9194d1ed404e68c2fa07"
+      }
+    ],
+    "selectedAtomIds": [
+      "P01-01:u1:a0",
+      "P01-01:u2:a0",
+      "P01-01:u2:a1",
+      "P01-01:u2:a2",
+      "P01-01:u3:a0",
+      "P01-01:u4:a0",
+      "P01-01:u4:a1",
+      "P01-01:u4:a2",
+      "P01-01:u5:a0",
+      "P01-01:u6:a0",
+      "P01-01:u6:a1",
+      "P01-01:u7:a0",
+      "P01-01:u8:a0",
+      "P01-01:u8:a1",
+      "P01-01:u9:a0",
+      "P01-01:u10:a0",
+      "P01-01:u11:a0",
+      "P01-01:u12:a0",
+      "P01-01:u12:a1",
+      "P01-01:u12:a2",
+      "P01-01:u13:a0",
+      "P01-01:u14:a0",
+      "P01-01:u14:a1",
+      "P01-01:u15:a0",
+      "P01-01:u16:a0",
+      "P01-01:u16:a1",
+      "P01-01:u17:a0",
+      "P01-01:u18:a0",
+      "P01-01:u18:a1",
+      "P01-01:u18:a2",
+      "P01-01:u19:a0",
+      "P01-01:u20:a0",
+      "P01-01:u20:a1",
+      "P01-01:u20:a2",
+      "P01-01:u21:a0",
+      "P01-01:u22:a0",
+      "P01-01:u23:a0",
+      "P01-01:u24:a0",
+      "P01-01:u24:a1",
+      "P01-01:u25:a0",
+      "P01-01:u25:a1",
+      "P01-01:u25:a2",
+      "P01-01:u25:a3",
+      "P01-01:u26:a0",
+      "P01-01:u27:a0",
+      "P01-01:u28:a0",
+      "P01-01:u29:a0",
+      "P01-01:u29:a1",
+      "P01-01:u29:a2",
+      "P01-01:u30:a0",
+      "P01-01:u30:a1",
+      "P01-01:u30:a2",
+      "P01-01:u31:a0",
+      "P01-01:u31:a1",
+      "P01-01:u31:a2",
+      "P01-01:u32:a0",
+      "P01-01:u33:a0",
+      "P01-01:u33:a1",
+      "P01-01:u33:a2",
+      "P01-01:u34:a0",
+      "P01-01:u35:a0",
+      "P01-01:u35:a1",
+      "P01-01:u35:a2",
+      "P01-01:u35:a3",
+      "P01-01:u36:a0",
+      "P01-01:u37:a0",
+      "P01-01:u37:a1",
+      "P01-01:u38:a0",
+      "P01-01:u39:a0",
+      "P01-01:u40:a0",
+      "P01-01:u41:a0",
+      "P01-01:u42:a0",
+      "P01-01:u42:a1",
+      "P01-02:u1:a0",
+      "P01-02:u2:a0",
+      "P01-02:u3:a0",
+      "P01-02:u3:a1",
+      "P01-02:u4:a0",
+      "P01-02:u5:a0",
+      "P01-02:u5:a1",
+      "P01-02:u6:a0",
+      "P01-02:u7:a0",
+      "P01-02:u8:a0",
+      "P01-02:u9:a0",
+      "P01-02:u10:a0",
+      "P01-02:u11:a0",
+      "P01-02:u12:a0",
+      "P01-02:u13:a0",
+      "P01-02:u14:a0",
+      "P01-02:u15:a0",
+      "P01-02:u16:a0",
+      "P01-02:u17:a0",
+      "P01-02:u18:a0",
+      "P01-02:u18:a1",
+      "P01-02:u19:a0",
+      "P01-02:u20:a0",
+      "P01-02:u21:a0",
+      "P01-02:u22:a0",
+      "P01-02:u23:a0",
+      "P01-02:u24:a0",
+      "P01-02:u25:a0",
+      "P01-02:u26:a0",
+      "P01-02:u27:a0",
+      "P01-02:u28:a0",
+      "P01-02:u29:a0",
+      "P01-02:u30:a0",
+      "P01-02:u31:a0",
+      "P01-02:u32:a0",
+      "P01-02:u33:a0",
+      "P01-02:u34:a0",
+      "P01-02:u35:a0",
+      "P01-02:u36:a0",
+      "P01-02:u37:a0",
+      "P01-02:u38:a0",
+      "P01-02:u39:a0",
+      "P01-02:u40:a0",
+      "P01-02:u41:a0",
+      "P01-02:u42:a0",
+      "P01-02:u43:a0",
+      "P01-02:u43:a1",
+      "P01-02:u44:a0",
+      "P01-02:u45:a0",
+      "P01-02:u46:a0",
+      "P01-02:u47:a0",
+      "P01-02:u47:a1",
+      "P01-02:u48:a0",
+      "P01-02:u49:a0",
+      "P01-02:u49:a1",
+      "P01-02:u50:a0",
+      "P01-02:u51:a0",
+      "P01-02:u52:a0",
+      "P01-02:u52:a1",
+      "P01-02:u53:a0",
+      "P01-02:u54:a0",
+      "P01-02:u55:a0",
+      "P01-02:u56:a0",
+      "P01-02:u57:a0",
+      "P01-03:u1:a0",
+      "P01-03:u2:a0",
+      "P01-03:u3:a0",
+      "P01-03:u3:a1",
+      "P01-03:u4:a0",
+      "P01-03:u5:a0",
+      "P01-03:u6:a0",
+      "P01-03:u7:a0",
+      "P01-03:u8:a0",
+      "P01-03:u9:a0",
+      "P01-03:u9:a1",
+      "P01-03:u10:a0",
+      "P01-03:u11:a0",
+      "P01-03:u12:a0",
+      "P01-03:u13:a0",
+      "P01-03:u13:a1",
+      "P01-03:u13:a2",
+      "P01-03:u14:a0",
+      "P01-03:u15:a0",
+      "P01-03:u16:a0",
+      "P01-03:u16:a1",
+      "P01-03:u17:a0",
+      "P01-03:u18:a0",
+      "P01-03:u19:a0",
+      "P01-03:u20:a0",
+      "P01-03:u20:a1",
+      "P01-03:u21:a0",
+      "P01-03:u22:a0",
+      "P01-03:u23:a0",
+      "P01-03:u23:a1",
+      "P01-03:u24:a0",
+      "P01-03:u25:a0",
+      "P01-03:u26:a0",
+      "P01-03:u27:a0",
+      "P01-03:u27:a1",
+      "P01-03:u28:a0",
+      "P01-03:u29:a0",
+      "P01-03:u30:a0",
+      "P01-03:u31:a0",
+      "P01-03:u32:a0",
+      "P01-03:u33:a0",
+      "P01-03:u34:a0",
+      "P01-03:u35:a0",
+      "P01-03:u36:a0",
+      "P01-03:u37:a0",
+      "P01-03:u38:a0",
+      "P01-03:u39:a0"
+    ],
+    "settingsHash": "72dec5e58e3d97aa250d728906f9b75057dde260eba3a4c63800c90294e496e2",
+    "referencesHash": "8b9ad0855c5aca68334da5a9afc4b9de42d3b180a2f08015cb29a0311aa1006e"
+  },
+  "policyVersion": "name-director/2.0.0",
+  "provenance": {
+    "producer": "Manga Director",
+    "model": "GPT-6",
+    "editedBy": []
+  },
+  "plan": {
+    "workGoal": {
+      "readerQuestion": "歌を追って豊高へ来た由美子は、隣の席になった神谷勇の何を見つけるか。",
+      "emotionalArc": [
+        "アカペラ部へ向かう高揚",
+        "勇の距離と技量への驚き",
+        "理解が通じる教室の親しさ",
+        "得点の背後にいる先輩たちへの気づき"
+      ],
+      "payoff": "勇は得点力を持ったまま、仲間の合図を見られる選手へ向かう。二人は初日から気負わず話せる。"
+    },
+    "coverage": [
+      {
+        "atomId": "P01-01:u1:a0",
+        "presentation": "visual",
+        "reason": "動き・表情・空間・音で伝える"
+      },
+      {
+        "atomId": "P01-01:u2:a0",
+        "presentation": "visual",
+        "reason": "動き・表情・空間・音で伝える"
+      },
+      {
+        "atomId": "P01-01:u2:a1",
+        "presentation": "visual",
+        "reason": "動き・表情・空間・音で伝える"
+      },
+      {
+        "atomId": "P01-01:u2:a2",
+        "presentation": "visual",
+        "reason": "動き・表情・空間・音で伝える"
+      },
+      {
+        "atomId": "P01-01:u3:a0",
+        "presentation": "narration",
+        "reason": "経緯または得点ルールを簡潔に伝える"
+      },
+      {
+        "atomId": "P01-01:u4:a0",
+        "presentation": "visual",
+        "reason": "動き・表情・空間・音で伝える"
+      },
+      {
+        "atomId": "P01-01:u4:a1",
+        "presentation": "visual",
+        "reason": "動き・表情・空間・音で伝える"
+      },
+      {
+        "atomId": "P01-01:u4:a2",
+        "presentation": "visual",
+        "reason": "動き・表情・空間・音で伝える"
+      },
+      {
+        "atomId": "P01-01:u5:a0",
+        "presentation": "visual",
+        "reason": "動き・表情・空間・音で伝える"
+      },
+      {
+        "atomId": "P01-01:u6:a0",
+        "presentation": "visual",
+        "reason": "動き・表情・空間・音で伝える"
+      },
+      {
+        "atomId": "P01-01:u6:a1",
+        "presentation": "visual",
+        "reason": "動き・表情・空間・音で伝える"
+      },
+      {
+        "atomId": "P01-01:u7:a0",
+        "presentation": "visual",
+        "reason": "動き・表情・空間・音で伝える"
+      },
+      {
+        "atomId": "P01-01:u8:a0",
+        "presentation": "visual",
+        "reason": "動き・表情・空間・音で伝える"
+      },
+      {
+        "atomId": "P01-01:u8:a1",
+        "presentation": "visual",
+        "reason": "動き・表情・空間・音で伝える"
+      },
+      {
+        "atomId": "P01-01:u9:a0",
+        "presentation": "visual",
+        "reason": "動き・表情・空間・音で伝える"
+      },
+      {
+        "atomId": "P01-01:u10:a0",
+        "presentation": "visual",
+        "reason": "動き・表情・空間・音で伝える"
+      },
+      {
+        "atomId": "P01-01:u11:a0",
+        "presentation": "dialogue",
+        "reason": "原文の台詞をそのまま掲載",
+        "speakerId": null
+      },
+      {
+        "atomId": "P01-01:u12:a0",
+        "presentation": "visual",
+        "reason": "動き・表情・空間・音で伝える"
+      },
+      {
+        "atomId": "P01-01:u12:a1",
+        "presentation": "visual",
+        "reason": "動き・表情・空間・音で伝える"
+      },
+      {
+        "atomId": "P01-01:u12:a2",
+        "presentation": "visual",
+        "reason": "動き・表情・空間・音で伝える"
+      },
+      {
+        "atomId": "P01-01:u13:a0",
+        "presentation": "dialogue",
+        "reason": "原文の台詞をそのまま掲載",
+        "speakerId": null
+      },
+      {
+        "atomId": "P01-01:u14:a0",
+        "presentation": "visual",
+        "reason": "動き・表情・空間・音で伝える"
+      },
+      {
+        "atomId": "P01-01:u14:a1",
+        "presentation": "visual",
+        "reason": "動き・表情・空間・音で伝える"
+      },
+      {
+        "atomId": "P01-01:u15:a0",
+        "presentation": "dialogue",
+        "reason": "原文の台詞をそのまま掲載",
+        "speakerId": null
+      },
+      {
+        "atomId": "P01-01:u16:a0",
+        "presentation": "visual",
+        "reason": "動き・表情・空間・音で伝える"
+      },
+      {
+        "atomId": "P01-01:u16:a1",
+        "presentation": "visual",
+        "reason": "動き・表情・空間・音で伝える"
+      },
+      {
+        "atomId": "P01-01:u17:a0",
+        "presentation": "visual",
+        "reason": "動き・表情・空間・音で伝える"
+      },
+      {
+        "atomId": "P01-01:u18:a0",
+        "presentation": "visual",
+        "reason": "動き・表情・空間・音で伝える"
+      },
+      {
+        "atomId": "P01-01:u18:a1",
+        "presentation": "visual",
+        "reason": "動き・表情・空間・音で伝える"
+      },
+      {
+        "atomId": "P01-01:u18:a2",
+        "presentation": "visual",
+        "reason": "動き・表情・空間・音で伝える"
+      },
+      {
+        "atomId": "P01-01:u19:a0",
+        "presentation": "visual",
+        "reason": "動き・表情・空間・音で伝える"
+      },
+      {
+        "atomId": "P01-01:u20:a0",
+        "presentation": "visual",
+        "reason": "動き・表情・空間・音で伝える"
+      },
+      {
+        "atomId": "P01-01:u20:a1",
+        "presentation": "narration",
+        "reason": "経緯または得点ルールを簡潔に伝える"
+      },
+      {
+        "atomId": "P01-01:u20:a2",
+        "presentation": "visual",
+        "reason": "動き・表情・空間・音で伝える"
+      },
+      {
+        "atomId": "P01-01:u21:a0",
+        "presentation": "visual",
+        "reason": "動き・表情・空間・音で伝える"
+      },
+      {
+        "atomId": "P01-01:u22:a0",
+        "presentation": "visual",
+        "reason": "動き・表情・空間・音で伝える"
+      },
+      {
+        "atomId": "P01-01:u23:a0",
+        "presentation": "dialogue",
+        "reason": "原文の台詞をそのまま掲載",
+        "speakerId": null
+      },
+      {
+        "atomId": "P01-01:u24:a0",
+        "presentation": "visual",
+        "reason": "動き・表情・空間・音で伝える"
+      },
+      {
+        "atomId": "P01-01:u24:a1",
+        "presentation": "visual",
+        "reason": "動き・表情・空間・音で伝える"
+      },
+      {
+        "atomId": "P01-01:u25:a0",
+        "presentation": "visual",
+        "reason": "動き・表情・空間・音で伝える"
+      },
+      {
+        "atomId": "P01-01:u25:a1",
+        "presentation": "visual",
+        "reason": "動き・表情・空間・音で伝える"
+      },
+      {
+        "atomId": "P01-01:u25:a2",
+        "presentation": "visual",
+        "reason": "動き・表情・空間・音で伝える"
+      },
+      {
+        "atomId": "P01-01:u25:a3",
+        "presentation": "visual",
+        "reason": "動き・表情・空間・音で伝える"
+      },
+      {
+        "atomId": "P01-01:u26:a0",
+        "presentation": "dialogue",
+        "reason": "原文の台詞をそのまま掲載",
+        "speakerId": "kawai-yumiko"
+      },
+      {
+        "atomId": "P01-01:u27:a0",
+        "presentation": "visual",
+        "reason": "動き・表情・空間・音で伝える"
+      },
+      {
+        "atomId": "P01-01:u28:a0",
+        "presentation": "visual",
+        "reason": "動き・表情・空間・音で伝える"
+      },
+      {
+        "atomId": "P01-01:u29:a0",
+        "presentation": "visual",
+        "reason": "動き・表情・空間・音で伝える"
+      },
+      {
+        "atomId": "P01-01:u29:a1",
+        "presentation": "visual",
+        "reason": "動き・表情・空間・音で伝える"
+      },
+      {
+        "atomId": "P01-01:u29:a2",
+        "presentation": "visual",
+        "reason": "動き・表情・空間・音で伝える"
+      },
+      {
+        "atomId": "P01-01:u30:a0",
+        "presentation": "visual",
+        "reason": "動き・表情・空間・音で伝える"
+      },
+      {
+        "atomId": "P01-01:u30:a1",
+        "presentation": "visual",
+        "reason": "動き・表情・空間・音で伝える"
+      },
+      {
+        "atomId": "P01-01:u30:a2",
+        "presentation": "visual",
+        "reason": "動き・表情・空間・音で伝える"
+      },
+      {
+        "atomId": "P01-01:u31:a0",
+        "presentation": "visual",
+        "reason": "動き・表情・空間・音で伝える"
+      },
+      {
+        "atomId": "P01-01:u31:a1",
+        "presentation": "visual",
+        "reason": "動き・表情・空間・音で伝える"
+      },
+      {
+        "atomId": "P01-01:u31:a2",
+        "presentation": "visual",
+        "reason": "動き・表情・空間・音で伝える"
+      },
+      {
+        "atomId": "P01-01:u32:a0",
+        "presentation": "visual",
+        "reason": "動き・表情・空間・音で伝える"
+      },
+      {
+        "atomId": "P01-01:u33:a0",
+        "presentation": "visual",
+        "reason": "動き・表情・空間・音で伝える"
+      },
+      {
+        "atomId": "P01-01:u33:a1",
+        "presentation": "visual",
+        "reason": "動き・表情・空間・音で伝える"
+      },
+      {
+        "atomId": "P01-01:u33:a2",
+        "presentation": "visual",
+        "reason": "動き・表情・空間・音で伝える"
+      },
+      {
+        "atomId": "P01-01:u34:a0",
+        "presentation": "visual",
+        "reason": "動き・表情・空間・音で伝える"
+      },
+      {
+        "atomId": "P01-01:u35:a0",
+        "presentation": "visual",
+        "reason": "動き・表情・空間・音で伝える"
+      },
+      {
+        "atomId": "P01-01:u35:a1",
+        "presentation": "visual",
+        "reason": "動き・表情・空間・音で伝える"
+      },
+      {
+        "atomId": "P01-01:u35:a2",
+        "presentation": "visual",
+        "reason": "動き・表情・空間・音で伝える"
+      },
+      {
+        "atomId": "P01-01:u35:a3",
+        "presentation": "visual",
+        "reason": "動き・表情・空間・音で伝える"
+      },
+      {
+        "atomId": "P01-01:u36:a0",
+        "presentation": "visual",
+        "reason": "動き・表情・空間・音で伝える"
+      },
+      {
+        "atomId": "P01-01:u37:a0",
+        "presentation": "visual",
+        "reason": "動き・表情・空間・音で伝える"
+      },
+      {
+        "atomId": "P01-01:u37:a1",
+        "presentation": "visual",
+        "reason": "動き・表情・空間・音で伝える"
+      },
+      {
+        "atomId": "P01-01:u38:a0",
+        "presentation": "visual",
+        "reason": "動き・表情・空間・音で伝える"
+      },
+      {
+        "atomId": "P01-01:u39:a0",
+        "presentation": "visual",
+        "reason": "動き・表情・空間・音で伝える"
+      },
+      {
+        "atomId": "P01-01:u40:a0",
+        "presentation": "dialogue",
+        "reason": "原文の台詞をそのまま掲載",
+        "speakerId": "kawai-yumiko"
+      },
+      {
+        "atomId": "P01-01:u41:a0",
+        "presentation": "visual",
+        "reason": "動き・表情・空間・音で伝える"
+      },
+      {
+        "atomId": "P01-01:u42:a0",
+        "presentation": "visual",
+        "reason": "動き・表情・空間・音で伝える"
+      },
+      {
+        "atomId": "P01-01:u42:a1",
+        "presentation": "visual",
+        "reason": "動き・表情・空間・音で伝える"
+      },
+      {
+        "atomId": "P01-02:u1:a0",
+        "presentation": "visual",
+        "reason": "動き・表情・空間・音で伝える"
+      },
+      {
+        "atomId": "P01-02:u2:a0",
+        "presentation": "visual",
+        "reason": "動き・表情・空間・音で伝える"
+      },
+      {
+        "atomId": "P01-02:u3:a0",
+        "presentation": "visual",
+        "reason": "動き・表情・空間・音で伝える"
+      },
+      {
+        "atomId": "P01-02:u3:a1",
+        "presentation": "visual",
+        "reason": "動き・表情・空間・音で伝える"
+      },
+      {
+        "atomId": "P01-02:u4:a0",
+        "presentation": "dialogue",
+        "reason": "原文の台詞をそのまま掲載",
+        "speakerId": "kawai-yumiko"
+      },
+      {
+        "atomId": "P01-02:u5:a0",
+        "presentation": "visual",
+        "reason": "動き・表情・空間・音で伝える"
+      },
+      {
+        "atomId": "P01-02:u5:a1",
+        "presentation": "visual",
+        "reason": "動き・表情・空間・音で伝える"
+      },
+      {
+        "atomId": "P01-02:u6:a0",
+        "presentation": "visual",
+        "reason": "動き・表情・空間・音で伝える"
+      },
+      {
+        "atomId": "P01-02:u7:a0",
+        "presentation": "dialogue",
+        "reason": "原文の台詞をそのまま掲載",
+        "speakerId": "kamiya-yu"
+      },
+      {
+        "atomId": "P01-02:u8:a0",
+        "presentation": "dialogue",
+        "reason": "原文の台詞をそのまま掲載",
+        "speakerId": "kawai-yumiko"
+      },
+      {
+        "atomId": "P01-02:u9:a0",
+        "presentation": "dialogue",
+        "reason": "原文の台詞をそのまま掲載",
+        "speakerId": "kamiya-yu"
+      },
+      {
+        "atomId": "P01-02:u10:a0",
+        "presentation": "dialogue",
+        "reason": "原文の台詞をそのまま掲載",
+        "speakerId": "kawai-yumiko"
+      },
+      {
+        "atomId": "P01-02:u11:a0",
+        "presentation": "visual",
+        "reason": "動き・表情・空間・音で伝える"
+      },
+      {
+        "atomId": "P01-02:u12:a0",
+        "presentation": "reference",
+        "reason": "画像参照・書式を印字しない"
+      },
+      {
+        "atomId": "P01-02:u13:a0",
+        "presentation": "dialogue",
+        "reason": "原文の台詞をそのまま掲載",
+        "speakerId": "kamiya-yu"
+      },
+      {
+        "atomId": "P01-02:u14:a0",
+        "presentation": "dialogue",
+        "reason": "原文の台詞をそのまま掲載",
+        "speakerId": "kawai-yumiko"
+      },
+      {
+        "atomId": "P01-02:u15:a0",
+        "presentation": "visual",
+        "reason": "動き・表情・空間・音で伝える"
+      },
+      {
+        "atomId": "P01-02:u16:a0",
+        "presentation": "dialogue",
+        "reason": "原文の台詞をそのまま掲載",
+        "speakerId": "kawai-yumiko"
+      },
+      {
+        "atomId": "P01-02:u17:a0",
+        "presentation": "dialogue",
+        "reason": "原文の台詞をそのまま掲載",
+        "speakerId": "kamiya-yu"
+      },
+      {
+        "atomId": "P01-02:u18:a0",
+        "presentation": "visual",
+        "reason": "動き・表情・空間・音で伝える"
+      },
+      {
+        "atomId": "P01-02:u18:a1",
+        "presentation": "visual",
+        "reason": "動き・表情・空間・音で伝える"
+      },
+      {
+        "atomId": "P01-02:u19:a0",
+        "presentation": "dialogue",
+        "reason": "原文の台詞をそのまま掲載",
+        "speakerId": "kawai-yumiko"
+      },
+      {
+        "atomId": "P01-02:u20:a0",
+        "presentation": "dialogue",
+        "reason": "原文の台詞をそのまま掲載",
+        "speakerId": "kamiya-yu"
+      },
+      {
+        "atomId": "P01-02:u21:a0",
+        "presentation": "dialogue",
+        "reason": "原文の台詞をそのまま掲載",
+        "speakerId": "kawai-yumiko"
+      },
+      {
+        "atomId": "P01-02:u22:a0",
+        "presentation": "dialogue",
+        "reason": "原文の台詞をそのまま掲載",
+        "speakerId": "kamiya-yu"
+      },
+      {
+        "atomId": "P01-02:u23:a0",
+        "presentation": "visual",
+        "reason": "動き・表情・空間・音で伝える"
+      },
+      {
+        "atomId": "P01-02:u24:a0",
+        "presentation": "visual",
+        "reason": "動き・表情・空間・音で伝える"
+      },
+      {
+        "atomId": "P01-02:u25:a0",
+        "presentation": "dialogue",
+        "reason": "原文の台詞をそのまま掲載",
+        "speakerId": "kamiya-yu"
+      },
+      {
+        "atomId": "P01-02:u26:a0",
+        "presentation": "dialogue",
+        "reason": "原文の台詞をそのまま掲載",
+        "speakerId": "kawai-yumiko"
+      },
+      {
+        "atomId": "P01-02:u27:a0",
+        "presentation": "dialogue",
+        "reason": "原文の台詞をそのまま掲載",
+        "speakerId": "kamiya-yu"
+      },
+      {
+        "atomId": "P01-02:u28:a0",
+        "presentation": "dialogue",
+        "reason": "原文の台詞をそのまま掲載",
+        "speakerId": "kawai-yumiko"
+      },
+      {
+        "atomId": "P01-02:u29:a0",
+        "presentation": "visual",
+        "reason": "動き・表情・空間・音で伝える"
+      },
+      {
+        "atomId": "P01-02:u30:a0",
+        "presentation": "dialogue",
+        "reason": "原文の台詞をそのまま掲載",
+        "speakerId": "kawai-yumiko"
+      },
+      {
+        "atomId": "P01-02:u31:a0",
+        "presentation": "visual",
+        "reason": "動き・表情・空間・音で伝える"
+      },
+      {
+        "atomId": "P01-02:u32:a0",
+        "presentation": "dialogue",
+        "reason": "原文の台詞をそのまま掲載",
+        "speakerId": "kawai-yumiko"
+      },
+      {
+        "atomId": "P01-02:u33:a0",
+        "presentation": "dialogue",
+        "reason": "原文の台詞をそのまま掲載",
+        "speakerId": "kamiya-yu"
+      },
+      {
+        "atomId": "P01-02:u34:a0",
+        "presentation": "dialogue",
+        "reason": "原文の台詞をそのまま掲載",
+        "speakerId": "kawai-yumiko"
+      },
+      {
+        "atomId": "P01-02:u35:a0",
+        "presentation": "dialogue",
+        "reason": "原文の台詞をそのまま掲載",
+        "speakerId": "kamiya-yu"
+      },
+      {
+        "atomId": "P01-02:u36:a0",
+        "presentation": "visual",
+        "reason": "動き・表情・空間・音で伝える"
+      },
+      {
+        "atomId": "P01-02:u37:a0",
+        "presentation": "dialogue",
+        "reason": "原文の台詞をそのまま掲載",
+        "speakerId": "kawai-yumiko"
+      },
+      {
+        "atomId": "P01-02:u38:a0",
+        "presentation": "dialogue",
+        "reason": "原文の台詞をそのまま掲載",
+        "speakerId": "kamiya-yu"
+      },
+      {
+        "atomId": "P01-02:u39:a0",
+        "presentation": "visual",
+        "reason": "動き・表情・空間・音で伝える"
+      },
+      {
+        "atomId": "P01-02:u40:a0",
+        "presentation": "dialogue",
+        "reason": "原文の台詞をそのまま掲載",
+        "speakerId": "kawai-yumiko"
+      },
+      {
+        "atomId": "P01-02:u41:a0",
+        "presentation": "dialogue",
+        "reason": "原文の台詞をそのまま掲載",
+        "speakerId": "kamiya-yu"
+      },
+      {
+        "atomId": "P01-02:u42:a0",
+        "presentation": "dialogue",
+        "reason": "原文の台詞をそのまま掲載",
+        "speakerId": "kawai-yumiko"
+      },
+      {
+        "atomId": "P01-02:u43:a0",
+        "presentation": "visual",
+        "reason": "動き・表情・空間・音で伝える"
+      },
+      {
+        "atomId": "P01-02:u43:a1",
+        "presentation": "visual",
+        "reason": "動き・表情・空間・音で伝える"
+      },
+      {
+        "atomId": "P01-02:u44:a0",
+        "presentation": "dialogue",
+        "reason": "原文の台詞をそのまま掲載",
+        "speakerId": "kamiya-yu"
+      },
+      {
+        "atomId": "P01-02:u45:a0",
+        "presentation": "dialogue",
+        "reason": "原文の台詞をそのまま掲載",
+        "speakerId": "kawai-yumiko"
+      },
+      {
+        "atomId": "P01-02:u46:a0",
+        "presentation": "visual",
+        "reason": "動き・表情・空間・音で伝える"
+      },
+      {
+        "atomId": "P01-02:u47:a0",
+        "presentation": "visual",
+        "reason": "動き・表情・空間・音で伝える"
+      },
+      {
+        "atomId": "P01-02:u47:a1",
+        "presentation": "visual",
+        "reason": "動き・表情・空間・音で伝える"
+      },
+      {
+        "atomId": "P01-02:u48:a0",
+        "presentation": "visual",
+        "reason": "動き・表情・空間・音で伝える"
+      },
+      {
+        "atomId": "P01-02:u49:a0",
+        "presentation": "visual",
+        "reason": "動き・表情・空間・音で伝える"
+      },
+      {
+        "atomId": "P01-02:u49:a1",
+        "presentation": "visual",
+        "reason": "動き・表情・空間・音で伝える"
+      },
+      {
+        "atomId": "P01-02:u50:a0",
+        "presentation": "dialogue",
+        "reason": "原文の台詞をそのまま掲載",
+        "speakerId": null
+      },
+      {
+        "atomId": "P01-02:u51:a0",
+        "presentation": "visual",
+        "reason": "動き・表情・空間・音で伝える"
+      },
+      {
+        "atomId": "P01-02:u52:a0",
+        "presentation": "visual",
+        "reason": "動き・表情・空間・音で伝える"
+      },
+      {
+        "atomId": "P01-02:u52:a1",
+        "presentation": "visual",
+        "reason": "動き・表情・空間・音で伝える"
+      },
+      {
+        "atomId": "P01-02:u53:a0",
+        "presentation": "visual",
+        "reason": "動き・表情・空間・音で伝える"
+      },
+      {
+        "atomId": "P01-02:u54:a0",
+        "presentation": "dialogue",
+        "reason": "原文の台詞をそのまま掲載",
+        "speakerId": "kawai-yumiko"
+      },
+      {
+        "atomId": "P01-02:u55:a0",
+        "presentation": "visual",
+        "reason": "動き・表情・空間・音で伝える"
+      },
+      {
+        "atomId": "P01-02:u56:a0",
+        "presentation": "dialogue",
+        "reason": "原文の台詞をそのまま掲載",
+        "speakerId": "kamiya-yu"
+      },
+      {
+        "atomId": "P01-02:u57:a0",
+        "presentation": "visual",
+        "reason": "動き・表情・空間・音で伝える"
+      },
+      {
+        "atomId": "P01-03:u1:a0",
+        "presentation": "visual",
+        "reason": "動き・表情・空間・音で伝える"
+      },
+      {
+        "atomId": "P01-03:u2:a0",
+        "presentation": "visual",
+        "reason": "動き・表情・空間・音で伝える"
+      },
+      {
+        "atomId": "P01-03:u3:a0",
+        "presentation": "visual",
+        "reason": "動き・表情・空間・音で伝える"
+      },
+      {
+        "atomId": "P01-03:u3:a1",
+        "presentation": "visual",
+        "reason": "動き・表情・空間・音で伝える"
+      },
+      {
+        "atomId": "P01-03:u4:a0",
+        "presentation": "visual",
+        "reason": "動き・表情・空間・音で伝える"
+      },
+      {
+        "atomId": "P01-03:u5:a0",
+        "presentation": "dialogue",
+        "reason": "原文の台詞をそのまま掲載",
+        "speakerId": "kamiya-yu"
+      },
+      {
+        "atomId": "P01-03:u6:a0",
+        "presentation": "dialogue",
+        "reason": "原文の台詞をそのまま掲載",
+        "speakerId": "onodera"
+      },
+      {
+        "atomId": "P01-03:u7:a0",
+        "presentation": "dialogue",
+        "reason": "原文の台詞をそのまま掲載",
+        "speakerId": "kamiya-yu"
+      },
+      {
+        "atomId": "P01-03:u8:a0",
+        "presentation": "dialogue",
+        "reason": "原文の台詞をそのまま掲載",
+        "speakerId": "onodera"
+      },
+      {
+        "atomId": "P01-03:u9:a0",
+        "presentation": "visual",
+        "reason": "動き・表情・空間・音で伝える"
+      },
+      {
+        "atomId": "P01-03:u9:a1",
+        "presentation": "visual",
+        "reason": "動き・表情・空間・音で伝える"
+      },
+      {
+        "atomId": "P01-03:u10:a0",
+        "presentation": "visual",
+        "reason": "動き・表情・空間・音で伝える"
+      },
+      {
+        "atomId": "P01-03:u11:a0",
+        "presentation": "dialogue",
+        "reason": "原文の台詞をそのまま掲載",
+        "speakerId": "kuze"
+      },
+      {
+        "atomId": "P01-03:u12:a0",
+        "presentation": "dialogue",
+        "reason": "原文の台詞をそのまま掲載",
+        "speakerId": "onodera"
+      },
+      {
+        "atomId": "P01-03:u13:a0",
+        "presentation": "visual",
+        "reason": "動き・表情・空間・音で伝える"
+      },
+      {
+        "atomId": "P01-03:u13:a1",
+        "presentation": "visual",
+        "reason": "動き・表情・空間・音で伝える"
+      },
+      {
+        "atomId": "P01-03:u13:a2",
+        "presentation": "visual",
+        "reason": "動き・表情・空間・音で伝える"
+      },
+      {
+        "atomId": "P01-03:u14:a0",
+        "presentation": "dialogue",
+        "reason": "原文の台詞をそのまま掲載",
+        "speakerId": "kamiya-yu"
+      },
+      {
+        "atomId": "P01-03:u15:a0",
+        "presentation": "dialogue",
+        "reason": "原文の台詞をそのまま掲載",
+        "speakerId": "onodera"
+      },
+      {
+        "atomId": "P01-03:u16:a0",
+        "presentation": "visual",
+        "reason": "動き・表情・空間・音で伝える"
+      },
+      {
+        "atomId": "P01-03:u16:a1",
+        "presentation": "visual",
+        "reason": "動き・表情・空間・音で伝える"
+      },
+      {
+        "atomId": "P01-03:u17:a0",
+        "presentation": "visual",
+        "reason": "動き・表情・空間・音で伝える"
+      },
+      {
+        "atomId": "P01-03:u18:a0",
+        "presentation": "visual",
+        "reason": "動き・表情・空間・音で伝える"
+      },
+      {
+        "atomId": "P01-03:u19:a0",
+        "presentation": "dialogue",
+        "reason": "原文の台詞をそのまま掲載",
+        "speakerId": "shinohara"
+      },
+      {
+        "atomId": "P01-03:u20:a0",
+        "presentation": "visual",
+        "reason": "動き・表情・空間・音で伝える"
+      },
+      {
+        "atomId": "P01-03:u20:a1",
+        "presentation": "visual",
+        "reason": "動き・表情・空間・音で伝える"
+      },
+      {
+        "atomId": "P01-03:u21:a0",
+        "presentation": "visual",
+        "reason": "動き・表情・空間・音で伝える"
+      },
+      {
+        "atomId": "P01-03:u22:a0",
+        "presentation": "dialogue",
+        "reason": "原文の台詞をそのまま掲載",
+        "speakerId": "shinohara"
+      },
+      {
+        "atomId": "P01-03:u23:a0",
+        "presentation": "visual",
+        "reason": "動き・表情・空間・音で伝える"
+      },
+      {
+        "atomId": "P01-03:u23:a1",
+        "presentation": "visual",
+        "reason": "動き・表情・空間・音で伝える"
+      },
+      {
+        "atomId": "P01-03:u24:a0",
+        "presentation": "dialogue",
+        "reason": "原文の台詞をそのまま掲載",
+        "speakerId": "kamiya-yu"
+      },
+      {
+        "atomId": "P01-03:u25:a0",
+        "presentation": "visual",
+        "reason": "動き・表情・空間・音で伝える"
+      },
+      {
+        "atomId": "P01-03:u26:a0",
+        "presentation": "dialogue",
+        "reason": "原文の台詞をそのまま掲載",
+        "speakerId": "shinohara"
+      },
+      {
+        "atomId": "P01-03:u27:a0",
+        "presentation": "visual",
+        "reason": "動き・表情・空間・音で伝える"
+      },
+      {
+        "atomId": "P01-03:u27:a1",
+        "presentation": "visual",
+        "reason": "動き・表情・空間・音で伝える"
+      },
+      {
+        "atomId": "P01-03:u28:a0",
+        "presentation": "dialogue",
+        "reason": "原文の台詞をそのまま掲載",
+        "speakerId": "kamiya-yu"
+      },
+      {
+        "atomId": "P01-03:u29:a0",
+        "presentation": "dialogue",
+        "reason": "原文の台詞をそのまま掲載",
+        "speakerId": "shinohara"
+      },
+      {
+        "atomId": "P01-03:u30:a0",
+        "presentation": "visual",
+        "reason": "動き・表情・空間・音で伝える"
+      },
+      {
+        "atomId": "P01-03:u31:a0",
+        "presentation": "dialogue",
+        "reason": "原文の台詞をそのまま掲載",
+        "speakerId": "kuze"
+      },
+      {
+        "atomId": "P01-03:u32:a0",
+        "presentation": "dialogue",
+        "reason": "原文の台詞をそのまま掲載",
+        "speakerId": "kamiya-yu"
+      },
+      {
+        "atomId": "P01-03:u33:a0",
+        "presentation": "dialogue",
+        "reason": "原文の台詞をそのまま掲載",
+        "speakerId": "kuze"
+      },
+      {
+        "atomId": "P01-03:u34:a0",
+        "presentation": "dialogue",
+        "reason": "原文の台詞をそのまま掲載",
+        "speakerId": "kamiya-yu"
+      },
+      {
+        "atomId": "P01-03:u35:a0",
+        "presentation": "visual",
+        "reason": "動き・表情・空間・音で伝える"
+      },
+      {
+        "atomId": "P01-03:u36:a0",
+        "presentation": "dialogue",
+        "reason": "原文の台詞をそのまま掲載",
+        "speakerId": "kuze"
+      },
+      {
+        "atomId": "P01-03:u37:a0",
+        "presentation": "dialogue",
+        "reason": "原文の台詞をそのまま掲載",
+        "speakerId": "kamiya-yu"
+      },
+      {
+        "atomId": "P01-03:u38:a0",
+        "presentation": "visual",
+        "reason": "動き・表情・空間・音で伝える"
+      },
+      {
+        "atomId": "P01-03:u39:a0",
+        "presentation": "visual",
+        "reason": "動き・表情・空間・音で伝える"
+      }
+    ],
+    "beats": [
+      {
+        "id": "P01-beat-01",
+        "atomIds": [
+          "P01-01:u1:a0",
+          "P01-01:u2:a0",
+          "P01-01:u2:a1",
+          "P01-01:u2:a2",
+          "P01-01:u3:a0",
+          "P01-01:u4:a0",
+          "P01-01:u4:a1",
+          "P01-01:u4:a2"
+        ],
+        "function": "setup",
+        "tempo": "normal",
+        "readerBefore": "歌を追ってきた由美子の目的を、舞台と三人の手元で確立する。",
+        "readerAfter": "由美子たちはこの舞台へ来るために歌ってきた。"
+      },
+      {
+        "id": "P01-beat-02",
+        "atomIds": [
+          "P01-01:u5:a0",
+          "P01-01:u6:a0",
+          "P01-01:u6:a1",
+          "P01-01:u7:a0",
+          "P01-01:u8:a0",
+          "P01-01:u8:a1"
+        ],
+        "function": "payoff",
+        "tempo": "normal",
+        "readerBefore": "由美子たちはこの舞台へ来るために歌ってきた。",
+        "readerAfter": "アカペラ部に入る意思が冊子の二重丸で伝わる。"
+      },
+      {
+        "id": "P01-beat-03",
+        "atomIds": [
+          "P01-01:u9:a0",
+          "P01-01:u10:a0",
+          "P01-01:u11:a0",
+          "P01-01:u12:a0",
+          "P01-01:u12:a1",
+          "P01-01:u12:a2",
+          "P01-01:u13:a0"
+        ],
+        "function": "setup",
+        "tempo": "normal",
+        "readerBefore": "ボールの音で歌から競技へ切り替え、勇の第一印象を置く。",
+        "readerAfter": "競技が始まり、由美子は選手の中の一年生に気づく。"
+      },
+      {
+        "id": "P01-beat-04",
+        "atomIds": [
+          "P01-01:u14:a0",
+          "P01-01:u14:a1",
+          "P01-01:u15:a0",
+          "P01-01:u16:a0",
+          "P01-01:u16:a1",
+          "P01-01:u17:a0"
+        ],
+        "function": "payoff",
+        "tempo": "normal",
+        "readerBefore": "競技が始まり、由美子は選手の中の一年生に気づく。",
+        "readerAfter": "照れた一年生が実力を示す前の静けさ。"
+      },
+      {
+        "id": "P01-beat-05",
+        "atomIds": [
+          "P01-01:u18:a0",
+          "P01-01:u18:a1",
+          "P01-01:u18:a2",
+          "P01-01:u19:a0",
+          "P01-01:u20:a0",
+          "P01-01:u20:a1",
+          "P01-01:u20:a2",
+          "P01-01:u21:a0"
+        ],
+        "function": "setup",
+        "tempo": "normal",
+        "readerBefore": "一本目の遠さを先に理解させ、放った瞬間と結果を分ける。",
+        "readerAfter": "先輩のスクリーンを使い、勇が予想外の遠距離から構える。"
+      },
+      {
+        "id": "P01-beat-06",
+        "atomIds": [
+          "P01-01:u22:a0",
+          "P01-01:u23:a0",
+          "P01-01:u24:a0",
+          "P01-01:u24:a1"
+        ],
+        "function": "payoff",
+        "tempo": "normal",
+        "readerBefore": "先輩のスクリーンを使い、勇が予想外の遠距離から構える。",
+        "readerAfter": "一本目が入って、由美子の観察が始まる。"
+      },
+      {
+        "id": "P01-beat-07",
+        "atomIds": [
+          "P01-01:u25:a0",
+          "P01-01:u25:a1",
+          "P01-01:u25:a2",
+          "P01-01:u25:a3"
+        ],
+        "function": "setup",
+        "tempo": "normal",
+        "readerBefore": "二本目は守備への対応を短く見せ、由美子の手元に変化を残す。",
+        "readerAfter": "勇は相手を引きつけてからスクリーンの隙間を使う。"
+      },
+      {
+        "id": "P01-beat-08",
+        "atomIds": [
+          "P01-01:u26:a0",
+          "P01-01:u27:a0",
+          "P01-01:u28:a0"
+        ],
+        "function": "payoff",
+        "tempo": "normal",
+        "readerBefore": "勇は相手を引きつけてからスクリーンの隙間を使う。",
+        "readerAfter": "二本目が決まり、冊子から手が離れる。"
+      },
+      {
+        "id": "P01-beat-09",
+        "atomIds": [
+          "P01-01:u29:a0",
+          "P01-01:u29:a1",
+          "P01-01:u29:a2",
+          "P01-01:u30:a0",
+          "P01-01:u30:a1",
+          "P01-01:u30:a2"
+        ],
+        "function": "setup",
+        "tempo": "normal",
+        "readerBefore": "シュートを警戒された勇がパスも通すことを、動作の因果で示す。",
+        "readerAfter": "フェイクで守備を跳ばせ、勇が抜ける。"
+      },
+      {
+        "id": "P01-beat-10",
+        "atomIds": [
+          "P01-01:u31:a0",
+          "P01-01:u31:a1",
+          "P01-01:u31:a2",
+          "P01-01:u32:a0",
+          "P01-01:u33:a0",
+          "P01-01:u33:a1",
+          "P01-01:u33:a2"
+        ],
+        "function": "payoff",
+        "tempo": "normal",
+        "readerBefore": "フェイクで守備を跳ばせ、勇が抜ける。",
+        "readerAfter": "ノールックパスから先輩の得点、勇の笑顔まで届く。"
+      },
+      {
+        "id": "P01-beat-11",
+        "atomIds": [
+          "P01-01:u34:a0",
+          "P01-01:u35:a0",
+          "P01-01:u35:a1",
+          "P01-01:u35:a2",
+          "P01-01:u35:a3"
+        ],
+        "function": "setup",
+        "tempo": "normal",
+        "readerBefore": "三本目を結果より待つ時間で強め、球が落ちる前で区切る。",
+        "readerAfter": "客席も守備も三本目を予感している。"
+      },
+      {
+        "id": "P01-beat-12",
+        "atomIds": [
+          "P01-01:u36:a0",
+          "P01-01:u37:a0",
+          "P01-01:u37:a1"
+        ],
+        "function": "reveal",
+        "tempo": "hold",
+        "readerBefore": "客席も守備も三本目を予感している。",
+        "readerAfter": "由美子の握る拳と、まだ落ちていない球。"
+      },
+      {
+        "id": "P01-beat-13",
+        "atomIds": [
+          "P01-01:u38:a0",
+          "P01-01:u39:a0",
+          "P01-01:u40:a0"
+        ],
+        "function": "setup",
+        "tempo": "normal",
+        "readerBefore": "三本目の成功を由美子の声と拍手で回収し、教室へつなぐ。",
+        "readerAfter": "球がネットへ入る。"
+      },
+      {
+        "id": "P01-beat-14",
+        "atomIds": [
+          "P01-01:u41:a0",
+          "P01-01:u42:a0",
+          "P01-01:u42:a1"
+        ],
+        "function": "payoff",
+        "tempo": "normal",
+        "readerBefore": "球がネットへ入る。",
+        "readerAfter": "由美子は真希の視線に気づかず勇へ拍手する。"
+      },
+      {
+        "id": "P01-beat-15",
+        "atomIds": [
+          "P01-02:u1:a0",
+          "P01-02:u2:a0",
+          "P01-02:u3:a0",
+          "P01-02:u3:a1",
+          "P01-02:u4:a0",
+          "P01-02:u5:a0",
+          "P01-02:u5:a1",
+          "P01-02:u6:a0"
+        ],
+        "function": "transition",
+        "tempo": "normal",
+        "readerBefore": "同じ人物を今度は勇側から見て、最初の冗談が通る距離を作る。",
+        "readerAfter": "教室へ戻った勇は由美子が隣だと知る。"
+      },
+      {
+        "id": "P01-beat-16",
+        "atomIds": [
+          "P01-02:u7:a0",
+          "P01-02:u8:a0",
+          "P01-02:u9:a0",
+          "P01-02:u10:a0",
+          "P01-02:u11:a0",
+          "P01-02:u12:a0"
+        ],
+        "function": "payoff",
+        "tempo": "normal",
+        "readerBefore": "教室へ戻った勇は由美子が隣だと知る。",
+        "readerAfter": "自己紹介の前から軽口が成立する。"
+      },
+      {
+        "id": "P01-beat-17",
+        "atomIds": [
+          "P01-02:u13:a0",
+          "P01-02:u14:a0",
+          "P01-02:u15:a0",
+          "P01-02:u16:a0"
+        ],
+        "function": "setup",
+        "tempo": "normal",
+        "readerBefore": "試合の感想で始まった会話を、勇の謙虚さと由美子の観察で進める。",
+        "readerAfter": "互いに名前を知り、由美子は最後の三点を具体的に褒める。"
+      },
+      {
+        "id": "P01-beat-18",
+        "atomIds": [
+          "P01-02:u17:a0",
+          "P01-02:u18:a0",
+          "P01-02:u18:a1",
+          "P01-02:u19:a0",
+          "P01-02:u20:a0",
+          "P01-02:u21:a0",
+          "P01-02:u22:a0",
+          "P01-02:u23:a0"
+        ],
+        "function": "payoff",
+        "tempo": "normal",
+        "readerBefore": "互いに名前を知り、由美子は最後の三点を具体的に褒める。",
+        "readerAfter": "勇の「たまたま」だけで終わらず、守備の近さを言い返す。"
+      },
+      {
+        "id": "P01-beat-19",
+        "atomIds": [
+          "P01-02:u24:a0",
+          "P01-02:u25:a0",
+          "P01-02:u26:a0"
+        ],
+        "function": "setup",
+        "tempo": "normal",
+        "readerBefore": "由美子のシュート真似で、会話の温度を自然に上げる。",
+        "readerAfter": "由美子が手首を曲げて勇の三点を真似る。"
+      },
+      {
+        "id": "P01-beat-20",
+        "atomIds": [
+          "P01-02:u27:a0",
+          "P01-02:u28:a0",
+          "P01-02:u29:a0",
+          "P01-02:u30:a0",
+          "P01-02:u31:a0"
+        ],
+        "function": "payoff",
+        "tempo": "normal",
+        "readerBefore": "由美子が手首を曲げて勇の三点を真似る。",
+        "readerAfter": "冗談が終わると由美子は本気の観察へ身を乗り出す。"
+      },
+      {
+        "id": "P01-beat-21",
+        "atomIds": [
+          "P01-02:u32:a0",
+          "P01-02:u33:a0"
+        ],
+        "function": "setup",
+        "tempo": "normal",
+        "readerBefore": "勇が自分の動きを理解された瞬間を、説明より反応で読ませる。",
+        "readerAfter": "由美子がストップからのドライブを言い当てる。"
+      },
+      {
+        "id": "P01-beat-22",
+        "atomIds": [
+          "P01-02:u34:a0",
+          "P01-02:u35:a0",
+          "P01-02:u36:a0",
+          "P01-02:u37:a0",
+          "P01-02:u38:a0",
+          "P01-02:u39:a0"
+        ],
+        "function": "payoff",
+        "tempo": "normal",
+        "readerBefore": "由美子がストップからのドライブを言い当てる。",
+        "readerAfter": "勇はカーヴァーの名を知る由美子に驚く。"
+      },
+      {
+        "id": "P01-beat-23",
+        "atomIds": [
+          "P01-02:u40:a0",
+          "P01-02:u41:a0",
+          "P01-02:u42:a0"
+        ],
+        "function": "setup",
+        "tempo": "normal",
+        "readerBefore": "共通の話題で二人の会話が弾み、歌の目的も手元に残す。",
+        "readerAfter": "由美子は家でオルカズを見ていると話し、勇は練習への共通理解を喜ぶ。"
+      },
+      {
+        "id": "P01-beat-24",
+        "atomIds": [
+          "P01-02:u43:a0",
+          "P01-02:u43:a1",
+          "P01-02:u44:a0",
+          "P01-02:u45:a0",
+          "P01-02:u46:a0",
+          "P01-02:u47:a0",
+          "P01-02:u47:a1"
+        ],
+        "function": "payoff",
+        "tempo": "normal",
+        "readerBefore": "由美子は家でオルカズを見ていると話し、勇は練習への共通理解を喜ぶ。",
+        "readerAfter": "由美子のアカペラ部への意志も画面に再登場する。"
+      },
+      {
+        "id": "P01-beat-25",
+        "atomIds": [
+          "P01-02:u48:a0",
+          "P01-02:u49:a0",
+          "P01-02:u49:a1",
+          "P01-02:u50:a0",
+          "P01-02:u51:a0"
+        ],
+        "function": "setup",
+        "tempo": "normal",
+        "readerBefore": "授業の手続きの中の小さな再会話で、初日の関係を閉じる。",
+        "readerAfter": "担任が入室し、二人は同じ作業へ向かう。"
+      },
+      {
+        "id": "P01-beat-26",
+        "atomIds": [
+          "P01-02:u52:a0",
+          "P01-02:u52:a1",
+          "P01-02:u53:a0",
+          "P01-02:u54:a0",
+          "P01-02:u55:a0",
+          "P01-02:u56:a0",
+          "P01-02:u57:a0"
+        ],
+        "function": "pause",
+        "tempo": "slow",
+        "readerBefore": "担任が入室し、二人は同じ作業へ向かう。",
+        "readerAfter": "呼び名を交換して春風の中で静かに落ち着く。"
+      },
+      {
+        "id": "P01-beat-27",
+        "atomIds": [
+          "P01-03:u1:a0",
+          "P01-03:u2:a0",
+          "P01-03:u3:a0",
+          "P01-03:u3:a1",
+          "P01-03:u4:a0",
+          "P01-03:u5:a0",
+          "P01-03:u6:a0"
+        ],
+        "function": "setup",
+        "tempo": "normal",
+        "readerBefore": "午後の映像で勇の得点の外にあった手を見せる。",
+        "readerAfter": "小野寺は試合映像を止めて自分の姿を拡大する。"
+      },
+      {
+        "id": "P01-beat-28",
+        "atomIds": [
+          "P01-03:u7:a0",
+          "P01-03:u8:a0",
+          "P01-03:u9:a0",
+          "P01-03:u9:a1"
+        ],
+        "function": "payoff",
+        "tempo": "normal",
+        "readerBefore": "小野寺は試合映像を止めて自分の姿を拡大する。",
+        "readerAfter": "勇の謝罪と小野寺の静かな追及が笑いになる。"
+      },
+      {
+        "id": "P01-beat-29",
+        "atomIds": [
+          "P01-03:u10:a0",
+          "P01-03:u11:a0",
+          "P01-03:u12:a0",
+          "P01-03:u13:a0",
+          "P01-03:u13:a1",
+          "P01-03:u13:a2"
+        ],
+        "function": "setup",
+        "tempo": "normal",
+        "readerBefore": "先輩との近さを見せ、成功と見落としが両立する画面を置く。",
+        "readerAfter": "久世も加わって小野寺の拡大を笑う。"
+      },
+      {
+        "id": "P01-beat-30",
+        "atomIds": [
+          "P01-03:u14:a0",
+          "P01-03:u15:a0",
+          "P01-03:u16:a0",
+          "P01-03:u16:a1",
+          "P01-03:u17:a0"
+        ],
+        "function": "payoff",
+        "tempo": "normal",
+        "readerBefore": "久世も加わって小野寺の拡大を笑う。",
+        "readerAfter": "勇の後ろで小野寺は得点を喜んでいたと分かる。"
+      },
+      {
+        "id": "P01-beat-31",
+        "atomIds": [
+          "P01-03:u18:a0",
+          "P01-03:u19:a0",
+          "P01-03:u20:a0",
+          "P01-03:u20:a1",
+          "P01-03:u21:a0",
+          "P01-03:u22:a0"
+        ],
+        "function": "setup",
+        "tempo": "normal",
+        "readerBefore": "篠原の指摘で勇の課題を一段深くし、熱を否定しない助言へ着地する。",
+        "readerAfter": "交代の合図は小野寺の手だけではなく朝倉にも出ていた。"
+      },
+      {
+        "id": "P01-beat-32",
+        "atomIds": [
+          "P01-03:u23:a0",
+          "P01-03:u23:a1",
+          "P01-03:u24:a0",
+          "P01-03:u25:a0",
+          "P01-03:u26:a0"
+        ],
+        "function": "payoff",
+        "tempo": "normal",
+        "readerBefore": "交代の合図は小野寺の手だけではなく朝倉にも出ていた。",
+        "readerAfter": "勇は聞こえなかったと認め、篠原は感覚を残したまま周りを見るよう言う。"
+      },
+      {
+        "id": "P01-beat-33",
+        "atomIds": [
+          "P01-03:u27:a0",
+          "P01-03:u27:a1",
+          "P01-03:u28:a0",
+          "P01-03:u29:a0",
+          "P01-03:u30:a0",
+          "P01-03:u31:a0",
+          "P01-03:u32:a0"
+        ],
+        "function": "setup",
+        "tempo": "normal",
+        "readerBefore": "軽口で日常へ戻り、最後は映像の中の先輩の手に余韻を置く。",
+        "readerAfter": "勇は交代の合図を見返し、律に声をかけるつもりだ。"
+      },
+      {
+        "id": "P01-beat-34",
+        "atomIds": [
+          "P01-03:u33:a0",
+          "P01-03:u34:a0",
+          "P01-03:u35:a0",
+          "P01-03:u36:a0",
+          "P01-03:u37:a0",
+          "P01-03:u38:a0",
+          "P01-03:u39:a0"
+        ],
+        "function": "pause",
+        "tempo": "slow",
+        "readerBefore": "勇は交代の合図を見返し、律に声をかけるつもりだ。",
+        "readerAfter": "映像の先輩の両手を見て終わる。"
+      }
+    ],
+    "panels": [
+      {
+        "id": "P01-panel-001",
+        "atomIds": [
+          "P01-01:u1:a0",
+          "P01-01:u2:a0",
+          "P01-01:u2:a1",
+          "P01-01:u2:a2"
+        ],
+        "contextAtomIds": [],
+        "beatIds": [
+          "P01-beat-01"
+        ],
+        "characterIds": [
+          "kawai-yumiko"
+        ],
+        "role": "standard",
+        "shot": "wide",
+        "shotIntent": "六人の歌が終わった体育館。舞台の一礼と、客席で拍手を続ける由美子。歓声へ至る短い静寂を空白で扱う。",
+        "prompt": "漫画の線画のための構図案。六人の歌が終わった体育館。舞台の一礼と、客席で拍手を続ける由美子。歓声へ至る短い静寂を空白で扱う。人物は登録済み基準画と当該場面の本文に合わせる。台詞・効果音・看板の文字を画像へ焼き込まない。",
+        "silentReason": "",
+        "protect": [
+          "人物の顔と手",
+          "主要動作とボール",
+          "吹き出し余白"
+        ],
+        "gaze": "neutral"
+      },
+      {
+        "id": "P01-panel-002",
+        "atomIds": [
+          "P01-01:u3:a0",
+          "P01-01:u4:a0",
+          "P01-01:u4:a1",
+          "P01-01:u4:a2"
+        ],
+        "contextAtomIds": [],
+        "beatIds": [
+          "P01-beat-01"
+        ],
+        "characterIds": [
+          "kawai-yumiko"
+        ],
+        "role": "standard",
+        "shot": "detail",
+        "shotIntent": "冊子の集合写真から先輩を探す指。中学三年間の経緯は簡潔なナレーション欄に置く。",
+        "prompt": "漫画の線画のための構図案。冊子の集合写真から先輩を探す指。中学三年間の経緯は簡潔なナレーション欄に置く。人物は登録済み基準画と当該場面の本文に合わせる。台詞・効果音・看板の文字を画像へ焼き込まない。",
+        "silentReason": "",
+        "protect": [
+          "手元・重要物",
+          "文字レイヤーの余白"
+        ],
+        "gaze": "neutral"
+      },
+      {
+        "id": "P01-panel-003",
+        "atomIds": [
+          "P01-01:u5:a0",
+          "P01-01:u6:a0",
+          "P01-01:u6:a1",
+          "P01-01:u7:a0"
+        ],
+        "contextAtomIds": [],
+        "beatIds": [
+          "P01-beat-02"
+        ],
+        "characterIds": [
+          "kawai-yumiko",
+          "maki",
+          "shizuka"
+        ],
+        "role": "reaction",
+        "shot": "medium",
+        "shotIntent": "離れた列の真希と静香、由美子のうなずき返し。三人が目を交わす空間を保つ。",
+        "prompt": "漫画の線画のための構図案。離れた列の真希と静香、由美子のうなずき返し。三人が目を交わす空間を保つ。人物は登録済み基準画と当該場面の本文に合わせる。台詞・効果音・看板の文字を画像へ焼き込まない。",
+        "silentReason": "",
+        "protect": [
+          "人物の顔と手",
+          "主要動作とボール",
+          "吹き出し余白"
+        ],
+        "gaze": "neutral"
+      },
+      {
+        "id": "P01-panel-004",
+        "atomIds": [
+          "P01-01:u8:a0",
+          "P01-01:u8:a1"
+        ],
+        "contextAtomIds": [],
+        "beatIds": [
+          "P01-beat-02"
+        ],
+        "characterIds": [
+          "kawai-yumiko"
+        ],
+        "role": "dominant",
+        "shot": "detail",
+        "shotIntent": "《アカペラ部》をもう一周囲むボールペン。線の濃さで意志を見せる。",
+        "prompt": "漫画の線画のための構図案。《アカペラ部》をもう一周囲むボールペン。線の濃さで意志を見せる。人物は登録済み基準画と当該場面の本文に合わせる。台詞・効果音・看板の文字を画像へ焼き込まない。",
+        "silentReason": "",
+        "protect": [
+          "手元・重要物",
+          "文字レイヤーの余白"
+        ],
+        "gaze": "neutral"
+      },
+      {
+        "id": "P01-panel-005",
+        "atomIds": [
+          "P01-01:u9:a0",
+          "P01-01:u10:a0",
+          "P01-01:u11:a0"
+        ],
+        "contextAtomIds": [],
+        "beatIds": [
+          "P01-beat-03"
+        ],
+        "characterIds": [
+          "kawai-yumiko"
+        ],
+        "role": "standard",
+        "shot": "detail",
+        "shotIntent": "冊子を伏せた膝の近くから床を弾む球へ音をつなぐ。アナウンスの文字空間を確保。",
+        "prompt": "漫画の線画のための構図案。冊子を伏せた膝の近くから床を弾む球へ音をつなぐ。アナウンスの文字空間を確保。人物は登録済み基準画と当該場面の本文に合わせる。台詞・効果音・看板の文字を画像へ焼き込まない。",
+        "silentReason": "",
+        "protect": [
+          "手元・重要物",
+          "文字レイヤーの余白"
+        ],
+        "gaze": "neutral"
+      },
+      {
+        "id": "P01-panel-006",
+        "atomIds": [
+          "P01-01:u12:a0",
+          "P01-01:u12:a1",
+          "P01-01:u12:a2",
+          "P01-01:u13:a0"
+        ],
+        "contextAtomIds": [],
+        "beatIds": [
+          "P01-beat-03"
+        ],
+        "characterIds": [
+          "kawai-yumiko",
+          "kamiya-yu"
+        ],
+        "role": "standard",
+        "shot": "wide",
+        "shotIntent": "青い練習着の先輩の間に小柄な勇。観客席からコートの位置関係とラインを見せる。",
+        "prompt": "漫画の線画のための構図案。青い練習着の先輩の間に小柄な勇。観客席からコートの位置関係とラインを見せる。人物は登録済み基準画と当該場面の本文に合わせる。台詞・効果音・看板の文字を画像へ焼き込まない。",
+        "silentReason": "",
+        "protect": [
+          "人物の顔と手",
+          "主要動作とボール",
+          "吹き出し余白"
+        ],
+        "gaze": "neutral"
+      },
+      {
+        "id": "P01-panel-007",
+        "atomIds": [
+          "P01-01:u14:a0",
+          "P01-01:u14:a1",
+          "P01-01:u15:a0",
+          "P01-01:u16:a0",
+          "P01-01:u16:a1"
+        ],
+        "contextAtomIds": [],
+        "beatIds": [
+          "P01-beat-04"
+        ],
+        "characterIds": [
+          "kawai-yumiko",
+          "kamiya-yu"
+        ],
+        "role": "reaction",
+        "shot": "medium",
+        "shotIntent": "名前を呼ばれ少し遅れて手を上げる勇。照れの視線は先輩へ。前列の女子の声は匿名のまま。",
+        "prompt": "漫画の線画のための構図案。名前を呼ばれ少し遅れて手を上げる勇。照れの視線は先輩へ。前列の女子の声は匿名のまま。人物は登録済み基準画と当該場面の本文に合わせる。台詞・効果音・看板の文字を画像へ焼き込まない。",
+        "silentReason": "",
+        "protect": [
+          "人物の顔と手",
+          "主要動作とボール",
+          "吹き出し余白"
+        ],
+        "gaze": "neutral"
+      },
+      {
+        "id": "P01-panel-008",
+        "atomIds": [
+          "P01-01:u17:a0"
+        ],
+        "contextAtomIds": [],
+        "beatIds": [
+          "P01-beat-04"
+        ],
+        "characterIds": [
+          "kamiya-yu"
+        ],
+        "role": "standard",
+        "shot": "wide",
+        "shotIntent": "笛と同時に攻守の形ができる。勇の走る方向を次ページへつなぐ。",
+        "prompt": "漫画の線画のための構図案。笛と同時に攻守の形ができる。勇の走る方向を次ページへつなぐ。人物は登録済み基準画と当該場面の本文に合わせる。台詞・効果音・看板の文字を画像へ焼き込まない。",
+        "silentReason": "",
+        "protect": [
+          "人物の顔と手",
+          "主要動作とボール",
+          "吹き出し余白"
+        ],
+        "gaze": "left"
+      },
+      {
+        "id": "P01-panel-009",
+        "atomIds": [
+          "P01-01:u18:a0",
+          "P01-01:u18:a1",
+          "P01-01:u18:a2",
+          "P01-01:u19:a0"
+        ],
+        "contextAtomIds": [],
+        "beatIds": [
+          "P01-beat-05"
+        ],
+        "characterIds": [
+          "kamiya-yu"
+        ],
+        "role": "sequence",
+        "shot": "wide",
+        "shotIntent": "返球、右への走り、スクリーンの裏を抜ける移動の終点を見せる。別時刻の姿は重ねない。",
+        "prompt": "漫画の線画のための構図案。返球、右への走り、スクリーンの裏を抜ける移動の終点を見せる。別時刻の姿は重ねない。人物は登録済み基準画と当該場面の本文に合わせる。台詞・効果音・看板の文字を画像へ焼き込まない。",
+        "silentReason": "",
+        "protect": [
+          "人物の顔と手",
+          "主要動作とボール",
+          "吹き出し余白"
+        ],
+        "gaze": "neutral"
+      },
+      {
+        "id": "P01-panel-010",
+        "atomIds": [
+          "P01-01:u20:a0",
+          "P01-01:u20:a1",
+          "P01-01:u20:a2",
+          "P01-01:u21:a0"
+        ],
+        "contextAtomIds": [],
+        "beatIds": [
+          "P01-beat-05"
+        ],
+        "characterIds": [
+          "kawai-yumiko",
+          "kamiya-yu"
+        ],
+        "role": "standard",
+        "shot": "wide",
+        "shotIntent": "三点線と勇の距離を同一画面で示す。由美子の視線と、もう頭上へ伸びた腕。",
+        "prompt": "漫画の線画のための構図案。三点線と勇の距離を同一画面で示す。由美子の視線と、もう頭上へ伸びた腕。人物は登録済み基準画と当該場面の本文に合わせる。台詞・効果音・看板の文字を画像へ焼き込まない。",
+        "silentReason": "",
+        "protect": [
+          "人物の顔と手",
+          "主要動作とボール",
+          "吹き出し余白"
+        ],
+        "gaze": "neutral"
+      },
+      {
+        "id": "P01-panel-011",
+        "atomIds": [
+          "P01-01:u22:a0",
+          "P01-01:u23:a0"
+        ],
+        "contextAtomIds": [],
+        "beatIds": [
+          "P01-beat-06"
+        ],
+        "characterIds": [
+          "kamiya-yu"
+        ],
+        "role": "dominant",
+        "shot": "detail",
+        "shotIntent": "ネットの乾いた揺れ。前列の子の「遠っ……！」は画面外の声。",
+        "prompt": "漫画の線画のための構図案。ネットの乾いた揺れ。前列の子の「遠っ……！」は画面外の声。人物は登録済み基準画と当該場面の本文に合わせる。台詞・効果音・看板の文字を画像へ焼き込まない。",
+        "silentReason": "",
+        "protect": [
+          "手元・重要物",
+          "文字レイヤーの余白"
+        ],
+        "gaze": "neutral"
+      },
+      {
+        "id": "P01-panel-012",
+        "atomIds": [
+          "P01-01:u24:a0",
+          "P01-01:u24:a1"
+        ],
+        "contextAtomIds": [],
+        "beatIds": [
+          "P01-beat-06"
+        ],
+        "characterIds": [
+          "kawai-yumiko"
+        ],
+        "role": "reaction",
+        "shot": "close",
+        "shotIntent": "由美子の小さく見開いた目から、淀みないフォームを見たことが伝わる。",
+        "prompt": "漫画の線画のための構図案。由美子の小さく見開いた目から、淀みないフォームを見たことが伝わる。人物は登録済み基準画と当該場面の本文に合わせる。台詞・効果音・看板の文字を画像へ焼き込まない。",
+        "silentReason": "",
+        "protect": [
+          "人物の顔と手",
+          "主要動作とボール",
+          "吹き出し余白"
+        ],
+        "gaze": "neutral"
+      },
+      {
+        "id": "P01-panel-013",
+        "atomIds": [
+          "P01-01:u25:a0",
+          "P01-01:u25:a1",
+          "P01-01:u25:a2",
+          "P01-01:u25:a3"
+        ],
+        "contextAtomIds": [],
+        "beatIds": [
+          "P01-beat-07"
+        ],
+        "characterIds": [
+          "kamiya-yu"
+        ],
+        "role": "sequence",
+        "shot": "medium",
+        "shotIntent": "ゴール下へ切り込み急停止、外へ飛び出す。守備がスクリーンを避けた隙間を示す。",
+        "prompt": "漫画の線画のための構図案。ゴール下へ切り込み急停止、外へ飛び出す。守備がスクリーンを避けた隙間を示す。人物は登録済み基準画と当該場面の本文に合わせる。台詞・効果音・看板の文字を画像へ焼き込まない。",
+        "silentReason": "",
+        "protect": [
+          "人物の顔と手",
+          "主要動作とボール",
+          "吹き出し余白"
+        ],
+        "gaze": "neutral"
+      },
+      {
+        "id": "P01-panel-014",
+        "atomIds": [
+          "P01-01:u26:a0",
+          "P01-01:u27:a0"
+        ],
+        "contextAtomIds": [],
+        "beatIds": [
+          "P01-beat-08"
+        ],
+        "characterIds": [
+          "kawai-yumiko",
+          "kamiya-yu"
+        ],
+        "role": "dominant",
+        "shot": "wide",
+        "shotIntent": "由美子が「……また打つ」と見上げ、勇の二本目がネットへ落ちる。",
+        "prompt": "漫画の線画のための構図案。由美子が「……また打つ」と見上げ、勇の二本目がネットへ落ちる。人物は登録済み基準画と当該場面の本文に合わせる。台詞・効果音・看板の文字を画像へ焼き込まない。",
+        "silentReason": "",
+        "protect": [
+          "人物の顔と手",
+          "主要動作とボール",
+          "吹き出し余白"
+        ],
+        "gaze": "neutral"
+      },
+      {
+        "id": "P01-panel-015",
+        "atomIds": [
+          "P01-01:u28:a0"
+        ],
+        "contextAtomIds": [],
+        "beatIds": [
+          "P01-beat-08"
+        ],
+        "characterIds": [
+          "kawai-yumiko"
+        ],
+        "role": "reaction",
+        "shot": "detail",
+        "shotIntent": "開いた冊子から自然に離れた指。閉じてしまう動作は足さない。",
+        "prompt": "漫画の線画のための構図案。開いた冊子から自然に離れた指。閉じてしまう動作は足さない。人物は登録済み基準画と当該場面の本文に合わせる。台詞・効果音・看板の文字を画像へ焼き込まない。",
+        "silentReason": "",
+        "protect": [
+          "手元・重要物",
+          "文字レイヤーの余白"
+        ],
+        "gaze": "neutral"
+      },
+      {
+        "id": "P01-panel-016",
+        "atomIds": [
+          "P01-01:u29:a0",
+          "P01-01:u29:a1",
+          "P01-01:u29:a2"
+        ],
+        "contextAtomIds": [],
+        "beatIds": [
+          "P01-beat-09"
+        ],
+        "characterIds": [
+          "kamiya-yu"
+        ],
+        "role": "standard",
+        "shot": "medium",
+        "shotIntent": "詰めた長い腕と、シュートを装って沈む勇の重心。守備との軸を揃える。",
+        "prompt": "漫画の線画のための構図案。詰めた長い腕と、シュートを装って沈む勇の重心。守備との軸を揃える。人物は登録済み基準画と当該場面の本文に合わせる。台詞・効果音・看板の文字を画像へ焼き込まない。",
+        "silentReason": "",
+        "protect": [
+          "人物の顔と手",
+          "主要動作とボール",
+          "吹き出し余白"
+        ],
+        "gaze": "neutral"
+      },
+      {
+        "id": "P01-panel-017",
+        "atomIds": [
+          "P01-01:u30:a0",
+          "P01-01:u30:a1",
+          "P01-01:u30:a2"
+        ],
+        "contextAtomIds": [],
+        "beatIds": [
+          "P01-beat-09"
+        ],
+        "characterIds": [
+          "kamiya-yu"
+        ],
+        "role": "sequence",
+        "shot": "medium",
+        "shotIntent": "守備が跳び、勇は低く相手の脇を抜ける。フェイクの原因と結果を同じ読書方向へ。",
+        "prompt": "漫画の線画のための構図案。守備が跳び、勇は低く相手の脇を抜ける。フェイクの原因と結果を同じ読書方向へ。人物は登録済み基準画と当該場面の本文に合わせる。台詞・効果音・看板の文字を画像へ焼き込まない。",
+        "silentReason": "",
+        "protect": [
+          "人物の顔と手",
+          "主要動作とボール",
+          "吹き出し余白"
+        ],
+        "gaze": "neutral"
+      },
+      {
+        "id": "P01-panel-018",
+        "atomIds": [
+          "P01-01:u31:a0",
+          "P01-01:u31:a1"
+        ],
+        "contextAtomIds": [],
+        "beatIds": [
+          "P01-beat-10"
+        ],
+        "characterIds": [
+          "kamiya-yu"
+        ],
+        "role": "standard",
+        "shot": "medium",
+        "shotIntent": "二人目の守備の前、空中で身をよじる勇が背後へノールックパスを放つ瞬間。",
+        "prompt": "漫画の線画のための構図案。二人目の守備の前、空中で身をよじる勇が背後へノールックパスを放つ瞬間。人物は登録済み基準画と当該場面の本文に合わせる。台詞・効果音・看板の文字を画像へ焼き込まない。",
+        "silentReason": "",
+        "protect": [
+          "人物の顔と手",
+          "主要動作とボール",
+          "吹き出し余白"
+        ],
+        "gaze": "neutral"
+      },
+      {
+        "id": "P01-panel-019",
+        "atomIds": [
+          "P01-01:u31:a2",
+          "P01-01:u32:a0"
+        ],
+        "contextAtomIds": [],
+        "beatIds": [
+          "P01-beat-10"
+        ],
+        "characterIds": [
+          "kawai-yumiko"
+        ],
+        "role": "dominant",
+        "shot": "wide",
+        "shotIntent": "先輩のダンクの瞬間と、客席から上がる大きな歓声。",
+        "prompt": "漫画の線画のための構図案。先輩のダンクの瞬間と、客席から上がる大きな歓声。人物は登録済み基準画と当該場面の本文に合わせる。台詞・効果音・看板の文字を画像へ焼き込まない。",
+        "silentReason": "",
+        "protect": [
+          "人物の顔と手",
+          "主要動作とボール",
+          "吹き出し余白"
+        ],
+        "gaze": "neutral"
+      },
+      {
+        "id": "P01-panel-020",
+        "atomIds": [
+          "P01-01:u33:a0",
+          "P01-01:u33:a1",
+          "P01-01:u33:a2"
+        ],
+        "contextAtomIds": [],
+        "beatIds": [
+          "P01-beat-10"
+        ],
+        "characterIds": [
+          "kawai-yumiko",
+          "kamiya-yu"
+        ],
+        "role": "reaction",
+        "shot": "close",
+        "shotIntent": "先輩に頭を撫でられた勇の白い歯、由美子がその落差を見つめる。",
+        "prompt": "漫画の線画のための構図案。先輩に頭を撫でられた勇の白い歯、由美子がその落差を見つめる。人物は登録済み基準画と当該場面の本文に合わせる。台詞・効果音・看板の文字を画像へ焼き込まない。",
+        "silentReason": "",
+        "protect": [
+          "人物の顔と手",
+          "主要動作とボール",
+          "吹き出し余白"
+        ],
+        "gaze": "neutral"
+      },
+      {
+        "id": "P01-panel-021",
+        "atomIds": [
+          "P01-01:u34:a0",
+          "P01-01:u35:a0",
+          "P01-01:u35:a1",
+          "P01-01:u35:a2",
+          "P01-01:u35:a3"
+        ],
+        "contextAtomIds": [],
+        "beatIds": [
+          "P01-beat-11"
+        ],
+        "characterIds": [
+          "kawai-yumiko",
+          "kamiya-yu"
+        ],
+        "role": "standard",
+        "shot": "wide",
+        "shotIntent": "客席のざわめきと勇の構え。連続得点で熱が上がった体育館を示す。",
+        "prompt": "漫画の線画のための構図案。客席のざわめきと勇の構え。連続得点で熱が上がった体育館を示す。人物は登録済み基準画と当該場面の本文に合わせる。台詞・効果音・看板の文字を画像へ焼き込まない。",
+        "silentReason": "",
+        "protect": [
+          "人物の顔と手",
+          "主要動作とボール",
+          "吹き出し余白"
+        ],
+        "gaze": "neutral"
+      },
+      {
+        "id": "P01-panel-022",
+        "atomIds": [
+          "P01-01:u36:a0"
+        ],
+        "contextAtomIds": [],
+        "beatIds": [
+          "P01-beat-12"
+        ],
+        "characterIds": [
+          "kamiya-yu"
+        ],
+        "role": "standard",
+        "shot": "pov",
+        "shotIntent": "勇の視界を塞ぐ守備の二本の腕。",
+        "prompt": "漫画の線画のための構図案。勇の視界を塞ぐ守備の二本の腕。人物は登録済み基準画と当該場面の本文に合わせる。台詞・効果音・看板の文字を画像へ焼き込まない。",
+        "silentReason": "",
+        "protect": [
+          "人物の顔と手",
+          "主要動作とボール",
+          "吹き出し余白"
+        ],
+        "gaze": "neutral"
+      },
+      {
+        "id": "P01-panel-023",
+        "atomIds": [
+          "P01-01:u37:a0",
+          "P01-01:u37:a1"
+        ],
+        "contextAtomIds": [],
+        "beatIds": [
+          "P01-beat-12"
+        ],
+        "characterIds": [
+          "kawai-yumiko"
+        ],
+        "role": "dominant",
+        "shot": "detail",
+        "shotIntent": "腕の隙間を抜ける高い球と、客席で固く握られた由美子の拳を並べる。着地や成功は見せない。",
+        "prompt": "漫画の線画のための構図案。腕の隙間を抜ける高い球と、客席で固く握られた由美子の拳を並べる。着地や成功は見せない。人物は登録済み基準画と当該場面の本文に合わせる。台詞・効果音・看板の文字を画像へ焼き込まない。",
+        "silentReason": "",
+        "protect": [
+          "手元・重要物",
+          "文字レイヤーの余白"
+        ],
+        "gaze": "neutral"
+      },
+      {
+        "id": "P01-panel-024",
+        "atomIds": [
+          "P01-01:u38:a0",
+          "P01-01:u39:a0",
+          "P01-01:u40:a0"
+        ],
+        "contextAtomIds": [],
+        "beatIds": [
+          "P01-beat-13"
+        ],
+        "characterIds": [
+          "kawai-yumiko",
+          "kamiya-yu"
+        ],
+        "role": "dominant",
+        "shot": "wide",
+        "shotIntent": "パシュッとネット、由美子の「うまっ……！」。効果音と台詞は絵から分離。",
+        "prompt": "漫画の線画のための構図案。パシュッとネット、由美子の「うまっ……！」。効果音と台詞は絵から分離。人物は登録済み基準画と当該場面の本文に合わせる。台詞・効果音・看板の文字を画像へ焼き込まない。",
+        "silentReason": "",
+        "protect": [
+          "人物の顔と手",
+          "主要動作とボール",
+          "吹き出し余白"
+        ],
+        "gaze": "neutral"
+      },
+      {
+        "id": "P01-panel-025",
+        "atomIds": [
+          "P01-01:u41:a0"
+        ],
+        "contextAtomIds": [],
+        "beatIds": [
+          "P01-beat-14"
+        ],
+        "characterIds": [
+          "kawai-yumiko"
+        ],
+        "role": "reaction",
+        "shot": "close",
+        "shotIntent": "声が出た自分に気づいた由美子の表情。赤面は加えない。",
+        "prompt": "漫画の線画のための構図案。声が出た自分に気づいた由美子の表情。赤面は加えない。人物は登録済み基準画と当該場面の本文に合わせる。台詞・効果音・看板の文字を画像へ焼き込まない。",
+        "silentReason": "",
+        "protect": [
+          "人物の顔と手",
+          "主要動作とボール",
+          "吹き出し余白"
+        ],
+        "gaze": "neutral"
+      },
+      {
+        "id": "P01-panel-026",
+        "atomIds": [
+          "P01-01:u42:a0",
+          "P01-01:u42:a1"
+        ],
+        "contextAtomIds": [],
+        "beatIds": [
+          "P01-beat-14"
+        ],
+        "characterIds": [
+          "kawai-yumiko",
+          "maki",
+          "kamiya-yu"
+        ],
+        "role": "standard",
+        "shot": "wide",
+        "shotIntent": "真希が振り返る列、勇は先輩とハイタッチ。由美子は気づかず拍手を続ける。",
+        "prompt": "漫画の線画のための構図案。真希が振り返る列、勇は先輩とハイタッチ。由美子は気づかず拍手を続ける。人物は登録済み基準画と当該場面の本文に合わせる。台詞・効果音・看板の文字を画像へ焼き込まない。",
+        "silentReason": "",
+        "protect": [
+          "人物の顔と手",
+          "主要動作とボール",
+          "吹き出し余白"
+        ],
+        "gaze": "neutral"
+      },
+      {
+        "id": "P01-panel-027",
+        "atomIds": [
+          "P01-02:u1:a0",
+          "P01-02:u2:a0",
+          "P01-02:u3:a0",
+          "P01-02:u3:a1"
+        ],
+        "contextAtomIds": [],
+        "beatIds": [
+          "P01-beat-15"
+        ],
+        "characterIds": [
+          "kamiya-yu",
+          "kawai-yumiko"
+        ],
+        "role": "standard",
+        "shot": "wide",
+        "shotIntent": "後ろの扉から、汗を拭く勇と窓際の隣席にいる由美子を同じ構図で見せる。",
+        "prompt": "漫画の線画のための構図案。後ろの扉から、汗を拭く勇と窓際の隣席にいる由美子を同じ構図で見せる。人物は登録済み基準画と当該場面の本文に合わせる。台詞・効果音・看板の文字を画像へ焼き込まない。",
+        "silentReason": "",
+        "protect": [
+          "人物の顔と手",
+          "主要動作とボール",
+          "吹き出し余白"
+        ],
+        "gaze": "neutral"
+      },
+      {
+        "id": "P01-panel-028",
+        "atomIds": [
+          "P01-02:u4:a0",
+          "P01-02:u5:a0",
+          "P01-02:u5:a1",
+          "P01-02:u6:a0"
+        ],
+        "contextAtomIds": [],
+        "beatIds": [
+          "P01-beat-15"
+        ],
+        "characterIds": [
+          "kamiya-yu",
+          "kawai-yumiko"
+        ],
+        "role": "standard",
+        "shot": "medium",
+        "shotIntent": "由美子が顔を上げて体育館の一年生だと気づき、勇が椅子を引く。",
+        "prompt": "漫画の線画のための構図案。由美子が顔を上げて体育館の一年生だと気づき、勇が椅子を引く。人物は登録済み基準画と当該場面の本文に合わせる。台詞・効果音・看板の文字を画像へ焼き込まない。",
+        "silentReason": "",
+        "protect": [
+          "人物の顔と手",
+          "主要動作とボール",
+          "吹き出し余白"
+        ],
+        "gaze": "neutral"
+      },
+      {
+        "id": "P01-panel-029",
+        "atomIds": [
+          "P01-02:u7:a0",
+          "P01-02:u8:a0"
+        ],
+        "contextAtomIds": [],
+        "beatIds": [
+          "P01-beat-16"
+        ],
+        "characterIds": [
+          "kamiya-yu",
+          "kawai-yumiko"
+        ],
+        "role": "standard",
+        "shot": "medium",
+        "shotIntent": "勇の「スーパールーキーです」と由美子の笑い。偉そうな表情にはしない。",
+        "prompt": "漫画の線画のための構図案。勇の「スーパールーキーです」と由美子の笑い。偉そうな表情にはしない。人物は登録済み基準画と当該場面の本文に合わせる。台詞・効果音・看板の文字を画像へ焼き込まない。",
+        "silentReason": "",
+        "protect": [
+          "人物の顔と手",
+          "主要動作とボール",
+          "吹き出し余白"
+        ],
+        "gaze": "neutral"
+      },
+      {
+        "id": "P01-panel-030",
+        "atomIds": [
+          "P01-02:u9:a0",
+          "P01-02:u10:a0"
+        ],
+        "contextAtomIds": [],
+        "beatIds": [
+          "P01-beat-16"
+        ],
+        "characterIds": [
+          "kamiya-yu",
+          "kawai-yumiko"
+        ],
+        "role": "standard",
+        "shot": "medium",
+        "shotIntent": "勇の軽口に由美子が軽く返す。二人の視線の高さを揃える。",
+        "prompt": "漫画の線画のための構図案。勇の軽口に由美子が軽く返す。二人の視線の高さを揃える。人物は登録済み基準画と当該場面の本文に合わせる。台詞・効果音・看板の文字を画像へ焼き込まない。",
+        "silentReason": "",
+        "protect": [
+          "人物の顔と手",
+          "主要動作とボール",
+          "吹き出し余白"
+        ],
+        "gaze": "neutral"
+      },
+      {
+        "id": "P01-panel-031",
+        "atomIds": [
+          "P01-02:u11:a0",
+          "P01-02:u12:a0"
+        ],
+        "contextAtomIds": [],
+        "beatIds": [
+          "P01-beat-16"
+        ],
+        "characterIds": [
+          "kawai-yumiko"
+        ],
+        "role": "reaction",
+        "shot": "close",
+        "shotIntent": "細くなる由美子の笑い目。既存挿絵への参照は構図の参考にとどめ画像URLを印字しない。",
+        "prompt": "漫画の線画のための構図案。細くなる由美子の笑い目。既存挿絵への参照は構図の参考にとどめ画像URLを印字しない。人物は登録済み基準画と当該場面の本文に合わせる。台詞・効果音・看板の文字を画像へ焼き込まない。",
+        "silentReason": "",
+        "protect": [
+          "人物の顔と手",
+          "主要動作とボール",
+          "吹き出し余白"
+        ],
+        "gaze": "neutral"
+      },
+      {
+        "id": "P01-panel-032",
+        "atomIds": [
+          "P01-02:u13:a0",
+          "P01-02:u14:a0",
+          "P01-02:u15:a0"
+        ],
+        "contextAtomIds": [],
+        "beatIds": [
+          "P01-beat-17"
+        ],
+        "characterIds": [
+          "kamiya-yu",
+          "kawai-yumiko"
+        ],
+        "role": "standard",
+        "shot": "medium",
+        "shotIntent": "窓際の並んだ机で互いに名乗り、由美子が体を勇へ向ける。",
+        "prompt": "漫画の線画のための構図案。窓際の並んだ机で互いに名乗り、由美子が体を勇へ向ける。人物は登録済み基準画と当該場面の本文に合わせる。台詞・効果音・看板の文字を画像へ焼き込まない。",
+        "silentReason": "",
+        "protect": [
+          "人物の顔と手",
+          "主要動作とボール",
+          "吹き出し余白"
+        ],
+        "gaze": "neutral"
+      },
+      {
+        "id": "P01-panel-033",
+        "atomIds": [
+          "P01-02:u16:a0"
+        ],
+        "contextAtomIds": [],
+        "beatIds": [
+          "P01-beat-17"
+        ],
+        "characterIds": [
+          "kawai-yumiko"
+        ],
+        "role": "standard",
+        "shot": "close",
+        "shotIntent": "最後の三点を語る由美子の顔。二人に守られていた事実が台詞で聞ける。",
+        "prompt": "漫画の線画のための構図案。最後の三点を語る由美子の顔。二人に守られていた事実が台詞で聞ける。人物は登録済み基準画と当該場面の本文に合わせる。台詞・効果音・看板の文字を画像へ焼き込まない。",
+        "silentReason": "",
+        "protect": [
+          "人物の顔と手",
+          "主要動作とボール",
+          "吹き出し余白"
+        ],
+        "gaze": "neutral"
+      },
+      {
+        "id": "P01-panel-034",
+        "atomIds": [
+          "P01-02:u17:a0",
+          "P01-02:u18:a0",
+          "P01-02:u18:a1"
+        ],
+        "contextAtomIds": [],
+        "beatIds": [
+          "P01-beat-18"
+        ],
+        "characterIds": [
+          "kamiya-yu"
+        ],
+        "role": "reaction",
+        "shot": "medium",
+        "shotIntent": "勇の「たまたま」に続けて首の後ろのタオルで照れを見せる。",
+        "prompt": "漫画の線画のための構図案。勇の「たまたま」に続けて首の後ろのタオルで照れを見せる。人物は登録済み基準画と当該場面の本文に合わせる。台詞・効果音・看板の文字を画像へ焼き込まない。",
+        "silentReason": "",
+        "protect": [
+          "人物の顔と手",
+          "主要動作とボール",
+          "吹き出し余白"
+        ],
+        "gaze": "neutral"
+      },
+      {
+        "id": "P01-panel-035",
+        "atomIds": [
+          "P01-02:u19:a0",
+          "P01-02:u20:a0"
+        ],
+        "contextAtomIds": [],
+        "beatIds": [
+          "P01-beat-18"
+        ],
+        "characterIds": [
+          "kamiya-yu",
+          "kawai-yumiko"
+        ],
+        "role": "standard",
+        "shot": "medium",
+        "shotIntent": "遠距離から打つ理由を問い、勇は先輩のパスを評価する。吹き出しのための上部余白。",
+        "prompt": "漫画の線画のための構図案。遠距離から打つ理由を問い、勇は先輩のパスを評価する。吹き出しのための上部余白。人物は登録済み基準画と当該場面の本文に合わせる。台詞・効果音・看板の文字を画像へ焼き込まない。",
+        "silentReason": "",
+        "protect": [
+          "人物の顔と手",
+          "主要動作とボール",
+          "吹き出し余白"
+        ],
+        "gaze": "neutral"
+      },
+      {
+        "id": "P01-panel-036",
+        "atomIds": [
+          "P01-02:u21:a0",
+          "P01-02:u22:a0",
+          "P01-02:u23:a0"
+        ],
+        "contextAtomIds": [],
+        "beatIds": [
+          "P01-beat-18"
+        ],
+        "characterIds": [
+          "kamiya-yu",
+          "kawai-yumiko"
+        ],
+        "role": "standard",
+        "shot": "medium",
+        "shotIntent": "最後はフリーではなかったと由美子が返し、勇は外していたらと笑う。",
+        "prompt": "漫画の線画のための構図案。最後はフリーではなかったと由美子が返し、勇は外していたらと笑う。人物は登録済み基準画と当該場面の本文に合わせる。台詞・効果音・看板の文字を画像へ焼き込まない。",
+        "silentReason": "",
+        "protect": [
+          "人物の顔と手",
+          "主要動作とボール",
+          "吹き出し余白"
+        ],
+        "gaze": "neutral"
+      },
+      {
+        "id": "P01-panel-037",
+        "atomIds": [
+          "P01-02:u24:a0",
+          "P01-02:u25:a0",
+          "P01-02:u26:a0"
+        ],
+        "contextAtomIds": [],
+        "beatIds": [
+          "P01-beat-19"
+        ],
+        "characterIds": [
+          "kamiya-yu",
+          "kawai-yumiko"
+        ],
+        "role": "dominant",
+        "shot": "medium",
+        "shotIntent": "由美子のかわいらしいシュートの手真似と勇の「今の、俺？」を一つの間で見せる。",
+        "prompt": "漫画の線画のための構図案。由美子のかわいらしいシュートの手真似と勇の「今の、俺？」を一つの間で見せる。人物は登録済み基準画と当該場面の本文に合わせる。台詞・効果音・看板の文字を画像へ焼き込まない。",
+        "silentReason": "",
+        "protect": [
+          "人物の顔と手",
+          "主要動作とボール",
+          "吹き出し余白"
+        ],
+        "gaze": "neutral"
+      },
+      {
+        "id": "P01-panel-038",
+        "atomIds": [
+          "P01-02:u27:a0",
+          "P01-02:u28:a0"
+        ],
+        "contextAtomIds": [],
+        "beatIds": [
+          "P01-beat-20"
+        ],
+        "characterIds": [
+          "kamiya-yu",
+          "kawai-yumiko"
+        ],
+        "role": "standard",
+        "shot": "medium",
+        "shotIntent": "勇は呆れつつ笑い、由美子も明るく返す。",
+        "prompt": "漫画の線画のための構図案。勇は呆れつつ笑い、由美子も明るく返す。人物は登録済み基準画と当該場面の本文に合わせる。台詞・効果音・看板の文字を画像へ焼き込まない。",
+        "silentReason": "",
+        "protect": [
+          "人物の顔と手",
+          "主要動作とボール",
+          "吹き出し余白"
+        ],
+        "gaze": "neutral"
+      },
+      {
+        "id": "P01-panel-039",
+        "atomIds": [
+          "P01-02:u29:a0",
+          "P01-02:u30:a0"
+        ],
+        "contextAtomIds": [],
+        "beatIds": [
+          "P01-beat-20"
+        ],
+        "characterIds": [
+          "kamiya-yu",
+          "kawai-yumiko"
+        ],
+        "role": "reaction",
+        "shot": "close",
+        "shotIntent": "軽い謝り方をする由美子と笑う勇。",
+        "prompt": "漫画の線画のための構図案。軽い謝り方をする由美子と笑う勇。人物は登録済み基準画と当該場面の本文に合わせる。台詞・効果音・看板の文字を画像へ焼き込まない。",
+        "silentReason": "",
+        "protect": [
+          "人物の顔と手",
+          "主要動作とボール",
+          "吹き出し余白"
+        ],
+        "gaze": "neutral"
+      },
+      {
+        "id": "P01-panel-040",
+        "atomIds": [
+          "P01-02:u31:a0"
+        ],
+        "contextAtomIds": [],
+        "beatIds": [
+          "P01-beat-20"
+        ],
+        "characterIds": [
+          "kawai-yumiko"
+        ],
+        "role": "standard",
+        "shot": "medium",
+        "shotIntent": "由美子が身を乗り出す。押しつけがましい急接近ではなく話題への興味。",
+        "prompt": "漫画の線画のための構図案。由美子が身を乗り出す。押しつけがましい急接近ではなく話題への興味。人物は登録済み基準画と当該場面の本文に合わせる。台詞・効果音・看板の文字を画像へ焼き込まない。",
+        "silentReason": "",
+        "protect": [
+          "人物の顔と手",
+          "主要動作とボール",
+          "吹き出し余白"
+        ],
+        "gaze": "neutral"
+      },
+      {
+        "id": "P01-panel-041",
+        "atomIds": [
+          "P01-02:u32:a0"
+        ],
+        "contextAtomIds": [],
+        "beatIds": [
+          "P01-beat-21"
+        ],
+        "characterIds": [
+          "kawai-yumiko"
+        ],
+        "role": "standard",
+        "shot": "medium",
+        "shotIntent": "試合中の止まってから抜く動きを由美子が言葉にする。球技の図解を追加しない。",
+        "prompt": "漫画の線画のための構図案。試合中の止まってから抜く動きを由美子が言葉にする。球技の図解を追加しない。人物は登録済み基準画と当該場面の本文に合わせる。台詞・効果音・看板の文字を画像へ焼き込まない。",
+        "silentReason": "",
+        "protect": [
+          "人物の顔と手",
+          "主要動作とボール",
+          "吹き出し余白"
+        ],
+        "gaze": "neutral"
+      },
+      {
+        "id": "P01-panel-042",
+        "atomIds": [
+          "P01-02:u33:a0"
+        ],
+        "contextAtomIds": [],
+        "beatIds": [
+          "P01-beat-21"
+        ],
+        "characterIds": [
+          "kamiya-yu"
+        ],
+        "role": "standard",
+        "shot": "medium",
+        "shotIntent": "勇が立ち上がる守備の重心を話す。説明の文字空間を広く取る。",
+        "prompt": "漫画の線画のための構図案。勇が立ち上がる守備の重心を話す。説明の文字空間を広く取る。人物は登録済み基準画と当該場面の本文に合わせる。台詞・効果音・看板の文字を画像へ焼き込まない。",
+        "silentReason": "",
+        "protect": [
+          "人物の顔と手",
+          "主要動作とボール",
+          "吹き出し余白"
+        ],
+        "gaze": "neutral"
+      },
+      {
+        "id": "P01-panel-043",
+        "atomIds": [
+          "P01-02:u34:a0",
+          "P01-02:u35:a0"
+        ],
+        "contextAtomIds": [],
+        "beatIds": [
+          "P01-beat-22"
+        ],
+        "characterIds": [
+          "kamiya-yu",
+          "kawai-yumiko"
+        ],
+        "role": "reaction",
+        "shot": "close",
+        "shotIntent": "由美子が動きの名称を先に言い、勇は短く「え」。",
+        "prompt": "漫画の線画のための構図案。由美子が動きの名称を先に言い、勇は短く「え」。人物は登録済み基準画と当該場面の本文に合わせる。台詞・効果音・看板の文字を画像へ焼き込まない。",
+        "silentReason": "",
+        "protect": [
+          "人物の顔と手",
+          "主要動作とボール",
+          "吹き出し余白"
+        ],
+        "gaze": "neutral"
+      },
+      {
+        "id": "P01-panel-044",
+        "atomIds": [
+          "P01-02:u36:a0",
+          "P01-02:u37:a0",
+          "P01-02:u38:a0"
+        ],
+        "contextAtomIds": [],
+        "beatIds": [
+          "P01-beat-22"
+        ],
+        "characterIds": [
+          "kamiya-yu",
+          "kawai-yumiko"
+        ],
+        "role": "dominant",
+        "shot": "close",
+        "shotIntent": "勇の驚いた目と、由美子のカーヴァーの名。肩書きで見ていない共通語が開く。",
+        "prompt": "漫画の線画のための構図案。勇の驚いた目と、由美子のカーヴァーの名。肩書きで見ていない共通語が開く。人物は登録済み基準画と当該場面の本文に合わせる。台詞・効果音・看板の文字を画像へ焼き込まない。",
+        "silentReason": "",
+        "protect": [
+          "人物の顔と手",
+          "主要動作とボール",
+          "吹き出し余白"
+        ],
+        "gaze": "neutral"
+      },
+      {
+        "id": "P01-panel-045",
+        "atomIds": [
+          "P01-02:u39:a0"
+        ],
+        "contextAtomIds": [],
+        "beatIds": [
+          "P01-beat-22"
+        ],
+        "characterIds": [
+          "kamiya-yu"
+        ],
+        "role": "reaction",
+        "shot": "medium",
+        "shotIntent": "勇の背中が椅子からぱっと起きる。",
+        "prompt": "漫画の線画のための構図案。勇の背中が椅子からぱっと起きる。人物は登録済み基準画と当該場面の本文に合わせる。台詞・効果音・看板の文字を画像へ焼き込まない。",
+        "silentReason": "",
+        "protect": [
+          "人物の顔と手",
+          "主要動作とボール",
+          "吹き出し余白"
+        ],
+        "gaze": "neutral"
+      },
+      {
+        "id": "P01-panel-046",
+        "atomIds": [
+          "P01-02:u40:a0"
+        ],
+        "contextAtomIds": [],
+        "beatIds": [
+          "P01-beat-23"
+        ],
+        "characterIds": [
+          "kawai-yumiko"
+        ],
+        "role": "standard",
+        "shot": "medium",
+        "shotIntent": "父と兄と見てきたバスケを話す由美子。長い台詞を読める文字空間を確保。",
+        "prompt": "漫画の線画のための構図案。父と兄と見てきたバスケを話す由美子。長い台詞を読める文字空間を確保。人物は登録済み基準画と当該場面の本文に合わせる。台詞・効果音・看板の文字を画像へ焼き込まない。",
+        "silentReason": "",
+        "protect": [
+          "人物の顔と手",
+          "主要動作とボール",
+          "吹き出し余白"
+        ],
+        "gaze": "neutral"
+      },
+      {
+        "id": "P01-panel-047",
+        "atomIds": [
+          "P01-02:u41:a0",
+          "P01-02:u42:a0"
+        ],
+        "contextAtomIds": [],
+        "beatIds": [
+          "P01-beat-23"
+        ],
+        "characterIds": [
+          "kamiya-yu",
+          "kawai-yumiko"
+        ],
+        "role": "standard",
+        "shot": "medium",
+        "shotIntent": "勇が模倣して練習してきたと話すと、由美子も得意げに頷く。",
+        "prompt": "漫画の線画のための構図案。勇が模倣して練習してきたと話すと、由美子も得意げに頷く。人物は登録済み基準画と当該場面の本文に合わせる。台詞・効果音・看板の文字を画像へ焼き込まない。",
+        "silentReason": "",
+        "protect": [
+          "人物の顔と手",
+          "主要動作とボール",
+          "吹き出し余白"
+        ],
+        "gaze": "neutral"
+      },
+      {
+        "id": "P01-panel-048",
+        "atomIds": [
+          "P01-02:u43:a0",
+          "P01-02:u43:a1",
+          "P01-02:u44:a0"
+        ],
+        "contextAtomIds": [],
+        "beatIds": [
+          "P01-beat-24"
+        ],
+        "characterIds": [
+          "kamiya-yu",
+          "kawai-yumiko"
+        ],
+        "role": "reaction",
+        "shot": "medium",
+        "shotIntent": "勇が少年らしく顔をほころばせ、隣が理解者だと喜ぶ。距離は机一つ分。",
+        "prompt": "漫画の線画のための構図案。勇が少年らしく顔をほころばせ、隣が理解者だと喜ぶ。距離は机一つ分。人物は登録済み基準画と当該場面の本文に合わせる。台詞・効果音・看板の文字を画像へ焼き込まない。",
+        "silentReason": "",
+        "protect": [
+          "人物の顔と手",
+          "主要動作とボール",
+          "吹き出し余白"
+        ],
+        "gaze": "neutral"
+      },
+      {
+        "id": "P01-panel-049",
+        "atomIds": [
+          "P01-02:u45:a0",
+          "P01-02:u46:a0"
+        ],
+        "contextAtomIds": [],
+        "beatIds": [
+          "P01-beat-24"
+        ],
+        "characterIds": [
+          "kawai-yumiko"
+        ],
+        "role": "reaction",
+        "shot": "close",
+        "shotIntent": "由美子が胸を張る。気取らない笑顔。",
+        "prompt": "漫画の線画のための構図案。由美子が胸を張る。気取らない笑顔。人物は登録済み基準画と当該場面の本文に合わせる。台詞・効果音・看板の文字を画像へ焼き込まない。",
+        "silentReason": "",
+        "protect": [
+          "人物の顔と手",
+          "主要動作とボール",
+          "吹き出し余白"
+        ],
+        "gaze": "neutral"
+      },
+      {
+        "id": "P01-panel-050",
+        "atomIds": [
+          "P01-02:u47:a0",
+          "P01-02:u47:a1"
+        ],
+        "contextAtomIds": [],
+        "beatIds": [
+          "P01-beat-24"
+        ],
+        "characterIds": [
+          "kawai-yumiko"
+        ],
+        "role": "standard",
+        "shot": "detail",
+        "shotIntent": "揃えた書類の下から《アカペラ部》の二重丸がのぞく。",
+        "prompt": "漫画の線画のための構図案。揃えた書類の下から《アカペラ部》の二重丸がのぞく。人物は登録済み基準画と当該場面の本文に合わせる。台詞・効果音・看板の文字を画像へ焼き込まない。",
+        "silentReason": "",
+        "protect": [
+          "手元・重要物",
+          "文字レイヤーの余白"
+        ],
+        "gaze": "neutral"
+      },
+      {
+        "id": "P01-panel-051",
+        "atomIds": [
+          "P01-02:u48:a0",
+          "P01-02:u49:a0",
+          "P01-02:u49:a1"
+        ],
+        "contextAtomIds": [],
+        "beatIds": [
+          "P01-beat-25"
+        ],
+        "characterIds": [
+          "kamiya-yu",
+          "kawai-yumiko"
+        ],
+        "role": "standard",
+        "shot": "wide",
+        "shotIntent": "担任の入室で二人が正面を向く。書類とタオル、冊子の位置を保持。",
+        "prompt": "漫画の線画のための構図案。担任の入室で二人が正面を向く。書類とタオル、冊子の位置を保持。人物は登録済み基準画と当該場面の本文に合わせる。台詞・効果音・看板の文字を画像へ焼き込まない。",
+        "silentReason": "",
+        "protect": [
+          "人物の顔と手",
+          "主要動作とボール",
+          "吹き出し余白"
+        ],
+        "gaze": "neutral"
+      },
+      {
+        "id": "P01-panel-052",
+        "atomIds": [
+          "P01-02:u50:a0",
+          "P01-02:u51:a0"
+        ],
+        "contextAtomIds": [],
+        "beatIds": [
+          "P01-beat-25"
+        ],
+        "characterIds": [
+          "kamiya-yu",
+          "kawai-yumiko"
+        ],
+        "role": "standard",
+        "shot": "medium",
+        "shotIntent": "「後ろへ回して」と声がかかるが、一番後ろの窓際には渡す相手がいない。",
+        "prompt": "漫画の線画のための構図案。「後ろへ回して」と声がかかるが、一番後ろの窓際には渡す相手がいない。人物は登録済み基準画と当該場面の本文に合わせる。台詞・効果音・看板の文字を画像へ焼き込まない。",
+        "silentReason": "",
+        "protect": [
+          "人物の顔と手",
+          "主要動作とボール",
+          "吹き出し余白"
+        ],
+        "gaze": "neutral"
+      },
+      {
+        "id": "P01-panel-053",
+        "atomIds": [
+          "P01-02:u52:a0",
+          "P01-02:u52:a1",
+          "P01-02:u53:a0"
+        ],
+        "contextAtomIds": [],
+        "beatIds": [
+          "P01-beat-26"
+        ],
+        "characterIds": [
+          "kamiya-yu",
+          "kawai-yumiko"
+        ],
+        "role": "standard",
+        "shot": "detail",
+        "shotIntent": "並んで名前を書き、同時にペンを止めて視線が合う。",
+        "prompt": "漫画の線画のための構図案。並んで名前を書き、同時にペンを止めて視線が合う。人物は登録済み基準画と当該場面の本文に合わせる。台詞・効果音・看板の文字を画像へ焼き込まない。",
+        "silentReason": "",
+        "protect": [
+          "手元・重要物",
+          "文字レイヤーの余白"
+        ],
+        "gaze": "neutral"
+      },
+      {
+        "id": "P01-panel-054",
+        "atomIds": [
+          "P01-02:u54:a0",
+          "P01-02:u55:a0",
+          "P01-02:u56:a0"
+        ],
+        "contextAtomIds": [],
+        "beatIds": [
+          "P01-beat-26"
+        ],
+        "characterIds": [
+          "kamiya-yu",
+          "kawai-yumiko"
+        ],
+        "role": "reaction",
+        "shot": "close",
+        "shotIntent": "由美子の小声の「スーパールーキー」と勇の「河合さん」。大きな赤面は付けない。",
+        "prompt": "漫画の線画のための構図案。由美子の小声の「スーパールーキー」と勇の「河合さん」。大きな赤面は付けない。人物は登録済み基準画と当該場面の本文に合わせる。台詞・効果音・看板の文字を画像へ焼き込まない。",
+        "silentReason": "",
+        "protect": [
+          "人物の顔と手",
+          "主要動作とボール",
+          "吹き出し余白"
+        ],
+        "gaze": "neutral"
+      },
+      {
+        "id": "P01-panel-055",
+        "atomIds": [
+          "P01-02:u57:a0"
+        ],
+        "contextAtomIds": [],
+        "beatIds": [
+          "P01-beat-26"
+        ],
+        "characterIds": [
+          "kamiya-yu",
+          "kawai-yumiko"
+        ],
+        "role": "standard",
+        "shot": "wide",
+        "shotIntent": "風が二つの机の端を撫でる。無言の静かな着地。",
+        "prompt": "漫画の線画のための構図案。風が二つの机の端を撫でる。無言の静かな着地。人物は登録済み基準画と当該場面の本文に合わせる。台詞・効果音・看板の文字を画像へ焼き込まない。",
+        "silentReason": "",
+        "protect": [
+          "人物の顔と手",
+          "主要動作とボール",
+          "吹き出し余白"
+        ],
+        "gaze": "neutral"
+      },
+      {
+        "id": "P01-panel-056",
+        "atomIds": [
+          "P01-03:u1:a0",
+          "P01-03:u2:a0",
+          "P01-03:u3:a0",
+          "P01-03:u3:a1"
+        ],
+        "contextAtomIds": [],
+        "beatIds": [
+          "P01-beat-27"
+        ],
+        "characterIds": [
+          "kamiya-yu",
+          "onodera"
+        ],
+        "role": "standard",
+        "shot": "wide",
+        "shotIntent": "体育館のベンチを一つ空ける小野寺。タブレットの試合映像は画面端で小野寺が手を挙げていると分かる距離に。",
+        "prompt": "漫画の線画のための構図案。体育館のベンチを一つ空ける小野寺。タブレットの試合映像は画面端で小野寺が手を挙げていると分かる距離に。人物は登録済み基準画と当該場面の本文に合わせる。台詞・効果音・看板の文字を画像へ焼き込まない。",
+        "silentReason": "",
+        "protect": [
+          "人物の顔と手",
+          "主要動作とボール",
+          "吹き出し余白"
+        ],
+        "gaze": "neutral"
+      },
+      {
+        "id": "P01-panel-057",
+        "atomIds": [
+          "P01-03:u4:a0",
+          "P01-03:u5:a0",
+          "P01-03:u6:a0"
+        ],
+        "contextAtomIds": [],
+        "beatIds": [
+          "P01-beat-27"
+        ],
+        "characterIds": [
+          "kamiya-yu",
+          "onodera"
+        ],
+        "role": "reaction",
+        "shot": "close",
+        "shotIntent": "立った勇が口元を押さえ「見えてました」、小野寺の「だよね」。",
+        "prompt": "漫画の線画のための構図案。立った勇が口元を押さえ「見えてました」、小野寺の「だよね」。人物は登録済み基準画と当該場面の本文に合わせる。台詞・効果音・看板の文字を画像へ焼き込まない。",
+        "silentReason": "",
+        "protect": [
+          "人物の顔と手",
+          "主要動作とボール",
+          "吹き出し余白"
+        ],
+        "gaze": "neutral"
+      },
+      {
+        "id": "P01-panel-058",
+        "atomIds": [
+          "P01-03:u7:a0",
+          "P01-03:u8:a0"
+        ],
+        "contextAtomIds": [],
+        "beatIds": [
+          "P01-beat-28"
+        ],
+        "characterIds": [
+          "kamiya-yu",
+          "onodera"
+        ],
+        "role": "standard",
+        "shot": "medium",
+        "shotIntent": "勇は入ると思っていたと素直に言い、小野寺は成功を認める。",
+        "prompt": "漫画の線画のための構図案。勇は入ると思っていたと素直に言い、小野寺は成功を認める。人物は登録済み基準画と当該場面の本文に合わせる。台詞・効果音・看板の文字を画像へ焼き込まない。",
+        "silentReason": "",
+        "protect": [
+          "人物の顔と手",
+          "主要動作とボール",
+          "吹き出し余白"
+        ],
+        "gaze": "neutral"
+      },
+      {
+        "id": "P01-panel-059",
+        "atomIds": [
+          "P01-03:u9:a0",
+          "P01-03:u9:a1"
+        ],
+        "contextAtomIds": [],
+        "beatIds": [
+          "P01-beat-28"
+        ],
+        "characterIds": [
+          "onodera"
+        ],
+        "role": "standard",
+        "shot": "detail",
+        "shotIntent": "タブレットをさらに拡大し、小野寺の挙手だけにする。実画面に新しい文字を描かない。",
+        "prompt": "漫画の線画のための構図案。タブレットをさらに拡大し、小野寺の挙手だけにする。実画面に新しい文字を描かない。人物は登録済み基準画と当該場面の本文に合わせる。台詞・効果音・看板の文字を画像へ焼き込まない。",
+        "silentReason": "",
+        "protect": [
+          "手元・重要物",
+          "文字レイヤーの余白"
+        ],
+        "gaze": "neutral"
+      },
+      {
+        "id": "P01-panel-060",
+        "atomIds": [
+          "P01-03:u10:a0",
+          "P01-03:u11:a0",
+          "P01-03:u12:a0"
+        ],
+        "contextAtomIds": [],
+        "beatIds": [
+          "P01-beat-29"
+        ],
+        "characterIds": [
+          "onodera",
+          "kuze"
+        ],
+        "role": "standard",
+        "shot": "medium",
+        "shotIntent": "久世が背後から覗き、小野寺は「俺には分かります」と返す。先輩同士の軽い距離。",
+        "prompt": "漫画の線画のための構図案。久世が背後から覗き、小野寺は「俺には分かります」と返す。先輩同士の軽い距離。人物は登録済み基準画と当該場面の本文に合わせる。台詞・効果音・看板の文字を画像へ焼き込まない。",
+        "silentReason": "",
+        "protect": [
+          "人物の顔と手",
+          "主要動作とボール",
+          "吹き出し余白"
+        ],
+        "gaze": "neutral"
+      },
+      {
+        "id": "P01-panel-061",
+        "atomIds": [
+          "P01-03:u13:a0",
+          "P01-03:u13:a1",
+          "P01-03:u13:a2"
+        ],
+        "contextAtomIds": [],
+        "beatIds": [
+          "P01-beat-29"
+        ],
+        "characterIds": [
+          "kamiya-yu",
+          "onodera",
+          "kuze"
+        ],
+        "role": "reaction",
+        "shot": "medium",
+        "shotIntent": "座りそこねる勇の背中を久世が支え、ベンチへ押し込む。",
+        "prompt": "漫画の線画のための構図案。座りそこねる勇の背中を久世が支え、ベンチへ押し込む。人物は登録済み基準画と当該場面の本文に合わせる。台詞・効果音・看板の文字を画像へ焼き込まない。",
+        "silentReason": "",
+        "protect": [
+          "人物の顔と手",
+          "主要動作とボール",
+          "吹き出し余白"
+        ],
+        "gaze": "neutral"
+      },
+      {
+        "id": "P01-panel-062",
+        "atomIds": [
+          "P01-03:u14:a0",
+          "P01-03:u15:a0"
+        ],
+        "contextAtomIds": [],
+        "beatIds": [
+          "P01-beat-30"
+        ],
+        "characterIds": [
+          "kamiya-yu",
+          "onodera"
+        ],
+        "role": "standard",
+        "shot": "medium",
+        "shotIntent": "勇が次は出すと言い、小野寺は空いていたと短く返す。",
+        "prompt": "漫画の線画のための構図案。勇が次は出すと言い、小野寺は空いていたと短く返す。人物は登録済み基準画と当該場面の本文に合わせる。台詞・効果音・看板の文字を画像へ焼き込まない。",
+        "silentReason": "",
+        "protect": [
+          "人物の顔と手",
+          "主要動作とボール",
+          "吹き出し余白"
+        ],
+        "gaze": "neutral"
+      },
+      {
+        "id": "P01-panel-063",
+        "atomIds": [
+          "P01-03:u16:a0",
+          "P01-03:u16:a1",
+          "P01-03:u17:a0"
+        ],
+        "contextAtomIds": [],
+        "beatIds": [
+          "P01-beat-30"
+        ],
+        "characterIds": [
+          "kamiya-yu",
+          "onodera"
+        ],
+        "role": "dominant",
+        "shot": "detail",
+        "shotIntent": "元の映像には得点した勇の背後で両手を挙げる小野寺。勇が振り向くと小野寺はもう別を見ている。",
+        "prompt": "漫画の線画のための構図案。元の映像には得点した勇の背後で両手を挙げる小野寺。勇が振り向くと小野寺はもう別を見ている。人物は登録済み基準画と当該場面の本文に合わせる。台詞・効果音・看板の文字を画像へ焼き込まない。",
+        "silentReason": "",
+        "protect": [
+          "手元・重要物",
+          "文字レイヤーの余白"
+        ],
+        "gaze": "neutral"
+      },
+      {
+        "id": "P01-panel-064",
+        "atomIds": [
+          "P01-03:u18:a0",
+          "P01-03:u19:a0",
+          "P01-03:u20:a0",
+          "P01-03:u20:a1"
+        ],
+        "contextAtomIds": [],
+        "beatIds": [
+          "P01-beat-31"
+        ],
+        "characterIds": [
+          "kamiya-yu",
+          "shinohara"
+        ],
+        "role": "standard",
+        "shot": "wide",
+        "shotIntent": "ボールかごを押す篠原が加わり、勇の肩越しにベンチの映像を指す。",
+        "prompt": "漫画の線画のための構図案。ボールかごを押す篠原が加わり、勇の肩越しにベンチの映像を指す。人物は登録済み基準画と当該場面の本文に合わせる。台詞・効果音・看板の文字を画像へ焼き込まない。",
+        "silentReason": "",
+        "protect": [
+          "人物の顔と手",
+          "主要動作とボール",
+          "吹き出し余白"
+        ],
+        "gaze": "neutral"
+      },
+      {
+        "id": "P01-panel-065",
+        "atomIds": [
+          "P01-03:u21:a0",
+          "P01-03:u22:a0"
+        ],
+        "contextAtomIds": [],
+        "beatIds": [
+          "P01-beat-31"
+        ],
+        "characterIds": [
+          "asakura",
+          "shinohara"
+        ],
+        "role": "standard",
+        "shot": "detail",
+        "shotIntent": "映像内の朝倉の交代合図と篠原の問い。画面内の位置関係を分かるように。",
+        "prompt": "漫画の線画のための構図案。映像内の朝倉の交代合図と篠原の問い。画面内の位置関係を分かるように。人物は登録済み基準画と当該場面の本文に合わせる。台詞・効果音・看板の文字を画像へ焼き込まない。",
+        "silentReason": "",
+        "protect": [
+          "手元・重要物",
+          "文字レイヤーの余白"
+        ],
+        "gaze": "neutral"
+      },
+      {
+        "id": "P01-panel-066",
+        "atomIds": [
+          "P01-03:u23:a0",
+          "P01-03:u23:a1",
+          "P01-03:u24:a0"
+        ],
+        "contextAtomIds": [],
+        "beatIds": [
+          "P01-beat-32"
+        ],
+        "characterIds": [
+          "kamiya-yu"
+        ],
+        "role": "reaction",
+        "shot": "close",
+        "shotIntent": "画面の自分が次のパスばかり見ていたことに勇が気づき、聞こえなかったと話す。文字空間を十分に。",
+        "prompt": "漫画の線画のための構図案。画面の自分が次のパスばかり見ていたことに勇が気づき、聞こえなかったと話す。文字空間を十分に。人物は登録済み基準画と当該場面の本文に合わせる。台詞・効果音・看板の文字を画像へ焼き込まない。",
+        "silentReason": "",
+        "protect": [
+          "人物の顔と手",
+          "主要動作とボール",
+          "吹き出し余白"
+        ],
+        "gaze": "neutral"
+      },
+      {
+        "id": "P01-panel-067",
+        "atomIds": [
+          "P01-03:u25:a0"
+        ],
+        "contextAtomIds": [],
+        "beatIds": [
+          "P01-beat-32"
+        ],
+        "characterIds": [
+          "shinohara"
+        ],
+        "role": "standard",
+        "shot": "close",
+        "shotIntent": "篠原が勇の肩越しに笑う。威圧ではなく先輩の余裕。",
+        "prompt": "漫画の線画のための構図案。篠原が勇の肩越しに笑う。威圧ではなく先輩の余裕。人物は登録済み基準画と当該場面の本文に合わせる。台詞・効果音・看板の文字を画像へ焼き込まない。",
+        "silentReason": "",
+        "protect": [
+          "人物の顔と手",
+          "主要動作とボール",
+          "吹き出し余白"
+        ],
+        "gaze": "neutral"
+      },
+      {
+        "id": "P01-panel-068",
+        "atomIds": [
+          "P01-03:u26:a0"
+        ],
+        "contextAtomIds": [],
+        "beatIds": [
+          "P01-beat-32"
+        ],
+        "characterIds": [
+          "shinohara",
+          "kamiya-yu"
+        ],
+        "role": "dominant",
+        "shot": "medium",
+        "shotIntent": "篠原の助言。感覚は大切にしつつ呼ばれたら一度こちらを見る、という長い台詞を読める横幅に。",
+        "prompt": "漫画の線画のための構図案。篠原の助言。感覚は大切にしつつ呼ばれたら一度こちらを見る、という長い台詞を読める横幅に。人物は登録済み基準画と当該場面の本文に合わせる。台詞・効果音・看板の文字を画像へ焼き込まない。",
+        "silentReason": "",
+        "protect": [
+          "人物の顔と手",
+          "主要動作とボール",
+          "吹き出し余白"
+        ],
+        "gaze": "neutral"
+      },
+      {
+        "id": "P01-panel-069",
+        "atomIds": [
+          "P01-03:u27:a0",
+          "P01-03:u27:a1",
+          "P01-03:u28:a0",
+          "P01-03:u29:a0"
+        ],
+        "contextAtomIds": [],
+        "beatIds": [
+          "P01-beat-33"
+        ],
+        "characterIds": [
+          "kamiya-yu",
+          "shinohara"
+        ],
+        "role": "standard",
+        "shot": "medium",
+        "shotIntent": "交代の合図へ一度だけ映像を戻し、律にあとで声をかける勇。篠原は着替えを促す。",
+        "prompt": "漫画の線画のための構図案。交代の合図へ一度だけ映像を戻し、律にあとで声をかける勇。篠原は着替えを促す。人物は登録済み基準画と当該場面の本文に合わせる。台詞・効果音・看板の文字を画像へ焼き込まない。",
+        "silentReason": "",
+        "protect": [
+          "人物の顔と手",
+          "主要動作とボール",
+          "吹き出し余白"
+        ],
+        "gaze": "neutral"
+      },
+      {
+        "id": "P01-panel-070",
+        "atomIds": [
+          "P01-03:u30:a0",
+          "P01-03:u31:a0",
+          "P01-03:u32:a0"
+        ],
+        "contextAtomIds": [],
+        "beatIds": [
+          "P01-beat-33"
+        ],
+        "characterIds": [
+          "kamiya-yu",
+          "kuze"
+        ],
+        "role": "standard",
+        "shot": "medium",
+        "shotIntent": "久世が鞄をひょいと持ち上げ、クラスの女子の話を振る。勇は普通と返す。",
+        "prompt": "漫画の線画のための構図案。久世が鞄をひょいと持ち上げ、クラスの女子の話を振る。勇は普通と返す。人物は登録済み基準画と当該場面の本文に合わせる。台詞・効果音・看板の文字を画像へ焼き込まない。",
+        "silentReason": "",
+        "protect": [
+          "人物の顔と手",
+          "主要動作とボール",
+          "吹き出し余白"
+        ],
+        "gaze": "neutral"
+      },
+      {
+        "id": "P01-panel-071",
+        "atomIds": [
+          "P01-03:u33:a0",
+          "P01-03:u34:a0"
+        ],
+        "contextAtomIds": [],
+        "beatIds": [
+          "P01-beat-34"
+        ],
+        "characterIds": [
+          "kamiya-yu",
+          "kuze"
+        ],
+        "role": "standard",
+        "shot": "medium",
+        "shotIntent": "久世がからかい、勇が鞄を返せと笑い返す。由美子の姿を勝手に挿入しない。",
+        "prompt": "漫画の線画のための構図案。久世がからかい、勇が鞄を返せと笑い返す。由美子の姿を勝手に挿入しない。人物は登録済み基準画と当該場面の本文に合わせる。台詞・効果音・看板の文字を画像へ焼き込まない。",
+        "silentReason": "",
+        "protect": [
+          "人物の顔と手",
+          "主要動作とボール",
+          "吹き出し余白"
+        ],
+        "gaze": "neutral"
+      },
+      {
+        "id": "P01-panel-072",
+        "atomIds": [
+          "P01-03:u35:a0",
+          "P01-03:u36:a0",
+          "P01-03:u37:a0"
+        ],
+        "contextAtomIds": [],
+        "beatIds": [
+          "P01-beat-34"
+        ],
+        "characterIds": [
+          "kamiya-yu",
+          "kuze"
+        ],
+        "role": "reaction",
+        "shot": "medium",
+        "shotIntent": "久世が背中を小突き、勇が更衣室へ向かう。",
+        "prompt": "漫画の線画のための構図案。久世が背中を小突き、勇が更衣室へ向かう。人物は登録済み基準画と当該場面の本文に合わせる。台詞・効果音・看板の文字を画像へ焼き込まない。",
+        "silentReason": "",
+        "protect": [
+          "人物の顔と手",
+          "主要動作とボール",
+          "吹き出し余白"
+        ],
+        "gaze": "neutral"
+      },
+      {
+        "id": "P01-panel-073",
+        "atomIds": [
+          "P01-03:u38:a0",
+          "P01-03:u39:a0"
+        ],
+        "contextAtomIds": [],
+        "beatIds": [
+          "P01-beat-34"
+        ],
+        "characterIds": [
+          "kamiya-yu",
+          "onodera"
+        ],
+        "role": "dominant",
+        "shot": "detail",
+        "shotIntent": "立ち去りながら一度振り返る勇。その視線の先の映像には、得点した勇の後ろで両手を上げる小野寺。",
+        "prompt": "漫画の線画のための構図案。立ち去りながら一度振り返る勇。その視線の先の映像には、得点した勇の後ろで両手を上げる小野寺。人物は登録済み基準画と当該場面の本文に合わせる。台詞・効果音・看板の文字を画像へ焼き込まない。",
+        "silentReason": "",
+        "protect": [
+          "手元・重要物",
+          "文字レイヤーの余白"
+        ],
+        "gaze": "neutral"
+      }
+    ],
+    "pages": [
+      {
+        "id": "P01-M01",
+        "purpose": "歌を追ってきた由美子の目的を、舞台と三人の手元で確立する。",
+        "entryBeatId": "P01-beat-01",
+        "exit": {
+          "kind": "resolution",
+          "note": "アカペラ部の文字に重ねた丸が次の音への接点。",
+          "payoffBeatIds": [
+            "P01-beat-02"
+          ]
+        },
+        "tree": {
+          "type": "column",
+          "children": [
+            {
+              "type": "row",
+              "children": [
+                {
+                  "type": "leaf",
+                  "panelId": "P01-panel-001"
+                },
+                {
+                  "type": "leaf",
+                  "panelId": "P01-panel-002"
+                }
+              ],
+              "weights": [
+                1,
+                1
+              ]
+            },
+            {
+              "type": "leaf",
+              "panelId": "P01-panel-003"
+            },
+            {
+              "type": "leaf",
+              "panelId": "P01-panel-004"
+            }
+          ],
+          "weights": [
+            0.34,
+            0.28,
+            0.38
+          ]
+        }
+      },
+      {
+        "id": "P01-M02",
+        "purpose": "ボールの音で歌から競技へ切り替え、勇の第一印象を置く。",
+        "entryBeatId": "P01-beat-03",
+        "exit": {
+          "kind": "transition",
+          "note": "ホイッスルから次の動作へ進む。",
+          "payoffBeatIds": [
+            "P01-beat-04"
+          ]
+        },
+        "tree": {
+          "type": "column",
+          "children": [
+            {
+              "type": "leaf",
+              "panelId": "P01-panel-005"
+            },
+            {
+              "type": "row",
+              "children": [
+                {
+                  "type": "leaf",
+                  "panelId": "P01-panel-006"
+                },
+                {
+                  "type": "leaf",
+                  "panelId": "P01-panel-007"
+                }
+              ],
+              "weights": [
+                1,
+                1
+              ]
+            },
+            {
+              "type": "leaf",
+              "panelId": "P01-panel-008"
+            }
+          ],
+          "weights": [
+            0.23,
+            0.54,
+            0.23
+          ]
+        }
+      },
+      {
+        "id": "P01-M03",
+        "purpose": "一本目の遠さを先に理解させ、放った瞬間と結果を分ける。",
+        "entryBeatId": "P01-beat-05",
+        "exit": {
+          "kind": "resolution",
+          "note": "由美子の目が勇のフォームを追う。",
+          "payoffBeatIds": [
+            "P01-beat-06"
+          ]
+        },
+        "tree": {
+          "type": "column",
+          "children": [
+            {
+              "type": "row",
+              "children": [
+                {
+                  "type": "leaf",
+                  "panelId": "P01-panel-009"
+                },
+                {
+                  "type": "leaf",
+                  "panelId": "P01-panel-010"
+                }
+              ],
+              "weights": [
+                1,
+                1
+              ]
+            },
+            {
+              "type": "leaf",
+              "panelId": "P01-panel-011"
+            },
+            {
+              "type": "leaf",
+              "panelId": "P01-panel-012"
+            }
+          ],
+          "weights": [
+            0.38,
+            0.38,
+            0.24
+          ]
+        }
+      },
+      {
+        "id": "P01-M04",
+        "purpose": "二本目は守備への対応を短く見せ、由美子の手元に変化を残す。",
+        "entryBeatId": "P01-beat-07",
+        "exit": {
+          "kind": "resolution",
+          "note": "歌の冊子から視線が離れた事実を残す。",
+          "payoffBeatIds": [
+            "P01-beat-08"
+          ]
+        },
+        "tree": {
+          "type": "column",
+          "children": [
+            {
+              "type": "leaf",
+              "panelId": "P01-panel-013"
+            },
+            {
+              "type": "leaf",
+              "panelId": "P01-panel-014"
+            },
+            {
+              "type": "leaf",
+              "panelId": "P01-panel-015"
+            }
+          ],
+          "weights": [
+            0.23,
+            0.56,
+            0.21
+          ]
+        }
+      },
+      {
+        "id": "P01-M05",
+        "purpose": "シュートを警戒された勇がパスも通すことを、動作の因果で示す。",
+        "entryBeatId": "P01-beat-09",
+        "exit": {
+          "kind": "resolution",
+          "note": "能力と年相応の顔を並べる。",
+          "payoffBeatIds": [
+            "P01-beat-10"
+          ]
+        },
+        "tree": {
+          "type": "column",
+          "children": [
+            {
+              "type": "row",
+              "children": [
+                {
+                  "type": "leaf",
+                  "panelId": "P01-panel-016"
+                },
+                {
+                  "type": "leaf",
+                  "panelId": "P01-panel-017"
+                }
+              ],
+              "weights": [
+                1,
+                1
+              ]
+            },
+            {
+              "type": "leaf",
+              "panelId": "P01-panel-018"
+            },
+            {
+              "type": "leaf",
+              "panelId": "P01-panel-019"
+            },
+            {
+              "type": "leaf",
+              "panelId": "P01-panel-020"
+            }
+          ],
+          "weights": [
+            0.26,
+            0.22,
+            0.36,
+            0.16
+          ]
+        }
+      },
+      {
+        "id": "P01-M06",
+        "purpose": "三本目を結果より待つ時間で強め、球が落ちる前で区切る。",
+        "entryBeatId": "P01-beat-11",
+        "exit": {
+          "kind": "hook",
+          "note": "結果は次ページのネットの音まで伏せる。",
+          "payoffBeatIds": []
+        },
+        "tree": {
+          "type": "column",
+          "children": [
+            {
+              "type": "leaf",
+              "panelId": "P01-panel-021"
+            },
+            {
+              "type": "leaf",
+              "panelId": "P01-panel-022"
+            },
+            {
+              "type": "leaf",
+              "panelId": "P01-panel-023"
+            }
+          ],
+          "weights": [
+            0.3,
+            0.27,
+            0.43
+          ]
+        }
+      },
+      {
+        "id": "P01-M07",
+        "purpose": "三本目の成功を由美子の声と拍手で回収し、教室へつなぐ。",
+        "entryBeatId": "P01-beat-13",
+        "exit": {
+          "kind": "transition",
+          "note": "声を漏らした由美子から、次の教室で勇に声をかける流れへ。",
+          "payoffBeatIds": [
+            "P01-beat-14"
+          ]
+        },
+        "tree": {
+          "type": "column",
+          "children": [
+            {
+              "type": "leaf",
+              "panelId": "P01-panel-024"
+            },
+            {
+              "type": "row",
+              "children": [
+                {
+                  "type": "leaf",
+                  "panelId": "P01-panel-025"
+                },
+                {
+                  "type": "leaf",
+                  "panelId": "P01-panel-026"
+                }
+              ],
+              "weights": [
+                1,
+                1
+              ]
+            }
+          ],
+          "weights": [
+            0.52,
+            0.48
+          ]
+        }
+      },
+      {
+        "id": "P01-M08",
+        "purpose": "同じ人物を今度は勇側から見て、最初の冗談が通る距離を作る。",
+        "entryBeatId": "P01-beat-15",
+        "exit": {
+          "kind": "resolution",
+          "note": "相互の笑顔で先の会話を準備する。",
+          "payoffBeatIds": [
+            "P01-beat-16"
+          ]
+        },
+        "tree": {
+          "type": "column",
+          "children": [
+            {
+              "type": "leaf",
+              "panelId": "P01-panel-027"
+            },
+            {
+              "type": "row",
+              "children": [
+                {
+                  "type": "leaf",
+                  "panelId": "P01-panel-028"
+                },
+                {
+                  "type": "leaf",
+                  "panelId": "P01-panel-029"
+                }
+              ],
+              "weights": [
+                1,
+                1
+              ]
+            },
+            {
+              "type": "row",
+              "children": [
+                {
+                  "type": "leaf",
+                  "panelId": "P01-panel-030"
+                },
+                {
+                  "type": "leaf",
+                  "panelId": "P01-panel-031"
+                }
+              ],
+              "weights": [
+                1,
+                1
+              ]
+            }
+          ],
+          "weights": [
+            0.22,
+            0.4,
+            0.38
+          ]
+        }
+      },
+      {
+        "id": "P01-M09",
+        "purpose": "試合の感想で始まった会話を、勇の謙虚さと由美子の観察で進める。",
+        "entryBeatId": "P01-beat-17",
+        "exit": {
+          "kind": "resolution",
+          "note": "二人とも軽く笑う。",
+          "payoffBeatIds": [
+            "P01-beat-18"
+          ]
+        },
+        "tree": {
+          "type": "column",
+          "children": [
+            {
+              "type": "leaf",
+              "panelId": "P01-panel-032"
+            },
+            {
+              "type": "row",
+              "children": [
+                {
+                  "type": "leaf",
+                  "panelId": "P01-panel-033"
+                },
+                {
+                  "type": "leaf",
+                  "panelId": "P01-panel-034"
+                }
+              ],
+              "weights": [
+                1,
+                1
+              ]
+            },
+            {
+              "type": "row",
+              "children": [
+                {
+                  "type": "leaf",
+                  "panelId": "P01-panel-035"
+                },
+                {
+                  "type": "leaf",
+                  "panelId": "P01-panel-036"
+                }
+              ],
+              "weights": [
+                1,
+                1
+              ]
+            }
+          ],
+          "weights": [
+            0.22,
+            0.4,
+            0.38
+          ]
+        }
+      },
+      {
+        "id": "P01-M10",
+        "purpose": "由美子のシュート真似で、会話の温度を自然に上げる。",
+        "entryBeatId": "P01-beat-19",
+        "exit": {
+          "kind": "transition",
+          "note": "手首の形からストップとドライブの話へ。",
+          "payoffBeatIds": [
+            "P01-beat-20"
+          ]
+        },
+        "tree": {
+          "type": "column",
+          "children": [
+            {
+              "type": "leaf",
+              "panelId": "P01-panel-037"
+            },
+            {
+              "type": "row",
+              "children": [
+                {
+                  "type": "leaf",
+                  "panelId": "P01-panel-038"
+                },
+                {
+                  "type": "leaf",
+                  "panelId": "P01-panel-039"
+                }
+              ],
+              "weights": [
+                1,
+                1
+              ]
+            },
+            {
+              "type": "leaf",
+              "panelId": "P01-panel-040"
+            }
+          ],
+          "weights": [
+            0.43,
+            0.27,
+            0.3
+          ]
+        }
+      },
+      {
+        "id": "P01-M11",
+        "purpose": "勇が自分の動きを理解された瞬間を、説明より反応で読ませる。",
+        "entryBeatId": "P01-beat-21",
+        "exit": {
+          "kind": "resolution",
+          "note": "勇の姿勢が変わる。",
+          "payoffBeatIds": [
+            "P01-beat-22"
+          ]
+        },
+        "tree": {
+          "type": "column",
+          "children": [
+            {
+              "type": "row",
+              "children": [
+                {
+                  "type": "leaf",
+                  "panelId": "P01-panel-041"
+                },
+                {
+                  "type": "leaf",
+                  "panelId": "P01-panel-042"
+                }
+              ],
+              "weights": [
+                1,
+                1
+              ]
+            },
+            {
+              "type": "leaf",
+              "panelId": "P01-panel-043"
+            },
+            {
+              "type": "leaf",
+              "panelId": "P01-panel-044"
+            },
+            {
+              "type": "leaf",
+              "panelId": "P01-panel-045"
+            }
+          ],
+          "weights": [
+            0.26,
+            0.22,
+            0.36,
+            0.16
+          ]
+        }
+      },
+      {
+        "id": "P01-M12",
+        "purpose": "共通の話題で二人の会話が弾み、歌の目的も手元に残す。",
+        "entryBeatId": "P01-beat-23",
+        "exit": {
+          "kind": "transition",
+          "note": "冊子を机上に残し、担任の入室へ。",
+          "payoffBeatIds": [
+            "P01-beat-24"
+          ]
+        },
+        "tree": {
+          "type": "column",
+          "children": [
+            {
+              "type": "leaf",
+              "panelId": "P01-panel-046"
+            },
+            {
+              "type": "row",
+              "children": [
+                {
+                  "type": "leaf",
+                  "panelId": "P01-panel-047"
+                },
+                {
+                  "type": "leaf",
+                  "panelId": "P01-panel-048"
+                }
+              ],
+              "weights": [
+                1,
+                1
+              ]
+            },
+            {
+              "type": "row",
+              "children": [
+                {
+                  "type": "leaf",
+                  "panelId": "P01-panel-049"
+                },
+                {
+                  "type": "leaf",
+                  "panelId": "P01-panel-050"
+                }
+              ],
+              "weights": [
+                1,
+                1
+              ]
+            }
+          ],
+          "weights": [
+            0.4,
+            0.3,
+            0.3
+          ]
+        }
+      },
+      {
+        "id": "P01-M13",
+        "purpose": "授業の手続きの中の小さな再会話で、初日の関係を閉じる。",
+        "entryBeatId": "P01-beat-25",
+        "exit": {
+          "kind": "pause",
+          "note": "二人の初日の温度を残し、午後の体育館へ移る。",
+          "payoffBeatIds": [
+            "P01-beat-26"
+          ]
+        },
+        "tree": {
+          "type": "column",
+          "children": [
+            {
+              "type": "row",
+              "children": [
+                {
+                  "type": "leaf",
+                  "panelId": "P01-panel-051"
+                },
+                {
+                  "type": "leaf",
+                  "panelId": "P01-panel-052"
+                }
+              ],
+              "weights": [
+                1,
+                1
+              ]
+            },
+            {
+              "type": "row",
+              "children": [
+                {
+                  "type": "leaf",
+                  "panelId": "P01-panel-053"
+                },
+                {
+                  "type": "leaf",
+                  "panelId": "P01-panel-054"
+                }
+              ],
+              "weights": [
+                1,
+                1
+              ]
+            },
+            {
+              "type": "leaf",
+              "panelId": "P01-panel-055"
+            }
+          ],
+          "weights": [
+            0.34,
+            0.35,
+            0.31
+          ]
+        }
+      },
+      {
+        "id": "P01-M14",
+        "purpose": "午後の映像で勇の得点の外にあった手を見せる。",
+        "entryBeatId": "P01-beat-27",
+        "exit": {
+          "kind": "resolution",
+          "note": "小野寺の手だけが大きく映る。",
+          "payoffBeatIds": [
+            "P01-beat-28"
+          ]
+        },
+        "tree": {
+          "type": "column",
+          "children": [
+            {
+              "type": "leaf",
+              "panelId": "P01-panel-056"
+            },
+            {
+              "type": "row",
+              "children": [
+                {
+                  "type": "leaf",
+                  "panelId": "P01-panel-057"
+                },
+                {
+                  "type": "leaf",
+                  "panelId": "P01-panel-058"
+                }
+              ],
+              "weights": [
+                1,
+                1
+              ]
+            },
+            {
+              "type": "leaf",
+              "panelId": "P01-panel-059"
+            }
+          ],
+          "weights": [
+            0.23,
+            0.54,
+            0.23
+          ]
+        }
+      },
+      {
+        "id": "P01-M15",
+        "purpose": "先輩との近さを見せ、成功と見落としが両立する画面を置く。",
+        "entryBeatId": "P01-beat-29",
+        "exit": {
+          "kind": "resolution",
+          "note": "責めるだけの先輩ではない。",
+          "payoffBeatIds": [
+            "P01-beat-30"
+          ]
+        },
+        "tree": {
+          "type": "column",
+          "children": [
+            {
+              "type": "row",
+              "children": [
+                {
+                  "type": "leaf",
+                  "panelId": "P01-panel-060"
+                },
+                {
+                  "type": "leaf",
+                  "panelId": "P01-panel-061"
+                }
+              ],
+              "weights": [
+                1,
+                1
+              ]
+            },
+            {
+              "type": "leaf",
+              "panelId": "P01-panel-062"
+            },
+            {
+              "type": "leaf",
+              "panelId": "P01-panel-063"
+            }
+          ],
+          "weights": [
+            0.34,
+            0.28,
+            0.38
+          ]
+        }
+      },
+      {
+        "id": "P01-M16",
+        "purpose": "篠原の指摘で勇の課題を一段深くし、熱を否定しない助言へ着地する。",
+        "entryBeatId": "P01-beat-31",
+        "exit": {
+          "kind": "resolution",
+          "note": "勇の得点力を傷つけず次の課題を示す。",
+          "payoffBeatIds": [
+            "P01-beat-32"
+          ]
+        },
+        "tree": {
+          "type": "column",
+          "children": [
+            {
+              "type": "row",
+              "children": [
+                {
+                  "type": "leaf",
+                  "panelId": "P01-panel-064"
+                },
+                {
+                  "type": "leaf",
+                  "panelId": "P01-panel-065"
+                }
+              ],
+              "weights": [
+                1,
+                1
+              ]
+            },
+            {
+              "type": "row",
+              "children": [
+                {
+                  "type": "leaf",
+                  "panelId": "P01-panel-066"
+                },
+                {
+                  "type": "leaf",
+                  "panelId": "P01-panel-067"
+                }
+              ],
+              "weights": [
+                1,
+                1
+              ]
+            },
+            {
+              "type": "leaf",
+              "panelId": "P01-panel-068"
+            }
+          ],
+          "weights": [
+            0.34,
+            0.35,
+            0.31
+          ]
+        }
+      },
+      {
+        "id": "P01-M17",
+        "purpose": "軽口で日常へ戻り、最後は映像の中の先輩の手に余韻を置く。",
+        "entryBeatId": "P01-beat-33",
+        "exit": {
+          "kind": "pause",
+          "note": "次話では二人がそれぞれの部活へ進む。",
+          "payoffBeatIds": [
+            "P01-beat-34"
+          ]
+        },
+        "tree": {
+          "type": "column",
+          "children": [
+            {
+              "type": "row",
+              "children": [
+                {
+                  "type": "leaf",
+                  "panelId": "P01-panel-069"
+                },
+                {
+                  "type": "leaf",
+                  "panelId": "P01-panel-070"
+                }
+              ],
+              "weights": [
+                1,
+                1
+              ]
+            },
+            {
+              "type": "row",
+              "children": [
+                {
+                  "type": "leaf",
+                  "panelId": "P01-panel-071"
+                },
+                {
+                  "type": "leaf",
+                  "panelId": "P01-panel-072"
+                }
+              ],
+              "weights": [
+                1,
+                1
+              ]
+            },
+            {
+              "type": "leaf",
+              "panelId": "P01-panel-073"
+            }
+          ],
+          "weights": [
+            0.34,
+            0.35,
+            0.31
+          ]
+        }
+      }
+    ]
+  }
+}
