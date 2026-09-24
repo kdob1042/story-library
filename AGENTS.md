@@ -5,7 +5,7 @@
 - 原稿・設定・人物画像・履歴・小説ビューアの編集先は本repo。旧Kamiya-Kawai / investor-lifeは履歴参照のみ。origin commitは来歴として保持する。
 - 作品は `library.json`、話・場面・宣言パスは `works/<workId>/work.json` から特定する。パスの基準は作品root。旧 `source/manifest.json` は読取互換のみ。
 - [制作フロー](docs/WORKFLOW.md)で必要な資料を選ぶ。執筆・改稿は[執筆手順](docs/WRITING.md)、漫画化・コマ割り・脚本フィードバックは[Manga Director Skill](skills/manga-director/SKILL.md)を読む。
-- チャットで `@Manga Director`、`@コマ割りAI`、または「Manga Directorで」が指定されたら、同じチャットAIは最初に `skills/manga-director/SKILL.md` を読み、その呼出し契約に従う。作品名は `library.json` からworkIdへ解決し、episodeIdと読込commitを固定してから作業する。
+- チャットで `@Manga Director`、または「Manga Directorで」が指定されたら、同じチャットAIは最初に `skills/manga-director/SKILL.md` を読み、その呼出し契約に従う。作品名は `library.json` からworkIdへ解決し、episodeIdと読込commitを固定してから作業する。
 - 移行の作業一覧は[Issue #1](https://github.com/kdob1042/story-library/issues/1)。関連repoの既存Issueも再利用する。M0〜M3・MIGRATIONは移行当時の記録で、現行作業の指示ではない。
 
 ## 保持する境界
