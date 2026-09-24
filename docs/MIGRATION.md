@@ -1,5 +1,8 @@
 # 移行作業（#1 の実装メモ）
 
+> 移行当時の記録です。正本・担当repo・進捗の記述は当時の状態を示します。現在の編集先と読む順は[制作フロー](WORKFLOW.md)、作業ルールは[AGENTS.md](../AGENTS.md)を参照してください。
+
+
 正本は [story-library#1](https://github.com/kdob1042/story-library/issues/1)。
 関連Issueは再利用し、同じ移行を別Issueへ再実装しない。
 
@@ -31,8 +34,6 @@
 3. M3 雛形とCI
 4. 以降は既存Issue先のDraft PR
 
-## ブランチ昇格ルール
+## 現行のブランチ運用
 
-- 通常の実装・原稿変更は最新 `dev` から開始し、作業ブランチから `dev` へPRを出す。
-- devでCIとプレビュー確認を行い、受入後に `dev → main` のPRで公開用ブランチへ昇格する。
-- `dev` と `main` への直接push、通常運用での `main → dev` 同期は禁止する。
+[AGENTS.md](../AGENTS.md#保存と公開)を参照する。

@@ -1,5 +1,8 @@
 # M3 新作雛形
 
+> 移行当時の記録です。正本・担当repo・進捗の記述は当時の状態を示します。現在の編集先と読む順は[制作フロー](WORKFLOW.md)、作業ルールは[AGENTS.md](../AGENTS.md)を参照してください。
+
+
 雛形の正本は `templates/work/` だけです。novel-template で並行編集しないでください。
 
 ```text
