@@ -14,7 +14,7 @@ const gitBlobSha=content=>createHash('sha1')
 
 test('vendored name-plan contract is byte-identical to its pinned manga-mac source',async()=>{
   const lock=JSON.parse(await readFile(path.join(dir,'lock.json'),'utf8'));
-  assert.equal(lock.format,'manga-mac/name-plan/v2');
+  assert.equal(lock.format,'manga-mac/name-plan/v3');
   assert.match(lock.commit,/^[0-9a-f]{40}$/);
   for(const [name,expected] of Object.entries(lock.files)){
     const content=await readFile(path.join(dir,name));
@@ -24,9 +24,8 @@ test('vendored name-plan contract is byte-identical to its pinned manga-mac sour
 
 test('Manga Director handoff resolves the local machine contract without manga-mac runtime',async()=>{
   const handoff=await readFile(path.join(root,'skills/manga-director/handoff.md'),'utf8');
-  assert.match(handoff,/contracts\/name-plan\/schema\.mjs/);
-  assert.match(handoff,/manga-macアプリへ往復させない/);
-  const schema=await import('../contracts/name-plan/schema.mjs');
-  assert.equal(schema.FORMAT,'manga-mac/name-plan/v2');
-  assert.equal(schema.fileSchema.properties.stage.const,'name-only');
+  assert.match(handoff,/manga\/<episodeId>\/episode\.json/);
+  assert.match(handoff,/アプリへ往復させない/);
+  const contract=await import('../contracts/name-plan/page.mjs');
+  assert.equal(contract.PAGE_FORMAT,'manga-mac/name-plan/v3');
 });

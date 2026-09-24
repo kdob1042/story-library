@@ -19,7 +19,7 @@ test('chat invocation has a short trigger and safe save boundary',async()=>{
  assert.match(skill,/@Manga Director <作品名またはworkId> <episodeId>/);
  assert.match(skill,/保存指定がなければGitHubは変更せず/);
  assert.match(skill,/単なる「ネーム化」はdirection_only/);
- assert.match(skill,/works\/<workId>\/manga\/<episodeId>\/name-plan\.json/);
+ assert.match(skill,/works\/<workId>\/manga\/<episodeId>\/episode\.json/);
 });
 test('all relative skill links resolve',async()=>{
  for(const name of ['SKILL.md','story-analysis.md','paneling.md','review.md','handoff.md']){
@@ -39,7 +39,7 @@ test('planning, criticism and manuscript changes have separate boundaries',async
 });
 test('handoff uses stable episode IDs and paired manuscript/plan without commit self-reference',async()=>{
  const handoff=await read('handoff.md');
- assert.match(handoff,/manga\/<episodeId>\/name-plan\.json/);
+ assert.match(handoff,/manga\/<episodeId>\/pages\/<pageId>\.json/);
  assert.match(handoff,/循環/);
  assert.match(handoff,/同じPR/);
  assert.match(handoff,/検証専用/);

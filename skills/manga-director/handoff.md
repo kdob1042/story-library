@@ -1,35 +1,13 @@
-# 検証・保存・受渡し
+# ページネームの保存と受渡し
 
-## 保存先と契約
+作品の固定workIdとepisodeIdを `library.json` / `work.json` から選ぶ。新規のネームは、話の共通情報 `manga/<episodeId>/episode.json` と、1ページずつ `manga/<episodeId>/pages/<pageId>.json` に保存する。前半・後半は選んだページ範囲であり、番号付きの複数ページネームは新規には作らない。旧 `name-001.json` / `name-plan.json` は既存データの読取互換に限る。
 
-作品rootの `work.json` にある固定episodeIdを使い、タイトルや表示番号から推測しない。
+1. `node scripts/name-plan.mjs prepare <workId> <episodeId> /tmp/context.json` で作成時の原文・人物宣言・前後文脈を固定する。参照画像はなくてもよい。
+2. 対象ページを決め、AIが `{title, provenance, plan}` のdraftを作る。選択した原文の範囲と既存IDをAIへ示す。原文そのものやIDを推測で創作しない。
+3. `node scripts/name-plan.mjs write-pages <workId> <episodeId> /tmp/context.json /tmp/draft.json` で、作成時の原文を含むページとepisode索引を出力する。同じpageIdを明示改訂する場合だけ `--replace` を付ける。追加するページの位置は `--insert-at=N` で指定でき、省略時は末尾。話の既存ページと共通設定は保持する。
+4. `node scripts/validate-name-plan.mjs <workId> <episodeId> <作品root>/manga/<episodeId>/episode.json` で話索引と全ページを確認する。CIは変更したページか、索引更新時の当該話だけを確認する。最新の原稿・設定・参照画像とのhash一致は調べない。
+5. 開発devからのPRへ保存する。アプリではepisode索引を先に取得し、同じGit commitから選択ページだけを読み、現在のページと見比べて採用する。既存の他ページはそのまま保持する。話の版保存と復元はアプリ側で管理する。
 
-- `manga/<episodeId>/name-plan.json`: 機械用ネーム。
-- `manga/<episodeId>/director-notes.md`: 任意の短い決定メモ。
-- `manga-director.md`: 任意の作品固有ルール。
+原文は各ページのsourceExcerptsへ実文字列として含める。contextExcerptsとboundaryContextは参考情報であり、自動的に台詞へ変換しない。scene/appearanceは固定IDを持つ話の共通設定。AIや手動によるページ編集は、現在のネームに有限の操作を適用する。任意の画像・動画・3D、APIキーやJobは受渡しJSONへ入れない。保存、マージ、公開は別の操作とする。
 
-新しい原稿manifest、独自ネームschema、巨大画像・動画・制作DBは追加しない。
-
-機械契約はvendor済み[name-plan/v2](../../contracts/name-plan/schema.mjs)。由来commitと全ファイルのGit blob SHAは[lock.json](../../contracts/name-plan/lock.json)で管理する。構造は `parseNameFile` / `validatePlan`、原稿対応は `source.mjs`、座標検査は `layout.mjs` を使う。
-
-contract更新は作品の改稿と分け、固定commit・hashを更新してテストする。アプリ側と対応版が一致しない場合、構成検討は続けられるが機械取込可能とは扱わない。
-
-## 保存手順
-
-1. 最終候補を対応原稿＋ネームの組で示す。原稿変更がなければネームだけでよい。
-2. 保存／Draft PR作成の指示範囲で、[AGENTS.md](../../AGENTS.md)に従って原稿差分とネームを同じPRに置く。対象外原稿・publication.yaml・人物画像は変更しない。保存の指示をマージ・公開の承認に広げない。
-3. `node scripts/validate-name-plan.mjs <workId> <episodeId>` を実行する。work.json・本文・設定・人物画像からsource hash、atom、作品側人物IDを再構成し、scene ID・範囲・原文hash・掲載文字・参照版を検査する。hashはコード、文字offsetは既存SourceRef変換で求める。
-4. 検証環境がなければ「未検証、対応版と取込は未確認」と示す。JSONらしい出力や常時trueのvalidatorを合格扱いせず、人がJSONを直さないと通らない状態を完成にしない。
-5. PR承認・マージ後、manga-macで原稿更新を取り込む。原稿・設定・人物画像・ネームは取得SHAをそろえ、候補確認後に明示採用する。
-
-創作ループをmanga-macアプリへ往復させない。CLIは検証専用で、AIやアプリの起動は不要。追加課金を伴うLLM・画像・動画APIの試験は、通常の機械検査と分ける。
-
-## commitと原稿対応
-
-起点commitは来歴。name-plan自身に、それを含む未来のcommit SHAを書かせると循環する。取得commitはアプリが記録し、内容一致は本文hashと共有契約で検査する。原稿候補が変わったら共通経路で参照を再解決・再検証し、旧ネームを採用しない。
-
-## アプリへの引継ぎ
-
-GitHub取得と手動JSON取込は同じvalidator/importerを使う。座標計算、作画、文字配置、保存、手修正、Undoはアプリ側。取得・確認だけで作画を始めない。
-
-v1 importerの既存コマ置換・v2拒否など、現在の制限を隠さない。v2、部分差替え、実Mac受入が未完了なら、機械による通し制作の完了とは報告しない。
+創作とレビューは同じチャット内で完結させ、アプリへ往復させない。CLIは原文の読取・出力・検証専用。原稿改稿を伴う場合は原稿候補を同じPRへ置く。検証できない場合は「未検証」と報告する。読込commitは来歴に残せるが、まだ存在しない出力後のcommitを埋める循環を作らない。
