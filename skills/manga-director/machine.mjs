@@ -1,9 +1,11 @@
-import {readFile,writeFile,mkdir} from 'node:fs/promises';
+import {readFile,writeFile,mkdir,rename} from 'node:fs/promises';
 import path from 'node:path';
 import {validateManifest} from '../../contracts/story-source/validate.mjs';
 import {parseNameFile, validatePlan, FORMAT, POLICY_VERSION} from '../../contracts/name-plan/schema.mjs';
 import {atomize, bindSource, sourceCharacterIds, embeddedSourceDescriptor, hasEmbeddedSource, selectAtoms} from '../../contracts/name-plan/source.mjs';
 import {compileNameLayout} from '../../contracts/name-plan/layout.mjs';
+import {embeddedV2ToEpisode} from '../../contracts/name-plan/convert.mjs';
+import {adoptPages,joinEpisodeFiles,splitEpisodeFiles,validateEpisode} from '../../contracts/name-plan/page.mjs';
 
 const ZERO_COMMIT='0'.repeat(40);
 const text=filename=>readFile(filename,'utf8');
@@ -79,4 +81,38 @@ export async function writeEmbeddedNamePlan({context,draft,number,workRoot,repla
   // wx prevents accidental overwrite of an existing numbered part.
   await writeFile(filename,JSON.stringify(file,null,2)+'\n',{flag:replace?'w':'wx'});
   return {filename,file};
+}
+
+// New default producer: page files and one episode index. The v2 in-memory plan is
+// accepted as an AI draft input, but no numbered multi-page name is persisted.
+export async function writePageNameFiles({context,draft,workRoot,replace=false,insertAt=null}) {
+  const file=await createEmbeddedNamePlan(context,draft,1);
+  let incoming=await embeddedV2ToEpisode(file);
+  const folder=path.join(workRoot,'manga',incoming.episodeId), manifestPath=path.join(folder,'episode.json');
+  let current=null;
+  try {
+    const manifest=JSON.parse(await readFile(manifestPath,'utf8'));
+    const pages={};
+    for(const id of manifest.pageIds)pages[id]=JSON.parse(await readFile(path.join(folder,'pages',`${id}.json`),'utf8'));
+    current=joinEpisodeFiles(manifest,pages);
+  }catch(error){if(error.code!=='ENOENT')throw error;}
+  if(current){
+    if(!replace && incoming.pageIds.some(id=>current.pageIds.includes(id)))throw Error('同じページIDがあります。明示的に --replace を指定してください');
+    const positions=Object.fromEntries(incoming.pageIds.filter(id=>!current.pageIds.includes(id)).map((id,i)=>[id,(insertAt??current.pageIds.length)+i]));
+    // Keep existing page order and shared settings; only selected pages are overwritten.
+    incoming=adoptPages(current,incoming,incoming.pageIds,{positions});
+  }
+  validateEpisode(incoming);
+  const {manifest,pages}=splitEpisodeFiles(incoming);
+  await mkdir(path.join(folder,'pages'),{recursive:true});
+  const selected=new Set(draft.plan.pages.map(page=>page.id));
+  for(const id of selected){
+    const filename=path.join(folder,'pages',`${id}.json`),temporary=`${filename}.tmp-${crypto.randomUUID()}`;
+    await writeFile(temporary,JSON.stringify(pages[id],null,2)+'\n',{flag:'wx'});
+    await rename(temporary,filename);
+  }
+  const temporary=`${manifestPath}.tmp-${crypto.randomUUID()}`;
+  await writeFile(temporary,JSON.stringify(manifest,null,2)+'\n',{flag:'wx'});
+  await rename(temporary,manifestPath);
+  return {manifestPath,pagePaths:[...selected].map(id=>path.join(folder,'pages',`${id}.json`)),episode:incoming};
 }

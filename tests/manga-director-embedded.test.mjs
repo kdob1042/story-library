@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import {mkdtemp,cp,writeFile,readFile,rm} from 'node:fs/promises';
 import {tmpdir} from 'node:os';
 import path from 'node:path';
-import {loadDirectorContext,createEmbeddedNamePlan,writeEmbeddedNamePlan,verifyNamePlan} from '../skills/manga-director/machine.mjs';
+import {loadDirectorContext,createEmbeddedNamePlan,writeEmbeddedNamePlan,writePageNameFiles,verifyNamePlan} from '../skills/manga-director/machine.mjs';
 import {validateChangedNamePlans} from '../scripts/validate-changed-name-plans.mjs';
 export function direction(atoms){return {title:'人工ネーム',provenance:{producer:'fixture',model:'',editedBy:[]},plan:{
  workGoal:{readerQuestion:'どうなる',emotionalArc:['期待'],payoff:'反応'},coverage:atoms.map(a=>({atomId:a.id,presentation:a.kind==='dialogue'?'dialogue':a.kind==='reference'?'reference':'visual',reason:'原文を保持'})),
@@ -41,4 +41,22 @@ test('producer rejects invented primary atoms',async()=>{
  const context=await loadDirectorContext({workRoot:new URL('../templates/work/',import.meta.url).pathname,workId:'example',episodeId:'P01'});
  const draft=direction(context.atoms);draft.plan.coverage[0].atomId='invented';
  await assert.rejects(createEmbeddedNamePlan(context,draft,1));
+});
+
+test('page producer writes selected page files, keeps earlier pages and validates only changed names',async()=>{
+ const root=await mkdtemp(path.join(tmpdir(),'director-pages-'));
+ try{
+  const workRoot=path.join(root,'works','example');await cp(new URL('../templates/work/',import.meta.url),workRoot,{recursive:true});
+  const context=await loadDirectorContext({workRoot,workId:'example',episodeId:'P01'});
+  const first=await writePageNameFiles({context,draft:direction(context.atoms.slice(0,1)),workRoot});
+  const secondDraft=direction(context.atoms.slice(1));secondDraft.plan.pages[0].id='page2';secondDraft.plan.panels[0].id='p2';secondDraft.plan.pages[0].tree.panelId='p2';
+  await writePageNameFiles({context,draft:secondDraft,workRoot});
+  const manifest=JSON.parse(await readFile(first.manifestPath,'utf8'));
+  assert.deepEqual(manifest.pageIds,['page1','page2']);
+  assert.ok(!('pages' in manifest));
+  const firstPage=JSON.parse(await readFile(first.pagePaths[0],'utf8'));
+  assert.equal(firstPage.id,'page1');assert.ok(firstPage.sourceExcerpts[0].text);
+  await writeFile(path.join(root,'library.json'),JSON.stringify({works:[{id:'example',root:'works/example'}]}));
+  assert.equal((await validateChangedNamePlans(root,['works/example/manga/P01/pages/page2.json'])).length,1);
+ }finally{await rm(root,{recursive:true,force:true});}
 });
