@@ -56,7 +56,43 @@
     ::-webkit-scrollbar-thumb { background: rgba(156, 163, 175, 0.4); border-radius: 9999px; }
     ::-webkit-scrollbar-thumb:hover { background: rgba(156, 163, 175, 0.7); }
 
-    #toggleReadingControlsBtn { display: none; }
+    :focus-visible { outline: 2px solid #047857; outline-offset: 3px; }
+    #readerContainer:focus { outline: none; }
+    #appBody { height: 100dvh; }
+    #toggleReadingControlsBtn { display: inline-flex; }
+    #headerActions { flex-direction: row; align-items: center; }
+    #readingControls {
+      display: none;
+      position: absolute;
+      top: calc(100% + 0.4rem);
+      right: 0.75rem;
+      z-index: 50;
+      padding: 0.65rem;
+      border: 1px solid #d6d3d1;
+      border-radius: 0.75rem;
+      background: #fafaf9;
+      box-shadow: 0 12px 30px rgba(28, 25, 23, 0.18);
+    }
+    #readingControls.mobile-open { display: flex; }
+    #readingControls button { min-width: 44px; min-height: 44px; }
+    #readingControls button:disabled { opacity: 0.35; }
+    #sidebar { width: min(20rem, calc(100vw - 3rem)); }
+    #appBody[data-sidebar-open="true"] #sidebar { transform: translateX(0); }
+    #appBody[data-sidebar-open="false"] #sidebar { display: none; }
+    #sidebarBackdrop { position: absolute; inset: 0; z-index: 10; background: #0005; }
+    #sidebarBackdrop[hidden] { display: none; }
+    #episodesContainer summary::after { content: '＋'; }
+    #episodesContainer details[open] > summary::after { content: '−'; }
+    #appBody[data-theme="dark"] { color: #e7e5e4; background: #1c1917; }
+    #appBody[data-theme="dark"] :is(#appHeader, #sidebar, #readingControls, #novelNavTitle, #workSelect) { color: #e7e5e4; background: #292524; border-color: #57534e; }
+    #appBody[data-theme="dark"] :is(#novelContent, #articleTitle, #toggleSidebarBtn, #toggleReadingControlsBtn, #themeToggleBtn, #prevSceneBtn, .scene-nav-title) { color: #e7e5e4; }
+    #appBody[data-theme="dark"] :is(#currentEpisodeTitle, #currentSceneTitle, #sceneProgressText, #sceneHeader > div, #workSwitcher label, #workSwitcherHint) { color: #a8a29e; }
+    #appBody[data-theme="dark"] :is(#sceneHeader, #readerContainer nav) { border-color: #57534e; }
+    #appBody[data-theme="dark"] #episodesContainer :is(details, summary, .scene-nav-item) { color: #e7e5e4; background: #292524; border-color: #57534e; }
+    #appBody[data-theme="dark"] #episodesContainer .scene-nav-item[aria-current="page"] { background: #065f46; }
+    #appBody[data-theme="dark"] :is(#readingControls, #appHeader, #sidebar) button:hover { background: #44403c; }
+    @media (prefers-reduced-motion: reduce) { *, *::before, *::after { transition: none !important; } }
+
 
     @media (max-width: 767px) {
       #appHeader {
@@ -90,23 +126,6 @@
         font-size: 0.8125rem;
         line-height: 1.25rem;
       }
-      #toggleReadingControlsBtn {
-        display: inline-flex;
-        flex: none;
-      }
-      #readingControls {
-        display: none;
-        position: absolute;
-        top: calc(100% + 0.4rem);
-        right: 0.75rem;
-        z-index: 50;
-        padding: 0.55rem;
-        border: 1px solid #d6d3d1;
-        border-radius: 0.75rem;
-        background: rgba(250, 250, 249, 0.98);
-        box-shadow: 0 12px 30px rgba(28, 25, 23, 0.18);
-      }
-      #readingControls.mobile-open { display: flex; }
       #sceneHeader { display: none; }
       #readerContainer { padding: 1.25rem; }
       .novel-body { font-size: 1.0625rem; }
@@ -122,7 +141,7 @@
   <!-- Top Navigation Bar -->
   <header id="appHeader" class="sticky top-0 z-30 shrink-0 bg-stone-100/90 backdrop-blur border-b border-stone-200 px-4 py-3 flex items-center justify-between shadow-xs">
     <div class="flex min-w-0 flex-1 items-start gap-2 sm:gap-3">
-      <button id="toggleSidebarBtn" class="mt-0.5 shrink-0 p-2 rounded-lg hover:bg-stone-200 text-stone-700 transition" title="目次を開閉" aria-label="目次を開閉">
+      <button id="toggleSidebarBtn" class="mt-0.5 shrink-0 p-2 rounded-lg hover:bg-stone-200 text-stone-700 transition" title="目次を開閉" aria-label="目次を開閉" aria-controls="sidebar" aria-expanded="false">
         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
       </button>
       <div class="min-w-0 flex-1 font-gothic">
@@ -144,16 +163,16 @@
     </div>
 
     <div id="headerActions" class="flex shrink-0 flex-col items-end gap-2">
-      <button id="toggleReadingControlsBtn" class="items-center justify-center rounded-lg border border-stone-300 px-2.5 py-2 text-xs font-gothic text-stone-700 hover:bg-stone-200 transition" aria-expanded="false" aria-controls="readingControls" title="表示設定">
+      <button id="toggleReadingControlsBtn" class="items-center justify-center rounded-lg border border-stone-300 px-2.5 py-2 text-xs font-gothic text-stone-700 hover:bg-stone-200 transition" aria-expanded="false" aria-controls="readingControls" aria-label="表示設定" title="表示設定">
         Aa
       </button>
-      <button id="nextHeaderBtn" class="inline-flex items-center justify-center rounded-lg bg-emerald-700 px-3 py-2 text-xs font-gothic text-white hover:bg-emerald-800 disabled:pointer-events-none disabled:opacity-30 transition whitespace-nowrap" disabled>
-        次のページ <span class="ml-1">&rarr;</span>
+      <button id="nextHeaderBtn" class="inline-flex items-center justify-center rounded-lg bg-emerald-700 px-3 py-2 text-xs font-gothic text-white hover:bg-emerald-800 disabled:pointer-events-none disabled:opacity-30 transition whitespace-nowrap" aria-label="次のページ" disabled>
+        次へ <span class="ml-1">&rarr;</span>
       </button>
     </div>
 
     <!-- Reading controls -->
-    <div id="readingControls" class="reading-controls flex shrink-0 items-center gap-2">
+    <div id="readingControls" role="group" aria-label="表示設定" class="reading-controls flex shrink-0 items-center gap-2">
       <button id="toggleFontBtn" class="px-2.5 py-1 text-xs rounded border border-stone-300 hover:bg-stone-200 font-gothic transition" title="フォント切り替え">
         明朝
       </button>
@@ -184,8 +203,10 @@
 
     </aside>
 
+    <button id="sidebarBackdrop" type="button" aria-label="目次を閉じる" hidden></button>
+
     <!-- Main Content Reader Area -->
-    <main class="flex-1 min-h-0 overflow-y-auto px-4 py-8 md:px-12 lg:px-24 flex justify-center" id="readerContainer">
+    <main class="flex-1 min-h-0 overflow-y-auto px-4 py-8 md:px-12 lg:px-24 flex justify-center" id="readerContainer" tabindex="-1" aria-label="小説本文">
       <article class="w-full max-w-3xl">
         <!-- Scene Title Header -->
         <header id="sceneHeader" class="mb-8 pb-4 border-b border-stone-200">
@@ -197,16 +218,8 @@
           <h2 id="articleTitle" class="text-2xl font-bold tracking-wider text-stone-900 font-gothic"></h2>
         </header>
 
-        <!-- Current-value conversion reference -->
-        <details id="marketDataPanel" class="hidden mb-8 rounded-xl border border-amber-200 bg-amber-50/80 font-gothic text-sm shadow-sm">
-          <summary class="cursor-pointer select-none px-4 py-3 font-semibold text-amber-950">
-            株価の現在基準換算（参考）
-          </summary>
-          <div id="marketDataContent" class="px-4 pb-4"></div>
-        </details>
-
         <!-- Main Novel Content -->
-        <div id="novelContent" class="novel-body text-base text-stone-800 leading-relaxed font-mincho">
+        <div id="novelContent" aria-busy="true" class="novel-body text-base text-stone-800 leading-relaxed font-mincho">
           <p class="text-center text-stone-400 py-12 font-gothic">本文を読み込んでいます...</p>
         </div>
 
@@ -276,181 +289,144 @@
     const emailSubscribeAddress = document.getElementById('emailSubscribeAddress');
     const emailSubscribeStatus = document.getElementById('emailSubscribeStatus');
 
-    const marketDataPanel = document.getElementById('marketDataPanel');
-    const marketDataContent = document.getElementById('marketDataContent');
+    const readerContainer = document.getElementById('readerContainer');
+    const sidebarBackdrop = document.getElementById('sidebarBackdrop');
+    let sceneLoadToken = 0;
+    let activeNav = null;
+    const sceneCache = new Map();
+    const lastSceneByWork = new Map();
+    const preferenceKey = 'story-library-reading';
 
-    function formatMarketNumber(value, maximumFractionDigits = 3) {
-      return new Intl.NumberFormat('ja-JP', {maximumFractionDigits}).format(Number(value));
+    function setSidebar(open) {
+      appBody.dataset.sidebarOpen = String(open);
+      toggleSidebarBtn.setAttribute('aria-expanded', String(open));
+      sidebar.inert = !open;
+      sidebarBackdrop.hidden = !open || window.innerWidth >= 768;
     }
 
-    function formatMarketPrice(value, currency) {
-      const symbol = currency === 'USD' ? String.fromCharCode(36) : '¥';
-      return symbol + formatMarketNumber(value, currency === 'USD' ? 3 : 0);
+    function setReadingControls(open, {restoreFocus = false} = {}) {
+      readingControls.classList.toggle('mobile-open', open);
+      toggleReadingControlsBtn.setAttribute('aria-expanded', String(open));
+      if (open) toggleFontBtn.focus();
+      else if (restoreFocus) toggleReadingControlsBtn.focus();
     }
 
-    function formatMarketValue(valueJpy) {
-      const value = Number(valueJpy);
-      if (!Number.isFinite(value)) return '';
-      if (value >= 100000000) return '約' + formatMarketNumber(value / 100000000, 2) + '億円';
-      if (value >= 10000) return '約' + formatMarketNumber(value / 10000, 0) + '万円';
-      return '約' + formatMarketNumber(value, 0) + '円';
-    }
-
-    function formatMarketPnl(valueJpy) {
-      const value = Number(valueJpy);
-      if (!Number.isFinite(value)) return '';
-      const sign = value >= 0 ? '＋' : '−';
-      return sign + formatMarketValue(Math.abs(value));
-    }
-
-    function renderMarketData(data) {
-      marketDataContent.innerHTML = '';
-      if (!data || !Array.isArray(data.items) || data.items.length === 0) {
-        marketDataPanel.classList.add('hidden');
+    toggleSidebarBtn.addEventListener('click', () => {
+      setSidebar(appBody.dataset.sidebarOpen !== 'true');
+      setReadingControls(false);
+    });
+    sidebarBackdrop.addEventListener('click', () => setSidebar(false));
+    toggleReadingControlsBtn.addEventListener('click', () => {
+      setReadingControls(!readingControls.classList.contains('mobile-open'));
+    });
+    document.addEventListener('click', event => {
+      if (!readingControls.contains(event.target) && !toggleReadingControlsBtn.contains(event.target)) {
+        setReadingControls(false);
+      }
+    });
+    document.addEventListener('keydown', event => {
+      if (event.key === 'Escape') {
+        if (readingControls.classList.contains('mobile-open')) setReadingControls(false, {restoreFocus: true});
+        if (appBody.dataset.sidebarOpen === 'true' && window.innerWidth < 768) {
+          setSidebar(false);
+          toggleSidebarBtn.focus();
+        }
         return;
       }
-
-      marketDataPanel.classList.remove('hidden');
-      const asOf = data.asOf ? escapeHtml(data.asOf) + '時点' : '基準日時点';
-      const rows = data.items.map(item => {
-        const currentPrice = formatMarketPrice(item.currentPrice, item.currentCurrency);
-        const conversions = (item.priceConversions || []).map(conversion =>
-          '<li class="flex flex-wrap items-baseline justify-between gap-x-3 gap-y-1 border-t border-amber-100 pt-2">' +
-            '<span>' + escapeHtml(conversion.label) + '：' +
-              formatMarketPrice(conversion.historicalPrice, conversion.currency || item.currentCurrency) + '</span>' +
-            '<strong class="text-amber-900">現在基準 ' +
-              formatMarketPrice(conversion.currentBasisPrice, conversion.currency || item.currentCurrency) + '</strong>' +
-          '</li>'
-        ).join('');
-        const pnlScenarios = Array.isArray(item.pnlScenarios) ? item.pnlScenarios : [];
-        const pnlHtml = pnlScenarios.length
-          ? '<div class="mt-3 border-t border-amber-100 pt-3">' +
-            '<p class="text-xs font-semibold text-amber-950">そのまま保有していた場合の損益（参考）</p>' +
-            '<ul class="mt-2 space-y-2 text-xs leading-5">' +
-            pnlScenarios.map(scenario =>
-              '<li>' +
-                '<div class="flex flex-wrap items-baseline justify-between gap-x-3 gap-y-1">' +
-                  '<span>' + escapeHtml(scenario.label) + '</span>' +
-                  '<strong class="' + (Number(scenario.profitLossJpy) >= 0 ? 'text-amber-900' : 'text-blue-900') + '">' +
-                    formatMarketPnl(scenario.profitLossJpy) + '</strong>' +
-                '</div>' +
-                (scenario.positionJpy != null
-                  ? '<p class="mt-1 text-[11px] leading-4 text-stone-500">ポジション：約' + escapeHtml(formatMarketValue(scenario.positionJpy)) + '</p>'
-                  : '') +
-                (scenario.calculation
-                  ? '<p class="mt-1 text-[11px] leading-4 text-stone-500">計算：' + escapeHtml(scenario.calculation) + '</p>'
-                  : '') +
-                (scenario.note
-                  ? '<p class="mt-1 text-[11px] leading-4 text-stone-500">' + escapeHtml(scenario.note) + '</p>'
-                  : '') +
-              '</li>'
-            ).join('') +
-            '</ul></div>'
-          : (item.pnlNote
-            ? '<div class="mt-3 border-t border-amber-100 pt-3">' +
-              '<p class="text-xs font-semibold text-amber-950">そのまま保有していた場合の損益（参考）</p>' +
-              '<p class="mt-1 text-[11px] leading-4 text-stone-500">' + escapeHtml(item.pnlNote) + '</p>' +
-            '</div>'
-            : '');
-        const source = item.sourceUrl
-          ? '<a href="' + escapeHtml(item.sourceUrl) + '" target="_blank" rel="noreferrer" class="underline">' +
-            escapeHtml(item.sourceLabel || '株価ソース') + ' ↗</a>'
-          : '';
-        return '<div class="rounded-lg border border-amber-200 bg-white/70 p-3">' +
-          '<div class="flex flex-wrap items-baseline justify-between gap-x-3 gap-y-1">' +
-            '<span class="font-semibold text-stone-900">' + escapeHtml(item.name) +
-              ' <span class="font-mono text-xs text-stone-500">' + escapeHtml(item.ticker || '') + '</span></span>' +
-            '<span class="font-mono font-semibold text-stone-900">現在値 ' + currentPrice + '</span>' +
-          '</div>' +
-          '<p class="mt-2 text-xs leading-5 text-stone-700">' + escapeHtml(item.basis || '') + '</p>' +
-          '<ul class="mt-3 space-y-2 text-xs leading-5">' + conversions + '</ul>' +
-          pnlHtml +
-          (item.note
-            ? '<p class="mt-2 text-[11px] leading-4 text-stone-500">' + escapeHtml(item.note) + '</p>'
-            : '') +
-          (source ? '<p class="mt-2 text-[11px] text-stone-500">' + source + '</p>' : '') +
-        '</div>';
-      }).join('');
-
-      marketDataContent.innerHTML =
-        '<p class="mb-3 text-xs leading-5 text-stone-600">' + asOf +
-        '。過去の株価を、現在の株式分割後の1株単位へ換算し、ポジション額が分かる銘柄は保有継続時の損益も参考計算しています。</p>' +
-        '<div class="space-y-3">' + rows + '</div>' +
-        (data.note
-          ? '<p class="mt-3 text-[11px] leading-4 text-stone-500">' + escapeHtml(data.note) + '</p>'
-          : '');
-    }
-    // Toggle Sidebar
-    toggleSidebarBtn.addEventListener('click', () => {
-      sidebar.classList.toggle('-translate-x-full');
-      readingControls.classList.remove('mobile-open');
-      toggleReadingControlsBtn.setAttribute('aria-expanded', 'false');
+      if (event.altKey || event.ctrlKey || event.metaKey || event.shiftKey || event.defaultPrevented) return;
+      if (event.target.closest('input, textarea, select, button, summary, a, [contenteditable="true"]')) return;
+      if (event.key === 'ArrowRight' && !nextSceneBtn.disabled) {
+        event.preventDefault();
+        goToNextScene();
+      } else if (event.key === 'ArrowLeft' && !prevSceneBtn.disabled) {
+        event.preventDefault();
+        loadScene(currentSceneIndex - 1);
+      }
     });
-
-    toggleReadingControlsBtn.addEventListener('click', () => {
-      const willOpen = !readingControls.classList.contains('mobile-open');
-      readingControls.classList.toggle('mobile-open', willOpen);
-      toggleReadingControlsBtn.setAttribute('aria-expanded', String(willOpen));
-    });
-
+    let desktopSidebar = window.innerWidth >= 768;
+    setSidebar(desktopSidebar);
     window.addEventListener('resize', () => {
-      if (window.innerWidth >= 768) {
-        readingControls.classList.remove('mobile-open');
-        toggleReadingControlsBtn.setAttribute('aria-expanded', 'false');
+      const desktop = window.innerWidth >= 768;
+      if (desktop !== desktopSidebar) {
+        desktopSidebar = desktop;
+        setSidebar(desktop);
+        setReadingControls(false);
       }
     });
 
-    // Toggle Font
+    function applyReadingPreferences({save = true} = {}) {
+      appBody.dataset.theme = currentTheme;
+      toggleFontBtn.textContent = currentFont === 'mincho' ? '明朝' : 'ゴシック';
+      novelContent.classList.toggle('font-mincho', currentFont === 'mincho');
+      novelContent.classList.toggle('font-gothic', currentFont === 'gothic');
+      novelContent.style.fontSize = `${currentFontSize}px`;
+      fontSizeDown.disabled = currentFontSize <= 14;
+      fontSizeUp.disabled = currentFontSize >= 24;
+      themeIconMoon.classList.toggle('hidden', currentTheme === 'dark');
+      themeIconSun.classList.toggle('hidden', currentTheme !== 'dark');
+      themeToggleBtn.setAttribute('aria-label', currentTheme === 'dark' ? '明るい表示にする' : '暗い表示にする');
+      if (save) {
+        try { localStorage.setItem(preferenceKey, JSON.stringify({font: currentFont, fontSize: currentFontSize, theme: currentTheme})); }
+        catch { /* Reading remains available when storage is disabled. */ }
+      }
+    }
+    try {
+      const saved = JSON.parse(localStorage.getItem(preferenceKey));
+      if (saved?.font === 'gothic') currentFont = 'gothic';
+      if (saved?.theme === 'dark') currentTheme = 'dark';
+      if (Number.isInteger(saved?.fontSize) && saved.fontSize >= 14 && saved.fontSize <= 24) currentFontSize = saved.fontSize;
+    } catch { /* Invalid or unavailable preferences use the defaults. */ }
+    applyReadingPreferences({save: false});
     toggleFontBtn.addEventListener('click', () => {
-      if (currentFont === 'mincho') {
-        currentFont = 'gothic';
-        toggleFontBtn.textContent = 'ゴシック';
-        novelContent.classList.remove('font-mincho');
-        novelContent.classList.add('font-gothic');
-      } else {
-        currentFont = 'mincho';
-        toggleFontBtn.textContent = '明朝';
-        novelContent.classList.remove('font-gothic');
-        novelContent.classList.add('font-mincho');
-      }
+      currentFont = currentFont === 'mincho' ? 'gothic' : 'mincho';
+      applyReadingPreferences();
     });
-
-    // Font Size
     fontSizeUp.addEventListener('click', () => {
-      if (currentFontSize < 24) {
-        currentFontSize += 2;
-        novelContent.style.fontSize = `${currentFontSize}px`;
-      }
+      currentFontSize = Math.min(24, currentFontSize + 2);
+      applyReadingPreferences();
     });
     fontSizeDown.addEventListener('click', () => {
-      if (currentFontSize > 13) {
-        currentFontSize -= 2;
-        novelContent.style.fontSize = `${currentFontSize}px`;
-      }
+      currentFontSize = Math.max(14, currentFontSize - 2);
+      applyReadingPreferences();
     });
-
-    // Theme Toggle
     themeToggleBtn.addEventListener('click', () => {
-      if (currentTheme === 'sepia') {
-        currentTheme = 'dark';
-        appBody.classList.remove('bg-stone-50', 'text-stone-800');
-        appBody.classList.add('bg-stone-900', 'text-stone-200');
-        sidebar.classList.remove('bg-stone-100', 'border-stone-200');
-        sidebar.classList.add('bg-stone-950', 'border-stone-800');
-        themeIconMoon.classList.add('hidden');
-        themeIconSun.classList.remove('hidden');
-      } else {
-        currentTheme = 'sepia';
-        appBody.classList.remove('bg-stone-900', 'text-stone-200');
-        appBody.classList.add('bg-stone-50', 'text-stone-800');
-        sidebar.classList.remove('bg-stone-950', 'border-stone-800');
-        sidebar.classList.add('bg-stone-100', 'border-stone-200');
-        themeIconSun.classList.add('hidden');
-        themeIconMoon.classList.remove('hidden');
-      }
+      currentTheme = currentTheme === 'dark' ? 'sepia' : 'dark';
+      applyReadingPreferences();
     });
 
-    // Static hosting uses /data/* (built snapshot). Local npm start keeps /api/* as fallback.
+    function showLoadError(message, retry) {
+      novelContent.setAttribute('aria-busy', 'false');
+      novelContent.innerHTML = '';
+      const note = document.createElement('p');
+      note.className = 'text-rose-500 text-center py-8';
+      note.setAttribute('role', 'alert');
+      note.textContent = message;
+      const button = document.createElement('button');
+      button.type = 'button';
+      button.className = 'block mx-auto rounded-lg border border-stone-300 px-4 py-2 font-gothic text-sm';
+      button.textContent = '再読み込み';
+      button.addEventListener('click', () => { button.disabled = true; retry(); });
+      novelContent.append(note, button);
+    }
+
+    // Retain only recently visited scenes in memory; never persist manuscript text.
+    function fetchSceneText(url) {
+      if (sceneCache.has(url)) {
+        const cached = sceneCache.get(url);
+        sceneCache.delete(url);
+        sceneCache.set(url, cached);
+        return cached;
+      }
+      const request = fetchText([url]).catch(error => {
+        if (sceneCache.get(url) === request) sceneCache.delete(url);
+        throw error;
+      });
+      sceneCache.set(url, request);
+      if (sceneCache.size > 20) sceneCache.delete(sceneCache.keys().next().value);
+      return request;
+    }
+
+    // Fetch only files included in the current reader snapshot.
     async function fetchText(paths) {
       let lastErr = null;
       for (const url of paths) {
@@ -479,9 +455,9 @@
       currentWork = null;
       currentWorkBase = '';
       manifestData = null;
-      renderMarketData(null);
       allScenes = [];
       currentSceneIndex = 0;
+      novelContent.setAttribute('aria-busy', 'false');
 
       workTitle.textContent = '小説ライブラリ';
       document.title = '小説ライブラリ - 小説ビューア';
@@ -535,6 +511,7 @@
       } catch (err) {
         console.error('Failed to load library:', err);
         showReaderState('作品一覧の取得に失敗しました。', {error: true, selectorLabel: '読み込み失敗'});
+        showLoadError('作品一覧を取得できませんでした。', loadLibrary);
       }
     }
 
@@ -585,6 +562,8 @@
       if (!work) return;
       showReaderShell();
       const token = ++loadToken;
+      ++sceneLoadToken;
+      activeNav = null;
       currentWork = work;
       currentWorkBase = `/${String(work.basePath || '').replace(/^\/+/, '')}/data/`;
       workSelect.value = work.id;
@@ -599,20 +578,15 @@
         mangaLink.removeAttribute('href');
         mangaLink.textContent = '';
       }
-      if (updateUrl) {
-        const url = new URL(window.location.href);
-        url.searchParams.set('work', work.id);
-        window.history.replaceState({}, '', url);
-      }
 
       manifestData = null;
-      renderMarketData(null);
       allScenes = [];
       currentSceneIndex = 0;
       prevSceneBtn.disabled = true;
       nextSceneBtn.disabled = true;
       nextHeaderBtn.disabled = true;
       episodesContainer.innerHTML = '<div class="text-stone-400 text-xs text-center py-4">目次を取得中...</div>';
+      novelContent.setAttribute('aria-busy', 'true');
       novelContent.innerHTML = '<p class="text-stone-400 text-center py-8">作品を読み込んでいます...</p>';
       currentEpisodeTitle.textContent = '読み込み中...';
       currentSceneTitle.textContent = '読み込み中...';
@@ -624,17 +598,25 @@
         const text = await fetchText(contentUrls('reader-index.json'));
         if (token !== loadToken) return;
         manifestData = JSON.parse(text);
-        renderMarketData(manifestData.marketData);
+        if (!Array.isArray(manifestData.episodes) || !Array.isArray(manifestData.scenes)) throw new Error('Invalid reader index');
         renderTableOfContents();
         if (allScenes.length > 0) {
-          await loadScene(routeSceneIndex(), token);
+          const rememberedIndex = allScenes.findIndex(scene => scene.id === lastSceneByWork.get(work.id));
+          const initialIndex = updateUrl ? Math.max(0, rememberedIndex) : routeSceneIndex();
+          await loadScene(initialIndex, {token, historyMode: updateUrl ? 'push' : 'replace'});
         } else {
+          updateSceneUrl(null, updateUrl ? 'push' : 'replace');
+          novelContent.setAttribute('aria-busy', 'false');
+          currentEpisodeTitle.textContent = '';
+          currentSceneTitle.textContent = '';
+          articleTitle.textContent = '';
           novelContent.innerHTML = '<p class="text-stone-500 text-center py-8">本文がありません。</p>';
         }
       } catch (err) {
         if (token !== loadToken) return;
         console.error('Failed to load manifest:', err);
-        novelContent.innerHTML = '<p class="text-rose-500 text-center py-8">目次の取得に失敗しました。</p>';
+        episodesContainer.textContent = '目次を取得できませんでした。';
+        showLoadError('目次を取得できませんでした。', () => selectWork(work.id, {updateUrl}));
       }
     }
 
@@ -671,12 +653,16 @@
     }
 
     window.addEventListener('popstate', () => {
-      if (!libraryData) return;
+      if (!libraryData?.works.length) return;
       const requested = new URL(window.location.href).searchParams.get('work');
       const workId = libraryData.works.some(work => work.id === requested)
         ? requested
         : libraryData.defaultWorkId || libraryData.works[0].id;
-      selectWork(workId, {updateUrl: false});
+      if (currentWork?.id === workId && allScenes.length) {
+        loadScene(routeSceneIndex(), {historyMode: 'replace'});
+      } else {
+        selectWork(workId, {updateUrl: false});
+      }
     });
 
     function contentUrls(relPath) {
@@ -699,11 +685,11 @@
       manifestData.scenes.forEach(s => { sceneById[s.id] = s; });
 
       sections.forEach((section, sectionIdx) => {
-        const epWrapper = document.createElement('div');
+        const epWrapper = document.createElement('details');
         epWrapper.className = 'border border-stone-200 rounded-lg overflow-hidden bg-white/70';
 
-        const epHeader = document.createElement('div');
-        epHeader.className = 'px-3 py-2 bg-stone-100/70 border-b border-stone-200 font-semibold text-xs text-stone-800 flex items-center justify-between cursor-pointer hover:bg-stone-200/70 transition';
+        const epHeader = document.createElement('summary');
+        epHeader.className = 'px-3 py-2 bg-stone-100/70 border-b border-stone-200 font-semibold text-xs text-stone-800 flex items-center justify-between cursor-pointer hover:bg-stone-200/70 transition gap-2';
         epHeader.innerHTML = `<span>${escapeHtml(section.title)}</span><span class="text-[10px] text-stone-400">${section.scene_ids.length} 場面</span>`;
 
         const sceneList = document.createElement('div');
@@ -725,15 +711,15 @@
           item.id = `nav-scene-${sid}`;
           item.innerHTML = `
             <span class="min-w-0 pr-2">
-              <span class="block text-[10px] text-stone-400 font-mono">${scene.displayId || sid}</span>
+              <span class="block text-[10px] text-stone-400 font-mono">${escapeHtml(scene.displayId || sid)}</span>
               <span class="scene-nav-title block truncate text-stone-700">${escapeHtml(scene.title || sid)}</span>
             </span>
-            <span class="shrink-0 text-[10px] text-stone-400 font-mono">読書</span>
           `;
           item.addEventListener('click', () => {
             loadScene(globalIdx);
             if (window.innerWidth < 768) {
-              sidebar.classList.add('-translate-x-full');
+              setSidebar(false);
+              readerContainer.focus({preventScroll: true});
             }
           });
           sceneList.appendChild(item);
@@ -745,10 +731,24 @@
       });
     }
 
-    async function loadScene(index, token = loadToken) {
+    function updateSceneUrl(sceneId, historyMode) {
+      const url = new URL(window.location.href);
+      url.searchParams.set('work', currentWork.id);
+      if (sceneId) url.searchParams.set('scene', sceneId);
+      else url.searchParams.delete('scene');
+      url.searchParams.delete('episode');
+      if (url.href !== window.location.href) window.history[historyMode + 'State']({}, '', url);
+    }
+
+    async function loadScene(index, {token = loadToken, historyMode = 'push'} = {}) {
       if (token !== loadToken || index < 0 || index >= allScenes.length) return;
+      const sceneToken = ++sceneLoadToken;
       currentSceneIndex = index;
       const scene = allScenes[index];
+      updateSceneUrl(scene.id, historyMode);
+      lastSceneByWork.set(currentWork.id, scene.id);
+      currentSceneTitle.textContent = scene.title || scene.id;
+      articleTitle.textContent = scene.title || scene.id;
       const workAtLoad = currentWork;
 
       // Update UI Header
@@ -766,26 +766,30 @@
       nextSceneBtn.disabled = index === allScenes.length - 1;
       nextHeaderBtn.disabled = index === allScenes.length - 1;
 
-      // Highlight active nav item
-      document.querySelectorAll('.scene-nav-item').forEach(el => {
-        el.classList.remove('bg-emerald-100', 'text-emerald-900', 'font-semibold');
-      });
-      const activeNav = document.getElementById(`nav-scene-${scene.id}`);
+      if (activeNav) {
+        activeNav.classList.remove('bg-emerald-100', 'text-emerald-900', 'font-semibold');
+        activeNav.removeAttribute('aria-current');
+      }
+      activeNav = document.getElementById(`nav-scene-${scene.id}`);
       if (activeNav) {
         activeNav.classList.add('bg-emerald-100', 'text-emerald-900', 'font-semibold');
+        activeNav.setAttribute('aria-current', 'page');
+        activeNav.closest('details').open = true;
       }
 
+      novelContent.setAttribute('aria-busy', 'true');
       novelContent.innerHTML = '<p class="text-stone-400 text-center py-8">場面を読み込み中...</p>';
       document.getElementById('readerContainer').scrollTop = 0;
 
       try {
-        const text = await fetchText(contentUrls(scene.path));
-        if (token !== loadToken || workAtLoad !== currentWork) return;
+        const text = await fetchSceneText(contentUrls(scene.path)[0]);
+        if (token !== loadToken || sceneToken !== sceneLoadToken || workAtLoad !== currentWork) return;
         renderMarkdownScene(text, scene.id, scene.path);
+        novelContent.setAttribute('aria-busy', 'false');
       } catch (err) {
-        if (token !== loadToken || workAtLoad !== currentWork) return;
+        if (token !== loadToken || sceneToken !== sceneLoadToken || workAtLoad !== currentWork) return;
         console.error('Failed to load scene file:', err);
-        novelContent.innerHTML = '<p class="text-rose-500 text-center py-8">場面の読み込みに失敗しました。</p>';
+        showLoadError('本文を取得できませんでした。', () => loadScene(index, {historyMode: 'replace'}));
       }
     }
 
@@ -860,7 +864,7 @@
     }
 
     function escapeHtml(str) {
-      return str
+      return String(str ?? '')
         .replace(/&/g, '&amp;')
         .replace(/</g, '&lt;')
         .replace(/>/g, '&gt;')
@@ -883,3 +887,4 @@
   </script>
 </body>
 </html>
+
