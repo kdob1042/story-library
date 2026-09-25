@@ -21,7 +21,7 @@ description: 小説・脚本から漫画のページとコマを構成し、レ�
 呼び出されたら、同じチャットAIは追加確認なしで次を行う。
 
 1. `library.json` から作品名/workIdを解決し、`work.json` でepisodeId・原稿パス・人物設定を特定する。
-2. 読込commitを固定し、[story-analysis.md](story-analysis.md) → [paneling.md](paneling.md) → [review.md](review.md) の順で実行する。余韻の不足と絵・場面の役割の重複を標準レビューに含め、必要な箇所だけ再構成する。
+2. 読込commitを固定し、[story-analysis.md](story-analysis.md) → [paneling.md](paneling.md) → [review.md](review.md) の順で実行する。物語の流れが読者の興味を惹くか、漫画として絵が映えるか、感情を受け止める余韻があるかを標準レビューに含め、必要な箇所だけ再構成する。脚本レビューは絵の重複の有無にかかわらず行う。
 3. ページ単位の `name-plan/v3` を作り、[handoff.md](handoff.md) に従って対象ページと話の索引を機械検証する。既存v2の読取・移行は維持する。
 4. ユーザーが「保存」「保存まで」「アプリで読めるように」等を指定した場合だけ、最新devから作業ブランチを作り、`works/<workId>/manga/<episodeId>/episode.json` と `pages/<pageId>.json` を保存してdev向けDraft PRを作る。原稿変更を伴う場合は対応原稿候補も同じPRへ入れる。
 5. 保存指定がなければGitHubは変更せず、ネーム案と検証結果だけ返す。
