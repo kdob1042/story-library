@@ -1,0 +1,42 @@
+name: Deploy dev reader preview
+
+on:
+  push:
+    branches: [dev]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: reader-deploy-dev
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    env:
+      WORKERS_CI: "1"
+      WORKERS_CI_BRANCH: dev
+      CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+      CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Verify deployment config
+        run: npm run verify:deploy-config
+
+      - name: Build reader
+        run: npm run build:reader
+
+      - name: Deploy dev preview
+        run: npx wrangler versions upload --config wrangler.jsonc --preview-alias dev
