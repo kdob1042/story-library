@@ -162,14 +162,14 @@
       "characters": [
         {
           "characterId": "kamiya-yu",
-          "appearanceId": null,
-          "visualState": "",
-          "emotion": "",
+          "appearanceId": "P01-01-kamiya-yu",
+          "visualState": "1階のバスケコート上",
+          "emotion": "落ち着いた駆け引き",
           "holding": []
         }
       ],
-      "prompt": "漫画の線画のための構図案。詰めた長い腕と、シュートを装って沈む勇の重心。守備との軸を揃える。人物は登録済み基準画と当該場面の本文に合わせる。台詞・効果音・看板の文字を画像へ焼き込まない。",
-      "shotIntent": "詰めた長い腕と、シュートを装って沈む勇の重心。守備との軸を揃える。",
+      "prompt": "勇が重心を沈め、球を持ち上げてシュートを装う。近くの長身の守備Aが明るいビブスで腕を伸ばす。まだ跳び越えず、接触しない。攻撃方向をA端に保つ。 人物の顔・体格・髪は対応する登録基準画に合わせる。1コマの絵として描き、枠線・吹き出し・台詞・効果音・印刷文字は焼き込まない。",
+      "shotIntent": "勇が重心を沈め、球を持ち上げてシュートを装う。近くの長身の守備Aが明るいビブスで腕を伸ばす。まだ跳び越えず、接触しない。攻撃方向をA端に保つ。",
       "protect": [
         "人物の顔と手",
         "主要動作とボール",
@@ -177,7 +177,7 @@
       ],
       "gaze": "neutral",
       "intent": "standard",
-      "previousPanelId": null,
+      "previousPanelId": "P01-panel-013",
       "texts": [],
       "frame": {
         "points": [
@@ -216,14 +216,14 @@
       "characters": [
         {
           "characterId": "kamiya-yu",
-          "appearanceId": null,
-          "visualState": "",
-          "emotion": "",
+          "appearanceId": "P01-01-kamiya-yu",
+          "visualState": "1階のバスケコート上",
+          "emotion": "鋭い集中",
           "holding": []
         }
       ],
-      "prompt": "漫画の線画のための構図案。守備が跳び、勇は低く相手の脇を抜ける。フェイクの原因と結果を同じ読書方向へ。人物は登録済み基準画と当該場面の本文に合わせる。台詞・効果音・看板の文字を画像へ焼き込まない。",
-      "shotIntent": "守備が跳び、勇は低く相手の脇を抜ける。フェイクの原因と結果を同じ読書方向へ。",
+      "prompt": "守備Aがフェイクにつられて空中にいる瞬間。勇は低く右手でドリブルし、守備の脇を抜けてA端へ進む。前コマと同じ守備の髪型・体格・ビブス。球と勇を複製しない。 人物の顔・体格・髪は対応する登録基準画に合わせる。1コマの絵として描き、枠線・吹き出し・台詞・効果音・印刷文字は焼き込まない。",
+      "shotIntent": "守備Aがフェイクにつられて空中にいる瞬間。勇は低く右手でドリブルし、守備の脇を抜けてA端へ進む。前コマと同じ守備の髪型・体格・ビブス。球と勇を複製しない。",
       "protect": [
         "人物の顔と手",
         "主要動作とボール",
@@ -231,7 +231,7 @@
       ],
       "gaze": "neutral",
       "intent": "sequence",
-      "previousPanelId": null,
+      "previousPanelId": "P01-panel-016",
       "texts": [],
       "frame": {
         "points": [
@@ -269,14 +269,21 @@
       "characters": [
         {
           "characterId": "kamiya-yu",
-          "appearanceId": null,
-          "visualState": "",
-          "emotion": "",
+          "appearanceId": "P01-01-kamiya-yu",
+          "visualState": "1階のバスケコート上",
+          "emotion": "周囲を見る余裕",
+          "holding": []
+        },
+        {
+          "characterId": "onodera",
+          "appearanceId": "P01-01-onodera",
+          "visualState": "1階のバスケコート上",
+          "emotion": "周囲を見る余裕",
           "holding": []
         }
       ],
-      "prompt": "漫画の線画のための構図案。二人目の守備の前、空中で身をよじる勇が背後へノールックパスを放つ瞬間。人物は登録済み基準画と当該場面の本文に合わせる。台詞・効果音・看板の文字を画像へ焼き込まない。",
-      "shotIntent": "二人目の守備の前、空中で身をよじる勇が背後へノールックパスを放つ瞬間。",
+      "prompt": "A端ゴール下から守備Bが立ちはだかる。勇は衝突前に空中で身をよじり、背後の小野寺へ球を放った一瞬。小野寺を後方に見せ、受け手と球の通り道を読める構図。勇は受け手を振り返って見ない。 人物の顔・体格・髪は対応する登録基準画に合わせる。1コマの絵として描き、枠線・吹き出し・台詞・効果音・印刷文字は焼き込まない。",
+      "shotIntent": "A端ゴール下から守備Bが立ちはだかる。勇は衝突前に空中で身をよじり、背後の小野寺へ球を放った一瞬。小野寺を後方に見せ、受け手と球の通り道を読める構図。勇は受け手を振り返って見ない。",
       "protect": [
         "人物の顔と手",
         "主要動作とボール",
@@ -284,7 +291,7 @@
       ],
       "gaze": "neutral",
       "intent": "standard",
-      "previousPanelId": null,
+      "previousPanelId": "P01-panel-017",
       "texts": [],
       "frame": {
         "points": [
@@ -321,15 +328,15 @@
       ],
       "characters": [
         {
-          "characterId": "kawai-yumiko",
-          "appearanceId": null,
-          "visualState": "",
-          "emotion": "",
+          "characterId": "onodera",
+          "appearanceId": "P01-01-onodera",
+          "visualState": "1階のバスケコート上",
+          "emotion": "得点の勢い",
           "holding": []
         }
       ],
-      "prompt": "漫画の線画のための構図案。先輩のダンクの瞬間と、客席から上がる大きな歓声。人物は登録済み基準画と当該場面の本文に合わせる。台詞・効果音・看板の文字を画像へ焼き込まない。",
-      "shotIntent": "先輩のダンクの瞬間と、客席から上がる大きな歓声。",
+      "prompt": "A端の同じゴールへ、長身の小野寺がダンクする一瞬。青い練習着。高い位置の客席は背景に置き、由美子の顔を別の場所へ挿入しない。画面の主役は小野寺とリング。 人物の顔・体格・髪は対応する登録基準画に合わせる。1コマの絵として描き、枠線・吹き出し・台詞・効果音・印刷文字は焼き込まない。",
+      "shotIntent": "A端の同じゴールへ、長身の小野寺がダンクする一瞬。青い練習着。高い位置の客席は背景に置き、由美子の顔を別の場所へ挿入しない。画面の主役は小野寺とリング。",
       "protect": [
         "人物の顔と手",
         "主要動作とボール",
@@ -337,7 +344,7 @@
       ],
       "gaze": "neutral",
       "intent": "dominant",
-      "previousPanelId": null,
+      "previousPanelId": "P01-panel-018",
       "texts": [],
       "frame": {
         "points": [
@@ -375,22 +382,22 @@
       ],
       "characters": [
         {
-          "characterId": "kawai-yumiko",
-          "appearanceId": null,
-          "visualState": "",
-          "emotion": "",
+          "characterId": "kamiya-yu",
+          "appearanceId": "P01-01-kamiya-yu",
+          "visualState": "1階のバスケコート上",
+          "emotion": "年相応の笑顔",
           "holding": []
         },
         {
-          "characterId": "kamiya-yu",
-          "appearanceId": null,
-          "visualState": "",
-          "emotion": "",
+          "characterId": "onodera",
+          "appearanceId": "P01-01-onodera",
+          "visualState": "1階のバスケコート上",
+          "emotion": "年相応の笑顔",
           "holding": []
         }
       ],
-      "prompt": "漫画の線画のための構図案。先輩に頭を撫でられた勇の白い歯、由美子がその落差を見つめる。人物は登録済み基準画と当該場面の本文に合わせる。台詞・効果音・看板の文字を画像へ焼き込まない。",
-      "shotIntent": "先輩に頭を撫でられた勇の白い歯、由美子がその落差を見つめる。",
+      "prompt": "走り戻る小野寺が勇の頭をわしゃわしゃ撫でる。勇は首をすくめ、白い歯を見せて年相応に笑う。小野寺は019と同じ髪・背丈。由美子は上階から見ており、この寄りの画角には入れない。 人物の顔・体格・髪は対応する登録基準画に合わせる。1コマの絵として描き、枠線・吹き出し・台詞・効果音・印刷文字は焼き込まない。",
+      "shotIntent": "走り戻る小野寺が勇の頭をわしゃわしゃ撫でる。勇は首をすくめ、白い歯を見せて年相応に笑う。小野寺は019と同じ髪・背丈。由美子は上階から見ており、この寄りの画角には入れない。",
       "protect": [
         "人物の顔と手",
         "主要動作とボール",
@@ -398,7 +405,7 @@
       ],
       "gaze": "neutral",
       "intent": "reaction",
-      "previousPanelId": null,
+      "previousPanelId": "P01-panel-019",
       "texts": [],
       "frame": {
         "points": [

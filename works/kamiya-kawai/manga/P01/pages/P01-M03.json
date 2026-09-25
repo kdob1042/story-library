@@ -153,14 +153,21 @@
       "characters": [
         {
           "characterId": "kamiya-yu",
-          "appearanceId": null,
-          "visualState": "",
-          "emotion": "",
+          "appearanceId": "P01-01-kamiya-yu",
+          "visualState": "1階のバスケコート上",
+          "emotion": "迷いない動き",
+          "holding": []
+        },
+        {
+          "characterId": "kuze",
+          "appearanceId": "P01-01-kuze",
+          "visualState": "1階のバスケコート上",
+          "emotion": "迷いない動き",
           "holding": []
         }
       ],
-      "prompt": "漫画の線画のための構図案。返球、右への走り、スクリーンの裏を抜ける移動の終点を見せる。別時刻の姿は重ねない。人物は登録済み基準画と当該場面の本文に合わせる。台詞・効果音・看板の文字を画像へ焼き込まない。",
-      "shotIntent": "返球、右への走り、スクリーンの裏を抜ける移動の終点を見せる。別時刻の姿は重ねない。",
+      "prompt": "勇が久世の背中をかすめて守備の反対側へ抜け、戻ってきた球を受けようとする一瞬。返球・右への走りの過程を残像で並べない。久世は大柄、守備は明るいビブス。 人物の顔・体格・髪は対応する登録基準画に合わせる。1コマの絵として描き、枠線・吹き出し・台詞・効果音・印刷文字は焼き込まない。",
+      "shotIntent": "勇が久世の背中をかすめて守備の反対側へ抜け、戻ってきた球を受けようとする一瞬。返球・右への走りの過程を残像で並べない。久世は大柄、守備は明るいビブス。",
       "protect": [
         "人物の顔と手",
         "主要動作とボール",
@@ -168,7 +175,7 @@
       ],
       "gaze": "neutral",
       "intent": "sequence",
-      "previousPanelId": null,
+      "previousPanelId": "P01-panel-008",
       "texts": [],
       "frame": {
         "points": [
@@ -207,22 +214,15 @@
       ],
       "characters": [
         {
-          "characterId": "kawai-yumiko",
-          "appearanceId": null,
-          "visualState": "",
-          "emotion": "",
-          "holding": []
-        },
-        {
           "characterId": "kamiya-yu",
-          "appearanceId": null,
-          "visualState": "",
-          "emotion": "",
+          "appearanceId": "P01-01-kamiya-yu",
+          "visualState": "1階のバスケコート上",
+          "emotion": "シュートへの集中",
           "holding": []
         }
       ],
-      "prompt": "漫画の線画のための構図案。三点線と勇の距離を同一画面で示す。由美子の視線と、もう頭上へ伸びた腕。人物は登録済み基準画と当該場面の本文に合わせる。台詞・効果音・看板の文字を画像へ焼き込まない。",
-      "shotIntent": "三点線と勇の距離を同一画面で示す。由美子の視線と、もう頭上へ伸びた腕。",
+      "prompt": "三点線、勇の足元、A端のゴールを同じ画面に入れ、線より1m以上外に立つ遠さを示す。勇の右腕が頭上へ伸びるリリース直後。由美子の顔はこの画角へ挿入しない。 人物の顔・体格・髪は対応する登録基準画に合わせる。1コマの絵として描き、枠線・吹き出し・台詞・効果音・印刷文字は焼き込まない。",
+      "shotIntent": "三点線、勇の足元、A端のゴールを同じ画面に入れ、線より1m以上外に立つ遠さを示す。勇の右腕が頭上へ伸びるリリース直後。由美子の顔はこの画角へ挿入しない。",
       "protect": [
         "人物の顔と手",
         "主要動作とボール",
@@ -230,7 +230,7 @@
       ],
       "gaze": "neutral",
       "intent": "standard",
-      "previousPanelId": null,
+      "previousPanelId": "P01-panel-009",
       "texts": [
         {
           "id": "text:P01-panel-010:1",
@@ -273,24 +273,16 @@
       "beatIds": [
         "P01-beat-06"
       ],
-      "characters": [
-        {
-          "characterId": "kamiya-yu",
-          "appearanceId": null,
-          "visualState": "",
-          "emotion": "",
-          "holding": []
-        }
-      ],
-      "prompt": "漫画の線画のための構図案。ネットの乾いた揺れ。前列の子の「遠っ……！」は画面外の声。人物は登録済み基準画と当該場面の本文に合わせる。台詞・効果音・看板の文字を画像へ焼き込まない。",
-      "shotIntent": "ネットの乾いた揺れ。前列の子の「遠っ……！」は画面外の声。",
+      "characters": [],
+      "prompt": "A端の同じゴールのリングとネットの寄り。球はネットを通過し、乾いた揺れが見える。勇も観客も画角外。前列女子の声は後から文字で重ねる。 人物の顔・体格・髪は対応する登録基準画に合わせる。1コマの絵として描き、枠線・吹き出し・台詞・効果音・印刷文字は焼き込まない。",
+      "shotIntent": "A端の同じゴールのリングとネットの寄り。球はネットを通過し、乾いた揺れが見える。勇も観客も画角外。前列女子の声は後から文字で重ねる。",
       "protect": [
         "手元・重要物",
         "文字レイヤーの余白"
       ],
       "gaze": "neutral",
       "intent": "dominant",
-      "previousPanelId": null,
+      "previousPanelId": "P01-panel-010",
       "texts": [
         {
           "id": "text:P01-panel-011:1",
@@ -336,14 +328,16 @@
       "characters": [
         {
           "characterId": "kawai-yumiko",
-          "appearanceId": null,
-          "visualState": "",
-          "emotion": "",
-          "holding": []
+          "appearanceId": "P01-01-kawai-yumiko",
+          "visualState": "上階観客席に着席",
+          "emotion": "小さな驚き",
+          "holding": [
+            "冊子は膝"
+          ]
         }
       ],
-      "prompt": "漫画の線画のための構図案。由美子の小さく見開いた目から、淀みないフォームを見たことが伝わる。人物は登録済み基準画と当該場面の本文に合わせる。台詞・効果音・看板の文字を画像へ焼き込まない。",
-      "shotIntent": "由美子の小さく見開いた目から、淀みないフォームを見たことが伝わる。",
+      "prompt": "上階席の由美子の目元と顔へ寄る。下のコートを追って、小さく目を見開く。視線は水平方向からやや下。大げさな赤面・恋愛の光を加えない。 人物の顔・体格・髪は対応する登録基準画に合わせる。1コマの絵として描き、枠線・吹き出し・台詞・効果音・印刷文字は焼き込まない。",
+      "shotIntent": "上階席の由美子の目元と顔へ寄る。下のコートを追って、小さく目を見開く。視線は水平方向からやや下。大げさな赤面・恋愛の光を加えない。",
       "protect": [
         "人物の顔と手",
         "主要動作とボール",
@@ -351,7 +345,7 @@
       ],
       "gaze": "neutral",
       "intent": "reaction",
-      "previousPanelId": null,
+      "previousPanelId": "P01-panel-006",
       "texts": [],
       "frame": {
         "points": [

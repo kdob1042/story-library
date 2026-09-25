@@ -173,14 +173,23 @@
       "characters": [
         {
           "characterId": "kawai-yumiko",
-          "appearanceId": null,
-          "visualState": "",
-          "emotion": "",
+          "appearanceId": "P01-01-kawai-yumiko",
+          "visualState": "上階観客席に着席",
+          "emotion": "歌の余韻と憧れ",
+          "holding": [
+            "両手で拍手、冊子は膝"
+          ]
+        },
+        {
+          "characterId": "chihiro",
+          "appearanceId": "P01-01-chihiro",
+          "visualState": "舞台または冊子の集合写真のリード",
+          "emotion": "歌の余韻と憧れ",
           "holding": []
         }
       ],
-      "prompt": "漫画の線画のための構図案。六人の歌が終わった体育館。舞台の一礼と、客席で拍手を続ける由美子。歓声へ至る短い静寂を空白で扱う。人物は登録済み基準画と当該場面の本文に合わせる。台詞・効果音・看板の文字を画像へ焼き込まない。",
-      "shotIntent": "六人の歌が終わった体育館。舞台の一礼と、客席で拍手を続ける由美子。歓声へ至る短い静寂を空白で扱う。",
+      "prompt": "上階の由美子の肩越し。下方に空いたバスケコートを挟み、奥の高い舞台で女子6人が一礼する。由美子は拍手を続ける。千尋を含む6人を数えられる距離で、マイクも6本。客席は1階へ置かない。 人物の顔・体格・髪は対応する登録基準画に合わせる。1コマの絵として描き、枠線・吹き出し・台詞・効果音・印刷文字は焼き込まない。",
+      "shotIntent": "上階の由美子の肩越し。下方に空いたバスケコートを挟み、奥の高い舞台で女子6人が一礼する。由美子は拍手を続ける。千尋を含む6人を数えられる距離で、マイクも6本。客席は1階へ置かない。",
       "protect": [
         "人物の顔と手",
         "主要動作とボール",
@@ -228,21 +237,30 @@
       "characters": [
         {
           "characterId": "kawai-yumiko",
-          "appearanceId": null,
-          "visualState": "",
-          "emotion": "",
+          "appearanceId": "P01-01-kawai-yumiko",
+          "visualState": "上階観客席に着席",
+          "emotion": "先輩を探す集中",
+          "holding": [
+            "左手で冊子、右人差し指で写真"
+          ]
+        },
+        {
+          "characterId": "chihiro",
+          "appearanceId": "P01-01-chihiro",
+          "visualState": "冊子の集合写真の中だけに登場。実体を客席へ足さない。",
+          "emotion": "先輩を探す集中",
           "holding": []
         }
       ],
-      "prompt": "漫画の線画のための構図案。冊子の集合写真から先輩を探す指。中学三年間の経緯は簡潔なナレーション欄に置く。人物は登録済み基準画と当該場面の本文に合わせる。台詞・効果音・看板の文字を画像へ焼き込まない。",
-      "shotIntent": "冊子の集合写真から先輩を探す指。中学三年間の経緯は簡潔なナレーション欄に置く。",
+      "prompt": "由美子の膝上の開いた冊子へ寄る。右の人差し指で、女子6人の集合写真の中の短髪の千尋を探す。舞台の6人と写真の6人を一致させる。中学時代の回想を足さない。上部に既存ナレーションの余白。 人物の顔・体格・髪は対応する登録基準画に合わせる。1コマの絵として描き、枠線・吹き出し・台詞・効果音・印刷文字は焼き込まない。",
+      "shotIntent": "由美子の膝上の開いた冊子へ寄る。右の人差し指で、女子6人の集合写真の中の短髪の千尋を探す。舞台の6人と写真の6人を一致させる。中学時代の回想を足さない。上部に既存ナレーションの余白。",
       "protect": [
         "手元・重要物",
         "文字レイヤーの余白"
       ],
       "gaze": "neutral",
       "intent": "standard",
-      "previousPanelId": null,
+      "previousPanelId": "P01-panel-001",
       "texts": [
         {
           "id": "text:P01-panel-002:0",
@@ -290,28 +308,34 @@
       "characters": [
         {
           "characterId": "kawai-yumiko",
-          "appearanceId": null,
-          "visualState": "",
-          "emotion": "",
-          "holding": []
+          "appearanceId": "P01-01-kawai-yumiko",
+          "visualState": "上階観客席に着席",
+          "emotion": "三人で意志が通じる高揚",
+          "holding": [
+            "冊子は膝上、手を添えてうなずく"
+          ]
         },
         {
           "characterId": "maki",
-          "appearanceId": null,
-          "visualState": "",
-          "emotion": "",
-          "holding": []
+          "appearanceId": "P01-01-maki",
+          "visualState": "上階観客席に着席",
+          "emotion": "三人で意志が通じる高揚",
+          "holding": [
+            "両手で冊子を口元に持つ"
+          ]
         },
         {
           "characterId": "shizuka",
-          "appearanceId": null,
-          "visualState": "",
-          "emotion": "",
-          "holding": []
+          "appearanceId": "P01-01-shizuka",
+          "visualState": "上階観客席に着席",
+          "emotion": "三人で意志が通じる高揚",
+          "holding": [
+            "胸の前で両手を握る"
+          ]
         }
       ],
-      "prompt": "漫画の線画のための構図案。離れた列の真希と静香、由美子のうなずき返し。三人が目を交わす空間を保つ。人物は登録済み基準画と当該場面の本文に合わせる。台詞・効果音・看板の文字を画像へ焼き込まない。",
-      "shotIntent": "離れた列の真希と静香、由美子のうなずき返し。三人が目を交わす空間を保つ。",
+      "prompt": "上階の同じ段床席。斜め前の真希が冊子で口元を隠して振り返り、何度もうなずく。その一列後ろの静香は胸の前で両手を握る。由美子がうなずき返す。三人を隣席へ集めず、座席の間隔が分かる構図。 人物の顔・体格・髪は対応する登録基準画に合わせる。1コマの絵として描き、枠線・吹き出し・台詞・効果音・印刷文字は焼き込まない。",
+      "shotIntent": "上階の同じ段床席。斜め前の真希が冊子で口元を隠して振り返り、何度もうなずく。その一列後ろの静香は胸の前で両手を握る。由美子がうなずき返す。三人を隣席へ集めず、座席の間隔が分かる構図。",
       "protect": [
         "人物の顔と手",
         "主要動作とボール",
@@ -319,7 +343,7 @@
       ],
       "gaze": "neutral",
       "intent": "reaction",
-      "previousPanelId": null,
+      "previousPanelId": "P01-panel-001",
       "texts": [],
       "frame": {
         "points": [
@@ -357,21 +381,23 @@
       "characters": [
         {
           "characterId": "kawai-yumiko",
-          "appearanceId": null,
-          "visualState": "",
-          "emotion": "",
-          "holding": []
+          "appearanceId": "P01-01-kawai-yumiko",
+          "visualState": "上階観客席に着席",
+          "emotion": "入部への強い意志",
+          "holding": [
+            "右手にボールペン、左手で冊子"
+          ]
         }
       ],
-      "prompt": "漫画の線画のための構図案。《アカペラ部》をもう一周囲むボールペン。線の濃さで意志を見せる。人物は登録済み基準画と当該場面の本文に合わせる。台詞・効果音・看板の文字を画像へ焼き込まない。",
-      "shotIntent": "《アカペラ部》をもう一周囲むボールペン。線の濃さで意志を見せる。",
+      "prompt": "由美子の膝上の冊子を大きく見せる。右手のボールペンが部名見出しの周りに濃い二重丸を描く。集合写真は丸の外。見出しには後で「アカペラ部」を置くための白地を残す。左手はページを支える。 人物の顔・体格・髪は対応する登録基準画に合わせる。1コマの絵として描き、枠線・吹き出し・台詞・効果音・印刷文字は焼き込まない。",
+      "shotIntent": "由美子の膝上の冊子を大きく見せる。右手のボールペンが部名見出しの周りに濃い二重丸を描く。集合写真は丸の外。見出しには後で「アカペラ部」を置くための白地を残す。左手はページを支える。",
       "protect": [
         "手元・重要物",
         "文字レイヤーの余白"
       ],
       "gaze": "neutral",
       "intent": "dominant",
-      "previousPanelId": null,
+      "previousPanelId": "P01-panel-002",
       "texts": [],
       "frame": {
         "points": [

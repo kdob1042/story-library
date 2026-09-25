@@ -103,14 +103,21 @@
       "characters": [
         {
           "characterId": "kamiya-yu",
-          "appearanceId": null,
-          "visualState": "",
-          "emotion": "",
+          "appearanceId": "P01-01-kamiya-yu",
+          "visualState": "1階のバスケコート上",
+          "emotion": "動き続ける集中",
+          "holding": []
+        },
+        {
+          "characterId": "kuze",
+          "appearanceId": "P01-01-kuze",
+          "visualState": "1階のバスケコート上",
+          "emotion": "動き続ける集中",
           "holding": []
         }
       ],
-      "prompt": "漫画の線画のための構図案。ゴール下へ切り込み急停止、外へ飛び出す。守備がスクリーンを避けた隙間を示す。人物は登録済み基準画と当該場面の本文に合わせる。台詞・効果音・看板の文字を画像へ焼き込まない。",
-      "shotIntent": "ゴール下へ切り込み急停止、外へ飛び出す。守備がスクリーンを避けた隙間を示す。",
+      "prompt": "ゴール下から外へ飛び出した勇が、久世を避けて遅れた守備との間に隙間を得た一瞬。急停止と外への切り返しの結果を1人の勇の姿で示す。A端へ向く同じコート。 人物の顔・体格・髪は対応する登録基準画に合わせる。1コマの絵として描き、枠線・吹き出し・台詞・効果音・印刷文字は焼き込まない。",
+      "shotIntent": "ゴール下から外へ飛び出した勇が、久世を避けて遅れた守備との間に隙間を得た一瞬。急停止と外への切り返しの結果を1人の勇の姿で示す。A端へ向く同じコート。",
       "protect": [
         "人物の顔と手",
         "主要動作とボール",
@@ -118,7 +125,7 @@
       ],
       "gaze": "neutral",
       "intent": "sequence",
-      "previousPanelId": null,
+      "previousPanelId": "P01-panel-010",
       "texts": [],
       "frame": {
         "points": [
@@ -156,21 +163,16 @@
       "characters": [
         {
           "characterId": "kawai-yumiko",
-          "appearanceId": null,
-          "visualState": "",
-          "emotion": "",
-          "holding": []
-        },
-        {
-          "characterId": "kamiya-yu",
-          "appearanceId": null,
-          "visualState": "",
-          "emotion": "",
-          "holding": []
+          "appearanceId": "P01-01-kawai-yumiko",
+          "visualState": "上階観客席に着席",
+          "emotion": "次のシュートへの注目",
+          "holding": [
+            "冊子は膝"
+          ]
         }
       ],
-      "prompt": "漫画の線画のための構図案。由美子が「……また打つ」と見上げ、勇の二本目がネットへ落ちる。人物は登録済み基準画と当該場面の本文に合わせる。台詞・効果音・看板の文字を画像へ焼き込まない。",
-      "shotIntent": "由美子が「……また打つ」と見上げ、勇の二本目がネットへ落ちる。",
+      "prompt": "上階の由美子越しに見下ろし、下方のA端ゴールへ二本目が落ちる。球・ネットと観戦位置の高さを両立させる。由美子を「見上げる」姿にしない。「……また打つ」はリリースを見た時の声として後から置く。 人物の顔・体格・髪は対応する登録基準画に合わせる。1コマの絵として描き、枠線・吹き出し・台詞・効果音・印刷文字は焼き込まない。",
+      "shotIntent": "上階の由美子越しに見下ろし、下方のA端ゴールへ二本目が落ちる。球・ネットと観戦位置の高さを両立させる。由美子を「見上げる」姿にしない。「……また打つ」はリリースを見た時の声として後から置く。",
       "protect": [
         "人物の顔と手",
         "主要動作とボール",
@@ -178,7 +180,7 @@
       ],
       "gaze": "neutral",
       "intent": "dominant",
-      "previousPanelId": null,
+      "previousPanelId": "P01-panel-012",
       "texts": [
         {
           "id": "text:P01-panel-014:0",
@@ -223,21 +225,23 @@
       "characters": [
         {
           "characterId": "kawai-yumiko",
-          "appearanceId": null,
-          "visualState": "",
-          "emotion": "",
-          "holding": []
+          "appearanceId": "P01-01-kawai-yumiko",
+          "visualState": "上階観客席に着席",
+          "emotion": "冊子への注意が消える",
+          "holding": [
+            "冊子から両手が離れる"
+          ]
         }
       ],
-      "prompt": "漫画の線画のための構図案。開いた冊子から自然に離れた指。閉じてしまう動作は足さない。人物は登録済み基準画と当該場面の本文に合わせる。台詞・効果音・看板の文字を画像へ焼き込まない。",
-      "shotIntent": "開いた冊子から自然に離れた指。閉じてしまう動作は足さない。",
+      "prompt": "由美子の膝上の手元。005と同じ、開いたまま印刷面を下へ伏せた冊子の上から両手の指が自然に離れる。冊子を起こしたり閉じたりする動作は足さない。ペンは冊子の下に留める。 人物の顔・体格・髪は対応する登録基準画に合わせる。1コマの絵として描き、枠線・吹き出し・台詞・効果音・印刷文字は焼き込まない。",
+      "shotIntent": "由美子の膝上の手元。005と同じ、開いたまま印刷面を下へ伏せた冊子の上から両手の指が自然に離れる。冊子を起こしたり閉じたりする動作は足さない。ペンは冊子の下に留める。",
       "protect": [
         "手元・重要物",
         "文字レイヤーの余白"
       ],
       "gaze": "neutral",
       "intent": "reaction",
-      "previousPanelId": null,
+      "previousPanelId": "P01-panel-005",
       "texts": [],
       "frame": {
         "points": [
