@@ -21,7 +21,7 @@ description: 小説・脚本から漫画のページとコマを構成し、レ�
 呼び出されたら、同じチャットAIは追加確認なしで次を行う。
 
 1. `library.json` から作品名/workIdを解決し、`work.json` でepisodeId・原稿パス・人物設定を特定する。
-2. 読込commitを固定し、[story-analysis.md](story-analysis.md) → [paneling.md](paneling.md) → 必要なら [review.md](review.md) の順で実行する。
+2. 読込commitを固定し、[story-analysis.md](story-analysis.md) → [paneling.md](paneling.md) → [review.md](review.md) の順で実行する。余韻の不足と絵・場面の役割の重複を標準レビューに含め、必要な箇所だけ再構成する。
 3. ページ単位の `name-plan/v3` を作り、[handoff.md](handoff.md) に従って対象ページと話の索引を機械検証する。既存v2の読取・移行は維持する。
 4. ユーザーが「保存」「保存まで」「アプリで読めるように」等を指定した場合だけ、最新devから作業ブランチを作り、`works/<workId>/manga/<episodeId>/episode.json` と `pages/<pageId>.json` を保存してdev向けDraft PRを作る。原稿変更を伴う場合は対応原稿候補も同じPRへ入れる。
 5. 保存指定がなければGitHubは変更せず、ネーム案と検証結果だけ返す。
@@ -40,7 +40,7 @@ description: 小説・脚本から漫画のページとコマを構成し、レ�
 | レビュー・再構成 | [review.md](review.md) | 演出変更／脚本変更、採否、未解決事項 |
 | 検証・保存・受渡し | [handoff.md](handoff.md) | 対応原稿とname-plan、検証結果 |
 
-構成＋レビューは標準で最大3回。停止条件・フィードバックの扱いはreview、保存先・機械契約はhandoffに従う。
+構成＋レビューは1回の依頼につき標準で最大3回。各回で基準案と同じ原稿範囲を比較し、採否・未解決・次に確かめる点を短く残す。次回は決定メモから再開する。反復手順・停止条件・脚本へのフィードバックはreview、保存先・機械契約はhandoffに従う。
 
 ## 共通の境界
 
