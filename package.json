@@ -11,7 +11,8 @@
     "new-work": "node scripts/new-work.mjs",
     "build:reader": "node scripts/build-reader.mjs",
     "verify:deploy-config": "node scripts/verify-deploy-config.mjs",
-    "validate:name-plan": "node scripts/validate-name-plan.mjs"
+    "validate:name-plan": "node scripts/validate-name-plan.mjs",
+    "postbuild:reader": "node scripts/prepare-comments.mjs"
   },
   "engines": {
     "node": ">=22"

@@ -8,30 +8,20 @@
 
 ## 本番設定
 
-**コードのPRと本番設定は別。D1を設定・初期化するまでAPIは503を返し、フォームを開かない。**
+Cloudflareの既存Gitビルドで `npm run build:reader` の後に `postbuild:reader` が実行される。main/devのWorkers Buildsだけが以下を行う。
 
-1. CloudflareでD1 `story-library-comments` を作成する（既存DBや通知用KVを流用しない）。
-2. 発行された実際のdatabase IDで、`wrangler.jsonc`に以下を追加する。架空のIDを設定しない。
+1. コメント専用D1 `story-library-comments` を名前で確認し、初回だけ作成する。
+2. APIが返した実際のdatabase IDをビルド中の `wrangler.jsonc` に設定する。リポジトリに架空のIDや認証情報を保存しない。
+3. `wrangler d1 migrations apply` で未適用のmigrationを適用する。
+4. コメントを取得・投稿せずにテーブルの列を確認する。失敗した場合はビルドを停止し、デプロイに進まない。
 
-```json
-"d1_databases": [{
-  "binding": "COMMENTS_DB",
-  "database_name": "story-library-comments",
-  "database_id": "作成したD1の実際のID",
-  "migrations_dir": "migrations/comments"
-}]
-```
+Cloudflare Worker `story-library` のSettings → Buildsで選択しているAPI tokenに **Account / D1 / Edit** が必要。標準のBuild tokenにはD1権限が含まれない場合があるため、権限エラー時は既存tokenへこの権限を追加して再実行する。token自体はチャットやGitへ貼り付けない。
 
-3. 初回のスキーマ作成を行う。
+`COMMENTS_PUBLIC_ORIGIN` は `wrangler.jsonc` のvarsに設定済み。`keep_vars: true` により既存のdashboard変数を保持する。別の正規ドメインへ変更する場合もHTTPS originを指定し、末尾パス・認証情報は付けない。
 
-```sh
-npx wrangler d1 migrations apply story-library-comments --remote --config wrangler.jsonc
-```
+devのビルドでも初期設定を確認するが、private buildとoriginの両方の制限でコメントAPIには接続できない。公開はdevでのビルド成功を確認した後、通常のdev→main PRで行う。Accessと本文の公開設定は変更しない。
 
-4. WorkerのVariable `COMMENTS_PUBLIC_ORIGIN` に `https://story-library.mashstock.workers.dev` を設定する。別の正規ドメインを使う場合はそちらを指定する。末尾パス・認証情報は付けない。
-5. 通常のdev PR、CI、プレビュー受入、main PRの順で反映する。
-
-初回はD1作成と設定値の追記が必要。Secretは追加しない。既存メール設定・Access・本文の公開設定は変更しない。
+ローカルの `npm run build:reader -- --published` やGitHubの人工fixtureテストではDB準備をスキップし、Cloudflareへ接続しない。通常の手動デプロイ時は実際のdatabase IDを設定してmigrationを適用する。DB未接続時のAPIは503を返し、フォームを開かない。
 
 ## 公開範囲とプレビュー
 

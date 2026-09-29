@@ -10,5 +10,17 @@
     "binding": "ASSETS",
     "run_worker_first": true,
     "not_found_handling": "404-page"
-  }
+  },
+  "account_id": "81561b1cc51a5329d489840ab20f0ca6",
+  "keep_vars": true,
+  "vars": {
+    "COMMENTS_PUBLIC_ORIGIN": "https://story-library.mashstock.workers.dev"
+  },
+  "d1_databases": [
+    {
+      "binding": "COMMENTS_DB",
+      "database_name": "story-library-comments",
+      "migrations_dir": "migrations/comments"
+    }
+  ]
 }
