@@ -1,0 +1,379 @@
+{
+  "id": "P01-M03",
+  "purpose": "一本目の遠さを先に理解させ、放った瞬間と結果を分ける。",
+  "entryBeatId": "P01-beat-05",
+  "exit": {
+    "kind": "resolution",
+    "note": "由美子の目が勇のフォームを追う。",
+    "payoffBeatIds": [
+      "P01-beat-06"
+    ]
+  },
+  "sourceExcerpts": [
+    {
+      "id": "P01-01:u18:a0",
+      "text": "最初のパスを受けた一年生は、迷わずボールを先輩へ返した。",
+      "origin": {
+        "snapshotId": "name-source:1d100bd3305f9f8fdca84e46ca407d3efe76c4c43307a637a528aa68448ca2eb",
+        "sceneId": "P01-01",
+        "startCp": 736,
+        "endCp": 764
+      }
+    },
+    {
+      "id": "P01-01:u18:a1",
+      "text": "そのまま鋭く右へ走る。",
+      "origin": {
+        "snapshotId": "name-source:1d100bd3305f9f8fdca84e46ca407d3efe76c4c43307a637a528aa68448ca2eb",
+        "sceneId": "P01-01",
+        "startCp": 764,
+        "endCp": 775
+      }
+    },
+    {
+      "id": "P01-01:u18:a2",
+      "text": "相手のディフェンスが先へ回り込もうとした瞬間、大きな先輩の背中をかすめるようにして、反対側へすり抜けた。",
+      "origin": {
+        "snapshotId": "name-source:1d100bd3305f9f8fdca84e46ca407d3efe76c4c43307a637a528aa68448ca2eb",
+        "sceneId": "P01-01",
+        "startCp": 775,
+        "endCp": 827
+      }
+    },
+    {
+      "id": "P01-01:u19:a0",
+      "text": "ボールが戻る。",
+      "origin": {
+        "snapshotId": "name-source:1d100bd3305f9f8fdca84e46ca407d3efe76c4c43307a637a528aa68448ca2eb",
+        "sceneId": "P01-01",
+        "startCp": 829,
+        "endCp": 836
+      }
+    },
+    {
+      "id": "P01-01:u20:a0",
+      "text": "ゴールを大きく囲むスリーポイントラインより、さらに一メートル以上も後ろだった。",
+      "origin": {
+        "snapshotId": "name-source:1d100bd3305f9f8fdca84e46ca407d3efe76c4c43307a637a528aa68448ca2eb",
+        "sceneId": "P01-01",
+        "startCp": 838,
+        "endCp": 877
+      }
+    },
+    {
+      "id": "P01-01:u20:a1",
+      "text": "線の内側なら二点、外から決めれば三点になる。",
+      "origin": {
+        "snapshotId": "name-source:1d100bd3305f9f8fdca84e46ca407d3efe76c4c43307a637a528aa68448ca2eb",
+        "sceneId": "P01-01",
+        "startCp": 877,
+        "endCp": 899
+      }
+    },
+    {
+      "id": "P01-01:u20:a2",
+      "text": "けれど、普通ならあんなに離れた位置から打つはずがない。",
+      "origin": {
+        "snapshotId": "name-source:1d100bd3305f9f8fdca84e46ca407d3efe76c4c43307a637a528aa68448ca2eb",
+        "sceneId": "P01-01",
+        "startCp": 899,
+        "endCp": 926
+      }
+    },
+    {
+      "id": "P01-01:u21:a0",
+      "text": "まだ遠い、と由美子が息を呑むより早く、彼の手はもう頭の上へ伸びていた。",
+      "origin": {
+        "snapshotId": "name-source:1d100bd3305f9f8fdca84e46ca407d3efe76c4c43307a637a528aa68448ca2eb",
+        "sceneId": "P01-01",
+        "startCp": 928,
+        "endCp": 963
+      }
+    },
+    {
+      "id": "P01-01:u22:a0",
+      "text": "シュパッ、と乾いた音を立ててネットが跳ねた。",
+      "origin": {
+        "snapshotId": "name-source:1d100bd3305f9f8fdca84e46ca407d3efe76c4c43307a637a528aa68448ca2eb",
+        "sceneId": "P01-01",
+        "startCp": 965,
+        "endCp": 987
+      }
+    },
+    {
+      "id": "P01-01:u23:a0",
+      "text": "「遠っ……！」",
+      "origin": {
+        "snapshotId": "name-source:1d100bd3305f9f8fdca84e46ca407d3efe76c4c43307a637a528aa68448ca2eb",
+        "sceneId": "P01-01",
+        "startCp": 989,
+        "endCp": 996
+      }
+    },
+    {
+      "id": "P01-01:u24:a0",
+      "text": "前の子が声を漏らし、由美子も小さく目を見張った。",
+      "origin": {
+        "snapshotId": "name-source:1d100bd3305f9f8fdca84e46ca407d3efe76c4c43307a637a528aa68448ca2eb",
+        "sceneId": "P01-01",
+        "startCp": 998,
+        "endCp": 1022
+      }
+    },
+    {
+      "id": "P01-01:u24:a1",
+      "text": "フォームに一切の淀みがなかった。",
+      "origin": {
+        "snapshotId": "name-source:1d100bd3305f9f8fdca84e46ca407d3efe76c4c43307a637a528aa68448ca2eb",
+        "sceneId": "P01-01",
+        "startCp": 1022,
+        "endCp": 1038
+      }
+    }
+  ],
+  "contextExcerpts": [],
+  "boundaryContext": {
+    "before": null,
+    "after": null
+  },
+  "panels": [
+    {
+      "id": "P01-panel-009",
+      "sceneId": "P01-01",
+      "sourceExcerptIds": [
+        "P01-01:u18:a0",
+        "P01-01:u18:a1",
+        "P01-01:u18:a2",
+        "P01-01:u19:a0"
+      ],
+      "contextExcerptIds": [],
+      "beatIds": [
+        "P01-beat-05"
+      ],
+      "characters": [
+        {
+          "characterId": "kamiya-yu",
+          "appearanceId": null,
+          "visualState": "",
+          "emotion": "",
+          "holding": []
+        }
+      ],
+      "prompt": "漫画の線画のための構図案。返球、右への走り、スクリーンの裏を抜ける移動の終点を見せる。別時刻の姿は重ねない。人物は登録済み基準画と当該場面の本文に合わせる。台詞・効果音・看板の文字を画像へ焼き込まない。",
+      "shotIntent": "返球、右への走り、スクリーンの裏を抜ける移動の終点を見せる。別時刻の姿は重ねない。",
+      "protect": [
+        "人物の顔と手",
+        "主要動作とボール",
+        "吹き出し余白"
+      ],
+      "gaze": "neutral",
+      "intent": "sequence",
+      "previousPanelId": null,
+      "texts": [],
+      "frame": {
+        "points": [
+          [
+            0.50875,
+            0.0265486726
+          ],
+          [
+            0.9625,
+            0.0265486726
+          ],
+          [
+            0.9625,
+            0.3769557522
+          ],
+          [
+            0.50875,
+            0.3769557522
+          ]
+        ],
+        "slotId": "name:P01-M03:P01-panel-009"
+      }
+    },
+    {
+      "id": "P01-panel-010",
+      "sceneId": "P01-01",
+      "sourceExcerptIds": [
+        "P01-01:u20:a0",
+        "P01-01:u20:a1",
+        "P01-01:u20:a2",
+        "P01-01:u21:a0"
+      ],
+      "contextExcerptIds": [],
+      "beatIds": [
+        "P01-beat-05"
+      ],
+      "characters": [
+        {
+          "characterId": "kawai-yumiko",
+          "appearanceId": null,
+          "visualState": "",
+          "emotion": "",
+          "holding": []
+        },
+        {
+          "characterId": "kamiya-yu",
+          "appearanceId": null,
+          "visualState": "",
+          "emotion": "",
+          "holding": []
+        }
+      ],
+      "prompt": "漫画の線画のための構図案。三点線と勇の距離を同一画面で示す。由美子の視線と、もう頭上へ伸びた腕。人物は登録済み基準画と当該場面の本文に合わせる。台詞・効果音・看板の文字を画像へ焼き込まない。",
+      "shotIntent": "三点線と勇の距離を同一画面で示す。由美子の視線と、もう頭上へ伸びた腕。",
+      "protect": [
+        "人物の顔と手",
+        "主要動作とボール",
+        "吹き出し余白"
+      ],
+      "gaze": "neutral",
+      "intent": "standard",
+      "previousPanelId": null,
+      "texts": [
+        {
+          "id": "text:P01-panel-010:1",
+          "kind": "narration",
+          "speakerId": null,
+          "text": "線の内側なら二点、外から決めれば三点になる。",
+          "box": null
+        }
+      ],
+      "frame": {
+        "points": [
+          [
+            0.0375,
+            0.0265486726
+          ],
+          [
+            0.49125,
+            0.0265486726
+          ],
+          [
+            0.49125,
+            0.3769557522
+          ],
+          [
+            0.0375,
+            0.3769557522
+          ]
+        ],
+        "slotId": "name:P01-M03:P01-panel-010"
+      }
+    },
+    {
+      "id": "P01-panel-011",
+      "sceneId": "P01-01",
+      "sourceExcerptIds": [
+        "P01-01:u22:a0",
+        "P01-01:u23:a0"
+      ],
+      "contextExcerptIds": [],
+      "beatIds": [
+        "P01-beat-06"
+      ],
+      "characters": [
+        {
+          "characterId": "kamiya-yu",
+          "appearanceId": null,
+          "visualState": "",
+          "emotion": "",
+          "holding": []
+        }
+      ],
+      "prompt": "漫画の線画のための構図案。ネットの乾いた揺れ。前列の子の「遠っ……！」は画面外の声。人物は登録済み基準画と当該場面の本文に合わせる。台詞・効果音・看板の文字を画像へ焼き込まない。",
+      "shotIntent": "ネットの乾いた揺れ。前列の子の「遠っ……！」は画面外の声。",
+      "protect": [
+        "手元・重要物",
+        "文字レイヤーの余白"
+      ],
+      "gaze": "neutral",
+      "intent": "dominant",
+      "previousPanelId": null,
+      "texts": [
+        {
+          "id": "text:P01-panel-011:1",
+          "kind": "dialogue",
+          "speakerId": null,
+          "text": "「遠っ……！」",
+          "box": null
+        }
+      ],
+      "frame": {
+        "points": [
+          [
+            0.0375,
+            0.3893451327
+          ],
+          [
+            0.9625,
+            0.3893451327
+          ],
+          [
+            0.9625,
+            0.7397522124
+          ],
+          [
+            0.0375,
+            0.7397522124
+          ]
+        ],
+        "slotId": "name:P01-M03:P01-panel-011"
+      }
+    },
+    {
+      "id": "P01-panel-012",
+      "sceneId": "P01-01",
+      "sourceExcerptIds": [
+        "P01-01:u24:a0",
+        "P01-01:u24:a1"
+      ],
+      "contextExcerptIds": [],
+      "beatIds": [
+        "P01-beat-06"
+      ],
+      "characters": [
+        {
+          "characterId": "kawai-yumiko",
+          "appearanceId": null,
+          "visualState": "",
+          "emotion": "",
+          "holding": []
+        }
+      ],
+      "prompt": "漫画の線画のための構図案。由美子の小さく見開いた目から、淀みないフォームを見たことが伝わる。人物は登録済み基準画と当該場面の本文に合わせる。台詞・効果音・看板の文字を画像へ焼き込まない。",
+      "shotIntent": "由美子の小さく見開いた目から、淀みないフォームを見たことが伝わる。",
+      "protect": [
+        "人物の顔と手",
+        "主要動作とボール",
+        "吹き出し余白"
+      ],
+      "gaze": "neutral",
+      "intent": "reaction",
+      "previousPanelId": null,
+      "texts": [],
+      "frame": {
+        "points": [
+          [
+            0.0375,
+            0.7521415929
+          ],
+          [
+            0.9625,
+            0.7521415929
+          ],
+          [
+            0.9625,
+            0.9734513274
+          ],
+          [
+            0.0375,
+            0.9734513274
+          ]
+        ],
+        "slotId": "name:P01-M03:P01-panel-012"
+      }
+    }
+  ]
+}

@@ -1,0 +1,265 @@
+{
+  "id": "P01-M04",
+  "purpose": "二本目は守備への対応を短く見せ、由美子の手元に変化を残す。",
+  "entryBeatId": "P01-beat-07",
+  "exit": {
+    "kind": "resolution",
+    "note": "歌の冊子から視線が離れた事実を残す。",
+    "payoffBeatIds": [
+      "P01-beat-08"
+    ]
+  },
+  "sourceExcerpts": [
+    {
+      "id": "P01-01:u25:a0",
+      "text": "次は相手のディフェンスも間合いを詰めてきた。",
+      "origin": {
+        "snapshotId": "name-source:1d100bd3305f9f8fdca84e46ca407d3efe76c4c43307a637a528aa68448ca2eb",
+        "sceneId": "P01-01",
+        "startCp": 1040,
+        "endCp": 1062
+      }
+    },
+    {
+      "id": "P01-01:u25:a1",
+      "text": "それでも一年生は止まらない。",
+      "origin": {
+        "snapshotId": "name-source:1d100bd3305f9f8fdca84e46ca407d3efe76c4c43307a637a528aa68448ca2eb",
+        "sceneId": "P01-01",
+        "startCp": 1062,
+        "endCp": 1076
+      }
+    },
+    {
+      "id": "P01-01:u25:a2",
+      "text": "ゴールの下へ猛スピードで切り込んだかと思うと、急ブレーキをかけて一気に外へ飛び出す。",
+      "origin": {
+        "snapshotId": "name-source:1d100bd3305f9f8fdca84e46ca407d3efe76c4c43307a637a528aa68448ca2eb",
+        "sceneId": "P01-01",
+        "startCp": 1076,
+        "endCp": 1118
+      }
+    },
+    {
+      "id": "P01-01:u25:a3",
+      "text": "マークする選手がスクリーンの先輩を避けた、そのわずかな一瞬の隙間。",
+      "origin": {
+        "snapshotId": "name-source:1d100bd3305f9f8fdca84e46ca407d3efe76c4c43307a637a528aa68448ca2eb",
+        "sceneId": "P01-01",
+        "startCp": 1118,
+        "endCp": 1151
+      }
+    },
+    {
+      "id": "P01-01:u26:a0",
+      "text": "「……また打つ」",
+      "origin": {
+        "snapshotId": "name-source:1d100bd3305f9f8fdca84e46ca407d3efe76c4c43307a637a528aa68448ca2eb",
+        "sceneId": "P01-01",
+        "startCp": 1153,
+        "endCp": 1161
+      }
+    },
+    {
+      "id": "P01-01:u27:a0",
+      "text": "二本目も、同じ乾いた音を立ててリングに吸い込まれた。",
+      "origin": {
+        "snapshotId": "name-source:1d100bd3305f9f8fdca84e46ca407d3efe76c4c43307a637a528aa68448ca2eb",
+        "sceneId": "P01-01",
+        "startCp": 1163,
+        "endCp": 1189
+      }
+    },
+    {
+      "id": "P01-01:u28:a0",
+      "text": "由美子は、知らず知らずのうちに冊子から手を離していた。",
+      "origin": {
+        "snapshotId": "name-source:1d100bd3305f9f8fdca84e46ca407d3efe76c4c43307a637a528aa68448ca2eb",
+        "sceneId": "P01-01",
+        "startCp": 1191,
+        "endCp": 1218
+      }
+    }
+  ],
+  "contextExcerpts": [],
+  "boundaryContext": {
+    "before": null,
+    "after": null
+  },
+  "panels": [
+    {
+      "id": "P01-panel-013",
+      "sceneId": "P01-01",
+      "sourceExcerptIds": [
+        "P01-01:u25:a0",
+        "P01-01:u25:a1",
+        "P01-01:u25:a2",
+        "P01-01:u25:a3"
+      ],
+      "contextExcerptIds": [],
+      "beatIds": [
+        "P01-beat-07"
+      ],
+      "characters": [
+        {
+          "characterId": "kamiya-yu",
+          "appearanceId": null,
+          "visualState": "",
+          "emotion": "",
+          "holding": []
+        }
+      ],
+      "prompt": "漫画の線画のための構図案。ゴール下へ切り込み急停止、外へ飛び出す。守備がスクリーンを避けた隙間を示す。人物は登録済み基準画と当該場面の本文に合わせる。台詞・効果音・看板の文字を画像へ焼き込まない。",
+      "shotIntent": "ゴール下へ切り込み急停止、外へ飛び出す。守備がスクリーンを避けた隙間を示す。",
+      "protect": [
+        "人物の顔と手",
+        "主要動作とボール",
+        "吹き出し余白"
+      ],
+      "gaze": "neutral",
+      "intent": "sequence",
+      "previousPanelId": null,
+      "texts": [],
+      "frame": {
+        "points": [
+          [
+            0.0375,
+            0.0265486726
+          ],
+          [
+            0.9625,
+            0.0265486726
+          ],
+          [
+            0.9625,
+            0.2386371681
+          ],
+          [
+            0.0375,
+            0.2386371681
+          ]
+        ],
+        "slotId": "name:P01-M04:P01-panel-013"
+      }
+    },
+    {
+      "id": "P01-panel-014",
+      "sceneId": "P01-01",
+      "sourceExcerptIds": [
+        "P01-01:u26:a0",
+        "P01-01:u27:a0"
+      ],
+      "contextExcerptIds": [],
+      "beatIds": [
+        "P01-beat-08"
+      ],
+      "characters": [
+        {
+          "characterId": "kawai-yumiko",
+          "appearanceId": null,
+          "visualState": "",
+          "emotion": "",
+          "holding": []
+        },
+        {
+          "characterId": "kamiya-yu",
+          "appearanceId": null,
+          "visualState": "",
+          "emotion": "",
+          "holding": []
+        }
+      ],
+      "prompt": "漫画の線画のための構図案。由美子が「……また打つ」と見上げ、勇の二本目がネットへ落ちる。人物は登録済み基準画と当該場面の本文に合わせる。台詞・効果音・看板の文字を画像へ焼き込まない。",
+      "shotIntent": "由美子が「……また打つ」と見上げ、勇の二本目がネットへ落ちる。",
+      "protect": [
+        "人物の顔と手",
+        "主要動作とボール",
+        "吹き出し余白"
+      ],
+      "gaze": "neutral",
+      "intent": "dominant",
+      "previousPanelId": null,
+      "texts": [
+        {
+          "id": "text:P01-panel-014:0",
+          "kind": "dialogue",
+          "speakerId": "kawai-yumiko",
+          "text": "「……また打つ」",
+          "box": null
+        }
+      ],
+      "frame": {
+        "points": [
+          [
+            0.0375,
+            0.2510265487
+          ],
+          [
+            0.9625,
+            0.2510265487
+          ],
+          [
+            0.9625,
+            0.7674159292
+          ],
+          [
+            0.0375,
+            0.7674159292
+          ]
+        ],
+        "slotId": "name:P01-M04:P01-panel-014"
+      }
+    },
+    {
+      "id": "P01-panel-015",
+      "sceneId": "P01-01",
+      "sourceExcerptIds": [
+        "P01-01:u28:a0"
+      ],
+      "contextExcerptIds": [],
+      "beatIds": [
+        "P01-beat-08"
+      ],
+      "characters": [
+        {
+          "characterId": "kawai-yumiko",
+          "appearanceId": null,
+          "visualState": "",
+          "emotion": "",
+          "holding": []
+        }
+      ],
+      "prompt": "漫画の線画のための構図案。開いた冊子から自然に離れた指。閉じてしまう動作は足さない。人物は登録済み基準画と当該場面の本文に合わせる。台詞・効果音・看板の文字を画像へ焼き込まない。",
+      "shotIntent": "開いた冊子から自然に離れた指。閉じてしまう動作は足さない。",
+      "protect": [
+        "手元・重要物",
+        "文字レイヤーの余白"
+      ],
+      "gaze": "neutral",
+      "intent": "reaction",
+      "previousPanelId": null,
+      "texts": [],
+      "frame": {
+        "points": [
+          [
+            0.0375,
+            0.7798053097
+          ],
+          [
+            0.9625,
+            0.7798053097
+          ],
+          [
+            0.9625,
+            0.9734513274
+          ],
+          [
+            0.0375,
+            0.9734513274
+          ]
+        ],
+        "slotId": "name:P01-M04:P01-panel-015"
+      }
+    }
+  ]
+}

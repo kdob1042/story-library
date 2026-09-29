@@ -1,0 +1,261 @@
+{
+  "format": "manga-mac/name-plan/v3",
+  "workId": "kamiya-kawai",
+  "episodeId": "P01",
+  "title": "ふたりのリズム P01-01「六人の声と、知らない一年生」【ページネーム改訂案】",
+  "readingDirection": "rtl",
+  "characters": [
+    {
+      "id": "kamiya-yu",
+      "name": "神谷 勇"
+    },
+    {
+      "id": "kawai-yumiko",
+      "name": "河合 由美子"
+    },
+    {
+      "id": "maki",
+      "name": "真希"
+    },
+    {
+      "id": "shizuka",
+      "name": "静香"
+    }
+  ],
+  "workGoal": {
+    "readerQuestion": "歌に惹かれた由美子が知らない一年生のプレーに引き込まれるのはなぜか。",
+    "emotionalArc": [
+      "六人の歌への憧れと三人の決意",
+      "ボールの音で興味の外にいた一年生へ視線が移る",
+      "勇の意外な得点とパスに引き込まれ、思わず声と拍手が出る"
+    ],
+    "payoff": "真希に気づかないほど勇を見て拍手する由美子。次の教室での再会を予感させる。"
+  },
+  "beats": [
+    {
+      "id": "P01-beat-01",
+      "atomIds": [
+        "P01-01:u1:a0",
+        "P01-01:u2:a0",
+        "P01-01:u2:a1",
+        "P01-01:u2:a2",
+        "P01-01:u3:a0",
+        "P01-01:u4:a0",
+        "P01-01:u4:a1",
+        "P01-01:u4:a2"
+      ],
+      "function": "setup",
+      "tempo": "normal",
+      "readerBefore": "歌を追ってきた由美子の目的を、舞台と三人の手元で確立する。",
+      "readerAfter": "由美子たちはこの舞台へ来るために歌ってきた。"
+    },
+    {
+      "id": "P01-beat-02",
+      "atomIds": [
+        "P01-01:u5:a0",
+        "P01-01:u6:a0",
+        "P01-01:u6:a1",
+        "P01-01:u7:a0",
+        "P01-01:u8:a0",
+        "P01-01:u8:a1"
+      ],
+      "function": "payoff",
+      "tempo": "normal",
+      "readerBefore": "由美子たちはこの舞台へ来るために歌ってきた。",
+      "readerAfter": "アカペラ部に入る意思が冊子の二重丸で伝わる。"
+    },
+    {
+      "id": "P01-beat-03",
+      "atomIds": [
+        "P01-01:u9:a0",
+        "P01-01:u10:a0",
+        "P01-01:u11:a0",
+        "P01-01:u12:a0",
+        "P01-01:u12:a1",
+        "P01-01:u12:a2",
+        "P01-01:u13:a0"
+      ],
+      "function": "setup",
+      "tempo": "normal",
+      "readerBefore": "ボールの音で歌から競技へ切り替え、勇の第一印象を置く。",
+      "readerAfter": "競技が始まり、由美子は選手の中の一年生に気づく。"
+    },
+    {
+      "id": "P01-beat-04",
+      "atomIds": [
+        "P01-01:u14:a0",
+        "P01-01:u14:a1",
+        "P01-01:u15:a0",
+        "P01-01:u16:a0",
+        "P01-01:u16:a1",
+        "P01-01:u17:a0"
+      ],
+      "function": "payoff",
+      "tempo": "normal",
+      "readerBefore": "競技が始まり、由美子は選手の中の一年生に気づく。",
+      "readerAfter": "照れた一年生が実力を示す前の静けさ。"
+    },
+    {
+      "id": "P01-beat-05",
+      "atomIds": [
+        "P01-01:u18:a0",
+        "P01-01:u18:a1",
+        "P01-01:u18:a2",
+        "P01-01:u19:a0",
+        "P01-01:u20:a0",
+        "P01-01:u20:a1",
+        "P01-01:u20:a2",
+        "P01-01:u21:a0"
+      ],
+      "function": "setup",
+      "tempo": "normal",
+      "readerBefore": "一本目の遠さを先に理解させ、放った瞬間と結果を分ける。",
+      "readerAfter": "先輩のスクリーンを使い、勇が予想外の遠距離から構える。"
+    },
+    {
+      "id": "P01-beat-06",
+      "atomIds": [
+        "P01-01:u22:a0",
+        "P01-01:u23:a0",
+        "P01-01:u24:a0",
+        "P01-01:u24:a1"
+      ],
+      "function": "payoff",
+      "tempo": "normal",
+      "readerBefore": "先輩のスクリーンを使い、勇が予想外の遠距離から構える。",
+      "readerAfter": "一本目が入って、由美子の観察が始まる。"
+    },
+    {
+      "id": "P01-beat-07",
+      "atomIds": [
+        "P01-01:u25:a0",
+        "P01-01:u25:a1",
+        "P01-01:u25:a2",
+        "P01-01:u25:a3"
+      ],
+      "function": "setup",
+      "tempo": "normal",
+      "readerBefore": "二本目は守備への対応を短く見せ、由美子の手元に変化を残す。",
+      "readerAfter": "勇は相手を引きつけてからスクリーンの隙間を使う。"
+    },
+    {
+      "id": "P01-beat-08",
+      "atomIds": [
+        "P01-01:u26:a0",
+        "P01-01:u27:a0",
+        "P01-01:u28:a0"
+      ],
+      "function": "payoff",
+      "tempo": "normal",
+      "readerBefore": "勇は相手を引きつけてからスクリーンの隙間を使う。",
+      "readerAfter": "二本目が決まり、冊子から手が離れる。"
+    },
+    {
+      "id": "P01-beat-09",
+      "atomIds": [
+        "P01-01:u29:a0",
+        "P01-01:u29:a1",
+        "P01-01:u29:a2",
+        "P01-01:u30:a0",
+        "P01-01:u30:a1",
+        "P01-01:u30:a2"
+      ],
+      "function": "setup",
+      "tempo": "normal",
+      "readerBefore": "シュートを警戒された勇がパスも通すことを、動作の因果で示す。",
+      "readerAfter": "フェイクで守備を跳ばせ、勇が抜ける。"
+    },
+    {
+      "id": "P01-beat-10",
+      "atomIds": [
+        "P01-01:u31:a0",
+        "P01-01:u31:a1",
+        "P01-01:u31:a2",
+        "P01-01:u32:a0",
+        "P01-01:u33:a0",
+        "P01-01:u33:a1",
+        "P01-01:u33:a2"
+      ],
+      "function": "payoff",
+      "tempo": "normal",
+      "readerBefore": "フェイクで守備を跳ばせ、勇が抜ける。",
+      "readerAfter": "ノールックパスから先輩の得点、勇の笑顔まで届く。"
+    },
+    {
+      "id": "P01-beat-11",
+      "atomIds": [
+        "P01-01:u34:a0",
+        "P01-01:u35:a0",
+        "P01-01:u35:a1",
+        "P01-01:u35:a2",
+        "P01-01:u35:a3"
+      ],
+      "function": "setup",
+      "tempo": "normal",
+      "readerBefore": "三本目を結果より待つ時間で強め、球が落ちる前で区切る。",
+      "readerAfter": "客席も守備も三本目を予感している。"
+    },
+    {
+      "id": "P01-beat-12",
+      "atomIds": [
+        "P01-01:u36:a0",
+        "P01-01:u37:a0",
+        "P01-01:u37:a1"
+      ],
+      "function": "reveal",
+      "tempo": "hold",
+      "readerBefore": "客席も守備も三本目を予感している。",
+      "readerAfter": "由美子の握る拳と、まだ落ちていない球。"
+    },
+    {
+      "id": "P01-beat-13",
+      "atomIds": [
+        "P01-01:u38:a0",
+        "P01-01:u39:a0",
+        "P01-01:u40:a0"
+      ],
+      "function": "setup",
+      "tempo": "normal",
+      "readerBefore": "三本目の成功を由美子の声と拍手で回収し、教室へつなぐ。",
+      "readerAfter": "球がネットへ入る。"
+    },
+    {
+      "id": "P01-beat-14",
+      "atomIds": [
+        "P01-01:u41:a0",
+        "P01-01:u42:a0",
+        "P01-01:u42:a1"
+      ],
+      "function": "payoff",
+      "tempo": "normal",
+      "readerBefore": "球がネットへ入る。",
+      "readerAfter": "由美子は真希の視線に気づかず勇へ拍手する。"
+    }
+  ],
+  "scenes": [
+    {
+      "id": "P01-01",
+      "label": "P01-01",
+      "location": "",
+      "timeOfDay": "",
+      "props": [],
+      "spatial": "",
+      "hardConstraints": [],
+      "appearances": []
+    }
+  ],
+  "boundaryContext": {
+    "before": null,
+    "after": null
+  },
+  "pageIds": [
+    "P01-M01",
+    "P01-M02",
+    "P01-M03",
+    "P01-M04",
+    "P01-M05",
+    "P01-M06",
+    "P01-M06B",
+    "P01-M07"
+  ]
+}

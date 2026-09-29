@@ -1,0 +1,426 @@
+{
+  "id": "P01-M05",
+  "purpose": "シュートを警戒された勇がパスも通すことを、動作の因果で示す。",
+  "entryBeatId": "P01-beat-09",
+  "exit": {
+    "kind": "resolution",
+    "note": "能力と年相応の顔を並べる。",
+    "payoffBeatIds": [
+      "P01-beat-10"
+    ]
+  },
+  "sourceExcerpts": [
+    {
+      "id": "P01-01:u29:a0",
+      "text": "もう、守備は離れなかった。",
+      "origin": {
+        "snapshotId": "name-source:1d100bd3305f9f8fdca84e46ca407d3efe76c4c43307a637a528aa68448ca2eb",
+        "sceneId": "P01-01",
+        "startCp": 1220,
+        "endCp": 1233
+      }
+    },
+    {
+      "id": "P01-01:u29:a1",
+      "text": "一年生がボールを受けると、長い腕が目の前へ迫る。",
+      "origin": {
+        "snapshotId": "name-source:1d100bd3305f9f8fdca84e46ca407d3efe76c4c43307a637a528aa68448ca2eb",
+        "sceneId": "P01-01",
+        "startCp": 1233,
+        "endCp": 1257
+      }
+    },
+    {
+      "id": "P01-01:u29:a2",
+      "text": "今度は打てない――そう思った刹那、彼はぐっと沈み込み、シュートを放つようにボールを持ち上げた。",
+      "origin": {
+        "snapshotId": "name-source:1d100bd3305f9f8fdca84e46ca407d3efe76c4c43307a637a528aa68448ca2eb",
+        "sceneId": "P01-01",
+        "startCp": 1257,
+        "endCp": 1304
+      }
+    },
+    {
+      "id": "P01-01:u30:a0",
+      "text": "守備が思わず跳び上がる。",
+      "origin": {
+        "snapshotId": "name-source:1d100bd3305f9f8fdca84e46ca407d3efe76c4c43307a637a528aa68448ca2eb",
+        "sceneId": "P01-01",
+        "startCp": 1306,
+        "endCp": 1318
+      }
+    },
+    {
+      "id": "P01-01:u30:a1",
+      "text": "その瞬間、一年生は低くボールを床へつき、相手の脇の下を矢のように抜けていた。",
+      "origin": {
+        "snapshotId": "name-source:1d100bd3305f9f8fdca84e46ca407d3efe76c4c43307a637a528aa68448ca2eb",
+        "sceneId": "P01-01",
+        "startCp": 1318,
+        "endCp": 1356
+      }
+    },
+    {
+      "id": "P01-01:u30:a2",
+      "text": "フェイク一つで、完全に前を空けさせたのだ。",
+      "origin": {
+        "snapshotId": "name-source:1d100bd3305f9f8fdca84e46ca407d3efe76c4c43307a637a528aa68448ca2eb",
+        "sceneId": "P01-01",
+        "startCp": 1356,
+        "endCp": 1377
+      }
+    },
+    {
+      "id": "P01-01:u31:a0",
+      "text": "ゴール下から二人目の大きなディフェンスが立ちはだかる。",
+      "origin": {
+        "snapshotId": "name-source:1d100bd3305f9f8fdca84e46ca407d3efe76c4c43307a637a528aa68448ca2eb",
+        "sceneId": "P01-01",
+        "startCp": 1379,
+        "endCp": 1406
+      }
+    },
+    {
+      "id": "P01-01:u31:a1",
+      "text": "衝突する寸前、彼は空中でふわりと身をよじり、背後へ鋭いノールックパスを放った。",
+      "origin": {
+        "snapshotId": "name-source:1d100bd3305f9f8fdca84e46ca407d3efe76c4c43307a637a528aa68448ca2eb",
+        "sceneId": "P01-01",
+        "startCp": 1406,
+        "endCp": 1445
+      }
+    },
+    {
+      "id": "P01-01:u31:a2",
+      "text": "走り込んでいた別の先輩が、誰にも邪魔されず豪快にボールをリングへ叩き込む。",
+      "origin": {
+        "snapshotId": "name-source:1d100bd3305f9f8fdca84e46ca407d3efe76c4c43307a637a528aa68448ca2eb",
+        "sceneId": "P01-01",
+        "startCp": 1445,
+        "endCp": 1482
+      }
+    },
+    {
+      "id": "P01-01:u32:a0",
+      "text": "体育館が大きく揺れるような大歓声。",
+      "origin": {
+        "snapshotId": "name-source:1d100bd3305f9f8fdca84e46ca407d3efe76c4c43307a637a528aa68448ca2eb",
+        "sceneId": "P01-01",
+        "startCp": 1484,
+        "endCp": 1501
+      }
+    },
+    {
+      "id": "P01-01:u33:a0",
+      "text": "得点した先輩が、走り戻りながら一年生の頭をわしゃわしゃと撫で回す。",
+      "origin": {
+        "snapshotId": "name-source:1d100bd3305f9f8fdca84e46ca407d3efe76c4c43307a637a528aa68448ca2eb",
+        "sceneId": "P01-01",
+        "startCp": 1503,
+        "endCp": 1536
+      }
+    },
+    {
+      "id": "P01-01:u33:a1",
+      "text": "彼は首をすくめて、年相応に白い歯を見せて笑った。",
+      "origin": {
+        "snapshotId": "name-source:1d100bd3305f9f8fdca84e46ca407d3efe76c4c43307a637a528aa68448ca2eb",
+        "sceneId": "P01-01",
+        "startCp": 1536,
+        "endCp": 1560
+      }
+    },
+    {
+      "id": "P01-01:u33:a2",
+      "text": "コートでの圧倒的な動きと、そのあどけない笑顔の落差に、由美子は小さく息を漏らした。",
+      "origin": {
+        "snapshotId": "name-source:1d100bd3305f9f8fdca84e46ca407d3efe76c4c43307a637a528aa68448ca2eb",
+        "sceneId": "P01-01",
+        "startCp": 1560,
+        "endCp": 1601
+      }
+    }
+  ],
+  "contextExcerpts": [],
+  "boundaryContext": {
+    "before": null,
+    "after": null
+  },
+  "panels": [
+    {
+      "id": "P01-panel-016",
+      "sceneId": "P01-01",
+      "sourceExcerptIds": [
+        "P01-01:u29:a0",
+        "P01-01:u29:a1",
+        "P01-01:u29:a2"
+      ],
+      "contextExcerptIds": [],
+      "beatIds": [
+        "P01-beat-09"
+      ],
+      "characters": [
+        {
+          "characterId": "kamiya-yu",
+          "appearanceId": null,
+          "visualState": "",
+          "emotion": "",
+          "holding": []
+        }
+      ],
+      "prompt": "漫画の線画のための構図案。詰めた長い腕と、シュートを装って沈む勇の重心。守備との軸を揃える。人物は登録済み基準画と当該場面の本文に合わせる。台詞・効果音・看板の文字を画像へ焼き込まない。",
+      "shotIntent": "詰めた長い腕と、シュートを装って沈む勇の重心。守備との軸を揃える。",
+      "protect": [
+        "人物の顔と手",
+        "主要動作とボール",
+        "吹き出し余白"
+      ],
+      "gaze": "neutral",
+      "intent": "standard",
+      "previousPanelId": null,
+      "texts": [],
+      "frame": {
+        "points": [
+          [
+            0.50875,
+            0.0265486726
+          ],
+          [
+            0.9625,
+            0.0265486726
+          ],
+          [
+            0.9625,
+            0.263079646
+          ],
+          [
+            0.50875,
+            0.263079646
+          ]
+        ],
+        "slotId": "name:P01-M05:P01-panel-016"
+      }
+    },
+    {
+      "id": "P01-panel-017",
+      "sceneId": "P01-01",
+      "sourceExcerptIds": [
+        "P01-01:u30:a0",
+        "P01-01:u30:a1",
+        "P01-01:u30:a2"
+      ],
+      "contextExcerptIds": [],
+      "beatIds": [
+        "P01-beat-09"
+      ],
+      "characters": [
+        {
+          "characterId": "kamiya-yu",
+          "appearanceId": null,
+          "visualState": "",
+          "emotion": "",
+          "holding": []
+        }
+      ],
+      "prompt": "漫画の線画のための構図案。守備が跳び、勇は低く相手の脇を抜ける。フェイクの原因と結果を同じ読書方向へ。人物は登録済み基準画と当該場面の本文に合わせる。台詞・効果音・看板の文字を画像へ焼き込まない。",
+      "shotIntent": "守備が跳び、勇は低く相手の脇を抜ける。フェイクの原因と結果を同じ読書方向へ。",
+      "protect": [
+        "人物の顔と手",
+        "主要動作とボール",
+        "吹き出し余白"
+      ],
+      "gaze": "neutral",
+      "intent": "sequence",
+      "previousPanelId": null,
+      "texts": [],
+      "frame": {
+        "points": [
+          [
+            0.0375,
+            0.0265486726
+          ],
+          [
+            0.49125,
+            0.0265486726
+          ],
+          [
+            0.49125,
+            0.263079646
+          ],
+          [
+            0.0375,
+            0.263079646
+          ]
+        ],
+        "slotId": "name:P01-M05:P01-panel-017"
+      }
+    },
+    {
+      "id": "P01-panel-018",
+      "sceneId": "P01-01",
+      "sourceExcerptIds": [
+        "P01-01:u31:a0",
+        "P01-01:u31:a1"
+      ],
+      "contextExcerptIds": [],
+      "beatIds": [
+        "P01-beat-10"
+      ],
+      "characters": [
+        {
+          "characterId": "kamiya-yu",
+          "appearanceId": null,
+          "visualState": "",
+          "emotion": "",
+          "holding": []
+        }
+      ],
+      "prompt": "漫画の線画のための構図案。二人目の守備の前、空中で身をよじる勇が背後へノールックパスを放つ瞬間。人物は登録済み基準画と当該場面の本文に合わせる。台詞・効果音・看板の文字を画像へ焼き込まない。",
+      "shotIntent": "二人目の守備の前、空中で身をよじる勇が背後へノールックパスを放つ瞬間。",
+      "protect": [
+        "人物の顔と手",
+        "主要動作とボール",
+        "吹き出し余白"
+      ],
+      "gaze": "neutral",
+      "intent": "standard",
+      "previousPanelId": null,
+      "texts": [],
+      "frame": {
+        "points": [
+          [
+            0.0375,
+            0.2754690265
+          ],
+          [
+            0.9625,
+            0.2754690265
+          ],
+          [
+            0.9625,
+            0.4756106195
+          ],
+          [
+            0.0375,
+            0.4756106195
+          ]
+        ],
+        "slotId": "name:P01-M05:P01-panel-018"
+      }
+    },
+    {
+      "id": "P01-panel-019",
+      "sceneId": "P01-01",
+      "sourceExcerptIds": [
+        "P01-01:u31:a2",
+        "P01-01:u32:a0"
+      ],
+      "contextExcerptIds": [],
+      "beatIds": [
+        "P01-beat-10"
+      ],
+      "characters": [
+        {
+          "characterId": "kawai-yumiko",
+          "appearanceId": null,
+          "visualState": "",
+          "emotion": "",
+          "holding": []
+        }
+      ],
+      "prompt": "漫画の線画のための構図案。先輩のダンクの瞬間と、客席から上がる大きな歓声。人物は登録済み基準画と当該場面の本文に合わせる。台詞・効果音・看板の文字を画像へ焼き込まない。",
+      "shotIntent": "先輩のダンクの瞬間と、客席から上がる大きな歓声。",
+      "protect": [
+        "人物の顔と手",
+        "主要動作とボール",
+        "吹き出し余白"
+      ],
+      "gaze": "neutral",
+      "intent": "dominant",
+      "previousPanelId": null,
+      "texts": [],
+      "frame": {
+        "points": [
+          [
+            0.0375,
+            0.488
+          ],
+          [
+            0.9625,
+            0.488
+          ],
+          [
+            0.9625,
+            0.8155044248
+          ],
+          [
+            0.0375,
+            0.8155044248
+          ]
+        ],
+        "slotId": "name:P01-M05:P01-panel-019"
+      }
+    },
+    {
+      "id": "P01-panel-020",
+      "sceneId": "P01-01",
+      "sourceExcerptIds": [
+        "P01-01:u33:a0",
+        "P01-01:u33:a1",
+        "P01-01:u33:a2"
+      ],
+      "contextExcerptIds": [],
+      "beatIds": [
+        "P01-beat-10"
+      ],
+      "characters": [
+        {
+          "characterId": "kawai-yumiko",
+          "appearanceId": null,
+          "visualState": "",
+          "emotion": "",
+          "holding": []
+        },
+        {
+          "characterId": "kamiya-yu",
+          "appearanceId": null,
+          "visualState": "",
+          "emotion": "",
+          "holding": []
+        }
+      ],
+      "prompt": "漫画の線画のための構図案。先輩に頭を撫でられた勇の白い歯、由美子がその落差を見つめる。人物は登録済み基準画と当該場面の本文に合わせる。台詞・効果音・看板の文字を画像へ焼き込まない。",
+      "shotIntent": "先輩に頭を撫でられた勇の白い歯、由美子がその落差を見つめる。",
+      "protect": [
+        "人物の顔と手",
+        "主要動作とボール",
+        "吹き出し余白"
+      ],
+      "gaze": "neutral",
+      "intent": "reaction",
+      "previousPanelId": null,
+      "texts": [],
+      "frame": {
+        "points": [
+          [
+            0.0375,
+            0.8278938053
+          ],
+          [
+            0.9625,
+            0.8278938053
+          ],
+          [
+            0.9625,
+            0.9734513274
+          ],
+          [
+            0.0375,
+            0.9734513274
+          ]
+        ],
+        "slotId": "name:P01-M05:P01-panel-020"
+      }
+    }
+  ]
+}

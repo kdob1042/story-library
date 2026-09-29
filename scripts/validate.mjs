@@ -1,5 +1,5 @@
-import { resolve } from 'node:path';
 import { validateRepository } from '../contracts/library/validate.mjs';
+import { resolve } from 'node:path';
 
 const root = resolve(process.argv[2] ?? '.');
 const result = await validateRepository(root);

@@ -18,20 +18,7 @@ test('private reader builds all works, preserves order, and isolates assets', t 
   const temp = fs.mkdtempSync(path.join(os.tmpdir(), 'private-reader-'));
   t.after(() => fs.rmSync(temp, {recursive: true, force: true}));
   fs.cpSync(path.join(root, 'fixtures/works'), path.join(temp, 'works'), {recursive: true});
-  fs.writeFileSync(path.join(temp, 'works/fixture-story/market-data.json'), JSON.stringify({
-    schemaVersion: 2,
-    asOf: '2026-09-19',
-    fx: {usdJpy: 156.9},
-    items: [{
-      id: 'fixture',
-      name: 'Fixture',
-      ticker: 'FIX',
-      currentPrice: 100,
-      currentCurrency: 'USD',
-      priceConversions: [{label: 'historical', historicalPrice: 30, currentBasisPrice: 0.75}],
-      pnlScenarios: [{label: 'held', side: 'long', positionJpy: 100000, profitLossJpy: 23456}],
-    }],
-  }));
+  fs.writeFileSync(path.join(temp, 'works/fixture-story/market-data.json'), '{ internal-only data }');
   const works = ['fixture-story', 'fixture-novel'].map(id => ({id, title:id, root:`works/${id}`, formats:['novel'], manuscriptFormat:id === 'fixture-story' ? 'story-source/v1' : 'novel-source/v1', readAdapters:[id === 'fixture-story' ? 'story-source/v1' : 'novel-source/v1'], authority:'library', origin:{repository:'fixture/source'}, importStatus:'verified'}));
   fs.writeFileSync(path.join(temp, 'library.json'), JSON.stringify({format:'story-library/v1', authorityUntil:'M8', works}));
   assert.throws(() => buildReader({repoRoot:temp, workId:'fixture-story'}), /Private snapshot/);
@@ -50,13 +37,18 @@ test('private reader builds all works, preserves order, and isolates assets', t 
   assert.ok(fs.existsSync(path.join(result.dist, 'data/library-index.json')));
   assert.ok(fs.existsSync(path.join(result.dist, 'works/fixture-story/data/reader-index.json')));
   assert.ok(fs.existsSync(path.join(result.dist, 'works/fixture-novel/data/reader-index.json')));
-  assert.equal(result.catalog.marketData.items[0].ticker, 'FIX');
-  assert.equal(result.catalog.marketData.items[0].pnlScenarios[0].profitLossJpy, 23456);
+  const privateEmailIndex = JSON.parse(fs.readFileSync(path.join(result.dist, 'data/email-works.json'), 'utf8'));
+  assert.equal(privateEmailIndex.published, false);
+  assert.deepEqual(privateEmailIndex.works.map(work => work.id), ['fixture-story', 'fixture-novel']);
+  assert.equal(result.catalog.marketData, undefined);
+  const privateReaderIndex = JSON.parse(fs.readFileSync(path.join(result.dist, 'works/fixture-story/data/reader-index.json'), 'utf8'));
+  assert.equal(privateReaderIndex.marketData, undefined);
   assert.ok(!fs.existsSync(path.join(result.dist, 'works/fixture-story/data/source')));
   assert.ok(!fs.existsSync(path.join(result.dist, 'works/fixture-novel/data/source')));
   assert.match(fs.readFileSync(path.join(result.dist, 'index.html'), 'utf8'), /id="workSelect"/);
   assert.match(fs.readFileSync(path.join(result.dist, 'index.html'), 'utf8'), /data\/library-index\.json/);
   const readerHtml = fs.readFileSync(path.join(result.dist, 'index.html'), 'utf8');
+  assert.doesNotMatch(readerHtml, /id="emailSubscribeForm"/);
   assert.match(readerHtml, /const sections = Array\.isArray\(manifestData\.sections\)/);
   assert.doesNotMatch(readerHtml, /id="tabDesign"/);
   assert.match(readerHtml, /id="nextHeaderBtn"/);
@@ -116,6 +108,10 @@ test('published reader follows publication.yaml and omits private material', t =
   assert.deepEqual(result.catalog.characters, []);
   assert.equal(result.catalog.hasHistory, false);
   assert.equal(result.catalog.marketData, undefined);
+  const publishedEmailIndex = JSON.parse(fs.readFileSync(path.join(result.dist, 'data/email-works.json'), 'utf8'));
+  assert.equal(publishedEmailIndex.published, true);
+  assert.deepEqual(publishedEmailIndex.works.map(work => work.id), ['fixture-story']);
+  assert.match(fs.readFileSync(path.join(result.dist, 'index.html'), 'utf8'), /id="emailSubscribeForm"/);
   assert.ok(!fs.existsSync(path.join(result.dist, 'works/fixture-novel')));
   const publicationPath = path.join(temp, 'works/fixture-story/publication.yaml');
   const publication = JSON.parse(fs.readFileSync(publicationPath, 'utf8'));

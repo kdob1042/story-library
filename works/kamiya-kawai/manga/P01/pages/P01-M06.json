@@ -1,0 +1,194 @@
+{
+  "id": "P01-M06",
+  "purpose": "三本目の前に観客の期待をため、伸びた守備の腕で一度ページを閉じる。",
+  "entryBeatId": "P01-beat-11",
+  "exit": {
+    "kind": "hook",
+    "note": "視界を塞ぐ二本の手まで。球の軌道を次のページへ隠す。",
+    "payoffBeatIds": []
+  },
+  "sourceExcerpts": [
+    {
+      "id": "P01-01:u34:a0",
+      "text": "終盤、外からのシュートが立て続けに決まり、会場の熱気が最高潮に達していた。",
+      "origin": {
+        "snapshotId": "name-source:1d100bd3305f9f8fdca84e46ca407d3efe76c4c43307a637a528aa68448ca2eb",
+        "sceneId": "P01-01",
+        "startCp": 1603,
+        "endCp": 1640
+      }
+    },
+    {
+      "id": "P01-01:u35:a0",
+      "text": "三本目は、彼がボールを持った瞬間から、客席全体がざわめいた。",
+      "origin": {
+        "snapshotId": "name-source:1d100bd3305f9f8fdca84e46ca407d3efe76c4c43307a637a528aa68448ca2eb",
+        "sceneId": "P01-01",
+        "startCp": 1642,
+        "endCp": 1672
+      }
+    },
+    {
+      "id": "P01-01:u35:a1",
+      "text": "そこからも打つのか、と誰かが息を呑む。",
+      "origin": {
+        "snapshotId": "name-source:1d100bd3305f9f8fdca84e46ca407d3efe76c4c43307a637a528aa68448ca2eb",
+        "sceneId": "P01-01",
+        "startCp": 1672,
+        "endCp": 1691
+      }
+    },
+    {
+      "id": "P01-01:u35:a2",
+      "text": "相手ベンチからも焦ったような叫びが飛ぶ。",
+      "origin": {
+        "snapshotId": "name-source:1d100bd3305f9f8fdca84e46ca407d3efe76c4c43307a637a528aa68448ca2eb",
+        "sceneId": "P01-01",
+        "startCp": 1691,
+        "endCp": 1711
+      }
+    },
+    {
+      "id": "P01-01:u35:a3",
+      "text": "けれど彼はもう、迷うことなくボールを頭上へ構えていた。",
+      "origin": {
+        "snapshotId": "name-source:1d100bd3305f9f8fdca84e46ca407d3efe76c4c43307a637a528aa68448ca2eb",
+        "sceneId": "P01-01",
+        "startCp": 1711,
+        "endCp": 1738
+      }
+    },
+    {
+      "id": "P01-01:u36:a0",
+      "text": "伸ばされた二つの手が、視界を塞ぐように覆いかぶさる。",
+      "origin": {
+        "snapshotId": "name-source:1d100bd3305f9f8fdca84e46ca407d3efe76c4c43307a637a528aa68448ca2eb",
+        "sceneId": "P01-01",
+        "startCp": 1740,
+        "endCp": 1766
+      }
+    }
+  ],
+  "contextExcerpts": [],
+  "boundaryContext": {
+    "before": null,
+    "after": null
+  },
+  "panels": [
+    {
+      "id": "P01-panel-021",
+      "sceneId": "P01-01",
+      "sourceExcerptIds": [
+        "P01-01:u34:a0",
+        "P01-01:u35:a0",
+        "P01-01:u35:a1",
+        "P01-01:u35:a2",
+        "P01-01:u35:a3"
+      ],
+      "contextExcerptIds": [],
+      "beatIds": [
+        "P01-beat-11"
+      ],
+      "characters": [
+        {
+          "characterId": "kawai-yumiko",
+          "appearanceId": null,
+          "visualState": "",
+          "emotion": "",
+          "holding": []
+        },
+        {
+          "characterId": "kamiya-yu",
+          "appearanceId": null,
+          "visualState": "",
+          "emotion": "",
+          "holding": []
+        }
+      ],
+      "prompt": "漫画の線画のための構図案。客席のざわめきと勇の構え。連続得点で熱が上がった体育館を示す。人物は登録済み基準画と当該場面の本文に合わせる。台詞・効果音・看板の文字を画像へ焼き込まない。",
+      "shotIntent": "客席全体のざわめきと、迷わず構える勇。視線の先には距離のあるゴールを入れる。",
+      "protect": [
+        "人物の顔と手",
+        "主要動作とボール",
+        "吹き出し余白"
+      ],
+      "gaze": "neutral",
+      "intent": "standard",
+      "previousPanelId": null,
+      "texts": [],
+      "frame": {
+        "points": [
+          [
+            0.0375,
+            0.0265486726
+          ],
+          [
+            0.9625,
+            0.0265486726
+          ],
+          [
+            0.9625,
+            0.6152920354
+          ],
+          [
+            0.0375,
+            0.6152920354
+          ]
+        ],
+        "slotId": "name:P01-M06:P01-panel-021"
+      }
+    },
+    {
+      "id": "P01-panel-022",
+      "sceneId": "P01-01",
+      "sourceExcerptIds": [
+        "P01-01:u36:a0"
+      ],
+      "contextExcerptIds": [],
+      "beatIds": [
+        "P01-beat-12"
+      ],
+      "characters": [
+        {
+          "characterId": "kamiya-yu",
+          "appearanceId": null,
+          "visualState": "",
+          "emotion": "",
+          "holding": []
+        }
+      ],
+      "prompt": "漫画の線画のための構図案。勇の視界を塞ぐ守備の二本の腕。人物は登録済み基準画と当該場面の本文に合わせる。台詞・効果音・看板の文字を画像へ焼き込まない。",
+      "shotIntent": "勇の視界に覆いかぶさる守備の二本の腕。先のリングは見せず、めくる理由を作る。",
+      "protect": [
+        "人物の顔と手",
+        "主要動作とボール",
+        "吹き出し余白"
+      ],
+      "gaze": "neutral",
+      "intent": "dominant",
+      "previousPanelId": null,
+      "texts": [],
+      "frame": {
+        "points": [
+          [
+            0.0375,
+            0.6276814159
+          ],
+          [
+            0.9625,
+            0.6276814159
+          ],
+          [
+            0.9625,
+            0.9734513274
+          ],
+          [
+            0.0375,
+            0.9734513274
+          ]
+        ],
+        "slotId": "name:P01-M06:P01-panel-022"
+      }
+    }
+  ]
+}

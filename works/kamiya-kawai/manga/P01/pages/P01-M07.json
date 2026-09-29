@@ -1,0 +1,269 @@
+{
+  "id": "P01-M07",
+  "purpose": "三本目の成功を由美子の声と拍手で回収し、教室へつなぐ。",
+  "entryBeatId": "P01-beat-13",
+  "exit": {
+    "kind": "pause",
+    "note": "由美子が知らない一年生へ夢中で手をたたくところで場面を閉じる。",
+    "payoffBeatIds": [
+      "P01-beat-14"
+    ]
+  },
+  "sourceExcerpts": [
+    {
+      "id": "P01-01:u38:a0",
+      "text": "パシュッ。",
+      "origin": {
+        "snapshotId": "name-source:1d100bd3305f9f8fdca84e46ca407d3efe76c4c43307a637a528aa68448ca2eb",
+        "sceneId": "P01-01",
+        "startCp": 1828,
+        "endCp": 1833
+      }
+    },
+    {
+      "id": "P01-01:u39:a0",
+      "text": "綺麗にネットが揺れた。",
+      "origin": {
+        "snapshotId": "name-source:1d100bd3305f9f8fdca84e46ca407d3efe76c4c43307a637a528aa68448ca2eb",
+        "sceneId": "P01-01",
+        "startCp": 1835,
+        "endCp": 1846
+      }
+    },
+    {
+      "id": "P01-01:u40:a0",
+      "text": "「うまっ……！」",
+      "origin": {
+        "snapshotId": "name-source:1d100bd3305f9f8fdca84e46ca407d3efe76c4c43307a637a528aa68448ca2eb",
+        "sceneId": "P01-01",
+        "startCp": 1848,
+        "endCp": 1856
+      }
+    },
+    {
+      "id": "P01-01:u41:a0",
+      "text": "今度は自分でも驚くくらい、声が口からこぼれていた。",
+      "origin": {
+        "snapshotId": "name-source:1d100bd3305f9f8fdca84e46ca407d3efe76c4c43307a637a528aa68448ca2eb",
+        "sceneId": "P01-01",
+        "startCp": 1858,
+        "endCp": 1883
+      }
+    },
+    {
+      "id": "P01-01:u42:a0",
+      "text": "遠くの列で、真希が振り返ってこちらを見た。",
+      "origin": {
+        "snapshotId": "name-source:1d100bd3305f9f8fdca84e46ca407d3efe76c4c43307a637a528aa68448ca2eb",
+        "sceneId": "P01-01",
+        "startCp": 1885,
+        "endCp": 1906
+      }
+    },
+    {
+      "id": "P01-01:u42:a1",
+      "text": "けれど由美子はそれに気づかないまま、コートの真ん中で先輩たちとハイタッチを交わすその知らない一年生へ向けて、夢中で手をたたいていた。",
+      "origin": {
+        "snapshotId": "name-source:1d100bd3305f9f8fdca84e46ca407d3efe76c4c43307a637a528aa68448ca2eb",
+        "sceneId": "P01-01",
+        "startCp": 1906,
+        "endCp": 1972
+      }
+    }
+  ],
+  "contextExcerpts": [],
+  "boundaryContext": {
+    "before": null,
+    "after": null
+  },
+  "panels": [
+    {
+      "id": "P01-panel-024",
+      "sceneId": "P01-01",
+      "sourceExcerptIds": [
+        "P01-01:u38:a0",
+        "P01-01:u39:a0",
+        "P01-01:u40:a0"
+      ],
+      "contextExcerptIds": [],
+      "beatIds": [
+        "P01-beat-13"
+      ],
+      "characters": [
+        {
+          "characterId": "kawai-yumiko",
+          "appearanceId": null,
+          "visualState": "",
+          "emotion": "",
+          "holding": []
+        },
+        {
+          "characterId": "kamiya-yu",
+          "appearanceId": null,
+          "visualState": "",
+          "emotion": "",
+          "holding": []
+        }
+      ],
+      "prompt": "漫画の線画のための構図案。パシュッとネット、由美子の「うまっ……！」。効果音と台詞は絵から分離。人物は登録済み基準画と当該場面の本文に合わせる。台詞・効果音・看板の文字を画像へ焼き込まない。",
+      "shotIntent": "パシュッとネット、由美子の「うまっ……！」。効果音と台詞は絵から分離。",
+      "protect": [
+        "人物の顔と手",
+        "主要動作とボール",
+        "吹き出し余白"
+      ],
+      "gaze": "neutral",
+      "intent": "dominant",
+      "previousPanelId": null,
+      "texts": [
+        {
+          "id": "text:P01-panel-024:2",
+          "kind": "dialogue",
+          "speakerId": "kawai-yumiko",
+          "text": "「うまっ……！」",
+          "box": null
+        }
+      ],
+      "frame": {
+        "points": [
+          [
+            0.0375,
+            0.0265486726
+          ],
+          [
+            0.9625,
+            0.0265486726
+          ],
+          [
+            0.9625,
+            0.5124955752
+          ],
+          [
+            0.0375,
+            0.5124955752
+          ]
+        ],
+        "slotId": "name:P01-M07:P01-panel-024"
+      }
+    },
+    {
+      "id": "P01-panel-025",
+      "sceneId": "P01-01",
+      "sourceExcerptIds": [
+        "P01-01:u41:a0"
+      ],
+      "contextExcerptIds": [],
+      "beatIds": [
+        "P01-beat-14"
+      ],
+      "characters": [
+        {
+          "characterId": "kawai-yumiko",
+          "appearanceId": null,
+          "visualState": "",
+          "emotion": "",
+          "holding": []
+        }
+      ],
+      "prompt": "漫画の線画のための構図案。声が出た自分に気づいた由美子の表情。赤面は加えない。人物は登録済み基準画と当該場面の本文に合わせる。台詞・効果音・看板の文字を画像へ焼き込まない。",
+      "shotIntent": "声が出た自分に気づいた由美子の表情。赤面は加えない。",
+      "protect": [
+        "人物の顔と手",
+        "主要動作とボール",
+        "吹き出し余白"
+      ],
+      "gaze": "neutral",
+      "intent": "reaction",
+      "previousPanelId": null,
+      "texts": [],
+      "frame": {
+        "points": [
+          [
+            0.50875,
+            0.5248849558
+          ],
+          [
+            0.9625,
+            0.5248849558
+          ],
+          [
+            0.9625,
+            0.9734513274
+          ],
+          [
+            0.50875,
+            0.9734513274
+          ]
+        ],
+        "slotId": "name:P01-M07:P01-panel-025"
+      }
+    },
+    {
+      "id": "P01-panel-026",
+      "sceneId": "P01-01",
+      "sourceExcerptIds": [
+        "P01-01:u42:a0",
+        "P01-01:u42:a1"
+      ],
+      "contextExcerptIds": [],
+      "beatIds": [
+        "P01-beat-14"
+      ],
+      "characters": [
+        {
+          "characterId": "kawai-yumiko",
+          "appearanceId": null,
+          "visualState": "",
+          "emotion": "",
+          "holding": []
+        },
+        {
+          "characterId": "maki",
+          "appearanceId": null,
+          "visualState": "",
+          "emotion": "",
+          "holding": []
+        },
+        {
+          "characterId": "kamiya-yu",
+          "appearanceId": null,
+          "visualState": "",
+          "emotion": "",
+          "holding": []
+        }
+      ],
+      "prompt": "漫画の線画のための構図案。真希が振り返る列、勇は先輩とハイタッチ。由美子は気づかず拍手を続ける。人物は登録済み基準画と当該場面の本文に合わせる。台詞・効果音・看板の文字を画像へ焼き込まない。",
+      "shotIntent": "真希が振り返る列、勇は先輩とハイタッチ。由美子は気づかず拍手を続ける。",
+      "protect": [
+        "人物の顔と手",
+        "主要動作とボール",
+        "吹き出し余白"
+      ],
+      "gaze": "neutral",
+      "intent": "standard",
+      "previousPanelId": null,
+      "texts": [],
+      "frame": {
+        "points": [
+          [
+            0.0375,
+            0.5248849558
+          ],
+          [
+            0.49125,
+            0.5248849558
+          ],
+          [
+            0.49125,
+            0.9734513274
+          ],
+          [
+            0.0375,
+            0.9734513274
+          ]
+        ],
+        "slotId": "name:P01-M07:P01-panel-026"
+      }
+    }
+  ]
+}
