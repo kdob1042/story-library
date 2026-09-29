@@ -1,3 +1,4 @@
+import {handleComments} from './comments.mjs';
 import {
   createConfirmationToken,
   isValidEmail,
@@ -415,6 +416,13 @@ async function handleEmailApi(request, env) {
 export default {
   async fetch(request, env) {
     const pathname = new URL(request.url).pathname;
+    if (pathname === '/api/comments' || pathname.startsWith('/api/comments/')) {
+      try {
+        return await handleComments(request, env);
+      } catch {
+        return jsonResponse({error: 'comments_unavailable'}, 503);
+      }
+    }
     if (pathname.startsWith('/api/email/')) {
       try {
         return await handleEmailApi(request, env);

@@ -7,6 +7,7 @@
   <meta name="description" content="小説ビューア">
   <meta property="og:title" content="__WORK_TITLE__ - 小説ビューア">
   <meta property="og:description" content="小説ビューア">
+  __COMMENT_ASSETS__
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -221,6 +222,7 @@
           </button>
         </nav>
 
+        __EPISODE_COMMENTS__
         __EMAIL_SUBSCRIBE__
       </article>
     </main>
@@ -476,6 +478,7 @@
     }
 
     function showReaderState(message, {error = false, selectorLabel = message} = {}) {
+      window.episodeComments?.hide();
       currentWork = null;
       currentWorkBase = '';
       manifestData = null;
@@ -585,6 +588,7 @@
       if (!work) return;
       showReaderShell();
       const token = ++loadToken;
+      window.episodeComments?.hide();
       currentWork = work;
       currentWorkBase = `/${String(work.basePath || '').replace(/^\/+/, '')}/data/`;
       workSelect.value = work.id;
@@ -747,6 +751,7 @@
 
     async function loadScene(index, token = loadToken) {
       if (token !== loadToken || index < 0 || index >= allScenes.length) return;
+      window.episodeComments?.hide();
       currentSceneIndex = index;
       const scene = allScenes[index];
       const workAtLoad = currentWork;
@@ -780,10 +785,11 @@
 
       try {
         const text = await fetchText(contentUrls(scene.path));
-        if (token !== loadToken || workAtLoad !== currentWork) return;
+        if (token !== loadToken || workAtLoad !== currentWork || currentSceneIndex !== index) return;
         renderMarkdownScene(text, scene.id, scene.path);
+        window.episodeComments?.show({workId: currentWork.id, episodeId: scene.id, label: sceneDisplayId + ' ' + (scene.title || '')});
       } catch (err) {
-        if (token !== loadToken || workAtLoad !== currentWork) return;
+        if (token !== loadToken || workAtLoad !== currentWork || currentSceneIndex !== index) return;
         console.error('Failed to load scene file:', err);
         novelContent.innerHTML = '<p class="text-rose-500 text-center py-8">場面の読み込みに失敗しました。</p>';
       }
@@ -879,7 +885,7 @@
     nextSceneBtn.addEventListener('click', goToNextScene);
     nextHeaderBtn.addEventListener('click', goToNextScene);
 
-    loadLibrary();
+    window.addEventListener('DOMContentLoaded', loadLibrary, {once: true});
   </script>
 </body>
 </html>

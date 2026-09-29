@@ -1,0 +1,22 @@
+<section id="episodeComments" class="episode-comments font-gothic" aria-labelledby="commentHeading" hidden>
+  <h3 id="commentHeading">このエピソードへのコメント</h3>
+  <p id="commentEpisodeLabel" class="comment-muted"></p>
+  <p class="comment-muted">コメントは各エピソードに1件まで。投稿した内容は読者に公開されます。</p>
+  <form id="commentForm" hidden>
+    <fieldset id="commentFields">
+      <label for="commentName">お名前（任意）</label>
+      <input id="commentName" name="name" maxlength="40" autocomplete="nickname" placeholder="読者">
+      <label for="commentBody">コメント</label>
+      <textarea id="commentBody" name="body" rows="4" maxlength="1000" required aria-describedby="commentCount commentCookieNotice"></textarea>
+      <div class="comment-actions">
+        <span id="commentCount" class="comment-muted">0 / 1,000文字</span>
+        <button type="submit">投稿する</button>
+      </div>
+      <p id="commentCookieNotice" class="comment-muted">投稿済みの判定に、このブラウザのCookieを使います。</p>
+    </fieldset>
+  </form>
+  <p id="commentStatus" role="status" aria-live="polite"></p>
+  <button id="commentRetry" type="button" hidden>再読み込み</button>
+  <ol id="commentList" aria-label="読者のコメント"></ol>
+  <button id="commentMore" type="button" hidden>以前のコメントを読む</button>
+</section>

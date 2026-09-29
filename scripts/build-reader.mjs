@@ -225,11 +225,26 @@ export function buildReader({
   const html = fs.readFileSync(path.join(ROOT, 'reader/index.html'), 'utf8')
     .replaceAll('__WORK_TITLE__', escape(defaultSnapshot?.catalog.work.title || defaultSnapshot?.work.title || '小説ライブラリ'))
     .replace('__MANGA_LINK__', '<a id="mangaLink" href="#" target="_blank" rel="noreferrer" class="text-sm underline hidden"></a>')
-    .replace('__EMAIL_SUBSCRIBE__', emailSubscriptionMarkup(mode === 'published' && availableSnapshots.length > 0));
+    .replace('__EMAIL_SUBSCRIBE__', emailSubscriptionMarkup(mode === 'published' && availableSnapshots.length > 0))
+    .replace('__EPISODE_COMMENTS__', mode === 'published' && availableSnapshots.length > 0
+      ? fs.readFileSync(path.join(ROOT, 'reader/comments.html'), 'utf8') : '')
+    .replace('__COMMENT_ASSETS__', mode === 'published' && availableSnapshots.length > 0
+      ? '<link rel="stylesheet" href="/comments.css"><script src="/comments.js" defer></script>' : '');
 
   fs.rmSync(outputDir, {recursive: true, force: true});
   fs.mkdirSync(path.join(outputDir, 'data'), {recursive: true});
   fs.writeFileSync(path.join(outputDir, 'index.html'), html);
+  if (mode === 'published' && availableSnapshots.length > 0) {
+    for (const file of ['comments.js', 'comments.css']) fs.copyFileSync(path.join(ROOT, 'reader', file), path.join(outputDir, file));
+  }
+  fs.writeFileSync(path.join(outputDir, 'data/comment-works.json'), JSON.stringify({
+    published: mode === 'published',
+    works: mode === 'published' ? availableSnapshots.map(({work, catalog}) => ({
+      id: work.id,
+      // Reader-visible P1-1/P1-2/P1-3 units, not the containing chapter/section.
+      episodeIds: catalog.scenes.map(scene => scene.id),
+    })) : [],
+  }));
   fs.writeFileSync(path.join(outputDir, 'data/library-index.json'), JSON.stringify(libraryIndex));
   fs.writeFileSync(path.join(outputDir, 'data/email-works.json'), JSON.stringify({
     schema_version: 1,
