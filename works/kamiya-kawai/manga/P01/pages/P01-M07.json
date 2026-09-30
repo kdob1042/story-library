@@ -89,24 +89,9 @@
       "beatIds": [
         "P01-beat-13"
       ],
-      "characters": [
-        {
-          "characterId": "kawai-yumiko",
-          "appearanceId": null,
-          "visualState": "",
-          "emotion": "",
-          "holding": []
-        },
-        {
-          "characterId": "kamiya-yu",
-          "appearanceId": null,
-          "visualState": "",
-          "emotion": "",
-          "holding": []
-        }
-      ],
-      "prompt": "漫画の線画のための構図案。パシュッとネット、由美子の「うまっ……！」。効果音と台詞は絵から分離。人物は登録済み基準画と当該場面の本文に合わせる。台詞・効果音・看板の文字を画像へ焼き込まない。",
-      "shotIntent": "パシュッとネット、由美子の「うまっ……！」。効果音と台詞は絵から分離。",
+      "characters": [],
+      "prompt": "A端ゴールのネットへ三本目が入る瞬間の寄り。由美子も勇も画角外。「うまっ……！」と効果音は既存の文字レイヤーで置く。人物の顔をリング横に浮かべない。 人物の顔・体格・髪は対応する登録基準画に合わせる。1コマの絵として描き、枠線・吹き出し・台詞・効果音・印刷文字は焼き込まない。",
+      "shotIntent": "A端ゴールのネットへ三本目が入る瞬間の寄り。由美子も勇も画角外。「うまっ……！」と効果音は既存の文字レイヤーで置く。人物の顔をリング横に浮かべない。",
       "protect": [
         "人物の顔と手",
         "主要動作とボール",
@@ -114,7 +99,7 @@
       ],
       "gaze": "neutral",
       "intent": "dominant",
-      "previousPanelId": null,
+      "previousPanelId": "P01-panel-022",
       "texts": [
         {
           "id": "text:P01-panel-024:2",
@@ -159,14 +144,16 @@
       "characters": [
         {
           "characterId": "kawai-yumiko",
-          "appearanceId": null,
-          "visualState": "",
-          "emotion": "",
-          "holding": []
+          "appearanceId": "P01-01-kawai-yumiko",
+          "visualState": "上階観客席に着席",
+          "emotion": "声が出た驚き",
+          "holding": [
+            "冊子は膝"
+          ]
         }
       ],
-      "prompt": "漫画の線画のための構図案。声が出た自分に気づいた由美子の表情。赤面は加えない。人物は登録済み基準画と当該場面の本文に合わせる。台詞・効果音・看板の文字を画像へ焼き込まない。",
-      "shotIntent": "声が出た自分に気づいた由美子の表情。赤面は加えない。",
+      "prompt": "上階席の由美子の表情へ寄る。下のコートへ視線を残したまま、思わず声が出たことに少し驚く。照れの赤面を追加しない。まだ勇とは面識がない。 人物の顔・体格・髪は対応する登録基準画に合わせる。1コマの絵として描き、枠線・吹き出し・台詞・効果音・印刷文字は焼き込まない。",
+      "shotIntent": "上階席の由美子の表情へ寄る。下のコートへ視線を残したまま、思わず声が出たことに少し驚く。照れの赤面を追加しない。まだ勇とは面識がない。",
       "protect": [
         "人物の顔と手",
         "主要動作とボール",
@@ -174,7 +161,7 @@
       ],
       "gaze": "neutral",
       "intent": "reaction",
-      "previousPanelId": null,
+      "previousPanelId": "P01-panel-012",
       "texts": [],
       "frame": {
         "points": [
@@ -212,28 +199,39 @@
       "characters": [
         {
           "characterId": "kawai-yumiko",
-          "appearanceId": null,
-          "visualState": "",
-          "emotion": "",
-          "holding": []
+          "appearanceId": "P01-01-kawai-yumiko",
+          "visualState": "上階観客席に着席",
+          "emotion": "夢中の拍手／真希の気づき",
+          "holding": [
+            "由美子は拍手、冊子は膝、ペンは冊子の下"
+          ]
         },
         {
           "characterId": "maki",
-          "appearanceId": null,
-          "visualState": "",
-          "emotion": "",
-          "holding": []
+          "appearanceId": "P01-01-maki",
+          "visualState": "上階観客席に着席",
+          "emotion": "夢中の拍手／真希の気づき",
+          "holding": [
+            "冊子は膝上"
+          ]
         },
         {
           "characterId": "kamiya-yu",
-          "appearanceId": null,
-          "visualState": "",
-          "emotion": "",
+          "appearanceId": "P01-01-kamiya-yu",
+          "visualState": "1階のバスケコート上",
+          "emotion": "夢中の拍手／真希の気づき",
+          "holding": []
+        },
+        {
+          "characterId": "onodera",
+          "appearanceId": "P01-01-onodera",
+          "visualState": "1階のバスケコート上",
+          "emotion": "夢中の拍手／真希の気づき",
           "holding": []
         }
       ],
-      "prompt": "漫画の線画のための構図案。真希が振り返る列、勇は先輩とハイタッチ。由美子は気づかず拍手を続ける。人物は登録済み基準画と当該場面の本文に合わせる。台詞・効果音・看板の文字を画像へ焼き込まない。",
-      "shotIntent": "真希が振り返る列、勇は先輩とハイタッチ。由美子は気づかず拍手を続ける。",
+      "prompt": "上階で拍手する由美子を手前に置く。斜め前の真希がこちらへ振り返るが由美子は気づかない。下方のコート中央では勇が小野寺ら先輩とハイタッチ。高さと距離を保ち、全員を同じ床へ並べない。冊子は膝、ペンはその下。 人物の顔・体格・髪は対応する登録基準画に合わせる。1コマの絵として描き、枠線・吹き出し・台詞・効果音・印刷文字は焼き込まない。",
+      "shotIntent": "上階で拍手する由美子を手前に置く。斜め前の真希がこちらへ振り返るが由美子は気づかない。下方のコート中央では勇が小野寺ら先輩とハイタッチ。高さと距離を保ち、全員を同じ床へ並べない。冊子は膝、ペンはその下。",
       "protect": [
         "人物の顔と手",
         "主要動作とボール",
@@ -241,7 +239,7 @@
       ],
       "gaze": "neutral",
       "intent": "standard",
-      "previousPanelId": null,
+      "previousPanelId": "P01-panel-003",
       "texts": [],
       "frame": {
         "points": [

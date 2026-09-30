@@ -91,22 +91,15 @@
       ],
       "characters": [
         {
-          "characterId": "kawai-yumiko",
-          "appearanceId": null,
-          "visualState": "",
-          "emotion": "",
-          "holding": []
-        },
-        {
           "characterId": "kamiya-yu",
-          "appearanceId": null,
-          "visualState": "",
-          "emotion": "",
+          "appearanceId": "P01-01-kamiya-yu",
+          "visualState": "1階のバスケコート上",
+          "emotion": "会場全体の期待",
           "holding": []
         }
       ],
-      "prompt": "漫画の線画のための構図案。客席のざわめきと勇の構え。連続得点で熱が上がった体育館を示す。人物は登録済み基準画と当該場面の本文に合わせる。台詞・効果音・看板の文字を画像へ焼き込まない。",
-      "shotIntent": "客席全体のざわめきと、迷わず構える勇。視線の先には距離のあるゴールを入れる。",
+      "prompt": "終盤の別の攻撃。勇がA端から遠い位置で球を受け、右手を主に頭上へ構える。相手2人が寄る。客席の緊張は上階の姿勢で伝える。まだ球を放たない。 人物の顔・体格・髪は対応する登録基準画に合わせる。1コマの絵として描き、枠線・吹き出し・台詞・効果音・印刷文字は焼き込まない。",
+      "shotIntent": "終盤の別の攻撃。勇がA端から遠い位置で球を受け、右手を主に頭上へ構える。相手2人が寄る。客席の緊張は上階の姿勢で伝える。まだ球を放たない。",
       "protect": [
         "人物の顔と手",
         "主要動作とボール",
@@ -114,7 +107,7 @@
       ],
       "gaze": "neutral",
       "intent": "standard",
-      "previousPanelId": null,
+      "previousPanelId": "P01-panel-020",
       "texts": [],
       "frame": {
         "points": [
@@ -151,14 +144,14 @@
       "characters": [
         {
           "characterId": "kamiya-yu",
-          "appearanceId": null,
-          "visualState": "",
-          "emotion": "",
+          "appearanceId": "P01-01-kamiya-yu",
+          "visualState": "1階のバスケコート上",
+          "emotion": "集中と圧迫感",
           "holding": []
         }
       ],
-      "prompt": "漫画の線画のための構図案。勇の視界を塞ぐ守備の二本の腕。人物は登録済み基準画と当該場面の本文に合わせる。台詞・効果音・看板の文字を画像へ焼き込まない。",
-      "shotIntent": "勇の視界に覆いかぶさる守備の二本の腕。先のリングは見せず、めくる理由を作る。",
+      "prompt": "勇の近くから、視界にかぶさる別々の守備2人の伸びた手を見せる。2本の腕を1人の両腕に取り違えない。勇は右手で球を放つ寸前。リングは画角外。 人物の顔・体格・髪は対応する登録基準画に合わせる。1コマの絵として描き、枠線・吹き出し・台詞・効果音・印刷文字は焼き込まない。",
+      "shotIntent": "勇の近くから、視界にかぶさる別々の守備2人の伸びた手を見せる。2本の腕を1人の両腕に取り違えない。勇は右手で球を放つ寸前。リングは画角外。",
       "protect": [
         "人物の顔と手",
         "主要動作とボール",
@@ -166,7 +159,7 @@
       ],
       "gaze": "neutral",
       "intent": "dominant",
-      "previousPanelId": null,
+      "previousPanelId": "P01-panel-021",
       "texts": [],
       "frame": {
         "points": [
